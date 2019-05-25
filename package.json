@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts build",
+    "generate": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts generate",
+    "prettify": "prettier --config .prettierrc --write '**/template/**/*.{ts,tsx}'",
+    "sb": "cd ./packages/the-react-scripts && npm run storybook",
+    "setup": "node tasks/setup.js",
+    "start": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts start",
+    "storybook": "cd ./packages/the-react-scripts && npm run storybook",
+    "start:prod": "cd ./packages/the-react-scripts && cross-env NODE_ENV=production node ./bin/the-react-scripts start",
+    "test": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts test"
+  },
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.17.3",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.13.0",
+    "husky": "2.3.0",
+    "jest": "24.8.0",
+    "lerna": "3.14.1",
+    "lerna-changelog": "0.8.2",
+    "lint-staged": "8.1.7",
+    "prettier": "1.17.1",
+    "puppeteer": "1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,css,html}": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
+  }
+}
