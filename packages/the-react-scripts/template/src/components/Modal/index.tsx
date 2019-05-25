@@ -3,12 +3,15 @@ import { createPortal } from 'react-dom';
 import { X } from 'react-feather';
 import { useTransition } from 'react-spring';
 import { StyledSystemProps } from 'styled-system';
+import Measure from 'react-measure';
 // Styles
 import { Scrim, Portal, PortalInner, PortalInnerHeader } from './styles';
 
 import Button from '../Button';
 import ErrorBoundary from '../ErrorBoundary';
 import ScrollView from '../ScrollView';
+
+import { useWindowSize } from '@app/hooks';
 
 import { makeDebugger } from '@app/utils';
 const debug = makeDebugger('Modal');
@@ -44,6 +47,10 @@ interface IModalProps extends StyledSystemProps {
 const Modal: FC<IModalProps> = (props) => {
   const { children, defaultOpen } = props;
 
+  const { height: windowHeight } = useWindowSize();
+
+  const [contentHeight, setContentHeight] = useState<number>(-1);
+  const [isFullscreen, setFullscreen] = useState(Boolean(props.fullscreen));
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const WRAPPER = useMemo(() => (document.createElement('div')), []);
@@ -102,6 +109,11 @@ const Modal: FC<IModalProps> = (props) => {
     };
   }, [WRAPPER]);
 
+  useEffect(() => {
+    const makeFullscreen = contentHeight > windowHeight;
+    setFullscreen(makeFullscreen);
+  }, [contentHeight]);
+
   return (
     <React.Fragment>
       {TRIGGER}
@@ -115,7 +127,7 @@ const Modal: FC<IModalProps> = (props) => {
                     key={portal.key}
                     style={portal.props}
                     justifyContent={props.justifyContent}
-                    p={props.p}
+                    p={isFullscreen ? '0' : props.p}
                   >
                     <Scrim onClick={() => _close()} />
                     {
@@ -123,8 +135,9 @@ const Modal: FC<IModalProps> = (props) => {
                         <PortalInner
                           key={portalInner.key}
                           style={portalInner.props}
-                          fullscreen={props.fullscreen}
-                          maxWidth={props.maxWidth}
+                          fullscreen={isFullscreen}
+                          maxWidth={isFullscreen ? '100%' : props.maxWidth}
+                          height={isFullscreen ? '100%' : 'auto'}
                         >
                           <PortalInnerHeader
                             p={2}
@@ -142,9 +155,20 @@ const Modal: FC<IModalProps> = (props) => {
                               size="40px"
                             />
                           </PortalInnerHeader>
-                          <ScrollView p={2}>
-                            {React.Children.toArray(childrenWithProps)}
-                          </ScrollView>
+                          <Measure
+                            bounds
+                            onResize={(rect) => {
+                              setContentHeight(rect.bounds!.height + 320)
+                            }}
+                          >
+                            {({ measureRef }) => (
+                              <ScrollView p={2}>
+                                <div ref={measureRef}>
+                                  {React.Children.toArray(childrenWithProps)}
+                                </div>
+                              </ScrollView>
+                            )}
+                          </Measure>
                         </PortalInner>
                       ))
                     }
@@ -162,6 +186,7 @@ const Modal: FC<IModalProps> = (props) => {
 
 Modal.defaultProps = {
   defaultOpen: false,
+  p: 2,
 }
 
 export default Modal;
