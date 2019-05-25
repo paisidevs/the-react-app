@@ -1,4 +1,5 @@
-export const API_URI = process.env.APOLLO_HTTP_URI;
+export const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT;
+export const NODE_ENV = process.env.NODE_ENV;
 
 export const KEYBOARD_CODE = {
   ENTER: 13,
