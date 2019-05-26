@@ -16,7 +16,7 @@ interface IHomeProps extends RouteComponentProps {}
 const Home = (props: IHomeProps) => {
   return (
     <Page>
-      <Helmet title="React Boilerplate - Built with love by @elandamor" />
+      <Helmet title="The React App - Built with love by @elandamor" />
       <Link
         to={{
           pathname: '/about',

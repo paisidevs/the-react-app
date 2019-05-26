@@ -5,13 +5,17 @@ const OfflinePlugin = require('offline-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const paths = require('../paths');
 
 module.exports = merge(require('./webpack.base'), {
   mode: 'production',
 
   // In production, we skip all hot-reloading stuff
-  entry: [paths.appIndexJs],
+  entry: [
+    require.resolve('react-app-polyfill/ie11'),
+    paths.appIndexJs
+  ],
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
@@ -102,10 +106,6 @@ module.exports = merge(require('./webpack.base'), {
     // Put it in the end to capture all the HtmlWebpackPlugin's
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
     new OfflinePlugin({
-      ServiceWorker: {
-        minify: false,
-      },
-
       relativePaths: false,
       publicPath: '/',
       appShell: '/',
@@ -116,22 +116,30 @@ module.exports = merge(require('./webpack.base'), {
 
       caches: {
         main: [':rest:'],
-        additional: [':externals:'],
-        optional: ['*.chunk.js'],
+
+        // All chunks marked as `additional`, loaded after main section
+        // and do not prevent SW to install. Change to `optional` if
+        // do not want them to be preloaded at all (cached only when first loaded)
+        additional: ['*.chunk.js'],
       },
 
       // Removes warning for about `additional` section usage
       safeToUseOptionalCaches: true,
+    }),
 
-      AppCache: false,
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
     }),
 
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'React BP',
-      description: 'My React Boilerplate-based project!',
-      background_color: '#fafafa',
-      theme_color: '#b1624d',
+      name: 'The React App',
+      short_name: 'TRA',
+      description: 'My React project!',
+      background_color: '#FAFAFA',
+      theme_color: '#2D68EE',
       start_url: '/?utm_source=a2hs',
       inject: true,
       ios: true,
