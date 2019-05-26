@@ -13,7 +13,8 @@ import Flex from '../Flex';
 
 import sun from '@app/assets/sun.png';
 import moon from '@app/assets/moon.png';
-import { AppContext } from '@app/containers/App';
+
+import { AppThemeContext } from '@app/contexts';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Header');
@@ -32,7 +33,7 @@ interface IHeaderProps extends StyledSystemProps {
 
 const Header: FC<IHeaderProps> = ({ className, ...rest }) => {
   const { location } = useRouter();
-  const { darkMode, setDarkMode } = useContext(AppContext);
+  const { darkMode, setDarkMode } = useContext(AppThemeContext);
 
   const showBackButton = location.state && location.state.showBackButton;
   const backButtonTrans = useTransition(showBackButton, null, {
