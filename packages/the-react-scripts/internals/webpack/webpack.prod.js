@@ -6,6 +6,7 @@ const { HashedModuleIdsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const paths = require('../paths');
 
 module.exports = merge(require('./webpack.base'), {
@@ -14,7 +15,7 @@ module.exports = merge(require('./webpack.base'), {
   // In production, we skip all hot-reloading stuff
   entry: [
     require.resolve('react-app-polyfill/ie11'),
-    paths.appIndexJs
+    paths.appIndexJs,
   ],
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
@@ -96,12 +97,10 @@ module.exports = merge(require('./webpack.base'), {
         minifyCSS: true,
         minifyURLs: true,
       },
+      inlineSource: /runtime~.+[.]js/,
     }),
 
-    // InlineChunkHtmlPlugin currently requires ^v4.0.0-alpha version of
-    // html-webpack-plugin which kills webpack-pwa-manifest injection.
-    // Uncomment the next line and import utility when fix is found.
-    // ! new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    new HtmlWebpackInlineSourcePlugin(),
 
     // Put it in the end to capture all the HtmlWebpackPlugin's
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
