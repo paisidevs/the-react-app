@@ -94,9 +94,9 @@ module.exports = merge(require('./webpack.base'), {
       },
     }),
 
-    // ! Disabled as it requires ^v4.0.0-alpha version of html-webpack-plugin
-    // ! which kills webpack-pwa-manifest injection
-    // Uncomment this line once we have figured out how to use this without breaking manifest injection
+    // InlineChunkHtmlPlugin currently requires ^v4.0.0-alpha version of 
+    // html-webpack-plugin which kills webpack-pwa-manifest injection.
+    // Uncomment the next line and import utility when fix is found.
     // ! new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
 
     // Put it in the end to capture all the HtmlWebpackPlugin's
