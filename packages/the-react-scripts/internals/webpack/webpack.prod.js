@@ -5,7 +5,6 @@ const OfflinePlugin = require('offline-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const InlineChunkHtmlPlugin = require('../../utils/InlineChunkHtmlPlugin');
 const paths = require('../paths');
 
 module.exports = merge(require('./webpack.base'), {
@@ -95,7 +94,10 @@ module.exports = merge(require('./webpack.base'), {
       },
     }),
 
-    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    // ! Disabled as it requires ^v4.0.0-alpha version of html-webpack-plugin
+    // ! which kills webpack-pwa-manifest injection
+    // Uncomment this line once we have figured out how to use this without breaking manifest injection
+    // ! new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
 
     // Put it in the end to capture all the HtmlWebpackPlugin's
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
