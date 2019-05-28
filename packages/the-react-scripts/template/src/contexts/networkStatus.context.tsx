@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-// import { OfflineIndicator } from '@app/components';
 import { useNetworkStatus } from '@app/hooks';
 
 const DEFAULT_STATE = {
@@ -18,10 +17,7 @@ const Provider: FC<IProps> = (props) => {
 
   return (
     <NetworkStatusContext.Provider value={{ isOnline }}>
-      <React.Fragment>
-        {props.children}
-        {/* {!isOnline && <OfflineIndicator />} */}
-      </React.Fragment>
+      {props.children}
     </NetworkStatusContext.Provider>
   );
 };
