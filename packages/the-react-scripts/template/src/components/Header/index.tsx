@@ -1,20 +1,20 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
 import { StyledSystemProps } from 'styled-system';
+import { useTransition } from 'react-spring';
 // Styles
 import Wrapper from './styles';
-import { useRouter } from '../../hooks';
-import GoBackButton from '../GoBackButton';
 import Inner from '../Inner';
-import { useTransition } from 'react-spring';
 import AnimatedWrapper from '../AnimatedWrapper';
 import Toggle from '../Toggle';
 import Flex from '../Flex';
+import GoBackButton from '../GoBackButton/Loadable';
 
 import sun from '@app/assets/sun.png';
 import moon from '@app/assets/moon.png';
 
 import { AppThemeContext } from '@app/contexts';
+import { useRouter } from '@app/hooks';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Header');

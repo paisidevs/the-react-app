@@ -35,6 +35,8 @@ const render = () => {
   );
 };
 
+render();
+
 if (module.hot && MOUNT_NODE) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
@@ -43,19 +45,6 @@ if (module.hot && MOUNT_NODE) {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
     render();
   });
-}
-
-// Chunked polyfill for browsers without Intl support
-if (!global.Intl) {
-  new Promise((resolve) => {
-    resolve(import('intl'));
-  })
-    .then(() => render())
-    .catch((err) => {
-      throw err;
-    });
-} else {
-  render();
 }
 
 // Persist "debug" package's enable state in localStorage
