@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import classNames from "classnames";
 // Styles
 import Wrapper from "./styles";
-import { ChevronDown } from "react-feather";
+import { FiChevronDown } from "react-icons/fi";
 
 export interface IProps {
   children: any;
@@ -45,7 +45,7 @@ const Accordion: FunctionComponent<IProps> = ({
       >
         <span className="a-title">{title}</span>
         <span className="c-icon">
-          <ChevronDown />
+          <FiChevronDown />
         </span>
       </header>
       {visibility ? <section>{children}</section> : null}

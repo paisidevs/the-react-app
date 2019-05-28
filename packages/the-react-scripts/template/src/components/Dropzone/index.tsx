@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { useDropzone } from 'react-dropzone';
-import { Image } from 'react-feather';
+import { FiImage } from 'react-icons/fi';
 // Styles
 import Wrapper, { Preview } from './styles';
 
@@ -48,7 +48,7 @@ const Dropzone: FC<IDropzoneProps> = ({ className, ...rest }) => {
     >
       {renderPreview}
       <input {...getInputProps()} />
-      <Image />
+      <FiImage />
     </Wrapper>
   );
 };

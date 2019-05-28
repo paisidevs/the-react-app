@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { WifiOff } from 'react-feather';
+import { FiWifiOff } from 'react-icons/fi';
 // Styles
 import Wrapper from './styles';
 
@@ -18,7 +18,7 @@ interface IProps {
 
 const OfflineIndicator: FC<IProps> = ({ className }) => (
   <Wrapper className={classNames('', className)}>
-    <WifiOff />
+    <FiWifiOff />
   </Wrapper>
 );
 
