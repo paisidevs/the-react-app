@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontSizeProps } from 'styled-system';
 // Styles
 import Wrapper, { ChipIcon, ChipRemove, ChipText } from './styles';
-import { XCircle } from 'react-feather';
+import { FiXCircle } from 'react-icons/fi';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Chip');
@@ -38,7 +38,7 @@ const Chip: FC<IChipProps> = ({
     {showRemove && (
       <ChipRemove
         iconOnly
-        icon={<XCircle />}
+        icon={<FiXCircle />}
         onClick={handleRemove}
       />
     )}

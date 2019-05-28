@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ArrowLeft } from 'react-feather';
+import { FiArrowLeft } from 'react-icons/fi';
 // Styles
 import Wrapper from './styles';
 import { useRouter } from '../../hooks';
@@ -26,7 +26,7 @@ const GoBackButton = ({ className, ...rest }: IGoBackButtonProps) => {
   return (
     <Wrapper
       className={classNames('c-btn--back', className)}
-      icon={<ArrowLeft />}
+      icon={<FiArrowLeft />}
       onClick={() => history.goBack()}
       iconSize={24}
       iconOnly
