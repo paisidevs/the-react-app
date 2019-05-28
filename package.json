@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "analyze": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts analyze",
     "build": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts build",
     "generate": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts generate",
     "prettify": "prettier --config .prettierrc --write '**/template/**/*.{ts,tsx}'",
