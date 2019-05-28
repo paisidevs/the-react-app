@@ -7,6 +7,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const paths = require('../paths');
 
 module.exports = merge(require('./webpack.base'), {
@@ -126,6 +128,8 @@ module.exports = merge(require('./webpack.base'), {
       safeToUseOptionalCaches: true,
     }),
 
+    new RobotstxtPlugin(),
+
     new CompressionPlugin({
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
@@ -160,6 +164,8 @@ module.exports = merge(require('./webpack.base'), {
       hashDigest: 'hex',
       hashDigestLength: 20,
     }),
+
+    new WebpackBar(),
   ],
 
   performance: {
