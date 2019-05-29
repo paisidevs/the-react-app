@@ -1,17 +1,16 @@
 import React, { FC } from 'react';
-import { SpaceProps } from 'styled-system';
+import { StyledSystemProps } from 'styled-system';
 // Styles
 import Wrapper, { Actions, Surface } from './styles';
 import Label from '../Label';
-import { IFlexProps } from '../Flex';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Snackbar');
 
-export interface ISnackbarProps extends IFlexProps, SpaceProps {
+export interface ISnackbarProps extends StyledSystemProps {
   actions?: React.ReactNode;
   leading?: boolean;
-  text: string;
+  text?: string;
 };
 
 /**
@@ -24,7 +23,7 @@ export interface ISnackbarProps extends IFlexProps, SpaceProps {
 
 const Snackbar: FC<ISnackbarProps> = ({ leading, m, text, ...rest }) => (
   <Wrapper m={m} leading={leading}>
-    <Surface size={0} {...rest}>
+    <Surface size={0}>
       <Label role="status" aria-live="polite">{text}</Label>
       <Actions ml={1} size={0}>{rest.actions && rest.actions}</Actions>
     </Surface>

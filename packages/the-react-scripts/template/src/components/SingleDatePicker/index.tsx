@@ -22,6 +22,7 @@ interface ISingleDatePickerProps {
   [propName: string]: any;
 };
 
+// @ts-ignore
 const moment = extendMoment(Moment);
 
 /**

@@ -13,8 +13,8 @@ import ScrollView from '../ScrollView';
 
 import { useWindowSize } from '@app/hooks';
 
-import { makeDebugger } from '@app/utils';
-const debug = makeDebugger('Modal');
+// import { makeDebugger } from '@app/utils';
+// const debug = makeDebugger('Modal');
 
 const portalContainer = document.getElementById('portals');
 
@@ -29,7 +29,7 @@ interface IModalProps extends StyledSystemProps {
   onClose?: () => void;
   onOpen?: () => void;
   open?: boolean;
-  trigger: React.ReactNode;
+  trigger: React.ReactElement;
 };
 
 /**
