@@ -2,7 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, RouteComponentProps } from 'react-router-dom';
 
-import { Lottie, Page } from '@app/components';
+import Page from '@app/components/Page';
+import Lottie from '@app/components/Lottie';
+
 import assets from '@app/assets';
 
 /**

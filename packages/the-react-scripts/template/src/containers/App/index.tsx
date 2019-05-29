@@ -1,8 +1,10 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Normalize } from 'styled-normalize';
 // Components
-import { ErrorBoundary, Header, LoadingBar, Routes } from '@app/components';
+import ErrorBoundary from '@app/components/ErrorBoundary';
+import Header from '@app/components/Header';
+import Routes from '@app/components/Routes/Loadable';
 // Contexts
 import { AppProviders } from '@app/contexts';
 // Routes
@@ -33,9 +35,7 @@ const App = () => (
         <Header alignItems="center" flex="none" />
       </ErrorBoundary>
       <ErrorBoundary>
-        <Suspense fallback={<LoadingBar />}>
-          <Routes routes={routes} />
-        </Suspense>
+        <Routes routes={routes} />
       </ErrorBoundary>
     </Wrapper>
   </AppProviders>
