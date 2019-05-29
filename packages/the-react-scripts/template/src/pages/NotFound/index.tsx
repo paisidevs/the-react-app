@@ -1,8 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
-// Styles
-import { Inner, Page, Modal } from '@app/components';
+
+import Inner from '@app/components/Inner';
+import Page from '@app/components/Page';
+
 import { H2 } from '@app/typography';
 
 // import { makeDebugger } from '@app/utils';
