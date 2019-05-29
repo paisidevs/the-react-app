@@ -61,6 +61,7 @@ module.exports = (resolve, rootDir) => {
     ],
     moduleNameMapper: {
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+      '^@app(.*)$': '<rootDir>/src$1',
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   };
