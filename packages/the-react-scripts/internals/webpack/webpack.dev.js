@@ -14,7 +14,7 @@ module.exports = merge(require('./webpack.base'), {
   // Add hot reloading in development
   entry: [
     require.resolve('react-app-polyfill/ie11'),
-    'webpack-hot-middleware/client?reload=true',
+    'webpack-hot-middleware/client?reload=true&overlayWarnings=true',
     paths.appIndexJs,
   ],
 
