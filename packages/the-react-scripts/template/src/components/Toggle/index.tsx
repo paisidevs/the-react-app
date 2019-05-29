@@ -1,196 +1,97 @@
-/*
- * Copyright (c) 2015 instructure-react
- * Forked from https://github.com/aaronshaf/react-toggle/
- * + applied https://github.com/aaronshaf/react-toggle/pull/90
- **/
-
-import React, { PureComponent } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-
 import { Wrapper } from './styles';
 
-// Copyright 2015-present Drifty Co.
-// http://drifty.com/
-// from: https://github.com/driftyco/ionic/blob/master/src/util/dom.ts
-function pointerCoord(event) {
-  // get coordinates for either a mouse click
-  // or a touch depending on the given event
-  if (event) {
-    const changedTouches = event.changedTouches;
-    if (changedTouches && changedTouches.length > 0) {
-      const touch = changedTouches[0];
-      return { x: touch.clientX, y: touch.clientY };
-    }
-    const pageX = event.pageX;
-    if (pageX !== undefined) {
-      return { x: pageX, y: event.pageY };
-    }
-  }
-  return { x: 0, y: 0 };
+interface IToggleProps {
+  checked?: boolean;
+  className?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  icons?: object;
+
+  onBlur?: (event: any) => void;
+  onChange?: (event: any) => void;
+  onFocus?: (event: any) => void;
 }
 
-export default class Toggle extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleTouchStart = this.handleTouchStart.bind(this);
-    this.handleTouchMove = this.handleTouchMove.bind(this);
-    this.handleTouchEnd = this.handleTouchEnd.bind(this);
-    this.handleTouchCancel = this.handleTouchCancel.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.previouslyChecked = !!(props.checked || props.defaultChecked);
-    this.state = {
-      checked: !!(props.checked || props.defaultChecked),
-      hasFocus: false,
-    };
-  }
+const Toggle:FC<IToggleProps> = (props) => {
+  const inputEl = useRef<HTMLInputElement>(null);
 
-  componentWillReceiveProps(nextProps) {
-    if ('checked' in nextProps) {
-      this.setState({ checked: !!nextProps.checked });
-      this.previouslyChecked = !!nextProps.checked;
-    }
-  }
+  const [checked, setChecked] = useState(!!(props.checked || props.defaultChecked));
+  const [hasFocus, setHasFocus] = useState(false);
 
-  handleClick(event) {
-    const checkbox = this.input;
-    this.previouslyChecked = checkbox.checked;
-    if (event.target !== checkbox && !this.moved) {
-      event.preventDefault();
-      checkbox.focus();
-      checkbox.click();
-      return;
-    }
+  const { className, icons, ...inputProps } = props;
 
-    this.setState({ checked: checkbox.checked });
-  }
+  const renderIcon = (type: string) => icons ? icons[type] : null;
 
-  handleTouchStart(event) {
-    this.startX = pointerCoord(event).x;
-    this.touchStarted = true;
-    this.hadFocusAtTouchStart = this.state.hasFocus;
-    this.setState({ hasFocus: true });
-  }
+  const handleClick = (event: any) => {
+    const checkbox = inputEl;
 
-  handleTouchMove(event) {
-    if (!this.touchStarted) return;
-    this.touchMoved = true;
-
-    if (this.startX != null) {
-      let currentX = pointerCoord(event).x;
-      if (this.state.checked && currentX + 15 < this.startX) {
-        this.setState({ checked: false });
-        this.startX = currentX;
-      } else if (!this.state.checked && currentX - 15 > this.startX) {
-        this.setState({ checked: true });
-        this.startX = currentX;
-      }
-    }
-  }
-
-  handleTouchEnd(event) {
-    if (!this.touchMoved) return;
-    const checkbox = this.input;
-    event.preventDefault();
-
-    if (this.startX != null) {
-      if (this.previouslyChecked !== this.state.checked) {
-        checkbox.click();
+    if (checkbox && checkbox.current) {
+      if (event.target !== checkbox) {
+        event.preventDefault();
+        checkbox.current.focus();
+        checkbox.current.click();
+        return;
       }
 
-      this.touchStarted = false;
-      this.startX = null;
-      this.touchMoved = false;
-    }
-
-    if (!this.hadFocusAtTouchStart) {
-      this.setState({ hasFocus: false });
+      setChecked(checkbox.current.checked);
     }
   }
 
-  handleTouchCancel(event) {
-    if (this.startX != null) {
-      this.touchStarted = false;
-      this.startX = null;
-      this.touchMoved = false;
-    }
-
-    if (!this.hadFocusAtTouchStart) {
-      this.setState({ hasFocus: false });
-    }
-  }
-
-  handleFocus(event) {
-    const { onFocus } = this.props;
-
-    if (onFocus) {
-      onFocus(event);
-    }
-
-    this.hadFocusAtTouchStart = true;
-    this.setState({ hasFocus: true });
-  }
-
-  handleBlur(event) {
-    const { onBlur } = this.props;
+  const handleBlur = (event: any) => {
+    const { onBlur } = props;
 
     if (onBlur) {
       onBlur(event);
     }
 
-    this.hadFocusAtTouchStart = false;
-    this.setState({ hasFocus: false });
+    setHasFocus(false);
   }
 
-  getIcon(type) {
-    const { icons } = this.props;
-    if (!icons) {
-      return null;
+  const handleFocus = (event: any) => {
+    const { onFocus } = props;
+
+    if (onFocus) {
+      onFocus(event);
     }
-    return icons[type] === undefined
-      ? Toggle.defaultProps.icons[type]
-      : icons[type];
+
+    setHasFocus(true);
   }
 
-  render() {
-    const { className, icons: _icons, ...inputProps } = this.props;
+  useEffect(() => {
+    setChecked(!!props.checked);
+  }, [props.checked]);
 
-    return (
-      <Wrapper
-        className={classNames({
-          '-checked': this.state.checked,
-          '-focus': this.state.hasFocus,
-          '-disabled': this.props.disabled,
-        }, className)}
-        onClick={this.handleClick}
-        onTouchStart={this.handleTouchStart}
-        onTouchMove={this.handleTouchMove}
-        onTouchEnd={this.handleTouchEnd}
-        onTouchCancel={this.handleTouchCancel}
-      >
-        <div className="react-toggle-track">
-          <div className="react-toggle-track-check">
-            {this.getIcon('checked')}
-          </div>
-          <div className="react-toggle-track-x">
-            {this.getIcon('unchecked')}
-          </div>
+  return (
+    <Wrapper
+      className={classNames({
+        '-checked': checked,
+        '-focus': hasFocus,
+        '-disabled': props.disabled,
+      }, className)}
+      onClick={handleClick}
+    >
+      <div className="react-toggle-track">
+        <div className="react-toggle-track-check">
+          {renderIcon('checked')}
         </div>
-        <div className="react-toggle-thumb" />
-
-        <input
-          {...inputProps}
-          ref={ref => {
-            this.input = ref;
-          }}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          className="react-toggle-screenreader-only"
-          type="checkbox"
-          aria-label="Switch between Dark and Light mode"
-        />
-      </Wrapper>
-    );
-  }
+        <div className="react-toggle-track-x">
+          {renderIcon('unchecked')}
+        </div>
+      </div>
+      <div className="react-toggle-thumb" />
+      <input
+        {...inputProps}
+        ref={inputEl}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        className="react-toggle-screenreader-only"
+        type="checkbox"
+        aria-label="Switch between Dark and Light mode"
+      />
+    </Wrapper>
+  )
 }
+
+export default Toggle;
