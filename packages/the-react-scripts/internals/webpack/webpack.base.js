@@ -91,6 +91,7 @@ module.exports = {
       useTypescriptIncrementalApi: true,
       checkSyntacticErrors: true,
       tsconfig: paths.appTsConfig,
+      tslint: true,
       reportFiles: [
         '**',
         '!**/*.json',
@@ -99,7 +100,6 @@ module.exports = {
         '!**/src/setupTests.*',
       ],
       watch: paths.appSrc,
-      silent: true,
     }),
   ],
   resolve: {
