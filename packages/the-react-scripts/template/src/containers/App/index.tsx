@@ -32,7 +32,7 @@ const App = () => (
       <Normalize />
       <GlobalStyles />
       <ErrorBoundary>
-        <Header alignItems="center" flex="none" />
+        <Header />
       </ErrorBoundary>
       <ErrorBoundary>
         <Routes routes={routes} />

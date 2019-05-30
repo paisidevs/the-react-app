@@ -78,7 +78,7 @@ const Input: FC<IInputProps> = ({
   };
 
   return (
-    <Wrapper {...rest}>
+    <Wrapper readonly={rest.readonly} type={rest.type}>
       <label htmlFor={id}>
         {
           (rest.type !== 'checkbox' && rest.type !== 'radio')

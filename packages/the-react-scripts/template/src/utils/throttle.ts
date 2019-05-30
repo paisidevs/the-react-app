@@ -1,4 +1,5 @@
-export default function throttle<T extends (...args: any[]) => void>(
+// @ts-ignore
+export default function throttle<T extends (...args) => void>(
   func: T,
   threshold: number = 250,
   scope?: any
@@ -14,10 +15,12 @@ export default function throttle<T extends (...args: any[]) => void>(
       clearTimeout(deferTimer);
       deferTimer = setTimeout(function() {
         last = now;
+        // @ts-ignore
         func.apply(context, args);
       }, threshold);
     } else {
       last = now;
+      // @ts-ignore
       func.apply(context, args);
     }
   } as T;

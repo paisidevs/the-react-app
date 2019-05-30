@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Field, Formik } from 'formik';
+import { Field, Formik, FieldProps } from 'formik';
 
 import Form from './index';
 import Button from '../Button';
@@ -27,7 +27,7 @@ storiesOf('Form', module)
           <Flex flexDirection="column" justifyContent="flex-start">
             <Field
               name="dateOfBirth"
-              render={({ field }) => (
+              render={({ field }: FieldProps<any>) => (
                 <SingleDatePicker
                   field={field}
                   id="dateOfBirth"

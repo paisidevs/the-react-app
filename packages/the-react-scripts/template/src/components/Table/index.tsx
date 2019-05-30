@@ -41,7 +41,7 @@ const Table: FC<ITableProps> = (props) => {
   return (
     <Box width="100%">
       <StyledTable
-        getTrProps={(props: any, rowInfo: RowInfo) => {
+        getTrProps={(props: any, rowInfo?: RowInfo) => {
           if (rowInfo) {
             return {
               onClick: () => {

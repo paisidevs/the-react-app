@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  compose,
   alignSelf,
   borderRadius,
   borders,
@@ -16,12 +17,11 @@ import {
   width,
   zIndex,
   StyledSystemProps,
-  compose,
 } from 'styled-system';
 // Styles
 import Flex, { FlexStyles } from '../Flex';
 
-interface IBoxProps extends StyledSystemProps {}
+export interface IBoxProps extends StyledSystemProps {}
 
 /**
  * @render react
@@ -33,6 +33,7 @@ interface IBoxProps extends StyledSystemProps {}
 
 export const BoxStyles = compose(
   FlexStyles,
+
   alignSelf,
   borders,
   borderRadius,

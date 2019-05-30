@@ -4,8 +4,7 @@ import theme from '../../theme';
 import Flex from '../Flex';
 import { ISnackbarProps } from './index';
 
-const Wrapper = styled(Flex)`
-  ${space};
+const Wrapper = styled(Flex)<ISnackbarProps>`
   align-items: center;
   bottom: 0;
   color: ${theme.colors.white};
@@ -16,7 +15,9 @@ const Wrapper = styled(Flex)`
   left: 0;
   z-index: 8;
 
-  ${({ leading }: ISnackbarProps) => leading && css`
+  ${space};
+
+  ${({ leading }) => leading && css`
     justify-content: flex-start;
   `}
 `;

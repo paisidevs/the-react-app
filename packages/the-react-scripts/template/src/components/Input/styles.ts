@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components';
-import { IInputProps } from './index';
 import theme from '../../theme';
 
-const Wrapper = styled.div<IInputProps>`
+interface IWrapperProps {
+  readonly?: boolean;
+  type: string;
+}
+
+const Wrapper = styled.div<IWrapperProps>`
   margin-bottom: ${theme.space[2]}px;
   position: relative;
 
@@ -20,7 +24,7 @@ const Wrapper = styled.div<IInputProps>`
   }
 
   .a-checkbox {
-    ${({ as }) => as === 'toggle' && css`
+    ${({ type }) => type === 'toggle' && css`
       border: none;
       height: 1.25rem;
       width: 2rem;
@@ -95,14 +99,14 @@ const Wrapper = styled.div<IInputProps>`
       background-size: 75%;
 
       &::before {
-        ${({ as }) => as === 'toggle' && css`
+        ${({ type }) => type === 'toggle' && css`
           background: ${theme.colors.success};
           border-color: ${theme.colors.success};
         `}
       }
 
       &::after {
-        ${({ as }) => as === 'toggle' && css`
+        ${({ type }) => type === 'toggle' && css`
           left: auto;
           right: 0;
         `}

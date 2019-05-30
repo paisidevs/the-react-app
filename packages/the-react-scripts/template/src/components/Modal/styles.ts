@@ -36,8 +36,7 @@ interface IPortalInnerProps extends IPortalProps {
   fullscreen?: boolean;
 }
 
-export const PortalInner = styled(animated(Box))<IPortalInnerProps>`
-`;
+export const PortalInner = styled(animated(Box))<IPortalInnerProps>``;
 
 PortalInner.defaultProps = {
   alignItems: 'stretch',

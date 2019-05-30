@@ -5,6 +5,7 @@ import Wrapper from './styles';
 
 export interface IButtonProps extends StyledSystemProps {
   ariaLabel?: string;
+  className?: string;
   disabled?: boolean;
   icon?: React.ReactNode;
   iconOnly?: boolean;

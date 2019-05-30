@@ -13,7 +13,7 @@ export interface IChipProps extends FontSizeProps {
   icon?: React.ReactNode;
   onRemove?: (event: React.MouseEvent) => void;
   showRemove?: boolean;
-  text: string | number;
+  text?: string | number;
 };
 
 /**

@@ -14,7 +14,7 @@ interface IAppProviders {
 
 const DEFAULT_STATE = {
   darkMode: false,
-  setDarkMode: () => null,
+  setDarkMode: (mode: boolean) => null,
 };
 
 export const AppThemeContext = React.createContext(DEFAULT_STATE);

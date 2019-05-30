@@ -33,7 +33,6 @@ const GoBackButton = ({ className, ...rest }: IGoBackButtonProps) => {
       minWidth={56}
       size={56}
       borderRadius="50%"
-      {...rest}
     />
   );
 }

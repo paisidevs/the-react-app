@@ -5,7 +5,6 @@ import theme from '../../theme';
 import { IChipProps } from './index';
 
 const Wrapper = styled.div`
-  ${fontSize};
   align-items: center;
   background-color: ${theme.colors.blacks[3]};
   border-radius: ${theme.space[2]}px;
