@@ -25,13 +25,12 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: 'babel-loader',
             options: {
-              // disable type checker - we will use it in fork plugin
-              transpileOnly: true,
-              getCustomTransformers: () => ({
-                before: [styledComponentsTransformer],
-              }),
+              customize: require.resolve(
+                'babel-preset-react-app/webpack-overrides'
+              ),
+              cacheDirectory: true,
             },
           },
         ],
