@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-// For debugging only.
-import { makeDebugger } from '../../utils';
-const debug = makeDebugger('ErrorBoundary');
+// import { makeDebugger } from '@app/utils';
+// const debug = makeDebugger('ErrorBoundary');
 
 interface IErrorBoundaryProps {
   className?: string;
@@ -10,6 +9,8 @@ interface IErrorBoundaryProps {
 }
 
 interface IState {
+  error?: object;
+  errorInfo?: object;
   hasError: boolean;
 }
 
@@ -23,16 +24,16 @@ interface IState {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
-  state = {
+  state: IState = {
     hasError: false,
   };
 
   public componentDidCatch(error: object, errorInfo: object) {
     this.setState({
+      error,
+      errorInfo,
       hasError: true,
     });
-
-    debug(error, errorInfo);
   }
 
   public render() {
