@@ -28,7 +28,7 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               customize: require.resolve(
-                'babel-preset-react-app/webpack-overrides'
+                'babel-preset-react-app/webpack-overrides',
               ),
               cacheDirectory: true,
             },
