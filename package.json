@@ -10,7 +10,7 @@
     "prettify": "prettier --config .prettierrc --write '**/template/**/*.{ts,tsx}'",
     "sb": "cd ./packages/the-react-scripts && npm run storybook",
     "setup": "node tasks/setup.js",
-    "start": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts start",
+    "start": "cd ./packages/the-react-scripts && cross-env NODE_ENV=development node ./bin/the-react-scripts start",
     "storybook": "cd ./packages/the-react-scripts && npm run storybook",
     "start:prod": "cd ./packages/the-react-scripts && cross-env NODE_ENV=production node ./bin/the-react-scripts start",
     "test": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts test"
