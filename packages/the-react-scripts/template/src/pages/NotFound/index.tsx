@@ -22,8 +22,8 @@ const NotFound = (props: INotFoundProps) => {
   return (
     <Page>
       <Helmet>
-        <title>NotFound</title>
-        <meta name="description" content="Description of NotFound" />
+        <title>Oops! The page you're looking for doesn't exist.</title>
+        <meta name="description" content="The page you're looking for doesn't exist." />
       </Helmet>
       <Inner p={2}>
         <H2 mb={0}>Oops!</H2>
