@@ -6,11 +6,8 @@ const webpack = require('webpack');
 const resolve = require('resolve');
 const Dotenv = require('dotenv-webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
-  .default;
 const paths = require('../paths');
-
-const styledComponentsTransformer = createStyledComponentsTransformer();
+const typescriptFormatter = require('../../utils/typescriptFormatter');
 
 module.exports = {
   output: {
@@ -28,7 +25,7 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               customize: require.resolve(
-                'babel-preset-react-app/webpack-overrides',
+                'babel-preset-react-app/webpack-overrides'
               ),
               cacheDirectory: true,
             },
@@ -99,6 +96,7 @@ module.exports = {
         '!**/src/setupTests.*',
       ],
       watch: paths.appSrc,
+      formatter: typescriptFormatter,
     }),
   ],
   resolve: {
