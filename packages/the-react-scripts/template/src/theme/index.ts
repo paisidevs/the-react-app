@@ -21,7 +21,7 @@ export const theme: DefaultTheme = {
   ],
   // Palette
   colors: {
-    background: '#f9fafb',
+    background: '#f0f2f5',
     surface: '#FFFFFF',
     cardBackground: '#FFFFFF',
     cardBorderColor: 'rgba(0,0,0,0.2)',
