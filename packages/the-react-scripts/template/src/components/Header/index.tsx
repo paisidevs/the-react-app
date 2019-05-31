@@ -1,16 +1,14 @@
 import React, { FC, useContext } from 'react';
-import { useTransition } from 'react-spring';
 // Styles
 import Box, { IBoxProps } from '../Box';
 import Inner from '../Inner';
-import AnimatedWrapper from '../AnimatedWrapper';
 import Flex from '../Flex';
 import GoBackButton from '../GoBackButton/Loadable';
 import Toggle from '../Toggle/Loadable';
 
 import { AppThemeContext } from '@app/contexts';
 import { useRouter } from '@app/hooks';
-import assets from '@app/assets';
+import { generic } from '@app/assets';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Header');
@@ -30,11 +28,6 @@ const Header: FC<IHeaderProps> = (props) => {
   const { darkMode, setDarkMode } = useContext(AppThemeContext);
 
   const showBackButton = location.state && location.state.showBackButton;
-  const backButtonTrans = useTransition(showBackButton, null, {
-    from: { opacity: 0, transform: 'translateX(-64px)' },
-    enter: { opacity: 1, transform: 'translateX(0)'  },
-    leave: { opacity: 0, transform: 'translateX(-64px)'  },
-  });
 
   const handleSetDarkMode = () => {
     setDarkMode(!darkMode);
@@ -45,22 +38,14 @@ const Header: FC<IHeaderProps> = (props) => {
     <Box as="header" {...props}>
       <Inner as={Flex}>
         <Flex alignItems="center">
-          {
-            showBackButton && backButtonTrans.map(({ item, key, props: styleProps }) =>
-              item && (
-                <AnimatedWrapper key={key} style={styleProps}>
-                  <GoBackButton />
-                </AnimatedWrapper>
-              )
-            )
-          }
+          <GoBackButton show={showBackButton} />
         </Flex>
         <Flex alignItems="center" justifyContent="flex-end">
           <Toggle
             icons={{
               checked: (
                 <img
-                  src={assets.generic.moon}
+                  src={generic.moon}
                   width="16"
                   height="16"
                   role="presentation"
@@ -69,7 +54,7 @@ const Header: FC<IHeaderProps> = (props) => {
               ),
               unchecked: (
                 <img
-                  src={assets.generic.sun}
+                  src={generic.sun}
                   width="16"
                   height="16"
                   role="presentation"

@@ -7,7 +7,6 @@ import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
 import { RetryLink } from 'apollo-link-retry';
 
 import { GRAPHQL_ENDPOINT, NODE_ENV } from '@app/constants';
-import { loggerLink, errorLink } from '@app/utils/apollo-utilities';
 
 const cache = new InMemoryCache();
 
@@ -17,17 +16,22 @@ const httpLink = new HttpLink({
 
 const retryLink = new RetryLink();
 
-const devHttpLink = ApolloLink.from([
-  loggerLink,
-  errorLink,
+let clientLink = ApolloLink.from([
   retryLink,
   httpLink,
 ]);
 
-const prodHttpLink = ApolloLink.from([
-  retryLink,
-  httpLink,
-]);
+if (NODE_ENV === 'development') {
+  import('./utils/apollo-utilities')
+  .then((module) => {
+    clientLink = ApolloLink.from([
+      module.loggerLink,
+      module.errorLink,
+      retryLink,
+      httpLink,
+    ]);
+  });
+}
 
 persistCache({
   cache,
@@ -36,7 +40,7 @@ persistCache({
 
 const client = new ApolloClient({
   cache,
-  link: NODE_ENV === 'production' ? prodHttpLink : devHttpLink,
+  link: clientLink,
 });
 
 export default client;
