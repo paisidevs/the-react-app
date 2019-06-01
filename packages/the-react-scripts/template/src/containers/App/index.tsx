@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Normalize } from 'styled-normalize';
 // Components
@@ -26,7 +26,7 @@ export interface IAppProps extends RouteComponentProps {}
  * contain code that should be seen on all pages. (e.g. navigation bar).
  */
 
-const App = () => (
+const App: FC<IAppProps> = (props) => (
   <AppProvider>
     <Wrapper>
       <Normalize />
@@ -35,7 +35,7 @@ const App = () => (
         <Header />
       </ErrorBoundary>
       <ErrorBoundary>
-        <Routes routes={routes} />
+        <Routes routes={routes} {...props} />
       </ErrorBoundary>
     </Wrapper>
   </AppProvider>

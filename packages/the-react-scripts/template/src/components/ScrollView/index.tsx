@@ -6,7 +6,7 @@ import { StyledSystemProps } from 'styled-system';
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('ScrollView');
 
-interface IScrollViewProps extends StyledSystemProps {}
+export interface IScrollViewProps extends StyledSystemProps {}
 
 /**
  * @render react
@@ -27,6 +27,7 @@ const ScrollView = styled(Box)<IScrollViewProps>`
 
 ScrollView.defaultProps = {
   height: '100%',
+  width: '100%',
 };
 
 export default ScrollView;
