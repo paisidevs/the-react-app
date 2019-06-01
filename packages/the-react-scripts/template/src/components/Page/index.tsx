@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import ScrollView, { IScrollViewProps } from '../ScrollView';
 
-// import { makeDebugger } from '@app/utils';
-// const debug = makeDebugger('Page');
-
-interface IPageProps {
+interface IPageProps extends IScrollViewProps {
   children: React.ReactNode;
 };
 
@@ -16,13 +14,6 @@ interface IPageProps {
  * <Page />
  */
 
-const Page = styled.main<IPageProps>`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-`;
+const Page = styled(ScrollView)<IPageProps>``;
 
 export default Page;
