@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 // Styles
 import Box, { IBoxProps } from '../Box';
 import Inner from '../Inner';
@@ -6,8 +6,7 @@ import Flex from '../Flex';
 import GoBackButton from '../GoBackButton/Loadable';
 import Toggle from '../Toggle/Loadable';
 
-import { AppThemeContext } from '@app/contexts';
-import { useRouter } from '@app/hooks';
+import { useRouter, useTheme } from '@app/hooks';
 import { generic } from '@app/assets';
 
 // import { makeDebugger } from '@app/utils';
@@ -25,7 +24,7 @@ interface IHeaderProps extends IBoxProps {};
 
 const Header: FC<IHeaderProps> = (props) => {
   const { location } = useRouter();
-  const { darkMode, setDarkMode } = useContext(AppThemeContext);
+  const { darkMode, setDarkMode } = useTheme();
 
   const showBackButton = location.state && location.state.showBackButton;
 

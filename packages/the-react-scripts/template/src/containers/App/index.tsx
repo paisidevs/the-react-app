@@ -6,7 +6,7 @@ import ErrorBoundary from '@app/components/ErrorBoundary';
 import Header from '@app/components/Header';
 import Routes from '@app/components/Routes/Loadable';
 // Contexts
-import { AppProviders } from '@app/contexts';
+import { AppProvider } from '@app/contexts';
 // Routes
 import routes from '@app/routes';
 // Styles
@@ -27,7 +27,7 @@ export interface IAppProps extends RouteComponentProps {}
  */
 
 const App = () => (
-  <AppProviders>
+  <AppProvider>
     <Wrapper>
       <Normalize />
       <GlobalStyles />
@@ -38,7 +38,7 @@ const App = () => (
         <Routes routes={routes} />
       </ErrorBoundary>
     </Wrapper>
-  </AppProviders>
+  </AppProvider>
 );
 
 export default withRouter(App);
