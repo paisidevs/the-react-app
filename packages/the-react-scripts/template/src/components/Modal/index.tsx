@@ -4,6 +4,7 @@ import { FiX } from 'react-icons/fi';
 import { useTransition } from 'react-spring';
 import { StyledSystemProps } from 'styled-system';
 import Measure from 'react-measure';
+import noScroll from 'no-scroll';
 // Styles
 import { Scrim, Portal, PortalInner, PortalInnerHeader } from './styles';
 
@@ -16,7 +17,7 @@ import { useWindowSize } from '@app/hooks';
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Modal');
 
-const portalContainer = document.getElementById('portals');
+const portalContainer = document.getElementById('portals') || document.body;
 
 interface IModalProps extends StyledSystemProps {
   children?: React.ReactNode;
@@ -25,6 +26,7 @@ interface IModalProps extends StyledSystemProps {
   closeOnEscape?: boolean;
   defaultOpen?: boolean;
   fullscreen?: boolean;
+  hasStickyHeader?: boolean;
   modalTitle?: string;
   onClose?: () => void;
   onOpen?: () => void;
@@ -50,7 +52,7 @@ const Modal: FC<IModalProps> = (props) => {
   const { height: windowHeight } = useWindowSize();
 
   const [contentHeight, setContentHeight] = useState<number>(-1);
-  const [isFullscreen, setFullscreen] = useState(Boolean(props.fullscreen));
+  const [isFullscreen, setFullscreen] = useState(!!props.fullscreen);
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const WRAPPER = useMemo(() => (document.createElement('div')), []);
@@ -74,6 +76,7 @@ const Modal: FC<IModalProps> = (props) => {
    * Close modal
    */
   const _close = () => {
+    noScroll.off();
     setIsOpen(false);
     props.onClose && props.onClose();
   }
@@ -82,6 +85,7 @@ const Modal: FC<IModalProps> = (props) => {
    * Open modal
    */
   const _open = () => {
+    noScroll.on();
     setIsOpen(true);
     props.onOpen && props.onOpen();
   }
@@ -99,6 +103,12 @@ const Modal: FC<IModalProps> = (props) => {
   });
 
   useEffect(() => {
+    if (defaultOpen) {
+      noScroll.on();
+    }
+  }, []);
+
+  useEffect(() => {
     if (portalContainer && WRAPPER) {
       portalContainer.appendChild(WRAPPER);
     }
@@ -110,8 +120,10 @@ const Modal: FC<IModalProps> = (props) => {
   }, [WRAPPER]);
 
   useEffect(() => {
-    const makeFullscreen = contentHeight > windowHeight;
-    setFullscreen(makeFullscreen);
+    if (!props.fullscreen) {
+      const makeFullscreen = contentHeight > windowHeight;
+      setFullscreen(makeFullscreen);
+    }
   }, [contentHeight]);
 
   return (
@@ -143,6 +155,7 @@ const Modal: FC<IModalProps> = (props) => {
                             p={2}
                             flexDirection="row"
                             justifyContent="flex-end"
+                            position={props.hasStickyHeader ? 'absolute' : 'relative'}
                           >
                             <Button
                               bg="surface"
@@ -158,7 +171,7 @@ const Modal: FC<IModalProps> = (props) => {
                           <Measure
                             bounds
                             onResize={(rect) => {
-                              setContentHeight(rect.bounds!.height + 320)
+                              setContentHeight(rect.bounds!.height + 270)
                             }}
                           >
                             {({ measureRef }) => (

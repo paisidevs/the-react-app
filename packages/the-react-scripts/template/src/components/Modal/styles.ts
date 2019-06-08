@@ -40,7 +40,7 @@ export const PortalInner = styled(animated(Box))<IPortalInnerProps>``;
 
 PortalInner.defaultProps = {
   alignItems: 'stretch',
-  bg: 'background',
+  bg: 'surface',
   flexDirection: 'column',
   maxHeight: ['100%', '90vh'],
   maxWidth: '600px',
@@ -60,7 +60,7 @@ export const PortalInnerHeader = styled(animated(Box))<IPortalInnerHeaderProps>`
 `;
 
 PortalInnerHeader.defaultProps = {
-  // position: 'absolute',
+  position: 'relative',
 };
 
 
