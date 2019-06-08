@@ -1,15 +1,20 @@
 import React, { FC } from 'react';
-import { Route, RouteProps, Switch, RouteComponentProps } from 'react-router-dom';
+import { RouteProps, Switch, SwitchProps } from 'react-router-dom';
 import { useTransition } from 'react-spring';
+import styled from 'styled-components';
 import AnimatedWrapper from '../AnimatedWrapper';
 import Box from '../Box';
-import styled from 'styled-components';
+
+import PrivateRoute from '../PrivateRoute/Loadable';
+import PublicRoute from '../PublicRoute/Loadable';
+import { useRouter } from '@app/hooks';
 
 export interface IRouteProps extends RouteProps {
+  secure?: boolean;
   routes?: IRouteProps[];
 }
 
-interface IRoutesProps extends RouteComponentProps {
+interface IRoutesProps extends SwitchProps {
   routes: IRouteProps[];
 }
 
@@ -40,40 +45,49 @@ const Wrapper = styled(Box)`
  * />
  */
 
-const Routes: FC<IRoutesProps> = ({ location, routes }) => {
+const Routes: FC<IRoutesProps> = ({ routes }) => {
+  const { location } = useRouter();
+
   const routeTransitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0, transform: 'translateY(64px)' },
     enter: { opacity: 1, transform: 'translateY(0)' },
-    leave: { opacity: 0, transform: 'translateY(64px)' },
+    leave: { opacity: 0, transform: 'translateY(32px)' },
   });
 
-  return (<Wrapper as="main">
-    {
-      routeTransitions.map(({ item, props: styleProps, key }) => (
-        <AnimatedWrapper key={key} style={styleProps}>
-          <Switch location={item}>
-            {
-              routes.map((
-                { component: Component, exact, path, routes }: IRouteProps,
-                index: number,
-              ) => (
-                <Route
-                  {...(exact ? { exact } : {})}
-                  key={index}
-                  path={path}
-                  render={(props: IRouteProps) => (
-                    // pass the sub-routes down to keep nesting
-                    // @ts-ignore
-                    <Component routes={routes} {...props} />
-                  )}
-                />
-              ))
-            }
-          </Switch>
-        </AnimatedWrapper>
-      ))
-    }
-  </Wrapper>);
+  return (
+    <Wrapper as="main">
+      {
+        routeTransitions.map(({ item, props: styleProps, key }) => (
+          <AnimatedWrapper key={key} style={styleProps}>
+            <Switch location={item}>
+              {
+                routes.map((
+                  { component: Component, exact, path, routes, secure }: IRouteProps,
+                  index: number,
+                ) => secure ? (
+                  <PrivateRoute
+                    {...(exact ? { exact: true } : {})}
+                    key={index}
+                    path={path}
+                    component={Component}
+                    routes={routes}
+                  />
+                ) : (
+                  <PublicRoute
+                    {...(exact ? { exact: true } : {})}
+                    key={index}
+                    path={path}
+                    component={Component}
+                    routes={routes}
+                  />
+                ))
+              }
+            </Switch>
+          </AnimatedWrapper>
+        ))
+      }
+    </Wrapper>
+  );
 };
 
 export default Routes;
