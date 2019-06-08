@@ -87,7 +87,6 @@ module.exports = {
       useTypescriptIncrementalApi: true,
       checkSyntacticErrors: true,
       tsconfig: paths.appTsConfig,
-      tslint: true,
       reportFiles: [
         '**',
         '!**/*.json',
