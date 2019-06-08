@@ -6,10 +6,7 @@ module.exports = async ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('ts-loader'),
-        options: {
-          transpileOnly: true,
-        },
+        loader: require.resolve('babel-loader'),
       },
     ],
   });

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
-import Inner from '@app/components/Inner';
-import Page from '@app/components/Page';
+import { Inner, Page } from '@app/components';
 
 import { H2 } from '@app/typography';
 
@@ -26,7 +25,9 @@ const NotFound = (props: INotFoundProps) => {
         <meta name="description" content="The page you're looking for doesn't exist." />
       </Helmet>
       <Inner p={2}>
-        <H2 mb={0}>Oops!</H2>
+        <Link to="/private">
+          <H2 mb={0}>Oops!</H2>
+        </Link>
         <p>The page you're looking for doesn't exist.</p>
       </Inner>
     </Page>

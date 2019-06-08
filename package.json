@@ -7,6 +7,7 @@
     "analyze": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts analyze",
     "build": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts build",
     "generate": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts generate",
+    "lh": "cd ./packages/the-react-scripts && npm run lh",
     "prettify": "prettier --config .prettierrc --write '**/template/**/*.{ts,tsx}'",
     "sb": "cd ./packages/the-react-scripts && npm run storybook",
     "setup": "node tasks/setup.js",

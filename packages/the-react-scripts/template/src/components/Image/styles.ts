@@ -1,5 +1,10 @@
-import styled, { keyframes, css } from 'styled-components';
-import { IImageProps } from './index';
+import styled, { keyframes } from 'styled-components';
+import { height, space, width, StyledSystemProps } from 'styled-system';
+
+interface IWrapperProps extends StyledSystemProps {
+  aspect?: string;
+  isCached?: boolean;
+}
 
 const fadeIn = keyframes`
   from {
@@ -7,33 +12,33 @@ const fadeIn = keyframes`
   }
 `;
 
-const Wrapper = styled.img<IImageProps>`
-  background-color: #e8e8e8;
-  height: auto;
-  width: 100%;
+const Wrapper = styled.div<IWrapperProps>`
+  background-color: ${({ theme }) => theme.colors.cardBorderColor};
+  overflow: hidden;
+  padding-bottom: ${({ aspect }) => `calc(100% / (${aspect}))`};
+  position: relative;
 
-  &.-lazy {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: none;
-    height: auto;
+  ${height};
+  ${space};
+  ${width};
+
+  img {
+    left: 0;
+    position: absolute;
+    top: 0;
     visibility: hidden;
     width: 100%;
   }
 
-  &.-lazy--loaded {
-    animation-duration: 3s;
+  .lazy-image-loaded {
+    animation-duration: ${({ isCached }) => isCached ? '0.3s' : '3s'};
     animation-name: ${fadeIn};
     visibility: visible;
   }
-
-  ${(props) => props.as && css`
-    background-image: url(${props.src});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  `}
 `;
+
+Wrapper.defaultProps = {
+  height: 0,
+}
 
 export default Wrapper;

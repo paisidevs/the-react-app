@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import { SpaceProps } from 'styled-system';
 // Styles
 import Wrapper from './styles';
-import Card from '../Card';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('HorizontalScroller');
 
 interface IHorizontalScrollerProps extends SpaceProps {
+  children: React.ReactNode;
   className?: string;
 };
 
@@ -20,16 +20,9 @@ interface IHorizontalScrollerProps extends SpaceProps {
  * <HorizontalScroller />
  */
 
-const HorizontalScroller: FC<IHorizontalScrollerProps> = ({ className, ...rest }) => (
+const HorizontalScroller: FC<IHorizontalScrollerProps> = ({ children, className, ...rest }) => (
   <Wrapper className={classNames('', className)} {...rest}>
-    {
-      Array.from({length: 5}, (v, k) => (
-        <Card
-          key={k}
-          image="../"
-        />
-      ))
-    }
+    { children }
   </Wrapper>
 );
 

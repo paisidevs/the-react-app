@@ -18,7 +18,7 @@ const shiftRightwards = keyframes`
 const LoadingBar = styled.div`
   animation: ${shiftRightwards} 1s ease-in-out infinite;
   animation-delay: 0.8s;
-  background: var(--brand-success, #000000);
+  background: ${({ theme }) => theme.colors.text};
   height: 2px;
   left: 0;
   position: fixed;
