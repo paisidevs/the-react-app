@@ -4,7 +4,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     isDark?: boolean;
     borders: any[];
-    breakpoints: number[];
+    breakpoints: string[];
     colors: {
       [key: string]: any;
       blacks: string[];

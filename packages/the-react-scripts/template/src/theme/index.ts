@@ -96,7 +96,7 @@ export const theme: DefaultTheme = {
   fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
   letterSpacings: [-1.5, -0.5, 0, 0.1, 0.15, 0.25, 0.4, 0.5, 1.25, 1.5],
   // Layout
-  breakpoints: [512, 768, 1024],
+  breakpoints: ['512px', '768px', '1024px'],
   maxWidths: [320],
   minWidths: [160, 320, 344],
   space: [0].concat(GENERATORS.spacing(10, LAYOUT.baseline)),
