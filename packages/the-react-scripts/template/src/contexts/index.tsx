@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import AuthenticationProvider from './authenticationProvider.context';
 import NetworkStatusProvider from './networkStatus.context';
 import ThemeProvider from './themeProvider.context';
 
@@ -9,10 +10,12 @@ interface IAppProvider {
 
 export const AppProvider: FC<IAppProvider> = ({ children }) => {
   return (
-    <ThemeProvider>
-      <NetworkStatusProvider>
-        {children}
-      </NetworkStatusProvider>
-    </ThemeProvider>
+    <AuthenticationProvider>
+      <ThemeProvider>
+        <NetworkStatusProvider>
+          {children}
+        </NetworkStatusProvider>
+      </ThemeProvider>
+    </AuthenticationProvider>
   );
 }

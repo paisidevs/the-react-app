@@ -26,19 +26,21 @@ export interface IAppProps extends RouteComponentProps {}
  * contain code that should be seen on all pages. (e.g. navigation bar).
  */
 
-const App: FC<IAppProps> = (props) => (
-  <AppProvider>
-    <Wrapper>
-      <Normalize />
-      <GlobalStyles />
-      <ErrorBoundary>
-        <Header />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Routes routes={routes} {...props} />
-      </ErrorBoundary>
-    </Wrapper>
-  </AppProvider>
-);
+const App: FC<IAppProps> = (props) => {
+  return (
+    <AppProvider>
+      <Wrapper>
+        <Normalize />
+        <GlobalStyles />
+        <ErrorBoundary>
+          <Header />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Routes routes={routes} {...props.location} />
+        </ErrorBoundary>
+      </Wrapper>
+    </AppProvider>
+  );
+}
 
 export default withRouter(App);
