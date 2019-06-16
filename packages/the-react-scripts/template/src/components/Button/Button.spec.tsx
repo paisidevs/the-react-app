@@ -1,19 +1,21 @@
 // Button.spec.tsx
 import * as React from 'react';
-import { fireEvent, render } from 'react-testing-library';
+import { fireEvent, render } from '@app/utils/test-utils';
 
 import Button from './index';
 
 describe('Button', () => {
-  it('should render with text', () => {
+  it('should render without crashing', () => {
+    render(<Button />);
+  });
+
+  it('should render with custom text', () => {
     const props = {
       text: 'Test',
     };
 
     const { getByText } = render(<Button {...props} />);
-
     const testButton = getByText(props.text);
-
     expect(testButton).toBeDefined();
   });
 
@@ -26,15 +28,14 @@ describe('Button', () => {
         text: count.toString(),
       };
 
-      return <Button {...props} />;
+      return <Button data-testid="button" {...props} />;
     }
 
-    const {
-      container: { firstChild: buttonNode },
-    } = render(<Counter />);
+    const { getByTestId } = render(<Counter />);
 
-    // @ts-ignore
+    const buttonNode = getByTestId('button');
     fireEvent.click(buttonNode);
+
     expect(buttonNode).toHaveTextContent('1');
   });
 });
