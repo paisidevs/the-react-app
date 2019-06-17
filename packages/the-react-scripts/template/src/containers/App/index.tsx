@@ -17,7 +17,7 @@ import GlobalStyles from '@app/global-styles';
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('App');
 
-export interface IAppProps extends RouteComponentProps {}
+export interface IAppProps extends RouteComponentProps { }
 
 /**
  * @render react
@@ -33,10 +33,10 @@ const App: FC<IAppProps> = (props) => {
         <Normalize />
         <GlobalStyles />
         <ErrorBoundary>
-          <Header />
+          <Header {...props} />
         </ErrorBoundary>
         <ErrorBoundary>
-          <Routes routes={routes} {...props.location} />
+          <Routes location={props.location} routes={routes} />
         </ErrorBoundary>
       </Wrapper>
     </AppProvider>

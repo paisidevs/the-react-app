@@ -5,7 +5,9 @@ import Wrapper from './styles';
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Form');
 
-interface IFormProps {}
+interface IFormProps {
+  [propName: string]: any;
+}
 
 /**
  * @render react

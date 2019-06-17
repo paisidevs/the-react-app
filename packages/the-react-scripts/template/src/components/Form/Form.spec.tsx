@@ -1,6 +1,6 @@
 // Form.spec.tsx
 import * as React from 'react';
-import { fireEvent, render } from 'react-testing-library';
+import { fireEvent, render } from '@app/utils/test-utils';
 
 import Button from '../Button';
 import Input from '../Input';
@@ -32,7 +32,7 @@ describe('Form', () => {
       const [name, setName] = React.useState('');
 
       return (
-        <Form onSubmit={() => handleSubmit({ name })}>
+        <Form data-testid="form" onSubmit={() => handleSubmit({ name })}>
           <Input
             id="name"
             label="Name"
@@ -41,20 +41,19 @@ describe('Form', () => {
             type="text"
             value={name}
           />
-          <Button type="submit" text="Submit" />
+          <Button data-testid="submitButton" type="submit" text="Submit" />
         </Form>
       );
     }
 
-    const { getByLabelText } = render(
+    const { getByLabelText, getByTestId } = render(
       <BookingForm onSubmit={handleSubmit} />,
     );
 
     const nameTextfieldNode: any = getByLabelText('Name');
-    const submitButtonNode = getByLabelText('Submit');
 
     fireEvent.change(nameTextfieldNode, { target: { value: payload.name } });
-    fireEvent.click(submitButtonNode);
+    fireEvent.submit(getByTestId("form"));
 
     expect(nameTextfieldNode.value).toEqual(payload.name);
     expect(handleSubmit).toHaveBeenCalledTimes(1);

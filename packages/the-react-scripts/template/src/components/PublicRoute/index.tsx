@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, RouteProps } from 'react-router-dom';
 
 import { IRouteProps } from '../Routes';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('PublicRoute');
 
-interface IPublicRouteProps {
-  component?: any;
+interface IPublicRouteProps extends RouteProps {
   routes?: IRouteProps[];
 };
 
@@ -24,6 +23,7 @@ const PublicRoute: FC<IPublicRouteProps> = ({ component: Component, ...rest }) =
     <Route
       {...rest}
       render={(props) => (
+        // @ts-ignore
         <Component routes={rest.routes} {...props} />
       )}
     />

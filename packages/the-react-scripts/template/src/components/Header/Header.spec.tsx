@@ -1,14 +1,11 @@
 // Header.spec.tsx
-// import * as React from 'react';
-// import { cleanup, render } from 'react-testing-library';
-// import 'jest-dom/extend-expect';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Header from './index';
-
-// afterEach(cleanup);
+import Header from './index';
 
 describe('Header', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Header />);
   });
 });

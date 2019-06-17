@@ -1,12 +1,11 @@
-// Select.spec.tsx
+// Chips.spec.tsx
 import React from 'react';
 import { render } from '@app/utils/test-utils';
 
-import Select from './index';
+import Chips from './index';
 
-describe('Select', () => {
+describe('Chips', () => {
   it('should render without crashing', () => {
-    render(<Select />);
+    render(<Chips value={[]} />);
   });
 });
-

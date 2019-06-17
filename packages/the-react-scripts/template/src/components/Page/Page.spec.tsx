@@ -1,11 +1,11 @@
 // Page.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Page from './index';
+import Page from './index';
 
 describe('Page', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Page>Page goes here...</Page>);
   });
 });

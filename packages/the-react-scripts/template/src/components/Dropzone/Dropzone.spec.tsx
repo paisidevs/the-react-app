@@ -1,11 +1,11 @@
 // Dropzone.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Dropzone from './index';
+import Dropzone from './index';
 
 describe('Dropzone', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Dropzone />);
   });
 });

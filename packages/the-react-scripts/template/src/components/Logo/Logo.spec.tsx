@@ -1,6 +1,6 @@
 // Logo.spec.tsx
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@app/utils/test-utils';
 
 import Logo from './index';
 

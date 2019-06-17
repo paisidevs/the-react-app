@@ -26,8 +26,11 @@ module.exports = (resolve, rootDir) => {
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
     collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts'],
-    preset: 'ts-jest',
-
+    globals: {
+      'ts-jest': {
+        tsConfig: '<rootDir>/tsconfig.test.json',
+      },
+    },
     setupFilesAfterEnv: [setupTestsFile],
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
@@ -37,7 +40,7 @@ module.exports = (resolve, rootDir) => {
     testURL: 'http://localhost',
     transform: {
       '\\.(gql|graphql)$': 'jest-transform-graphql',
-      '^.+\\.tsx?$': 'babel-jest',
+      '^.+\\.tsx?$': 'ts-jest',
       '^.+\\.css$': resolve('internals/jest/cssTransform.js'),
       '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': resolve(
         'internals/jest/fileTransform.js'

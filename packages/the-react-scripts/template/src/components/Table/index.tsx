@@ -8,8 +8,8 @@ import Box from '../Box';
 // const debug = makeDebugger('Table');
 
 interface ITableProps {
-  columns?: any[];
-  data?: any[];
+  columns: any[];
+  data: any[];
   defaultPageSize?: number;
   loading?: boolean;
   onRowClick?: (rowInfo: RowInfo) => void;

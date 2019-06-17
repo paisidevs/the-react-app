@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteProps } from 'react-router-dom';
 
 import { useAuthentication } from '@app/hooks';
 import { IRouteProps } from '../Routes';
@@ -8,8 +8,7 @@ import LoadingBar from '../LoadingBar';
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('PrivateRoute');
 
-interface IPrivateRouteProps {
-  component?: any;
+interface IPrivateRouteProps extends RouteProps {
   routes?: IRouteProps[];
 };
 
@@ -29,6 +28,7 @@ const PrivateRoute: FC<IPrivateRouteProps> = ({ component: Component, ...rest })
       {...rest}
       render={props =>
         isAuthenticated ? (
+          // @ts-ignore
           <Component routes={rest.routes} {...props} />
         ) : (
           <Redirect

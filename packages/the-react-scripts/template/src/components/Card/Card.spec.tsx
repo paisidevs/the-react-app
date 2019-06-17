@@ -1,6 +1,6 @@
 // Card.spec.tsx
-import * as React from "react";
-import { render } from "react-testing-library";
+import React from "react";
+import { render } from '@app/utils/test-utils';
 
 import Card from "./index";
 import { ThemeProvider } from "styled-components";

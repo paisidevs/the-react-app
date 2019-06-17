@@ -7,7 +7,6 @@ import Box from '../Box';
 
 import PrivateRoute from '../PrivateRoute/Loadable';
 import PublicRoute from '../PublicRoute/Loadable';
-import { useRouter } from '@app/hooks';
 
 export interface IRouteProps extends RouteProps {
   secure?: boolean;
@@ -45,9 +44,7 @@ const Wrapper = styled(Box)`
  * />
  */
 
-const Routes: FC<IRoutesProps> = ({ routes }) => {
-  const { location } = useRouter();
-
+const Routes: FC<IRoutesProps> = ({ location, routes }) => {
   const routeTransitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0, transform: 'translateY(64px)' },
     enter: { opacity: 1, transform: 'translateY(0)' },
@@ -73,14 +70,14 @@ const Routes: FC<IRoutesProps> = ({ routes }) => {
                     routes={routes}
                   />
                 ) : (
-                  <PublicRoute
-                    {...(exact ? { exact: true } : {})}
-                    key={index}
-                    path={path}
-                    component={Component}
-                    routes={routes}
-                  />
-                ))
+                      <PublicRoute
+                        {...(exact ? { exact: true } : {})}
+                        key={index}
+                        path={path}
+                        component={Component}
+                        routes={routes}
+                      />
+                    ))
               }
             </Switch>
           </AnimatedWrapper>
