@@ -5,13 +5,15 @@ import { useTransition } from 'react-spring';
 // Styles
 import Wrapper from './styles';
 import AnimatedWrapper from '../AnimatedWrapper';
-import { useRouter } from '../../hooks';
+import { History } from 'history';
+import Box from '../Box';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('GoBackButton');
 
 interface IGoBackButtonProps {
   className?: string;
+  history?: History;
   show?: boolean;
 };
 
@@ -23,31 +25,35 @@ interface IGoBackButtonProps {
  * <GoBackButton />
  */
 
-const GoBackButton = ({ className, show }: IGoBackButtonProps) => {
-  const { history } = useRouter();
-
+const GoBackButton = ({ className, history, show }: IGoBackButtonProps) => {
   const backButtonTrans = useTransition(show, null, {
     from: { opacity: 0, transform: 'translateX(-64px)' },
-    enter: { opacity: 1, transform: 'translateX(0)'  },
-    leave: { opacity: 0, transform: 'translateX(-64px)'  },
+    enter: { opacity: 1, transform: 'translateX(0)' },
+    leave: { opacity: 0, transform: 'translateX(-64px)' },
   });
 
-  return backButtonTrans.map(({ item, key, props: styleProps }) =>
-    item && (
-      <AnimatedWrapper key={key} style={styleProps}>
-        <Wrapper
-          className={classNames('c-btn--back', className)}
-          icon={<FiArrowLeft />}
-          onClick={() => history.goBack()}
-          iconSize={24}
-          iconOnly
-          minWidth={56}
-          size={56}
-          borderRadius="50%"
-        />
-      </AnimatedWrapper>
-    )
-  );
+  return (
+    <Box width="auto">
+      {
+        backButtonTrans.map(({ item, key, props: styleProps }) =>
+          item && (
+            <AnimatedWrapper key={key} style={styleProps}>
+              <Wrapper
+                className={classNames('', className)}
+                icon={<FiArrowLeft />}
+                onClick={() => history && history.goBack()}
+                iconSize={24}
+                iconOnly
+                minWidth={56}
+                size={56}
+                borderRadius="50%"
+              />
+            </AnimatedWrapper>
+          )
+        )
+      }
+    </Box>
+  )
 }
 
 export default GoBackButton;

@@ -1,11 +1,11 @@
 // Box.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Box from './index';
+import Box from './index';
 
 describe('Box', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Box />);
   });
 });

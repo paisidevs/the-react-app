@@ -1,12 +1,12 @@
-// Select.spec.tsx
+// Spacer.spec.tsx
 import React from 'react';
 import { render } from '@app/utils/test-utils';
 
-import Select from './index';
+import Spacer from './index';
 
-describe('Select', () => {
+describe('Spacer', () => {
   it('should render without crashing', () => {
-    render(<Select />);
+    render(<Spacer spacing={24} />);
   });
 });
 

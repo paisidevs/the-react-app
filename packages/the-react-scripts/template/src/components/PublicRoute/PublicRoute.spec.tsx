@@ -1,11 +1,20 @@
 // PublicRoute.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-// import PublicRoute from './index';
+import PublicRoute from './index';
+
+const PublicComponent = () => <div>Public</div>;
 
 describe('PublicRoute', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(
+      <BrowserRouter>
+        <Switch>
+          <PublicRoute path="/Public" component={PublicComponent} />
+        </Switch>
+      </BrowserRouter>
+    );
   });
 });

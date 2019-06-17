@@ -14,13 +14,13 @@ export interface IInputProps {
   className?: string;
   checked?: boolean;
   helperText?: string;
-  helperTextPosition?: 'bottom' | 'top';
+  helpertextposition?: 'bottom' | 'top';
   id: string;
   label: string;
   name: string;
   onChange?: (event: React.ChangeEvent<any>) => void;
   placeholder?: string;
-  readonly?: boolean;
+  readOnly?: boolean;
   rows?: number;
   sronly?: boolean;
   type:
@@ -78,7 +78,7 @@ const Input: FC<IInputProps> = ({
   };
 
   return (
-    <Wrapper readonly={rest.readonly} type={rest.type}>
+    <Wrapper readonly={rest.readOnly} type={rest.type}>
       <label htmlFor={id}>
         {
           (rest.type !== 'checkbox' && rest.type !== 'radio')
@@ -90,7 +90,7 @@ const Input: FC<IInputProps> = ({
           )
         }
         {
-          rest.helperTextPosition === 'top' && helperText
+          rest.helpertextposition === 'top' && helperText
           && <HelperText>{helperText}</HelperText>
         }
         <Suspense fallback={<LoadingBar />}>{ renderInput() }</Suspense>
@@ -104,7 +104,7 @@ const Input: FC<IInputProps> = ({
           )
         }
         {
-          rest.helperTextPosition === 'bottom' && helperText
+          rest.helpertextposition === 'bottom' && helperText
           && <HelperText>{helperText}</HelperText>
         }
       </label>
@@ -117,10 +117,10 @@ Input.defaultProps = {
   className: '',
   checked: false,
   helperText: '',
-  helperTextPosition: 'bottom',
+  helpertextposition: 'bottom',
   onChange: () => null,
   placeholder: '',
-  readonly: false,
+  readOnly: false,
   rows: 5,
   sronly: false,
   value: ''

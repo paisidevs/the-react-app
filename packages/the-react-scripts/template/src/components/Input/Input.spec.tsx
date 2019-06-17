@@ -1,6 +1,6 @@
 // Input.spec.tsx
 import * as React from 'react';
-import { fireEvent, render } from 'react-testing-library';
+import { fireEvent, render } from '@app/utils/test-utils';
 
 import Input from './index';
 
@@ -11,7 +11,6 @@ describe('Input', () => {
         id="username"
         label="Username"
         name="username"
-        onChange={() => null}
         type="text"
       />,
     );
@@ -23,7 +22,6 @@ describe('Input', () => {
         id="message"
         label="Message"
         name="message"
-        onChange={() => null}
         type="textarea"
       />,
     );

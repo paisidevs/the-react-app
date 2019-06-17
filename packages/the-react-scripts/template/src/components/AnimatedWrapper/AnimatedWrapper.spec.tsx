@@ -1,14 +1,11 @@
 // AnimatedWrapper.spec.tsx
-// import * as React from 'react';
-// import { cleanup, render } from 'react-testing-library';
-// import 'jest-dom/extend-expect';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import AnimatedWrapper from './index';
-
-// afterEach(cleanup);
+import AnimatedWrapper from './index';
 
 describe('AnimatedWrapper', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<AnimatedWrapper />);
   });
 });

@@ -36,6 +36,7 @@ describe('Button', () => {
     const buttonNode = getByTestId('button');
     fireEvent.click(buttonNode);
 
+    // @ts-ignore
     expect(buttonNode).toHaveTextContent('1');
   });
 });

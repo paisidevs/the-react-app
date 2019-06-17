@@ -1,7 +1,7 @@
 // Routes.spec.tsx
 import React from 'react';
-import { render } from 'react-testing-library';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from '@app/utils/test-utils';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Routes from './index';
 import routes from '../../routes';
@@ -11,9 +11,13 @@ describe('Routes', () => {
   it('should render app routes without crashing', () => {
     render(
       <Router>
-        <React.Suspense fallback={<LoadingBar />}>
-          <Routes routes={routes} />
-        </React.Suspense>
+        <Route
+          render={(props) => (
+            <React.Suspense fallback={<LoadingBar />}>
+              <Routes location={props.location} routes={routes} />
+            </React.Suspense>
+          )}
+        />
       </Router>,
     );
   });

@@ -1,11 +1,11 @@
 // Flex.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Flex from './index';
+import Flex from './index';
 
 describe('Flex', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Flex />);
   });
 });

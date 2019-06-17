@@ -1,11 +1,11 @@
 // Banner.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Banner from './index';
+import Banner from './index';
 
 describe('Banner', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Banner />);
   });
 });

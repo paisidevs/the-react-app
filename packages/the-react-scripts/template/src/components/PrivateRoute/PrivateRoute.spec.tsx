@@ -1,11 +1,21 @@
 // PrivateRoute.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@app/utils/test-utils';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-// import PrivateRoute from './index';
+import PrivateRoute from './index';
+
+const PrivateComponent = () => <div>Private</div>;
 
 describe('PrivateRoute', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(
+      <BrowserRouter>
+        <Switch>
+          <PrivateRoute path="/private" component={PrivateComponent} />
+        </Switch>
+      </BrowserRouter>
+    );
   });
 });
+
