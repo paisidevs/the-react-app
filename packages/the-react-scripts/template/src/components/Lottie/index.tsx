@@ -8,7 +8,7 @@ import Wrapper from './styles';
 // const debug = makeDebugger('Lottie');
 
 interface IProps {
-  animationData: object;
+  animationData?: object;
   autoplay?: boolean;
   className?: string;
   height?: number;
@@ -55,6 +55,7 @@ const Lottie: FC<IProps> = ({
 };
 
 Lottie.defaultProps = {
+  animationData: require('@app/assets/lottie/react-logo.json'),
   autoplay: true,
   height: 400,
   loop: true,

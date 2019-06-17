@@ -1,11 +1,11 @@
 // Lottie.spec.tsx
-// import * as React from 'react';
-// import { render } from 'react-testing-library';
+import * as React from 'react';
+import { render } from '@app/utils/test-utils';
 
-// import Lottie from './index';
+import Lottie from './index';
 
 describe('Lottie', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render without crashing', () => {
+    render(<Lottie />);
   });
 });
