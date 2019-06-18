@@ -5,15 +5,14 @@ import { useTransition } from 'react-spring';
 // Styles
 import Wrapper from './styles';
 import AnimatedWrapper from '../AnimatedWrapper';
-import { History } from 'history';
 import Box from '../Box';
+import { useRouter } from '@app/hooks';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('GoBackButton');
 
 interface IGoBackButtonProps {
   className?: string;
-  history?: History;
   show?: boolean;
 };
 
@@ -25,7 +24,9 @@ interface IGoBackButtonProps {
  * <GoBackButton />
  */
 
-const GoBackButton = ({ className, history, show }: IGoBackButtonProps) => {
+const GoBackButton = ({ className, show }: IGoBackButtonProps) => {
+  const { history } = useRouter();
+
   const backButtonTrans = useTransition(show, null, {
     from: { opacity: 0, transform: 'translateX(-64px)' },
     enter: { opacity: 1, transform: 'translateX(0)' },

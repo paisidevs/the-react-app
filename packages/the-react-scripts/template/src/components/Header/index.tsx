@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
 // Styles
 import Box, { IBoxProps } from '../Box';
 import Inner from '../Inner';
@@ -7,13 +6,13 @@ import Flex from '../Flex';
 import GoBackButton from '../GoBackButton/Loadable';
 import Toggle from '../Toggle/Loadable';
 
-import { useTheme } from '@app/hooks';
+import { useTheme, useRouter } from '@app/hooks';
 import { generic } from '@app/assets';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Header');
 
-interface IHeaderProps extends IBoxProps, RouteComponentProps { };
+interface IHeaderProps extends IBoxProps {}
 
 /**
  * @render react
@@ -24,18 +23,21 @@ interface IHeaderProps extends IBoxProps, RouteComponentProps { };
  */
 
 const Header: FC<IHeaderProps> = (props) => {
+  const { location } = useRouter();
   const { darkMode, setDarkMode } = useTheme();
+
+  const showBackButton = location.state && location.state.showBackButton;
 
   const handleSetDarkMode = () => {
     setDarkMode(!darkMode);
-  }
+  };
 
   return (
     // @ts-ignore
     <Box as="header" flex="none" {...props}>
       <Inner as={Flex}>
         <Flex alignItems="center">
-          <GoBackButton />
+          <GoBackButton show={showBackButton} />
         </Flex>
         <Flex alignItems="center" justifyContent="flex-end">
           <Toggle
@@ -66,11 +68,11 @@ const Header: FC<IHeaderProps> = (props) => {
       </Inner>
     </Box>
   );
-}
+};
 
 Header.defaultProps = {
   bg: 'surface',
   height: [64, 88],
-}
+};
 
 export default Header;
