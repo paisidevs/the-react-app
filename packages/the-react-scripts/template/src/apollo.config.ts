@@ -23,14 +23,14 @@ let clientLink = ApolloLink.from([
 
 if (NODE_ENV === 'development') {
   import('./utils/apollo-utilities')
-  .then((module) => {
-    clientLink = ApolloLink.from([
-      module.loggerLink,
-      module.errorLink,
-      retryLink,
-      httpLink,
-    ]);
-  });
+    .then(({ errorLink, loggerLink }) => {
+      clientLink = ApolloLink.from([
+        loggerLink,
+        errorLink,
+        retryLink,
+        httpLink,
+      ]);
+    });
 }
 
 persistCache({

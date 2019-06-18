@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from '@app/contexts/themeProvider.context';
+import { ThemeContext } from '@app/contexts/ThemeProvider.context';
 
 export default function useTheme() {
   const context = React.useContext(ThemeContext);

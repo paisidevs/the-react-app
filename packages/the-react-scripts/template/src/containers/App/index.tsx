@@ -33,7 +33,7 @@ const App: FC<IAppProps> = (props) => {
         <Normalize />
         <GlobalStyles />
         <ErrorBoundary>
-          <Header {...props} />
+          <Header />
         </ErrorBoundary>
         <ErrorBoundary>
           <Routes location={props.location} routes={routes} />

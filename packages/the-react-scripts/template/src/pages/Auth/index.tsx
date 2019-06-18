@@ -4,13 +4,12 @@ import { RouteComponentProps, Redirect } from 'react-router-dom';
 
 import { Button, Inner, Page } from '@app/components';
 import { H2 } from '@app/typography';
-import { JWT_LOCAL_STORAGE_KEY } from '@app/constants';
 import { useAuthentication } from '@app/hooks';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Auth');
 
-interface IAuthProps extends RouteComponentProps {}
+interface IAuthProps extends RouteComponentProps { }
 
 /**
  * @render react
@@ -19,11 +18,10 @@ interface IAuthProps extends RouteComponentProps {}
  */
 
 const Auth = ({ location }: IAuthProps) => {
-  const { isAuthenticated, setIsAuthenticated } = useAuthentication();
+  const { isAuthenticated, setJWT } = useAuthentication();
 
   const handleAuth = () => {
-    window.localStorage.setItem(JWT_LOCAL_STORAGE_KEY, 'abc:123');
-    setIsAuthenticated(true);
+    setJWT(new Date().toISOString());
   }
 
   return !isAuthenticated ? (
@@ -37,7 +35,7 @@ const Auth = ({ location }: IAuthProps) => {
         <Button onClick={handleAuth} text="Authenticate" />
       </Inner>
     </Page>
-  ) : <Redirect to={location && location.state && location.state.from ? location.state.from : '/'}/>;
+  ) : <Redirect to={location && location.state && location.state.from ? location.state.from : '/'} />;
 }
 
 export default Auth;

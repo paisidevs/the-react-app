@@ -1,7 +1,11 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 // @ts-ignore
-import { __RouterContext, RouteComponentProps } from 'react-router-dom'
+import { __RouterContext, RouteComponentProps } from 'react-router-dom';
 
 export default function useRouter(): RouteComponentProps {
-  return useContext(__RouterContext)
+  if (useContext(__RouterContext) === undefined) {
+    throw new Error('useRouter must be used within a Router');
+  }
+
+  return useContext(__RouterContext);
 }
