@@ -1,9 +1,9 @@
 import preloadImage from './preloadImage';
 
 export function updateSessionStorage(src: string) {
-  // @ts-ignore
-  const cachedImages =
-    JSON.parse(window.sessionStorage.getItem('__TRA_IMG__')) || {};
+  const cachedImages = JSON.parse(
+    window.sessionStorage.getItem('__TRA_IMG__') || '{}',
+  );
   cachedImages[src] = +new Date();
   window.sessionStorage.setItem('__TRA_IMG__', JSON.stringify(cachedImages));
 }

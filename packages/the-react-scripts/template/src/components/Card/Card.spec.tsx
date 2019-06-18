@@ -3,16 +3,10 @@ import React from 'react';
 import { render } from '@app/utils/test-utils';
 
 import Card from './index';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../theme';
 
 describe('Card', () => {
   it('should render without crashing', () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <Card />
-      </ThemeProvider>,
-    );
+    render(<Card />);
   });
 
   it('should render with an image', () => {
@@ -20,11 +14,7 @@ describe('Card', () => {
       image: 'image.png',
     };
 
-    render(
-      <ThemeProvider theme={theme}>
-        <Card {...props} />
-      </ThemeProvider>,
-    );
+    render(<Card {...props} />);
   });
 
   it('should render with an image and a title', () => {
@@ -33,11 +23,7 @@ describe('Card', () => {
       title: 'Title',
     };
 
-    const { getByText } = render(
-      <ThemeProvider theme={theme}>
-        <Card {...props} />
-      </ThemeProvider>,
-    );
+    const { getByText } = render(<Card {...props} />);
 
     const titleNode = getByText(props.title);
 
@@ -51,11 +37,7 @@ describe('Card', () => {
       description: 'This is a test description',
     };
 
-    const { getByText } = render(
-      <ThemeProvider theme={theme}>
-        <Card {...props} />
-      </ThemeProvider>,
-    );
+    const { getByText } = render(<Card {...props} />);
 
     const titleNode = getByText(props.title);
     const descriptionNode = getByText(props.description);
