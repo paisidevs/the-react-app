@@ -1,42 +1,42 @@
 // Card.spec.tsx
-import React from "react";
+import React from 'react';
 import { render } from '@app/utils/test-utils';
 
-import Card from "./index";
-import { ThemeProvider } from "styled-components";
+import Card from './index';
+import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 
-describe("Card", () => {
-  it("should render without crashing", () => {
+describe('Card', () => {
+  it('should render without crashing', () => {
     render(
       <ThemeProvider theme={theme}>
         <Card />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
   });
 
-  it("should render with an image", () => {
+  it('should render with an image', () => {
     const props = {
-      image: "image.png"
+      image: 'image.png',
     };
 
     render(
       <ThemeProvider theme={theme}>
         <Card {...props} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
   });
 
-  it("should render with an image and a title", () => {
+  it('should render with an image and a title', () => {
     const props = {
-      image: "image.png",
-      title: "Title"
+      image: 'image.png',
+      title: 'Title',
     };
 
     const { getByText } = render(
       <ThemeProvider theme={theme}>
         <Card {...props} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const titleNode = getByText(props.title);
@@ -44,17 +44,17 @@ describe("Card", () => {
     expect(titleNode).toBeDefined();
   });
 
-  it("should render with an image, title and description", () => {
+  it('should render with an image, title and description', () => {
     const props = {
-      image: "image.png",
-      title: "Title",
-      description: "This is a test description"
+      image: 'image.png',
+      title: 'Title',
+      description: 'This is a test description',
     };
 
     const { getByText } = render(
       <ThemeProvider theme={theme}>
         <Card {...props} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const titleNode = getByText(props.title);

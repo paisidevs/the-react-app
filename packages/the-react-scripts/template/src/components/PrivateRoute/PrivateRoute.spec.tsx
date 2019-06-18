@@ -14,8 +14,7 @@ describe('PrivateRoute', () => {
         <Switch>
           <PrivateRoute path="/private" component={PrivateComponent} />
         </Switch>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
 });
-

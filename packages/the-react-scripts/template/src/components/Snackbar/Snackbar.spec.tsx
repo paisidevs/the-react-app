@@ -9,4 +9,3 @@ describe('Snackbar', () => {
     render(<Snackbar />);
   });
 });
-

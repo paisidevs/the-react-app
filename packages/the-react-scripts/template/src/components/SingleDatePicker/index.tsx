@@ -20,7 +20,7 @@ interface ISingleDatePickerProps {
   id: string;
   date: IMoment | null;
   [propName: string]: any;
-};
+}
 
 // @ts-ignore
 const moment = extendMoment(Moment);
@@ -45,11 +45,11 @@ const SingleDatePicker: FC<ISingleDatePickerProps> = ({
   const [focused, setFocused] = useState(false);
   const range = moment.range(moment().subtract(100, 'years'), moment());
 
-  const mappedMonths = () => moment.months()
-    .map((label, value) => ({ label, value }));
+  const mappedMonths = () =>
+    moment.months().map((label, value) => ({ label, value }));
 
-  const mappedYears = () => Array.from(range.by('year'))
-    .map(m => {
+  const mappedYears = () =>
+    Array.from(range.by('year')).map((m) => {
       const year = parseInt(m.format('YYYY'), 10);
       return { label: year, value: year };
     });
@@ -57,14 +57,19 @@ const SingleDatePicker: FC<ISingleDatePickerProps> = ({
   const renderMonthElement = ({ month, onMonthSelect, onYearSelect }: any) => {
     const months = mappedMonths();
     const years = mappedYears();
-    const activeMonth = { label: months[month.month()].label, value: month.month() };
+    const activeMonth = {
+      label: months[month.month()].label,
+      value: month.month(),
+    };
     const activeYear = { label: month.year(), value: month.year() };
 
     return (
       <Flex alignItems="center" justifyContent="center" px={6}>
         <Flex size={1.25}>
           <Select
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onMonthSelect(month, e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onMonthSelect(month, e.target.value)
+            }
             options={months}
             value={activeMonth}
             mr={1}
@@ -72,14 +77,16 @@ const SingleDatePicker: FC<ISingleDatePickerProps> = ({
         </Flex>
         <Flex size={1}>
           <Select
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => onYearSelect(month, e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onYearSelect(month, e.target.value)
+            }
             options={years}
             value={activeYear}
           />
         </Flex>
       </Flex>
     );
-  }
+  };
 
   return (
     <Wrapper className={classNames('', className)}>

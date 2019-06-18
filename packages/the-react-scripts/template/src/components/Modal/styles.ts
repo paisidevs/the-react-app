@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { StyledSystemProps, ColorProps } from 'styled-system';
 import Box from '../Box';
@@ -8,7 +8,6 @@ const sharedStyles = {
   left: '0',
   top: '0',
 };
-
 
 /**
  * Portal
@@ -26,7 +25,6 @@ Portal.defaultProps = {
   justifyContent: 'center',
   position: 'fixed',
 };
-
 
 /**
  * PortalInner
@@ -63,7 +61,6 @@ PortalInnerHeader.defaultProps = {
   position: 'relative',
 };
 
-
 /**
  * Scrim
  */
@@ -77,4 +74,4 @@ export const Scrim = styled(animated(Box))<IScrimProps>`
 Scrim.defaultProps = {
   bg: 'blacks.5',
   position: 'absolute',
-}
+};

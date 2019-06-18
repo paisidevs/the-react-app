@@ -9,7 +9,7 @@ import Wrapper from './styles';
 interface ICheckboxProps {
   className?: string;
   onChange?: (event: React.ChangeEvent<HTMLElement>) => void;
-};
+}
 
 /**
  * @render react

@@ -53,7 +53,7 @@ describe('Form', () => {
     const nameTextfieldNode: any = getByLabelText('Name');
 
     fireEvent.change(nameTextfieldNode, { target: { value: payload.name } });
-    fireEvent.submit(getByTestId("form"));
+    fireEvent.submit(getByTestId('form'));
 
     expect(nameTextfieldNode.value).toEqual(payload.name);
     expect(handleSubmit).toHaveBeenCalledTimes(1);

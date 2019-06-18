@@ -19,7 +19,8 @@ const Wrapper = styled.div`
 
   ${space};
 
-  &::after, &::before {
+  &::after,
+  &::before {
     content: '';
     width: ${theme.space[2]}px;
   }

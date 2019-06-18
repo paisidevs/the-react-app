@@ -8,7 +8,7 @@ import Wrapper from './styles';
 
 interface IBannerProps {
   className?: string;
-};
+}
 
 /**
  * @render react

@@ -31,7 +31,7 @@ const Wrapper = styled.div<IWrapperProps>`
   }
 
   .lazy-image-loaded {
-    animation-duration: ${({ isCached }) => isCached ? '0.3s' : '3s'};
+    animation-duration: ${({ isCached }) => (isCached ? '0.3s' : '3s')};
     animation-name: ${fadeIn};
     visibility: visible;
   }
@@ -39,6 +39,6 @@ const Wrapper = styled.div<IWrapperProps>`
 
 Wrapper.defaultProps = {
   height: 0,
-}
+};
 
 export default Wrapper;

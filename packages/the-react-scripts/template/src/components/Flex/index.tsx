@@ -1,5 +1,16 @@
 import styled from 'styled-components';
-import { space, StyledSystemProps, alignItems, display, flex, flexDirection, justifyContent, flexWrap, order, compose } from 'styled-system';
+import {
+  space,
+  StyledSystemProps,
+  alignItems,
+  display,
+  flex,
+  flexDirection,
+  justifyContent,
+  flexWrap,
+  order,
+  compose,
+} from 'styled-system';
 
 export interface IFlexProps extends StyledSystemProps {}
 
@@ -32,6 +43,6 @@ Flex.defaultProps = {
   display: 'flex',
   flexDirection: 'row',
   flex: 1,
-}
+};
 
 export default Flex;

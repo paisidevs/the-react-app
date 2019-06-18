@@ -17,11 +17,13 @@ interface ILabelProps extends FontSizeProps {
 const Label = styled(Flex)<ILabelProps>`
   ${fontSize};
 
-  ${({ sronly }) => sronly && css`
-    height: 0;
-    opacity: 0;
-    position: absolute;
-  `}
+  ${({ sronly }) =>
+    sronly &&
+    css`
+      height: 0;
+      opacity: 0;
+      position: absolute;
+    `}
 `;
 
 Label.defaultProps = {

@@ -10,7 +10,7 @@ import Wrapper from './styles';
 interface IHorizontalScrollerProps extends SpaceProps {
   children: React.ReactNode;
   className?: string;
-};
+}
 
 /**
  * @render react
@@ -20,9 +20,13 @@ interface IHorizontalScrollerProps extends SpaceProps {
  * <HorizontalScroller />
  */
 
-const HorizontalScroller: FC<IHorizontalScrollerProps> = ({ children, className, ...rest }) => (
+const HorizontalScroller: FC<IHorizontalScrollerProps> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <Wrapper className={classNames('', className)} {...rest}>
-    { children }
+    {children}
   </Wrapper>
 );
 

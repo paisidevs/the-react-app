@@ -1,6 +1,10 @@
 // WrappedQuery.spec.tsx
 import React from 'react';
-import { render, waitForElement, waitForDomChange } from '@testing-library/react';
+import {
+  render,
+  waitForElement,
+  waitForDomChange,
+} from '@testing-library/react';
 import gql from 'graphql-tag';
 import { MockedProvider } from 'react-apollo/test-utils';
 
@@ -24,7 +28,7 @@ const mocks = [
       data: {
         todos: [
           { id: '1', text: 'First todo' },
-          { id: '2', text: 'Second todo' }
+          { id: '2', text: 'Second todo' },
         ],
       },
     },
@@ -34,12 +38,18 @@ const mocks = [
 const Todos = () => (
   <WrappedQuery query={getTodosGQL} overrideStates={true}>
     {({ data, error, loading }) => {
-      if (loading) { return <div data-testid="loading">Loading...</div> }
-      if (error) { return <div data-testid="error">Error!!!</div> }
+      if (loading) {
+        return <div data-testid="loading">Loading...</div>;
+      }
+      if (error) {
+        return <div data-testid="error">Error!!!</div>;
+      }
 
       return data.todos.map((todo: any, idx: number) => (
-        <div key={todo.id} data-testid={`todo:${idx}`}>{todo.text}</div>
-      ))
+        <div key={todo.id} data-testid={`todo:${idx}`}>
+          {todo.text}
+        </div>
+      ));
     }}
   </WrappedQuery>
 );
@@ -49,7 +59,7 @@ describe('WrappedQuery', () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Todos />
-      </MockedProvider>
+      </MockedProvider>,
     );
   });
 
@@ -57,7 +67,7 @@ describe('WrappedQuery', () => {
     const { getByText } = render(
       <MockedProvider mocks={[]}>
         <Todos />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const loadingText = getByText('Loading...');
@@ -68,7 +78,7 @@ describe('WrappedQuery', () => {
     const { getByTestId } = render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Todos />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const firstTodoTextNode = await waitForElement(() => getByTestId('todo:0'));
@@ -85,7 +95,7 @@ describe('WrappedQuery', () => {
     const { getByTestId } = render(
       <MockedProvider mocks={[todoMock]} addTypename={false}>
         <Todos />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitForDomChange();

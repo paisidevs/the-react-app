@@ -9,4 +9,3 @@ describe('Select', () => {
     render(<Select />);
   });
 });
-

@@ -14,7 +14,7 @@ import { useRouter } from '@app/hooks';
 interface IGoBackButtonProps {
   className?: string;
   show?: boolean;
-};
+}
 
 /**
  * @render react
@@ -35,8 +35,8 @@ const GoBackButton = ({ className, show }: IGoBackButtonProps) => {
 
   return (
     <Box width="auto">
-      {
-        backButtonTrans.map(({ item, key, props: styleProps }) =>
+      {backButtonTrans.map(
+        ({ item, key, props: styleProps }) =>
           item && (
             <AnimatedWrapper key={key} style={styleProps}>
               <Wrapper
@@ -50,11 +50,10 @@ const GoBackButton = ({ className, show }: IGoBackButtonProps) => {
                 borderRadius="50%"
               />
             </AnimatedWrapper>
-          )
-        )
-      }
+          ),
+      )}
     </Box>
-  )
-}
+  );
+};
 
 export default GoBackButton;

@@ -10,7 +10,7 @@ import LoadingBar from '../LoadingBar';
 
 interface IPrivateRouteProps extends RouteProps {
   routes?: IRouteProps[];
-};
+}
 
 /**
  * @render react
@@ -20,13 +20,16 @@ interface IPrivateRouteProps extends RouteProps {
  * <PrivateRoute />
  */
 
-const PrivateRoute: FC<IPrivateRouteProps> = ({ component: Component, ...rest }) => {
+const PrivateRoute: FC<IPrivateRouteProps> = ({
+  component: Component,
+  ...rest
+}) => {
   const { authenticating, isAuthenticated } = useAuthentication();
 
   return !authenticating ? (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         isAuthenticated ? (
           // @ts-ignore
           <Component routes={rest.routes} {...props} />
@@ -34,13 +37,15 @@ const PrivateRoute: FC<IPrivateRouteProps> = ({ component: Component, ...rest })
           <Redirect
             to={{
               pathname: '/auth',
-              state: { from: props.location }
+              state: { from: props.location },
             }}
           />
         )
       }
     />
-  ) : <LoadingBar />;
+  ) : (
+    <LoadingBar />
+  );
 };
 
 export default PrivateRoute;

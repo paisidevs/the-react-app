@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import classNames from "classnames";
+import React, { FC } from 'react';
+import classNames from 'classnames';
 // Components
-import Image from "../Image/Loadable";
+import Image from '../Image/Loadable';
 // Styles
-import Wrapper, { Content, Description, Title } from "./styles";
+import Wrapper, { Content, Description, Title } from './styles';
 
 export interface ICardProps {
   className?: string;
@@ -39,7 +39,7 @@ const Card: FC<ICardProps> = ({
   ...rest
 }) => (
   <Wrapper
-    className={classNames("c-card", className)}
+    className={classNames('c-card', className)}
     onClick={onClick}
     {...rest}
   >

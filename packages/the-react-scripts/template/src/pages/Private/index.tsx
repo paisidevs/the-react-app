@@ -21,13 +21,16 @@ const Private = (props: IPrivateProps) => {
     <Page>
       <Helmet>
         <title>Private</title>
-        <meta name="description" content="The page requires a user to be authenticated to view." />
+        <meta
+          name="description"
+          content="The page requires a user to be authenticated to view."
+        />
       </Helmet>
       <Inner p={2}>
         <H2 mb={0}>Private!</H2>
       </Inner>
     </Page>
   );
-}
+};
 
 export default Private;

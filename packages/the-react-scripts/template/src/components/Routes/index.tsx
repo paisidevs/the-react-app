@@ -45,23 +45,33 @@ const Wrapper = styled(Box)`
  */
 
 const Routes: FC<IRoutesProps> = ({ location, routes }) => {
-  const routeTransitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: 'translateY(64px)' },
-    enter: { opacity: 1, transform: 'translateY(0)' },
-    leave: { opacity: 0, transform: 'translateY(32px)' },
-  });
+  const routeTransitions = useTransition(
+    location,
+    (location) => location.pathname,
+    {
+      from: { opacity: 0, transform: 'translateY(64px)' },
+      enter: { opacity: 1, transform: 'translateY(0)' },
+      leave: { opacity: 0, transform: 'translateY(32px)' },
+    },
+  );
 
   return (
     <Wrapper as="main">
-      {
-        routeTransitions.map(({ item, props: styleProps, key }) => (
-          <AnimatedWrapper key={key} style={styleProps}>
-            <Switch location={item}>
-              {
-                routes.map((
-                  { component: Component, exact, path, routes, secure }: IRouteProps,
-                  index: number,
-                ) => secure ? (
+      {routeTransitions.map(({ item, props: styleProps, key }) => (
+        <AnimatedWrapper key={key} style={styleProps}>
+          <Switch location={item}>
+            {routes.map(
+              (
+                {
+                  component: Component,
+                  exact,
+                  path,
+                  routes,
+                  secure,
+                }: IRouteProps,
+                index: number,
+              ) =>
+                secure ? (
                   <PrivateRoute
                     {...(exact ? { exact: true } : {})}
                     key={index}
@@ -70,19 +80,18 @@ const Routes: FC<IRoutesProps> = ({ location, routes }) => {
                     routes={routes}
                   />
                 ) : (
-                      <PublicRoute
-                        {...(exact ? { exact: true } : {})}
-                        key={index}
-                        path={path}
-                        component={Component}
-                        routes={routes}
-                      />
-                    ))
-              }
-            </Switch>
-          </AnimatedWrapper>
-        ))
-      }
+                  <PublicRoute
+                    {...(exact ? { exact: true } : {})}
+                    key={index}
+                    path={path}
+                    component={Component}
+                    routes={routes}
+                  />
+                ),
+            )}
+          </Switch>
+        </AnimatedWrapper>
+      ))}
     </Wrapper>
   );
 };

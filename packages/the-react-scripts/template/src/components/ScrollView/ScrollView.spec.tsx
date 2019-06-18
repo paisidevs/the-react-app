@@ -9,4 +9,3 @@ describe('ScrollView', () => {
     render(<ScrollView />);
   });
 });
-

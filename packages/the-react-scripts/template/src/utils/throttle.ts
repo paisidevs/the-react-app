@@ -2,7 +2,7 @@
 export default function throttle<T extends (...args) => void>(
   func: T,
   threshold: number = 250,
-  scope?: any
+  scope?: any,
 ): T {
   let last: number, deferTimer: number;
   return function(this: any) {

@@ -6,8 +6,6 @@ import OfflineIndicator from './index';
 
 describe('<OfflineIndicator />', () => {
   it('should render an offline indicator', () => {
-    render(
-      <OfflineIndicator />
-    );
+    render(<OfflineIndicator />);
   });
 });

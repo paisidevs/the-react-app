@@ -65,48 +65,56 @@ const Input: FC<IInputProps> = ({
   const renderInput = () => {
     switch (rest.type) {
       case 'checkbox':
-        return <Checkbox onChange={handleChange} />
+        return <Checkbox onChange={handleChange} />;
       case 'file':
         return <Dropzone onChange={handleChange} {...rest} />;
       case 'select':
         return <Select onChange={handleChange} {...rest} />;
       case 'textarea':
-        return <textarea id={id} className="a-textarea" aria-label={label} onChange={handleChange} {...rest} />;
+        return (
+          <textarea
+            id={id}
+            className="a-textarea"
+            aria-label={label}
+            onChange={handleChange}
+            {...rest}
+          />
+        );
       default:
-        return <input id={id} className="a-input" aria-label={label} onChange={handleChange} {...rest} />;
+        return (
+          <input
+            id={id}
+            className="a-input"
+            aria-label={label}
+            onChange={handleChange}
+            {...rest}
+          />
+        );
     }
   };
 
   return (
     <Wrapper readonly={rest.readOnly} type={rest.type}>
       <label htmlFor={id}>
-        {
-          (rest.type !== 'checkbox' && rest.type !== 'radio')
-          && (
-            <React.Fragment>
-              {renderLabel()}
-              <Spacer spacing={theme.space[1]} />
-            </React.Fragment>
-          )
-        }
-        {
-          rest.helpertextposition === 'top' && helperText
-          && <HelperText>{helperText}</HelperText>
-        }
-        <Suspense fallback={<LoadingBar />}>{ renderInput() }</Suspense>
-        {
-          (rest.type === 'checkbox' || rest.type === 'radio')
-          && (
-            <React.Fragment>
-              <span className={`a-${rest.type}`} />
-              {renderLabel()}
-            </React.Fragment>
-          )
-        }
-        {
-          rest.helpertextposition === 'bottom' && helperText
-          && <HelperText>{helperText}</HelperText>
-        }
+        {rest.type !== 'checkbox' && rest.type !== 'radio' && (
+          <React.Fragment>
+            {renderLabel()}
+            <Spacer spacing={theme.space[1]} />
+          </React.Fragment>
+        )}
+        {rest.helpertextposition === 'top' && helperText && (
+          <HelperText>{helperText}</HelperText>
+        )}
+        <Suspense fallback={<LoadingBar />}>{renderInput()}</Suspense>
+        {(rest.type === 'checkbox' || rest.type === 'radio') && (
+          <React.Fragment>
+            <span className={`a-${rest.type}`} />
+            {renderLabel()}
+          </React.Fragment>
+        )}
+        {rest.helpertextposition === 'bottom' && helperText && (
+          <HelperText>{helperText}</HelperText>
+        )}
       </label>
     </Wrapper>
   );
@@ -123,7 +131,7 @@ Input.defaultProps = {
   readOnly: false,
   rows: 5,
   sronly: false,
-  value: ''
+  value: '',
 };
 
 export default Input;

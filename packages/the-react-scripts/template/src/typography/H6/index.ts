@@ -16,7 +16,7 @@ const H6 = styled.h6<StyledSystemProps>`
 
 H6.defaultProps = {
   color: 'text',
-  fontSize: [3,4],
-}
+  fontSize: [3, 4],
+};
 
 export default H6;

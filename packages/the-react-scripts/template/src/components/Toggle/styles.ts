@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   position: relative;
   user-select: none;
 
-
   .react-toggle-screenreader-only {
     border: 0;
     clip: rect(0 0 0 0);
@@ -30,7 +29,8 @@ export const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
   }
 
-  .react-toggle-track-check, .react-toggle-track-x {
+  .react-toggle-track-check,
+  .react-toggle-track-x {
     position: absolute;
     width: 16px;
     height: 16px;

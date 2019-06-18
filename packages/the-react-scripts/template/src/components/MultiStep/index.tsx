@@ -15,11 +15,11 @@ interface IProps {
   showNavigation?: boolean;
   showNavigationTop?: boolean;
   steps: {
-    name: string,
-    component: React.ReactNode,
+    name: string;
+    component: React.ReactNode;
   }[];
   verticalTrack?: boolean;
-};
+}
 
 /**
  * @render react
@@ -44,87 +44,82 @@ const MultiStep: FC<IProps> = ({
   steps,
   verticalTrack,
 }) => {
-  const [styles, setStyles] = useState(getNavStyles(0, steps.length))
-  const [compState, setComp] = useState(0)
-  const [buttonsState, setButtons] = useState(getButtonsState(0, steps.length))
+  const [styles, setStyles] = useState(getNavStyles(0, steps.length));
+  const [compState, setComp] = useState(0);
+  const [buttonsState, setButtons] = useState(getButtonsState(0, steps.length));
 
   const setStepState = (index: number) => {
-    setStyles(getNavStyles(index, steps.length))
-    setComp(index < steps.length ? index : compState)
-    setButtons(getButtonsState(index, steps.length))
-  }
+    setStyles(getNavStyles(index, steps.length));
+    setComp(index < steps.length ? index : compState);
+    setButtons(getButtonsState(index, steps.length));
+  };
 
-  const next = (stepsLength?: number) => setStepState(compState + 1)
+  const next = (stepsLength?: number) => setStepState(compState + 1);
 
-  const previous = () => setStepState((compState > 0) ? compState - 1 : compState)
+  const previous = () =>
+    setStepState(compState > 0 ? compState - 1 : compState);
 
   const handleClick = (event: React.BaseSyntheticEvent) => {
-    if (event.currentTarget.value === steps.length - 1
-      && compState === steps.length - 1) {
-      setStepState(steps.length)
+    if (
+      event.currentTarget.value === steps.length - 1 &&
+      compState === steps.length - 1
+    ) {
+      setStepState(steps.length);
     } else {
-      setStepState(event.currentTarget.value)
+      setStepState(event.currentTarget.value);
     }
-  }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     return event.which === KEYBOARD_CODE.ENTER ? next(steps.length) : {};
-  }
+  };
 
   const renderTracks = () => {
     return (
       // @ts-ignore
       <Tracks verticalTrack={verticalTrack}>
-        {
-          steps.map((_: any, index: number) => (
-            <Track
-              className={styles[index]}
-              onClick={handleClick}
-              key={index}
-              value={index}
-              // @ts-ignore
-              verticalTrack={verticalTrack}
-            >
-              <div className="side-nav__wrap">
-                <div className="side-nav__circle">
-                  <div className="side-nav__circle-inner" />
-                  <div className="side-nav__line" />
-                </div>
-                <span className="side-nav__page">
-                  {steps[index].name}
-                </span>
+        {steps.map((_: any, index: number) => (
+          <Track
+            className={styles[index]}
+            onClick={handleClick}
+            key={index}
+            value={index}
+            // @ts-ignore
+            verticalTrack={verticalTrack}
+          >
+            <div className="side-nav__wrap">
+              <div className="side-nav__circle">
+                <div className="side-nav__circle-inner" />
+                <div className="side-nav__line" />
               </div>
-            </Track>
-          ))
-        }
+              <span className="side-nav__page">{steps[index].name}</span>
+            </div>
+          </Track>
+        ))}
       </Tracks>
-    )
-  }
+    );
+  };
 
   const renderNavigation = () => {
-    return showNavigation && (
-      <Navigation>
-        {
-          buttonsState.showPreviousBtn && (
+    return (
+      showNavigation && (
+        <Navigation>
+          {buttonsState.showPreviousBtn && (
             <Button onClick={() => previous()} text="Previous" />
-          )
-        }
-        {
-          buttonsState.showNextBtn && (
+          )}
+          {buttonsState.showNextBtn && (
             <Button onClick={() => next()} text="Next" />
-          )
-        }
-        {
-          buttonsState.showDoneBtn && (
+          )}
+          {buttonsState.showDoneBtn && (
             <Button
               onClick={() => handleDone && handleDone()}
               text={doneText}
             />
-          )
-        }
-      </Navigation>
-    )
-  }
+          )}
+        </Navigation>
+      )
+    );
+  };
 
   return (
     <Wrapper
@@ -136,7 +131,7 @@ const MultiStep: FC<IProps> = ({
       {steps[compState].component}
       {!showNavigationTop && renderNavigation()}
     </Wrapper>
-  )
+  );
 };
 
 MultiStep.defaultProps = {
@@ -152,16 +147,16 @@ const getNavStyles = (index: number, length: number) => {
 
   for (let i = 0; i < length; i++) {
     if (i < index) {
-      styles.push('-done')
+      styles.push('-done');
     } else if (i === index) {
-      styles.push('-doing')
+      styles.push('-doing');
     } else {
-      styles.push('-todo')
+      styles.push('-todo');
     }
   }
 
   return styles;
-}
+};
 
 const getButtonsState = (index: number, length: number) => {
   if (index > 0 && index < length - 1) {
@@ -183,6 +178,6 @@ const getButtonsState = (index: number, length: number) => {
       showNextBtn: false,
     };
   }
-}
+};
 
 export default MultiStep;

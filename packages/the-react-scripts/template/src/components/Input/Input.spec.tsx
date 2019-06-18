@@ -7,23 +7,13 @@ import Input from './index';
 describe('Input', () => {
   it('should render a text input', () => {
     render(
-      <Input
-        id="username"
-        label="Username"
-        name="username"
-        type="text"
-      />,
+      <Input id="username" label="Username" name="username" type="text" />,
     );
   });
 
   it('should render a textarea input', () => {
     render(
-      <Input
-        id="message"
-        label="Message"
-        name="message"
-        type="textarea"
-      />,
+      <Input id="message" label="Message" name="message" type="textarea" />,
     );
   });
 

@@ -2,7 +2,8 @@ import preloadImage from './preloadImage';
 
 export function updateSessionStorage(src: string) {
   // @ts-ignore
-  const cachedImages = JSON.parse(window.sessionStorage.getItem('__TRA_IMG__')) || {};
+  const cachedImages =
+    JSON.parse(window.sessionStorage.getItem('__TRA_IMG__')) || {};
   cachedImages[src] = +new Date();
   window.sessionStorage.setItem('__TRA_IMG__', JSON.stringify(cachedImages));
 }
@@ -12,7 +13,7 @@ export function updateSessionStorage(src: string) {
  * @return {boolean} true or false - True if browser supports IO
  */
 function SUPPORTS_INTERSECTION_OBSERVER() {
-  return ('IntersectionObserver' in window);
+  return 'IntersectionObserver' in window;
 }
 /**
  * Get css-class to set on image once it has been handled by IO
@@ -84,9 +85,9 @@ export default function IOLazyImageLoader(image: any) {
 
         _preloadImage(entry.target);
 
-        observer.unobserve(entry.target)
+        observer.unobserve(entry.target);
       }
-    })
+    });
   });
   // ... observe image
   io.observe(image);

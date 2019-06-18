@@ -22,7 +22,10 @@ const NotFound = (props: INotFoundProps) => {
     <Page>
       <Helmet>
         <title>Oops! The page you're looking for doesn't exist.</title>
-        <meta name="description" content="The page you're looking for doesn't exist." />
+        <meta
+          name="description"
+          content="The page you're looking for doesn't exist."
+        />
       </Helmet>
       <Inner p={2}>
         <Link to="/private">
@@ -32,6 +35,6 @@ const NotFound = (props: INotFoundProps) => {
       </Inner>
     </Page>
   );
-}
+};
 
 export default NotFound;

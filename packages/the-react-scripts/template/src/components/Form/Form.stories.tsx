@@ -11,8 +11,7 @@ const initialValues = {
   dateOfBirth: null,
 };
 
-storiesOf('Form', module)
-.add('default', () => (
+storiesOf('Form', module).add('default', () => (
   <Formik
     initialValues={initialValues}
     onSubmit={(values, { setSubmitting }) => {
@@ -36,7 +35,11 @@ storiesOf('Form', module)
                 />
               )}
             />
-            <Button type="submit" text="Submit" disabled={formikProps.isSubmitting} />
+            <Button
+              type="submit"
+              text="Submit"
+              disabled={formikProps.isSubmitting}
+            />
           </Flex>
           <Flex>
             <pre>{JSON.stringify(formikProps, null, 2)}</pre>
@@ -45,5 +48,4 @@ storiesOf('Form', module)
       </Form>
     )}
   </Formik>
-))
-
+));

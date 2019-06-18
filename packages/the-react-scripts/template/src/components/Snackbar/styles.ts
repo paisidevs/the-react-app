@@ -17,17 +17,18 @@ const Wrapper = styled(Flex)<ISnackbarProps>`
 
   ${space};
 
-  ${({ leading }) => leading && css`
-    justify-content: flex-start;
-  `}
+  ${({ leading }) =>
+    leading &&
+    css`
+      justify-content: flex-start;
+    `}
 `;
 
 export const Surface = styled(Flex)`
   ${space};
   background-color: ${theme.colors.blacks[10]};
   border-radius: ${theme.space[1] / 2}px;
-  box-shadow:
-    0 3px 5px -1px ${theme.colors.blacks[4]},
+  box-shadow: 0 3px 5px -1px ${theme.colors.blacks[4]},
     0 6px 10px 0 ${theme.colors.blacks[3]},
     0 1px 18px 0 ${theme.colors.blacks[3]};
   max-width: 672px;

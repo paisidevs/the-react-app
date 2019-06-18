@@ -14,7 +14,7 @@ export interface IChipProps extends FontSizeProps {
   onRemove?: (event: React.MouseEvent) => void;
   showRemove?: boolean;
   text?: string | number;
-};
+}
 
 /**
  * @render react
@@ -36,17 +36,13 @@ const Chip: FC<IChipProps> = ({
     {icon && <ChipIcon>{icon}</ChipIcon>}
     <ChipText {...rest}>{text}</ChipText>
     {showRemove && (
-      <ChipRemove
-        iconOnly
-        icon={<FiXCircle />}
-        onClick={handleRemove}
-      />
+      <ChipRemove iconOnly icon={<FiXCircle />} onClick={handleRemove} />
     )}
   </Wrapper>
 );
 
-Chip.defaultProps ={
+Chip.defaultProps = {
   showRemove: false,
-}
+};
 
 export default Chip;

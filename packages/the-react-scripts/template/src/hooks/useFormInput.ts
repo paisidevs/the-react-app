@@ -12,7 +12,7 @@ function useFormInput(initialValue: any) {
 
   return {
     value,
-    onChange: handleChange
+    onChange: handleChange,
   };
 }
 

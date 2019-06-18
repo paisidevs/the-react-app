@@ -15,7 +15,7 @@ interface IProps {
   loop?: boolean;
   size?: number;
   width?: number;
-};
+}
 
 /**
  * @render react
@@ -32,15 +32,15 @@ const Lottie: FC<IProps> = ({
   height,
   loop,
   size,
-  width
+  width,
 }) => {
   const defaultOptions = {
     loop,
     autoplay,
     animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: 'xMidYMid slice',
+    },
   };
 
   return (

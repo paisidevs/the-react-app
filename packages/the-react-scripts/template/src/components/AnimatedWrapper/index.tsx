@@ -4,7 +4,7 @@ import { animated } from 'react-spring';
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('AnimatedWrapper');
 
-interface IAnimatedWrapperProps {};
+interface IAnimatedWrapperProps {}
 
 /**
  * @render react

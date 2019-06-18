@@ -1,6 +1,11 @@
 // WrappedMutation.spec.tsx
 import * as React from 'react';
-import { render, waitForElement, fireEvent, waitForDomChange } from '@testing-library/react';
+import {
+  render,
+  waitForElement,
+  fireEvent,
+  waitForDomChange,
+} from '@testing-library/react';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { GraphQLError } from 'graphql';
 import gql from 'graphql-tag';
@@ -18,20 +23,30 @@ const deleteTodoGQL = gql`
 
 const DeleteTodo = () => (
   // TODO: onError prop feels like a hack... Not sure if this causes an invalid test success.
-  <WrappedMutation mutation={deleteTodoGQL} onError={() => {}} overrideStates={true}>
+  <WrappedMutation
+    mutation={deleteTodoGQL}
+    onError={() => {}}
+    overrideStates={true}
+  >
     {(mutateFunc, { data, error, loading }) => {
-      if (loading) { return <div data-testid="loading">Loading...</div> }
-      if (error) { return <div data-testid="error">Error!</div> }
-      if (data) { return <div>Deleted!</div> }
+      if (loading) {
+        return <div data-testid="loading">Loading...</div>;
+      }
+      if (error) {
+        return <div data-testid="error">Error!</div>;
+      }
+      if (data) {
+        return <div>Deleted!</div>;
+      }
 
       return (
         <button
           data-testid="deleteButton"
-          onClick={() => mutateFunc({ variables: { id: '1'} })}
+          onClick={() => mutateFunc({ variables: { id: '1' } })}
         >
           Delete todo
         </button>
-      )
+      );
     }}
   </WrappedMutation>
 );
@@ -41,7 +56,7 @@ describe('WrappedMutation', () => {
     render(
       <MockedProvider mocks={[]}>
         <DeleteTodo />
-      </MockedProvider>
+      </MockedProvider>,
     );
   });
 
@@ -65,7 +80,9 @@ describe('WrappedMutation', () => {
     );
 
     // find the button and simulate a click
-    const deleteButtonNode = await waitForElement(() => getByTestId('deleteButton'));
+    const deleteButtonNode = await waitForElement(() =>
+      getByTestId('deleteButton'),
+    );
     fireEvent.click(deleteButtonNode);
 
     const loadingText = getByText('Loading...');
@@ -92,7 +109,9 @@ describe('WrappedMutation', () => {
     );
 
     // find the button and simulate a click
-    const deleteButtonNode = await waitForElement(() => getByTestId('deleteButton'));
+    const deleteButtonNode = await waitForElement(() =>
+      getByTestId('deleteButton'),
+    );
     fireEvent.click(deleteButtonNode);
 
     await waitForDomChange();
@@ -110,17 +129,19 @@ describe('WrappedMutation', () => {
         },
         result: {
           errors: [new GraphQLError('Error!')],
-        }
+        },
       },
     ];
 
     const { getByTestId, getByText } = render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <DeleteTodo />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    const deleteButtonNode = await waitForElement(() => getByTestId('deleteButton'));
+    const deleteButtonNode = await waitForElement(() =>
+      getByTestId('deleteButton'),
+    );
     fireEvent.click(deleteButtonNode);
 
     await waitForDomChange();

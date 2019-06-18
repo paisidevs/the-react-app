@@ -8,7 +8,7 @@ const dummyText = 'This is a test accordion body of text.';
 
 const accordionProps = {
   children: <p>{dummyText}</p>,
-  title: 'Test'
+  title: 'Test',
 };
 
 describe('WrappedMutation', () => {

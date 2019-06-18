@@ -83,9 +83,9 @@ export const theme: DefaultTheme = {
         cardBorderColor: 'hsla(0,0%,100%,0.2)',
         surface: '#373c49',
         link: '#7395FF',
-        text: '#FFFFFF'
-      }
-    }
+        text: '#FFFFFF',
+      },
+    },
   },
   // Typography
   fonts: {

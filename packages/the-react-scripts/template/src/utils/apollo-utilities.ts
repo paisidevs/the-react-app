@@ -8,7 +8,7 @@ const formatError = (message: any, path?: any) => {
       'color: #333; font-weight: 600', // message
       'color: gray; font-weight: lighter', // on
       'color: #333; font-weight: 600', // path
-      'color: gray; font-weight: lighter' // request.
+      'color: gray; font-weight: lighter', // request.
     ];
 
     const parts = ['%c message'];
@@ -23,7 +23,7 @@ const formatError = (message: any, path?: any) => {
 
   const headerCss = [
     'color: gray; font-weight: lighter', // title
-    'color: #333; font-weight: 600' // message
+    'color: #333; font-weight: 600', // message
   ];
 
   const parts = ['%c message'];
@@ -35,22 +35,22 @@ const formatError = (message: any, path?: any) => {
 
 const formatMessage = (operationType: any, operation: any, elapsed?: any) => {
   const headerCss = [
-    "color: gray; font-weight: lighter", // title
-    `color: ${operationType === "query" ? "#02B875" : "#03A9F4"};`, // operationType
-    "color: #000;" // operationName
+    'color: gray; font-weight: lighter', // title
+    `color: ${operationType === 'query' ? '#02B875' : '#03A9F4'};`, // operationType
+    'color: #000;', // operationName
   ];
 
-  const parts = ["%c apollo"];
+  const parts = ['%c apollo'];
 
   parts.push(`%c${operationType}`);
   parts.push(`%c${operation.operationName}`);
 
   if (elapsed) {
     parts.push(`%c(in ${elapsed} ms)`);
-    headerCss.push("color: gray; font-weight: lighter;"); // time
+    headerCss.push('color: gray; font-weight: lighter;'); // time
   }
 
-  return [parts.join(" "), ...headerCss];
+  return [parts.join(' '), ...headerCss];
 };
 
 const errorLink = onError(({ graphQLErrors, networkError, operation }: any) => {
@@ -107,10 +107,7 @@ const loggerLink = new ApolloLink(
         return result;
       })
     );
-  }
+  },
 );
 
-export {
-  errorLink,
-  loggerLink,
-};
+export { errorLink, loggerLink };

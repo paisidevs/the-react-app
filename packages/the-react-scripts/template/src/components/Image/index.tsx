@@ -23,14 +23,14 @@ export interface IImageProps extends SpaceProps {
  */
 
 const Image: FC<IImageProps> = ({ className, src, ...rest }) => {
-  const [isDocumentLoad, setDocumentLoaded] = useState(false)
+  const [isDocumentLoad, setDocumentLoaded] = useState(false);
   const [isCached, setIsCached] = useState(false);
   const cachedImagesRefString = window.sessionStorage.getItem('__TRA_IMG__');
   const imgEl = useRef(null);
 
   const triggerImageLoadOrObserver = () => {
     IOImageLazyLoader(imgEl.current);
-  }
+  };
 
   useEffect(() => {
     if (imgEl.current) {
@@ -55,7 +55,7 @@ const Image: FC<IImageProps> = ({ className, src, ...rest }) => {
 
     return () => {
       window.removeEventListener('load', () => setDocumentLoaded(false));
-    }
+    };
   }, []);
 
   useEffect(() => {
@@ -63,14 +63,18 @@ const Image: FC<IImageProps> = ({ className, src, ...rest }) => {
   }, [isDocumentLoad]);
 
   return (
-    <Wrapper className={classNames('', className)} isCached={isCached} {...rest}>
+    <Wrapper
+      className={classNames('', className)}
+      isCached={isCached}
+      {...rest}
+    >
       <img {...rest} ref={imgEl} data-src={src} />
     </Wrapper>
-  )
+  );
 };
 
 Image.defaultProps = {
   aspect: '1/1',
-}
+};
 
 export default Image;

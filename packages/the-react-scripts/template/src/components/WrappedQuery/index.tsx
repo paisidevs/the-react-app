@@ -6,7 +6,7 @@ import LoadingBar from '../LoadingBar';
 interface IWrappedQueryProps extends QueryProps {
   loader?: React.ReactNode;
   overrideStates?: boolean;
-};
+}
 
 /**
  * @render react
@@ -20,7 +20,9 @@ const WrappedQuery: FC<IWrappedQueryProps> = ({ children, ...rest }) => (
   <Query {...rest}>
     {(result: QueryResult) => {
       if (!rest.overrideStates) {
-        if (result.loading) { return rest.loader || <LoadingBar /> };
+        if (result.loading) {
+          return rest.loader || <LoadingBar />;
+        }
         if (result.error) return <span>{`Error!: ${result.error}`}</span>;
       }
 

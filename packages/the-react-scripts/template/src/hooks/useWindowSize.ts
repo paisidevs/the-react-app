@@ -2,7 +2,7 @@ import React from 'react';
 import { throttle } from '../utils';
 
 const events = new Set<() => void>();
-const onResize = () => events.forEach(fn => fn());
+const onResize = () => events.forEach((fn) => fn());
 
 const useWindowSize = (options: { throttleMs?: number } = {}) => {
   const { throttleMs = 100 } = options;

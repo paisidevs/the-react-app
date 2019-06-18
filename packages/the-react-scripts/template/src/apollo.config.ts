@@ -16,26 +16,19 @@ const httpLink = new HttpLink({
 
 const retryLink = new RetryLink();
 
-let clientLink = ApolloLink.from([
-  retryLink,
-  httpLink,
-]);
+let clientLink = ApolloLink.from([retryLink, httpLink]);
 
 if (NODE_ENV === 'development') {
-  import('./utils/apollo-utilities')
-    .then(({ errorLink, loggerLink }) => {
-      clientLink = ApolloLink.from([
-        loggerLink,
-        errorLink,
-        retryLink,
-        httpLink,
-      ]);
-    });
+  import('./utils/apollo-utilities').then(({ errorLink, loggerLink }) => {
+    clientLink = ApolloLink.from([loggerLink, errorLink, retryLink, httpLink]);
+  });
 }
 
 persistCache({
   cache,
-  storage: window.localStorage as PersistentStorage<PersistedData<NormalizedCacheObject>>,
+  storage: window.localStorage as PersistentStorage<
+    PersistedData<NormalizedCacheObject>
+  >,
 });
 
 const client = new ApolloClient({

@@ -7,14 +7,14 @@ const Wrapper = styled.button<IButtonProps>`
   align-items: center;
   background: transparent;
   border: none;
-  cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   display: flex;
   font-size: ${theme.fontSizes[2]}px;
   font-weight: ${theme.fontWeights[4]};
   justify-content: center;
-  letter-spacing: .0892857143em;
-  min-height: ${theme.space[4] + (theme.space[1] / 2)}px;
-  opacity: ${({ disabled, raised }) => raised && disabled ? '0.38' : '1'};
+  letter-spacing: 0.0892857143em;
+  min-height: ${theme.space[4] + theme.space[1] / 2}px;
+  opacity: ${({ disabled, raised }) => (raised && disabled ? '0.38' : '1')};
   outline: none;
   overflow: hidden;
   padding: ${theme.space[1]}px;
@@ -32,12 +32,14 @@ const Wrapper = styled.button<IButtonProps>`
     z-index: 1;
   }
 
-  i, i > svg {
-    height: ${({ iconSize }) => iconSize ? iconSize : '18'}px;
-    width: ${({ iconSize }) => iconSize ? iconSize : '18'}px;
+  i,
+  i > svg {
+    height: ${({ iconSize }) => (iconSize ? iconSize : '18')}px;
+    width: ${({ iconSize }) => (iconSize ? iconSize : '18')}px;
   }
 
-  &:after, &:before {
+  &:after,
+  &:before {
     content: '';
     height: 100%;
     position: absolute;
@@ -54,33 +56,41 @@ const Wrapper = styled.button<IButtonProps>`
   &:not([disabled]) {
     &:focus {
       &:before {
-        ${({ raised }) => !raised && css`
-          background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[3] : theme.colors.blacks[3]};
-        `};
+        ${({ raised }) =>
+          !raised &&
+          css`
+            background-color: ${({ theme }) =>
+              theme.isDark ? theme.colors.whites[3] : theme.colors.blacks[3]};
+          `};
       }
 
       &:after {
-        ${({ raised }) => raised && css`
-          background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.blacks[3] : theme.colors.whites[3]};
-        `};
+        ${({ raised }) =>
+          raised &&
+          css`
+            background-color: ${({ theme }) =>
+              theme.isDark ? theme.colors.blacks[3] : theme.colors.whites[3]};
+          `};
       }
     }
 
     &:hover {
       &:before {
-        ${({ raised }) => !raised && css`
-          background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[2] : theme.colors.blacks[2]};
-        `};
+        ${({ raised }) =>
+          !raised &&
+          css`
+            background-color: ${({ theme }) =>
+              theme.isDark ? theme.colors.whites[2] : theme.colors.blacks[2]};
+          `};
       }
 
       &:after {
-        ${({ raised }) => raised && css`
-          background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[2] : theme.colors.blacks[2]};
-        `};
+        ${({ raised }) =>
+          raised &&
+          css`
+            background-color: ${({ theme }) =>
+              theme.isDark ? theme.colors.whites[2] : theme.colors.blacks[2]};
+          `};
       }
     }
   }

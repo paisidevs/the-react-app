@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { makeDebugger } from '../utils';
@@ -16,7 +16,7 @@ function usePreviousLocation(props: RouteComponentProps) {
     ) {
       setPreviousLocation(props.location);
     }
-  }, [])
+  }, []);
   debug({ previousLocation });
 
   // Return previous location and setter

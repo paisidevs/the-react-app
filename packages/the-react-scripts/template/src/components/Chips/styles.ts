@@ -20,7 +20,8 @@ const Wrapper = styled.div`
     flex-basis: 100%;
     font-size: ${theme.fontSizes[2]}px;
     min-width: 280px;
-    padding: ${theme.space[2]}px ${theme.space[1] + theme.space[1] / 2}px ${theme.space[2]}px 0;
+    padding: ${theme.space[2]}px ${theme.space[1] + theme.space[1] / 2}px
+      ${theme.space[2]}px 0;
 
     &:focus,
     &:hover {

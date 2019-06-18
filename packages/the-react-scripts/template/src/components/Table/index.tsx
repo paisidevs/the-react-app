@@ -15,7 +15,7 @@ interface ITableProps {
   onRowClick?: (rowInfo: RowInfo) => void;
 
   wrapperProps?: { [key: string]: any };
-};
+}
 
 /**
  * @render react
@@ -36,7 +36,7 @@ const Table: FC<ITableProps> = (props) => {
     }
 
     return null;
-  }
+  };
 
   return (
     <Box width="100%">

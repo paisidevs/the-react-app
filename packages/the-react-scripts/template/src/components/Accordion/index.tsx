@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useState } from "react";
-import classNames from "classnames";
+import React, { FunctionComponent, useState } from 'react';
+import classNames from 'classnames';
 // Styles
-import Wrapper from "./styles";
-import { FiChevronDown } from "react-icons/fi";
+import Wrapper from './styles';
+import { FiChevronDown } from 'react-icons/fi';
 
 export interface IProps {
   children: any;
@@ -27,14 +27,14 @@ const Accordion: FunctionComponent<IProps> = ({
   children,
   className,
   onToggle,
-  title
+  title,
 }) => {
   const [visibility, setVisibility] = useState(false);
 
   return (
     <Wrapper
-      className={classNames("c-accordion", className, {
-        "-open": visibility
+      className={classNames('c-accordion', className, {
+        '-open': visibility,
       })}
     >
       <header

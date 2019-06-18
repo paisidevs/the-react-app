@@ -9,4 +9,3 @@ describe('Spacer', () => {
     render(<Spacer spacing={24} />);
   });
 });
-

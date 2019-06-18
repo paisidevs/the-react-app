@@ -9,7 +9,7 @@ import { useAuthentication } from '@app/hooks';
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Auth');
 
-interface IAuthProps extends RouteComponentProps { }
+interface IAuthProps extends RouteComponentProps {}
 
 /**
  * @render react
@@ -22,7 +22,7 @@ const Auth = ({ location }: IAuthProps) => {
 
   const handleAuth = () => {
     setJWT(new Date().toISOString());
-  }
+  };
 
   return !isAuthenticated ? (
     <Page>
@@ -35,7 +35,15 @@ const Auth = ({ location }: IAuthProps) => {
         <Button onClick={handleAuth} text="Authenticate" />
       </Inner>
     </Page>
-  ) : <Redirect to={location && location.state && location.state.from ? location.state.from : '/'} />;
-}
+  ) : (
+    <Redirect
+      to={
+        location && location.state && location.state.from
+          ? location.state.from
+          : '/'
+      }
+    />
+  );
+};
 
 export default Auth;

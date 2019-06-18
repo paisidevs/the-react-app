@@ -10,7 +10,8 @@ const Wrapper = styled(Button)`
   overflow: hidden;
   width: 56px;
 
-  i, i > svg {
+  i,
+  i > svg {
     height: 24px;
     width: 24px;
   }

@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { ICardProps } from "./index";
+import styled, { css } from 'styled-components';
+import { ICardProps } from './index';
 import { theme } from '@app/theme';
 import H6 from '@app/typography/H6';
 
@@ -26,8 +26,8 @@ export const Content = styled.div<ICardProps>`
 
 export const Description = styled.p`
   font-size: ${theme.fontSizes[2]}px;
-  color: ${({ theme }) => theme.isDark
-    ? theme.colors.whites[8] : theme.colors.blacks[8]};
+  color: ${({ theme }) =>
+    theme.isDark ? theme.colors.whites[8] : theme.colors.blacks[8]};
   line-height: 1.5;
 `;
 

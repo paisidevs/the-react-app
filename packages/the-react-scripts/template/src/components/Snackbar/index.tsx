@@ -11,7 +11,7 @@ export interface ISnackbarProps extends StyledSystemProps {
   actions?: React.ReactNode;
   leading?: boolean;
   text?: string;
-};
+}
 
 /**
  * @render react
@@ -24,8 +24,12 @@ export interface ISnackbarProps extends StyledSystemProps {
 const Snackbar: FC<ISnackbarProps> = ({ leading, m, text, ...rest }) => (
   <Wrapper m={m} leading={leading}>
     <Surface size={0}>
-      <Label role="status" aria-live="polite">{text}</Label>
-      <Actions ml={1} size={0}>{rest.actions && rest.actions}</Actions>
+      <Label role="status" aria-live="polite">
+        {text}
+      </Label>
+      <Actions ml={1} size={0}>
+        {rest.actions && rest.actions}
+      </Actions>
     </Surface>
   </Wrapper>
 );

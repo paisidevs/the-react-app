@@ -14,13 +14,13 @@ export default createGlobalStyle`
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.isDark
-      ? theme.colors.whites[5] : theme.colors.blacks[5]};
+    background-color: ${({ theme }) =>
+      theme.isDark ? theme.colors.whites[5] : theme.colors.blacks[5]};
   }
 
   *::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.isDark
-      ? theme.colors.blacks[7] : theme.colors.whites[7]};
+    background: ${({ theme }) =>
+      theme.isDark ? theme.colors.blacks[7] : theme.colors.whites[7]};
   } */
 
   html,

@@ -9,4 +9,3 @@ describe('Toggle', () => {
     render(<Toggle />);
   });
 });
-

@@ -4,7 +4,7 @@ import ScrollView, { IScrollViewProps } from '../ScrollView';
 
 interface IPageProps extends IScrollViewProps {
   children: React.ReactNode;
-};
+}
 
 /**
  * @render react

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { StyledSystemProps } from 'styled-system';
 import { typography } from '@app/theme/componentTypes';
 
@@ -16,7 +16,7 @@ const H1 = styled.h1<StyledSystemProps>`
 
 H1.defaultProps = {
   color: 'text',
-  fontSize: [8,9],
-}
+  fontSize: [8, 9],
+};
 
 export default H1;

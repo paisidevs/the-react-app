@@ -10,7 +10,7 @@ describe('Header', () => {
     render(
       <BrowserRouter>
         <Header />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
 });

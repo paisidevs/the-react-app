@@ -16,14 +16,17 @@ const Wrapper = styled.div`
   min-height: ${theme.space[4]}px;
   padding: 0 12px;
 
-  i, i > svg {
+  i,
+  i > svg {
     height: 18px;
     width: 18px;
   }
 
-  ${({ showRemove }: IChipProps) => showRemove && css`
-    padding-right: ${theme.space[0]}px;
-  `}
+  ${({ showRemove }: IChipProps) =>
+    showRemove &&
+    css`
+      padding-right: ${theme.space[0]}px;
+    `}
 `;
 
 export const ChipIcon = styled.i``;

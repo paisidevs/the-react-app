@@ -14,7 +14,7 @@ describe('PublicRoute', () => {
         <Switch>
           <PublicRoute path="/Public" component={PublicComponent} />
         </Switch>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
 });

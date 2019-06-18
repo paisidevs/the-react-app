@@ -10,7 +10,7 @@ import Wrapper from './styles';
 interface IProps {
   className?: string;
   [key: string]: any;
-};
+}
 
 /**
  * @render react
@@ -27,7 +27,7 @@ const Select: FC<IProps> = ({ className, onChange, ...rest }) => {
         ...event,
         name: rest.name,
       },
-    })
+    });
   };
 
   return (

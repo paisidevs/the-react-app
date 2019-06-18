@@ -14,17 +14,17 @@ export const Tracks = styled.ol`
   margin: 0;
   padding: 40px 0;
 
-  ${(props: { verticalTrack: boolean }) => props.verticalTrack && css`
-    align-items: flex-start;
-    flex-direction: column;
-  `};
+  ${(props: { verticalTrack: boolean }) =>
+    props.verticalTrack &&
+    css`
+      align-items: flex-start;
+      flex-direction: column;
+    `};
 `;
 
 export const Track = styled.li`
-  align-items: ${
-    (props: { verticalTrack: boolean }) => props.verticalTrack
-    ? 'flex-start' : 'center'
-  };
+  align-items: ${(props: { verticalTrack: boolean }) =>
+    props.verticalTrack ? 'flex-start' : 'center'};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,10 +36,8 @@ export const Track = styled.li`
       align-items: center;
       cursor: pointer;
       display: flex;
-      flex-direction: ${
-        (props: { verticalTrack: boolean }) => props.verticalTrack
-        ? 'row' : 'column'
-      };
+      flex-direction: ${(props: { verticalTrack: boolean }) =>
+        props.verticalTrack ? 'row' : 'column'};
       justify-content: center;
       min-height: ${theme.colors.space[4]}px;
     }
@@ -72,12 +70,14 @@ export const Track = styled.li`
       visibility: hidden;
       width: 50%;
 
-      ${(props: { verticalTrack: boolean }) => props.verticalTrack && css`
-        bottom: -12.5%;
-        height: 25%;
-        width: ${theme.colors.space[1] / 2}px;
-        right: auto;
-      `};
+      ${(props: { verticalTrack: boolean }) =>
+        props.verticalTrack &&
+        css`
+          bottom: -12.5%;
+          height: 25%;
+          width: ${theme.colors.space[1] / 2}px;
+          right: auto;
+        `};
     }
   }
 

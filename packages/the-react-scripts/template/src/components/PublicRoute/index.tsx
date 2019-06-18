@@ -8,7 +8,7 @@ import { IRouteProps } from '../Routes';
 
 interface IPublicRouteProps extends RouteProps {
   routes?: IRouteProps[];
-};
+}
 
 /**
  * @render react
@@ -18,7 +18,10 @@ interface IPublicRouteProps extends RouteProps {
  * <PublicRoute />
  */
 
-const PublicRoute: FC<IPublicRouteProps> = ({ component: Component, ...rest }) => {
+const PublicRoute: FC<IPublicRouteProps> = ({
+  component: Component,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}

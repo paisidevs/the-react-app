@@ -33,11 +33,10 @@ const DatePickerForm = () => (
       </Form>
     )}
   />
-)
+);
 
 describe('SingleDatePicker', () => {
   it('should render without crashing', () => {
     render(<DatePickerForm />);
   });
 });
-

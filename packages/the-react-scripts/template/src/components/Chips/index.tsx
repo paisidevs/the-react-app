@@ -18,7 +18,7 @@ interface IChipsProps extends FontSizeProps {
   onRemove?: Function;
   uniqueChips?: boolean;
   value: string[];
-};
+}
 
 /**
  * @render react
@@ -32,7 +32,7 @@ const Chips: FC<IChipsProps> = (props) => {
   const { className, onAdd, onRemove } = props;
   const [state, setState] = useState({
     chips: props.value,
-    value: ''
+    value: '',
   });
 
   const addChip = (value: string) => {
@@ -40,10 +40,10 @@ const Chips: FC<IChipsProps> = (props) => {
       setState({ ...state, value: '' });
       return;
     }
-    const chips = [...state.chips, value]
+    const chips = [...state.chips, value];
     setState({ ...state, chips, value: '' });
     onAdd && onAdd(chips);
-  }
+  };
 
   const removeChip = (idx: number) => () => {
     const left = state.chips.slice(0, idx);
@@ -51,29 +51,32 @@ const Chips: FC<IChipsProps> = (props) => {
     const nextChips = [...left, ...right];
     setState({ ...state, chips: nextChips });
     onRemove && onRemove(nextChips);
-  }
+  };
 
-  const renderChip = (value: string) => <Chip text={value} />
+  const renderChip = (value: string) => <Chip text={value} />;
 
   const renderChips = () => {
     return state.chips.map((chip: any, idx: number) => {
-      return (
-        React.cloneElement(renderChip(chip), {
-          onRemove: removeChip(idx),
-          fontSize: props.fontSize,
-          index: idx,
-          key: `chip${idx}`,
-          showRemove: true,
-        })
-      );
+      return React.cloneElement(renderChip(chip), {
+        onRemove: removeChip(idx),
+        fontSize: props.fontSize,
+        index: idx,
+        key: `chip${idx}`,
+        showRemove: true,
+      });
     });
-  }
+  };
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
 
-    if (value.indexOf(',') !== -1 && props.createChipKeys && props.createChipKeys.includes(9)) {
-      const chips = value.split(',')
+    if (
+      value.indexOf(',') !== -1 &&
+      props.createChipKeys &&
+      props.createChipKeys.includes(9)
+    ) {
+      const chips = value
+        .split(',')
         .map((val: string) => val.trim())
         .filter((val: string) => val !== '');
 
@@ -81,7 +84,7 @@ const Chips: FC<IChipsProps> = (props) => {
     } else {
       setState({ ...state, value });
     }
-  }
+  };
 
   /**
    *
@@ -103,7 +106,7 @@ const Chips: FC<IChipsProps> = (props) => {
     if (event.keyCode === 8) {
       onBackspace();
     }
-  }
+  };
 
   function onBackspace() {
     if (state.value === '' && state.chips.length > 0) {
@@ -123,7 +126,7 @@ const Chips: FC<IChipsProps> = (props) => {
   return (
     <Wrapper className={classNames('c-chips', className)}>
       {renderChips()}
-      <input type='text' {...inputProps} />
+      <input type="text" {...inputProps} />
     </Wrapper>
   );
 };
