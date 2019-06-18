@@ -38,7 +38,7 @@ const render = () => {
 render();
 
 if (module.hot && MOUNT_NODE) {
-  // Hot reloadable React components and translation json files
+  // Hot reloadable React components
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
   module.hot.accept('./containers/App', () => {
@@ -56,6 +56,5 @@ if (process.env.NODE_ENV !== 'production') {
 // it's not most important operation and if main code fails,
 // we do not want it installed
 if (process.env.NODE_ENV === 'production') {
-  // tslint:disable-next-line:no-var-requires
   require('offline-plugin/runtime').install();
 }
