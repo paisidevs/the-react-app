@@ -4,7 +4,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 
 import { Inner, Page } from '@app/components';
 
-import { H2 } from '@app/typography';
+import { H2, Text } from '@app/typography';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('NotFound');
@@ -31,7 +31,7 @@ const NotFound = (props: INotFoundProps) => {
         <Link to="/private">
           <H2 mb={0}>Oops!</H2>
         </Link>
-        <p>The page you're looking for doesn't exist.</p>
+        <Text>The page you're looking for doesn't exist.</Text>
       </Inner>
     </Page>
   );

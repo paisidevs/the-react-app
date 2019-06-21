@@ -6,6 +6,7 @@ import Page from './index';
 
 describe('Page', () => {
   it('should render without crashing', () => {
-    render(<Page>Page goes here...</Page>);
+    const { container } = render(<Page>Page goes here...</Page>);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

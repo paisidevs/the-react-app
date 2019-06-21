@@ -6,6 +6,7 @@ import ScrollView from './index';
 
 describe('ScrollView', () => {
   it('should render without crashing', () => {
-    render(<ScrollView />);
+    const { container } = render(<ScrollView />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

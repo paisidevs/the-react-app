@@ -4,6 +4,7 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { useAuthentication } from '@app/hooks';
 import { IRouteProps } from '../Routes';
 import LoadingBar from '../LoadingBar';
+import ErrorBoundary from '../ErrorBoundary';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('PrivateRoute');
@@ -27,22 +28,24 @@ const PrivateRoute: FC<IPrivateRouteProps> = ({
   const { authenticating, isAuthenticated } = useAuthentication();
 
   return !authenticating ? (
-    <Route
-      {...rest}
-      render={(props) =>
-        isAuthenticated ? (
-          // @ts-ignore
-          <Component routes={rest.routes} {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/auth',
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
+    <ErrorBoundary>
+      <Route
+        {...rest}
+        render={(props) =>
+          isAuthenticated ? (
+            // @ts-ignore
+            <Component routes={rest.routes} {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/auth',
+                state: { from: props.location },
+              }}
+            />
+          )
+        }
+      />
+    </ErrorBoundary>
   ) : (
     <LoadingBar />
   );

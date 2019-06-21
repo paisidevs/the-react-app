@@ -1,16 +1,6 @@
 import styled from 'styled-components';
-import {
-  space,
-  StyledSystemProps,
-  alignItems,
-  display,
-  flex,
-  flexDirection,
-  justifyContent,
-  flexWrap,
-  order,
-  compose,
-} from 'styled-system';
+import { compose, StyledSystemProps } from 'styled-system';
+import { flexbox, layout } from '@app/theme/componentTypes';
 
 export interface IFlexProps extends StyledSystemProps {}
 
@@ -25,14 +15,8 @@ export interface IFlexProps extends StyledSystemProps {}
  */
 
 export const FlexStyles = compose(
-  alignItems,
-  display,
-  flex,
-  flexDirection,
-  flexWrap,
-  justifyContent,
-  order,
-  space,
+  layout,
+  flexbox,
 );
 
 const Flex = styled.div<IFlexProps>`
@@ -41,7 +25,6 @@ const Flex = styled.div<IFlexProps>`
 
 Flex.defaultProps = {
   display: 'flex',
-  flexDirection: 'row',
   flex: 1,
 };
 

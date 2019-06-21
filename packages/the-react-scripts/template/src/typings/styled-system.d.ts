@@ -19,11 +19,13 @@ import {
   MaxWidthProps,
   MinHeightProps,
   MinWidthProps,
+  OverflowProps,
   PositionProps,
   SizeProps,
   SpaceProps,
   TextAlignProps,
   WidthProps,
+  ZIndexProps,
 } from 'styled-system';
 
 declare module 'styled-system' {
@@ -47,9 +49,11 @@ declare module 'styled-system' {
       MaxWidthProps,
       MinHeightProps,
       MinWidthProps,
+      OverflowProps,
       PositionProps,
       SizeProps,
       SpaceProps,
       TextAlignProps,
-      WidthProps {}
+      WidthProps,
+      ZIndexProps {}
 }

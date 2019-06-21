@@ -6,12 +6,13 @@ import Grid from './index';
 
 describe('Grid', () => {
   it('should display a grid', () => {
-    render(
+    const { container } = render(
       <Grid columns={2}>
         <div>1</div>
         <div>2</div>
         <div>3</div>
       </Grid>,
     );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

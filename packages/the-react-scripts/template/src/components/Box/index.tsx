@@ -1,27 +1,11 @@
 import styled from 'styled-components';
-import {
-  compose,
-  alignSelf,
-  borderRadius,
-  borders,
-  boxShadow,
-  color,
-  fontSize,
-  height,
-  maxWidth,
-  minHeight,
-  minWidth,
-  overflow,
-  position,
-  top,
-  width,
-  zIndex,
-  StyledSystemProps,
-} from 'styled-system';
-// Styles
-import Flex, { FlexStyles } from '../Flex';
+import { compose, border, boxShadow } from 'styled-system';
 
-export interface IBoxProps extends StyledSystemProps {}
+import { positioning, typography } from '@app/theme/componentTypes';
+
+import Flex, { IFlexProps } from '../Flex';
+
+export interface IBoxProps extends IFlexProps {}
 
 /**
  * @render react
@@ -32,23 +16,10 @@ export interface IBoxProps extends StyledSystemProps {}
  */
 
 export const BoxStyles = compose(
-  FlexStyles,
-
-  alignSelf,
-  borders,
-  borderRadius,
+  border,
   boxShadow,
-  color,
-  fontSize,
-  height,
-  maxWidth,
-  minHeight,
-  minWidth,
-  overflow,
-  position,
-  top,
-  width,
-  zIndex,
+  positioning,
+  typography,
 );
 
 const Box = styled(Flex)<IBoxProps>`
@@ -58,7 +29,6 @@ const Box = styled(Flex)<IBoxProps>`
 `;
 
 Box.defaultProps = {
-  display: 'flex',
   flexDirection: 'column',
   position: 'relative',
   width: '100%',

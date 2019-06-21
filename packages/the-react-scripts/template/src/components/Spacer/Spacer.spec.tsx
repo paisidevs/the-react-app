@@ -6,6 +6,7 @@ import Spacer from './index';
 
 describe('Spacer', () => {
   it('should render without crashing', () => {
-    render(<Spacer spacing={24} />);
+    const { container } = render(<Spacer spacing={24} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

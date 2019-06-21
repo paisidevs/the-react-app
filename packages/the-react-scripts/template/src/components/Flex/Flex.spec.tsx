@@ -6,6 +6,7 @@ import Flex from './index';
 
 describe('Flex', () => {
   it('should render without crashing', () => {
-    render(<Flex />);
+    const { container } = render(<Flex />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

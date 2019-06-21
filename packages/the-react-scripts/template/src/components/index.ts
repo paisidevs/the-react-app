@@ -1,6 +1,8 @@
 export { default as Box } from './Box';
 export { default as Button } from './Button';
+export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as Flex } from './Flex';
+export { default as Header } from './Header';
 export { default as HorizontalScroller } from './HorizontalScroller';
 export { default as Image } from './Image';
 export { default as Inner } from './Inner';

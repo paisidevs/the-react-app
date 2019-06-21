@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-
-import Box, { BoxStyles } from '../Box';
 import { StyledSystemProps } from 'styled-system';
+
+import Box from '../Box';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('ScrollView');
@@ -17,17 +17,15 @@ export interface IScrollViewProps extends StyledSystemProps {}
  */
 
 const ScrollView = styled(Box)<IScrollViewProps>`
-  ${BoxStyles};
-
   -webkit-overflow-scrolling: touch;
-  overflow: auto;
   overscroll-behavior: contain;
-  z-index: 0;
 `;
 
 ScrollView.defaultProps = {
   height: '100%',
+  overflow: 'auto',
   width: '100%',
+  zIndex: 0,
 };
 
 export default ScrollView;

@@ -6,6 +6,7 @@ import Box from './index';
 
 describe('Box', () => {
   it('should render without crashing', () => {
-    render(<Box />);
+    const { container } = render(<Box />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

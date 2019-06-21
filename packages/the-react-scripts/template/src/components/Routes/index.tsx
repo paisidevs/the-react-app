@@ -18,8 +18,6 @@ interface IRoutesProps extends SwitchProps {
 }
 
 const Wrapper = styled(Box)`
-  flex: 1;
-
   & > div {
     position: absolute;
     width: 100%;
@@ -60,34 +58,12 @@ const Routes: FC<IRoutesProps> = ({ location, routes }) => {
       {routeTransitions.map(({ item, props: styleProps, key }) => (
         <AnimatedWrapper key={key} style={styleProps}>
           <Switch location={item}>
-            {routes.map(
-              (
-                {
-                  component: Component,
-                  exact,
-                  path,
-                  routes,
-                  secure,
-                }: IRouteProps,
-                index: number,
-              ) =>
-                secure ? (
-                  <PrivateRoute
-                    {...(exact ? { exact: true } : {})}
-                    key={index}
-                    path={path}
-                    component={Component}
-                    routes={routes}
-                  />
-                ) : (
-                  <PublicRoute
-                    {...(exact ? { exact: true } : {})}
-                    key={index}
-                    path={path}
-                    component={Component}
-                    routes={routes}
-                  />
-                ),
+            {routes.map(({ secure, ...rest }: IRouteProps, index: number) =>
+              secure ? (
+                <PrivateRoute key={index} {...rest} />
+              ) : (
+                <PublicRoute key={index} {...rest} />
+              ),
             )}
           </Switch>
         </AnimatedWrapper>

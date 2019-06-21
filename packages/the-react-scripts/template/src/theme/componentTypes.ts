@@ -47,13 +47,12 @@ import {
   verticalAlign,
   width,
   zIndex,
+  overflow,
 } from 'styled-system';
 
 export const core = compose(
   color,
-  fontSize,
   space,
-  width,
 );
 
 export const flexbox = compose(
@@ -95,8 +94,10 @@ export const layout = compose(
   height,
   maxHeight,
   minHeight,
+  overflow,
   size,
   verticalAlign,
+  width,
 );
 
 export const positioning = compose(
@@ -112,6 +113,7 @@ export const positioning = compose(
 export const typography = compose(
   core,
   fontFamily,
+  fontSize,
   fontStyle,
   fontWeight,
   letterSpacing,

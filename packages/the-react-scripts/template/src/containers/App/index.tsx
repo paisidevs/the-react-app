@@ -2,15 +2,12 @@ import React, { FC } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Normalize } from 'styled-normalize';
 // Components
-import ErrorBoundary from '@app/components/ErrorBoundary';
-import Header from '@app/components/Header';
+import { Box, ErrorBoundary, Header } from '@app/components';
 import Routes from '@app/components/Routes/Loadable';
 // Contexts
 import { AppProvider } from '@app/contexts';
 // Routes
 import routes from '@app/routes';
-// Styles
-import { Wrapper } from './styles';
 
 import GlobalStyles from '@app/global-styles';
 
@@ -29,16 +26,18 @@ export interface IAppProps extends RouteComponentProps {}
 const App: FC<IAppProps> = (props) => {
   return (
     <AppProvider>
-      <Wrapper>
+      <Box height="100%" overflow="hidden">
         <Normalize />
         <GlobalStyles />
         <ErrorBoundary>
           <Header />
         </ErrorBoundary>
-        <ErrorBoundary>
-          <Routes location={props.location} routes={routes} />
-        </ErrorBoundary>
-      </Wrapper>
+        <Box>
+          <ErrorBoundary>
+            <Routes location={props.location} routes={routes} />
+          </ErrorBoundary>
+        </Box>
+      </Box>
     </AppProvider>
   );
 };

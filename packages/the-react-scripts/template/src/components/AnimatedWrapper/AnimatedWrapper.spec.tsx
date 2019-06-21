@@ -6,6 +6,7 @@ import AnimatedWrapper from './index';
 
 describe('AnimatedWrapper', () => {
   it('should render without crashing', () => {
-    render(<AnimatedWrapper />);
+    const { container } = render(<AnimatedWrapper />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
