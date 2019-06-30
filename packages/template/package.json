@@ -5,7 +5,11 @@
   "author": "Thandolwethu Mpofu",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development the-react-scripts start"
+    "analyze": "the-react-scripts analyze",
+    "build": "the-react-scripts build",
+    "generate": "the-react-scripts generate",
+    "start": "cross-env NODE_ENV=development the-react-scripts start",
+    "start:prod": "cross-env NODE_ENV=production the-react-scripts start"
   },
   "dependencies": {
     "apollo-cache-inmemory": "1.6.2",
