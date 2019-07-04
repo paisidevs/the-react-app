@@ -4,17 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "analyze": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts analyze",
-    "build": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts build",
-    "generate": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts generate",
-    "lh": "cd ./packages/the-react-scripts && npm run lh",
-    "prettify": "prettier --config .prettierrc --write '**/template/**/*.{ts,tsx}'",
-    "sb": "cd ./packages/the-react-scripts && npm run storybook",
-    "setup": "node tasks/setup.js",
-    "start": "cd ./packages/the-react-scripts && cross-env NODE_ENV=development node ./bin/the-react-scripts start",
-    "storybook": "cd ./packages/the-react-scripts && npm run storybook",
-    "start:prod": "cd ./packages/the-react-scripts && cross-env NODE_ENV=production node ./bin/the-react-scripts start",
-    "test": "cd ./packages/the-react-scripts && node ./bin/the-react-scripts test"
+    "start": "lerna run --parallel start"
   },
   "devDependencies": {
     "cross-env": "5.2.0",

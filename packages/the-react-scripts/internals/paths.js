@@ -64,37 +64,4 @@ module.exports = {
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
 };
-
-const ownPackageJson = require('../package.json');
-
-const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
-const reactScriptsLinked =
-  fs.existsSync(reactScriptsPath) &&
-  fs.lstatSync(reactScriptsPath).isSymbolicLink();
-
-// config before publish: we're in ./packages/the-react-scripts/internals
-if (
-  !reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'the-react-scripts', 'internals')) !== -1
-) {
-  module.exports = {
-    dotenv: resolveOwn('template/.env'),
-    appPath: resolveApp('.'),
-    appBuild: resolveOwn('template/build'),
-    appComponents: resolveApp('template/src/components'),
-    appContainers: resolveApp('template/src/containers'),
-    appHtml: resolveOwn('template/src/index.html'),
-    appIcon: resolveApp('template/src/images/icon-512x512.png'),
-    appIndexJs: resolveOwn('template/src/index.tsx'),
-    appNodeModules: resolveOwn('node_modules'),
-    appPackageJson: resolveOwn('package.json'),
-    appPages: resolveApp('template/src/pages'),
-    appSrc: resolveOwn('template/src'),
-    appTsConfig: resolveOwn('template/tsconfig.json'),
-    testsSetup: resolveModule(resolveOwn, 'template/src/setupTests'),
-    // These properties only exist before ejecting:
-    ownPath: resolveOwn('.'),
-    ownNodeModules: resolveOwn('node_modules'),
-  };
-}
 // @remove-on-eject-end
