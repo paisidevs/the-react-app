@@ -4,9 +4,9 @@ import Button from '../Button';
 import theme from '../../theme';
 import { IChipProps } from './index';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<IChipProps>`
   align-items: center;
-  background-color: ${theme.colors.blacks[3]};
+  background-color: ${theme.colors.opacity.blacks[3]};
   border-radius: ${theme.space[2]}px;
   display: inline-flex;
   flex: none;

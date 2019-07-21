@@ -71,7 +71,7 @@ const Header: FC<IHeaderProps> = (props) => {
 };
 
 Header.defaultProps = {
-  bg: 'surface',
+  bg: 'background.surface',
   height: [64, 88],
 };
 

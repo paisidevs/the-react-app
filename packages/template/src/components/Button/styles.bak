@@ -67,14 +67,14 @@ const Wrapper = styled.button<IButtonProps>`
       &:before {
         ${({ raised }) => !raised && css`
           background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[3] : theme.colors.blacks[3]};
+            ? theme.colors.opacity.whites[3] : theme.colors.opacity.blacks[3]};
         `};
       }
 
       &:after {
         ${({ raised }) => raised && css`
           background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.blacks[3] : theme.colors.whites[3]};
+            ? theme.colors.opacity.blacks[3] : theme.colors.opacity.whites[3]};
         `};
       }
     }
@@ -83,14 +83,14 @@ const Wrapper = styled.button<IButtonProps>`
       &:before {
         ${({ raised }) => !raised && css`
           background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[2] : theme.colors.blacks[2]};
+            ? theme.colors.opacity.whites[2] : theme.colors.opacity.blacks[2]};
         `};
       }
 
       &:after {
         ${({ raised }) => raised && css`
           background-color: ${({ theme }) => theme.isDark
-            ? theme.colors.whites[2] : theme.colors.blacks[2]};
+            ? theme.colors.opacity.whites[2] : theme.colors.opacity.blacks[2]};
         `};
       }
     }
@@ -98,17 +98,17 @@ const Wrapper = styled.button<IButtonProps>`
 
   ${({ outlined }) => outlined && css`
     border: ${theme.borders[1]} ${({ theme }) => theme.isDark
-      ? theme.colors.whites[1] : theme.colors.blacks[1]};
+      ? theme.colors.opacity.whites[1] : theme.colors.opacity.blacks[1]};
     padding: ${theme.space[1]}px ${theme.space[2]}px;
   `};
 
   ${({ backgroundColor, raised, textColor }) => raised && css`
-    background-color: ${backgroundColor || theme.colors.primary};
+    background-color: ${backgroundColor || theme.colors.primary.base};
     box-shadow:
-      0 3px 1px -2px ${theme.colors.blacks[4]},
-      0 2px 2px 0 ${theme.colors.blacks[3]},
-      0 1px 5px 0 ${theme.colors.blacks[3]};
-    color: ${textColor || theme.colors.white};
+      0 3px 1px -2px ${theme.colors.opacity.blacks[4]},
+      0 2px 2px 0 ${theme.colors.opacity.blacks[3]},
+      0 1px 5px 0 ${theme.colors.opacity.blacks[3]};
+    color: ${textColor || theme.colors.solid.white};
     padding: ${theme.space[1]}px ${theme.space[2]}px;
   `};
 

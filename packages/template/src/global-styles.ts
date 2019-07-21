@@ -8,28 +8,32 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  *::-webkit-scrollbar {
+  /* *::-webkit-scrollbar {
     width: ${theme.space[1] / 2}px !important;
     height: ${theme.space[1] / 4}px !important;
   }
 
   *::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) =>
-      theme.isDark ? theme.colors.whites[5] : theme.colors.blacks[5]};
+      theme.isDark
+        ? theme.colors.opacity.whites[5]
+        : theme.colors.opacity.blacks[5]};
   }
 
   *::-webkit-scrollbar-track {
     background: ${({ theme }) =>
-      theme.isDark ? theme.colors.blacks[7] : theme.colors.whites[7]};
-  }
+      theme.isDark
+        ? theme.colors.opacity.blacks[7]
+        : theme.colors.opacity.whites[7]};
+  } */
 
   html,
   body,
   #app {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.background.base};
+    color: ${({ theme }) => theme.colors.text.default};
     font-family: ${theme.fonts.sansSerif};
     font-feature-settings: 'liga', 'kern' 1;
     font-kerning: normal;
@@ -46,7 +50,7 @@ export default createGlobalStyle`
   }
 
   [href] {
-    color: ${({ theme }) => theme.colors.link};
+    color: ${({ theme }) => theme.colors.intent.info};
     text-decoration: none;
   }
 `;

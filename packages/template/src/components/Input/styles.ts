@@ -82,7 +82,7 @@ const Wrapper = styled.div<IWrapperProps>`
 
     &:focus,
     &:hover {
-      border: ${theme.borders[1]} ${theme.colors.primary};
+      border: ${theme.borders[1]} ${theme.colors.primary.base};
       outline: none;
     }
 
@@ -99,8 +99,8 @@ const Wrapper = styled.div<IWrapperProps>`
     }
 
     &:checked ~ .a-checkbox {
-      border-color: ${theme.colors.primary};
-      background: ${theme.colors.primary}
+      border-color: ${theme.colors.primary.base};
+      background: ${theme.colors.primary.base}
         url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyMCA2IDkgMTcgNCAxMiI+PC9wb2x5bGluZT48L3N2Zz4=)
         center no-repeat;
       background-size: 75%;
@@ -162,7 +162,9 @@ const Wrapper = styled.div<IWrapperProps>`
 
 export const HelperText = styled.span`
   color: ${({ theme }) =>
-    theme.isDark ? theme.colors.whites[8] : theme.colors.blacks[8]};
+    theme.isDark
+      ? theme.colors.opacity.whites[8]
+      : theme.colors.opacity.blacks[8]};
   display: block;
   font-size: ${theme.fontSizes[0]}px;
   padding: ${theme.space[1] / 2}px ${theme.space[1] + theme.space[1] / 2}px 0

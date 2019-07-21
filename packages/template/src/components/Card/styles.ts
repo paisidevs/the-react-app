@@ -6,11 +6,11 @@ import H6 from '@app/typography/H6';
 const Wrapper = styled.div<ICardProps>`
   border-radius: 2px;
   /* box-shadow: 0 10px 10px -6px rgba(214, 219, 230, 0.6); */
-  background-color: ${({ theme }) => theme.colors.surface};
+  background-color: ${({ theme }) => theme.colors.background.surface};
   width: 100%;
 
   .a-image {
-    background-color: ${({ theme }) => theme.colors.cardBorderColor};
+    background-color: ${({ theme }) => theme.colors.border.default};
     min-height: 224px;
     width: 100%;
   }
@@ -27,13 +27,15 @@ export const Content = styled.div<ICardProps>`
 export const Description = styled.p`
   font-size: ${theme.fontSizes[2]}px;
   color: ${({ theme }) =>
-    theme.isDark ? theme.colors.whites[8] : theme.colors.blacks[8]};
+    theme.isDark
+      ? theme.colors.opacity.whites[8]
+      : theme.colors.opacity.blacks[8]};
   line-height: 1.5;
 `;
 
 export const Title = styled(H6)`
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text.default};
 
   svg {
     margin-bottom: -6px;

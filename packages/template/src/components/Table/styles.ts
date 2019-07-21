@@ -5,7 +5,7 @@ import 'react-table/react-table.css';
 import { theme } from '@app/theme';
 
 export const StyledTable = styled(ReactTable)`
-  background: ${({ theme }) => theme.colors.surface};
+  background: ${({ theme }) => theme.colors.background.surface};
   border-radius: 4px;
 
   .rt-thead.-header {

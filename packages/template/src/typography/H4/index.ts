@@ -15,7 +15,7 @@ const H4 = styled.h4<StyledSystemProps>`
 `;
 
 H4.defaultProps = {
-  color: 'text',
+  color: 'text.default',
   fontSize: [5, 6],
 };
 

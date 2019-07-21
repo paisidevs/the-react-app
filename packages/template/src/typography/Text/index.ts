@@ -15,7 +15,7 @@ const Text = styled.p<StyledSystemProps>`
 `;
 
 Text.defaultProps = {
-  color: 'text',
+  color: 'text.default',
 };
 
 export default Text;

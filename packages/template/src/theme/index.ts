@@ -9,32 +9,25 @@ export const LAYOUT = {
   baseline: 8, // dp
 };
 
-export const theme: DefaultTheme = {
-  borders: [
-    0,
-    '1px solid',
-    '2px solid',
-    '4px solid',
-    '8px solid',
-    '16px solid',
-    '32px solid',
-  ],
-  // Palette
-  colors: {
-    background: '#f0f2f5',
+const borders = [
+  0,
+  '1px solid',
+  '2px solid',
+  '4px solid',
+  '8px solid',
+  '16px solid',
+  '32px solid',
+];
+
+const colors = {
+  background: {
+    base: '#F0F2F5',
     surface: '#FFFFFF',
-    cardBackground: '#FFFFFF',
-    cardBorderColor: 'rgba(0,0,0,0.2)',
-    link: '#003FBB',
-    text: '#222222',
-    // Brand
-    primary: '#2D68EE',
-    primaryDark: '#003FBB',
-    primaryLight: '#7395FF',
-    secondary: '#002699',
-    secondaryDark: '#00016A',
-    secondaryLight: '#514FCB',
-    // States
+  },
+  border: {
+    default: 'rgba(0,0,0,0.2)',
+  },
+  intent: {
     success: '#1BE597',
     successDark: '#1BE597',
     successLight: '#1BE597',
@@ -44,8 +37,20 @@ export const theme: DefaultTheme = {
     error: '#FF3567',
     errorDark: '#FF3567',
     errorLight: '#FF3567',
-    // Blacks
-    black: '#000000',
+    info: '#003FBB',
+  },
+  modes: {
+    dark: {
+      background: { base: '#282c35', surface: '#373c49' },
+      border: { default: 'hsla(0,0%,100%,0.2)' },
+      intent: {
+        info: '#7395FF',
+      },
+      text: { default: '#FFFFFF' },
+    },
+  },
+  opacity: {
+    transparent: 'transparent',
     blacks: [
       'rgba(0,0,0,.0125)',
       'rgba(0,0,0,.025)',
@@ -60,8 +65,6 @@ export const theme: DefaultTheme = {
       'rgba(0,0,0,.8)',
       'rgba(0,0,0,.9)',
     ],
-    // Whites
-    white: '#FFFFFF',
     whites: [
       'rgba(255,255,255,.0125)',
       'rgba(255,255,255,.025)',
@@ -76,17 +79,42 @@ export const theme: DefaultTheme = {
       'rgba(255,255,255,.8)',
       'rgba(255,255,255,.9)',
     ],
-    // Color modes
-    modes: {
-      dark: {
-        background: '#282c35',
-        cardBorderColor: 'hsla(0,0%,100%,0.2)',
-        surface: '#373c49',
-        link: '#7395FF',
-        text: '#FFFFFF',
-      },
+  },
+  primary: {
+    base: '#2D68EE',
+    dark: '#003FBB',
+    light: '#7395FF',
+  },
+  secondary: {
+    base: '#002699',
+    dark: '#00016A',
+    light: '#514FCB',
+  },
+  solid: {
+    black: '#000000',
+    white: '#FFFFFF',
+  },
+  text: {
+    default: '#222222',
+  },
+};
+
+export const theme: DefaultTheme = {
+  borders,
+  buttons: {
+    primary: {
+      color: colors.primary.base,
+      border: borders[1],
+      borderColor: colors.primary.base,
+    },
+    secondary: {
+      color: colors.secondary.base,
+      backgroundColor: colors.opacity.transparent,
+      border: borders[1],
+      borderColor: colors.secondary.base,
     },
   },
+  colors,
   // Typography
   fonts: {
     sansSerif: `'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen

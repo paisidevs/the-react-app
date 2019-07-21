@@ -5,10 +5,11 @@ declare module 'styled-components' {
     isDark?: boolean;
     borders: any[];
     breakpoints: string[];
+    buttons: {
+      [key: string]: any;
+    };
     colors: {
       [key: string]: any;
-      blacks: string[];
-      whites: string[];
     };
     fonts: {
       sansSerif: string;
