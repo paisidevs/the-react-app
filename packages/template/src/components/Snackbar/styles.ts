@@ -7,7 +7,7 @@ import { ISnackbarProps } from './index';
 const Wrapper = styled(Flex)<ISnackbarProps>`
   align-items: center;
   bottom: 0;
-  color: ${theme.colors.white};
+  color: ${theme.colors.solid.white};
   font-size: ${theme.fontSizes[2]}px;
   justify-content: center;
   position: fixed;
@@ -26,11 +26,11 @@ const Wrapper = styled(Flex)<ISnackbarProps>`
 
 export const Surface = styled(Flex)`
   ${space};
-  background-color: ${theme.colors.blacks[10]};
+  background-color: ${theme.colors.opacity.blacks[10]};
   border-radius: ${theme.space[1] / 2}px;
-  box-shadow: 0 3px 5px -1px ${theme.colors.blacks[4]},
-    0 6px 10px 0 ${theme.colors.blacks[3]},
-    0 1px 18px 0 ${theme.colors.blacks[3]};
+  box-shadow: 0 3px 5px -1px ${theme.colors.opacity.blacks[4]},
+    0 6px 10px 0 ${theme.colors.opacity.blacks[3]},
+    0 1px 18px 0 ${theme.colors.opacity.blacks[3]};
   max-width: 672px;
   min-width: ${theme.minWidths[1]}px;
 `;

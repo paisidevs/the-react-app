@@ -13,7 +13,7 @@ const fadeIn = keyframes`
 `;
 
 const Wrapper = styled.div<IWrapperProps>`
-  background-color: ${({ theme }) => theme.colors.cardBorderColor};
+  background-color: ${({ theme }) => theme.colors.border.default};
   overflow: hidden;
   padding-bottom: ${({ aspect }) => `calc(100% / (${aspect}))`};
   position: relative;

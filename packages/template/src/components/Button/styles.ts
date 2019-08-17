@@ -60,7 +60,9 @@ const Wrapper = styled.button<IButtonProps>`
           !raised &&
           css`
             background-color: ${({ theme }) =>
-              theme.isDark ? theme.colors.whites[3] : theme.colors.blacks[3]};
+              theme.isDark
+                ? theme.colors.opacity.whites[3]
+                : theme.colors.opacity.blacks[3]};
           `};
       }
 
@@ -69,7 +71,9 @@ const Wrapper = styled.button<IButtonProps>`
           raised &&
           css`
             background-color: ${({ theme }) =>
-              theme.isDark ? theme.colors.blacks[3] : theme.colors.whites[3]};
+              theme.isDark
+                ? theme.colors.opacity.blacks[3]
+                : theme.colors.opacity.whites[3]};
           `};
       }
     }
@@ -80,7 +84,9 @@ const Wrapper = styled.button<IButtonProps>`
           !raised &&
           css`
             background-color: ${({ theme }) =>
-              theme.isDark ? theme.colors.whites[2] : theme.colors.blacks[2]};
+              theme.isDark
+                ? theme.colors.opacity.whites[2]
+                : theme.colors.opacity.blacks[2]};
           `};
       }
 
@@ -89,7 +95,9 @@ const Wrapper = styled.button<IButtonProps>`
           raised &&
           css`
             background-color: ${({ theme }) =>
-              theme.isDark ? theme.colors.whites[2] : theme.colors.blacks[2]};
+              theme.isDark
+                ? theme.colors.opacity.whites[2]
+                : theme.colors.opacity.blacks[2]};
           `};
       }
     }

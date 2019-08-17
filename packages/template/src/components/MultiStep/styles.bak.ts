@@ -44,7 +44,7 @@ export const Track = styled.li`
 
     &__circle {
       align-items: center;
-      background-color: ${({ theme }) => theme.colors.cardBorderColor};
+      background-color: ${({ theme }) => theme.colors.border.default};
       border-radius: 50%;
       display: flex;
       height: ${theme.colors.space[4]}px;
@@ -53,7 +53,7 @@ export const Track = styled.li`
       width: ${theme.colors.space[4]}px;
 
       &-inner {
-        background-color: ${({ theme }) => theme.colors.surface};
+        background-color: ${({ theme }) => theme.colors.background.surface};
         border-radius: 50%;
         display: block;
         height: ${theme.colors.space[3]}px;
@@ -62,7 +62,7 @@ export const Track = styled.li`
     }
 
     &__line {
-      background-color: ${({ theme }) => theme.colors.cardBorderColor};
+      background-color: ${({ theme }) => theme.colors.border.default};
       border-radius: 2px;
       height: ${theme.colors.space[1] / 2}px;
       position: absolute;
@@ -83,13 +83,13 @@ export const Track = styled.li`
 
   &.-done {
     .side-nav__circle {
-      background-color: ${({ theme }) => theme.colors.cardBorderColor};
+      background-color: ${({ theme }) => theme.colors.border.default};
     }
   }
 
   &.-doing {
     .side-nav__circle {
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.primary.base};
     }
 
     .side-nav__page {
@@ -105,12 +105,12 @@ export const Track = styled.li`
 
   &:hover {
     .side-nav__circle {
-      background-color: ${theme.colors.blacks[5]};
+      background-color: ${theme.colors.opacity.blacks[5]};
     }
 
     .-done {
       .side-nav__circle {
-        background-color: ${theme.colors.blacks[5]};
+        background-color: ${theme.colors.opacity.blacks[5]};
       }
     }
   }

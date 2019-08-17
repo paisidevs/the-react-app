@@ -4,9 +4,9 @@ import theme from '../../theme';
 const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.colors.sidebarBackground};
-  border: thin solid ${(props) => props.theme.colors.cardBorderColor};
+  border: thin solid ${(props) => props.theme.colors.border.default};
   border-radius: 4px;
-  color: ${(props) => props.theme.colors.cardBorderColor};
+  color: ${(props) => props.theme.colors.border.default};
   cursor: pointer;
   display: flex;
   height: 100vw;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
   &:focus,
   &:hover {
-    border: ${theme.borders[1]} ${theme.colors.primary};
+    border: ${theme.borders[1]} ${theme.colors.primary.base};
     outline: none;
   }
 

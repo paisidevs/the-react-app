@@ -15,7 +15,7 @@ storiesOf('Snackbar', module)
       pr={1}
       py="6px"
       text="Single-line message with action."
-      actions={<Button color={theme.colors.primaryLight} text="Action" />}
+      actions={<Button color={theme.colors.primary.light} text="Action" />}
     />
   ))
   .add('single-line message with action (leading)', () => (
@@ -24,6 +24,6 @@ storiesOf('Snackbar', module)
       pr={1}
       py="6px"
       text="Single-line message with action."
-      actions={<Button color={theme.colors.primaryLight} text="Action" />}
+      actions={<Button color={theme.colors.primary.light} text="Action" />}
     />
   ));

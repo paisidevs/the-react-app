@@ -161,7 +161,7 @@ const Modal: FC<IModalProps> = (props) => {
                               }
                             >
                               <Button
-                                bg="surface"
+                                bg="background.surface"
                                 borderRadius="100%"
                                 onClick={() => _close()}
                                 icon={<FiX />}

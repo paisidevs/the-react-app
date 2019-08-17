@@ -38,7 +38,8 @@ export const PortalInner = styled(animated(Box))<IPortalInnerProps>``;
 
 PortalInner.defaultProps = {
   alignItems: 'stretch',
-  bg: 'surface',
+  bg: 'background.surface',
+  flex: 'none',
   flexDirection: 'column',
   maxHeight: ['100%', '90vh'],
   maxWidth: '600px',
@@ -72,6 +73,6 @@ export const Scrim = styled(animated(Box))<IScrimProps>`
 `;
 
 Scrim.defaultProps = {
-  bg: 'blacks.5',
+  bg: 'opacity.blacks.5',
   position: 'absolute',
 };

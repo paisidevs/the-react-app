@@ -15,7 +15,7 @@ const H2 = styled.h2<StyledSystemProps>`
 `;
 
 H2.defaultProps = {
-  color: 'text',
+  color: 'text.default',
   fontSize: [7, 8],
 };
 

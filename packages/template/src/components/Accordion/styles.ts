@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.cardBackground};
+  background-color: ${({ theme }) => theme.colors.background.surface};
   border-radius: 2px;
   box-shadow: 0 10px 10px -6px rgba(214, 219, 230, 0.6);
 
   header {
     align-items: center;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text.default};
     cursor: pointer;
     display: flex;
     justify-content: space-between;

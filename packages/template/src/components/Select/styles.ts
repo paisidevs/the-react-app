@@ -14,13 +14,13 @@ const Wrapper = styled.div`
 
     &:focus,
     &:hover {
-      border: ${theme.borders[1]} ${theme.colors.primary};
+      border: ${theme.borders[1]} ${theme.colors.primary.base};
       outline: none;
     }
   }
 
   .c-select__single-value {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text.default};
   }
 
   .c-select__input input {

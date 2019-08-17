@@ -41,7 +41,7 @@ const Button: FC<IButtonProps> = ({ text, ...rest }) => (
 Button.defaultProps = {
   ariaLabel: 'Button',
   bg: 'transparent',
-  color: 'text',
+  color: 'text.default',
   disabled: false,
   iconOnly: false,
   iconSize: 18,

@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.background.base};
   }
 
   .react-toggle-track-check,
@@ -65,7 +65,7 @@ export const Wrapper = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.text.default};
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     transform: translateX(0);
   }
