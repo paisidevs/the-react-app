@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "plugins": ["react-hooks"],
   "rules": {
     "arrow-parens": [2, "always"],
     "function-paren-newline": [2, "consistent"],
@@ -9,6 +10,8 @@
     "no-confusing-arrow": 0,
     "no-console": 1,
     "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
-    "object-curly-newline": [2, { "consistent": true }]
+    "object-curly-newline": [2, { "consistent": true }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
