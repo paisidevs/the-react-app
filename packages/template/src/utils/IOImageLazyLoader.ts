@@ -73,7 +73,7 @@ function _preloadImage(image: any) {
  */
 export default function IOLazyImageLoader(image: any) {
   // Load image immediately if IO is not supported
-  if (SUPPORTS_INTERSECTION_OBSERVER) {
+  if (SUPPORTS_INTERSECTION_OBSERVER()) {
     _preloadImage(image);
     return;
   }
