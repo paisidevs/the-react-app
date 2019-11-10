@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
-import { ThemeProvider as SCThemeProvider } from 'styled-components';
-import get from 'lodash/get';
-import merge from 'lodash/merge';
-
-import baseTheme from '@app/theme';
 // Direct import 'useDarkMode' to avoid circular dependency.
 import useDarkMode from '@app/hooks/useDarkMode';
+import baseTheme from '@app/theme';
+import get from 'lodash/get';
+import merge from 'lodash/merge';
+import React, { FC } from 'react';
+import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
 interface IThemeProvider {
   children: React.ReactChild;

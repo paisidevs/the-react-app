@@ -1,18 +1,16 @@
-import React, { FC, useState, useEffect, useMemo } from 'react';
+import { useWindowSize } from '@app/hooks';
+import noScroll from 'no-scroll';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { FiX } from 'react-icons/fi';
+import { X } from 'react-feather';
+import Measure from 'react-measure';
 import { useTransition } from 'react-spring';
 import { StyledSystemProps } from 'styled-system';
-import Measure from 'react-measure';
-import noScroll from 'no-scroll';
-// Styles
-import { Scrim, Portal, PortalInner, PortalInnerHeader } from './styles';
-
 import Button from '../Button';
 import ErrorBoundary from '../ErrorBoundary';
 import ScrollView from '../ScrollView';
-
-import { useWindowSize } from '@app/hooks';
+// Styles
+import { Portal, PortalInner, PortalInnerHeader, Scrim } from './styles';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Modal');
@@ -164,7 +162,7 @@ const Modal: FC<IModalProps> = (props) => {
                                 bg="background.surface"
                                 borderRadius="100%"
                                 onClick={() => _close()}
-                                icon={<FiX />}
+                                icon={<X />}
                                 iconOnly={true}
                                 minWidth={40}
                                 text="Close"

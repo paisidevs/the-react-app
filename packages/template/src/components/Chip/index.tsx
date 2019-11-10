@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, { FC } from 'react';
+import { XCircle } from 'react-feather';
 import { FontSizeProps } from 'styled-system';
 // Styles
 import Wrapper, { ChipIcon, ChipRemove, ChipText } from './styles';
-import { FiXCircle } from 'react-icons/fi';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('Chip');
@@ -36,7 +36,7 @@ const Chip: FC<IChipProps> = ({
     {icon && <ChipIcon>{icon}</ChipIcon>}
     <ChipText {...rest}>{text}</ChipText>
     {showRemove && (
-      <ChipRemove iconOnly icon={<FiXCircle />} onClick={handleRemove} />
+      <ChipRemove iconOnly icon={<XCircle />} onClick={handleRemove} />
     )}
   </Wrapper>
 );

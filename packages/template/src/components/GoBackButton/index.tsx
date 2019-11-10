@@ -1,12 +1,12 @@
-import React from 'react';
+import { useRouter } from '@app/hooks';
 import classNames from 'classnames';
-import { FiArrowLeft } from 'react-icons/fi';
+import React from 'react';
+import { ArrowLeft } from 'react-feather';
 import { useTransition } from 'react-spring';
-// Styles
-import Wrapper from './styles';
 import AnimatedWrapper from '../AnimatedWrapper';
 import Box from '../Box';
-import { useRouter } from '@app/hooks';
+// Styles
+import Wrapper from './styles';
 
 // import { makeDebugger } from '../../utils';
 // const debug = makeDebugger('GoBackButton');
@@ -41,7 +41,7 @@ const GoBackButton = ({ className, show }: IGoBackButtonProps) => {
             <AnimatedWrapper key={key} style={styleProps}>
               <Wrapper
                 className={classNames('', className)}
-                icon={<FiArrowLeft />}
+                icon={<ArrowLeft />}
                 onClick={() => history && history.goBack()}
                 iconSize={24}
                 iconOnly
