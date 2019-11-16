@@ -6,7 +6,7 @@
   "scripts": {
     "build": "lerna run --parallel build",
     "nuke": "rm yarn.lock && rm -rf node_modules && yarn",
-    "prepare": "lerna run prepare --scope the-theme",
+    "prepare": "lerna run prepare --scope the-theme && lerna run prepare --scope the-react-components",
     "start": "yarn run prepare && lerna run --parallel start"
   },
   "devDependencies": {
