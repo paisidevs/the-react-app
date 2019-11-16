@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import minify from 'rollup-plugin-babel-minify'
-import typescript from 'rollup-plugin-typescript2'
-import pkg from './package.json'
+import minify from 'rollup-plugin-babel-minify';
+import typescript from 'rollup-plugin-typescript2';
+import pkg from './package.json';
 
 export default [
   {
@@ -10,10 +10,13 @@ export default [
     external: Object.keys(pkg.peerDependencies || {}),
     plugins: [
       typescript({
-        typescript: require('typescript')
+        typescript: require('typescript'),
       }),
-      minify()
+      minify(),
     ],
-    output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }]
-  }
-]
+    output: [
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' },
+    ],
+  },
+];

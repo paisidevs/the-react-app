@@ -4,17 +4,17 @@ export interface StyledSystemProps extends AlignItemsProps, BorderProps, Borders
     color?: string | (string & string[]);
 }
 declare const theme: {
-    borders: (string | number)[];
+    borders: import("csstype").AnimationIterationCountProperty[];
     buttons: {
         primary: {
             color: string;
-            border: string | number;
+            border: import("csstype").AnimationIterationCountProperty;
             borderColor: string;
         };
         secondary: {
             color: string;
             backgroundColor: string;
-            border: string | number;
+            border: import("csstype").AnimationIterationCountProperty;
             borderColor: string;
         };
     };
@@ -91,17 +91,17 @@ declare const theme: {
 };
 export declare type Theme = typeof theme;
 declare const styled: ThemedStyledInterface<{
-    borders: (string | number)[];
+    borders: import("csstype").AnimationIterationCountProperty[];
     buttons: {
         primary: {
             color: string;
-            border: string | number;
+            border: import("csstype").AnimationIterationCountProperty;
             borderColor: string;
         };
         secondary: {
             color: string;
             backgroundColor: string;
-            border: string | number;
+            border: import("csstype").AnimationIterationCountProperty;
             borderColor: string;
         };
     };
