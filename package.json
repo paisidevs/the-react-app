@@ -5,7 +5,9 @@
   ],
   "scripts": {
     "build": "lerna run --parallel build",
-    "start": "lerna run --parallel start"
+    "nuke": "rm yarn.lock && rm -rf node_modules && yarn",
+    "prepare": "lerna run prepare --scope the-theme",
+    "start": "yarn run prepare && lerna run --parallel start"
   },
   "devDependencies": {
     "cross-env": "6.0.0",

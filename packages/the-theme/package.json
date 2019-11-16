@@ -1,0 +1,13 @@
+{
+  "name": "the-theme",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Theme to be used in all other packages of this project",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "tsc -p tsconfig.build.json",
+    "start": "tsc -p tsconfig.build.json -w"
+  }
+}

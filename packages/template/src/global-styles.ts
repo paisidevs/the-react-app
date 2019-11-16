@@ -1,31 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
+import { theme } from 'the-theme';
 import 'typeface-roboto';
-import theme from './theme';
 
 export default createGlobalStyle`
   * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
   }
-
-  /* *::-webkit-scrollbar {
-    width: ${theme.space[1] / 2}px !important;
-    height: ${theme.space[1] / 4}px !important;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) =>
-      theme.isDark
-        ? theme.colors.opacity.whites[5]
-        : theme.colors.opacity.blacks[5]};
-  }
-
-  *::-webkit-scrollbar-track {
-    background: ${({ theme }) =>
-      theme.isDark
-        ? theme.colors.opacity.blacks[7]
-        : theme.colors.opacity.whites[7]};
-  } */
 
   html,
   body,
