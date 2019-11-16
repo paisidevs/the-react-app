@@ -1,0 +1,73 @@
+{
+  "name": "the-react-components",
+  "version": "0.0.1",
+  "description": "Components used by the-react-app",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "tsc --noEmit --skipLibCheck && yarn format && rm -rf dist && rollup -c",
+    "format": "yarn prettier -- --write",
+    "lint": "tslint 'src/**/*.ts?(x)'",
+    "precommit": "yarn format",
+    "prepublishOnly": "yarn build",
+    "prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx)\"",
+    "start": "rollup -c -w",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "echo \"Error: no test specified\"",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "validate": "yarn lint && prettier -- --list-different"
+  },
+  "author": "elandamor",
+  "license": "MIT",
+  "peerDependencies": {
+    "formik": ">= 2.0.4",
+    "react": ">= 16.12.0",
+    "react-dom": ">= 16.12.0",
+    "styled-components": ">= 4.4.1",
+    "styled-system": ">= 5.1.2",
+    "the-theme": "^0.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@storybook/addon-actions": "^4.0.2",
+    "@storybook/addon-info": "^4.0.2",
+    "@storybook/addon-storyshots": "^4.0.4",
+    "@storybook/react": "^5.0.8",
+    "@types/react-dates": "^17.1.5",
+    "@types/react-select": "^3.0.0",
+    "@types/styled-components": "^4.1.14",
+    "@types/styled-system": "^4.2.1",
+    "babel-plugin-styled-components": "^1.9.2",
+    "formik": "^1.5.7",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rollup": "^1.13.1",
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "styled-components": "^4.0.3",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.2.0",
+    "tslib": "^1.9.3",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "tslint-react-hooks": "^2.0.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx,jsx,json,css}": [
+      "yarn format",
+      "git add"
+    ]
+  }
+}
