@@ -1,11 +1,11 @@
-import React, { FC, useState, useEffect } from 'react';
-import { differenceInMinutes } from 'date-fns';
 import { JWT_LOCAL_STORAGE_KEY } from '@app/constants';
+import { differenceInMinutes } from 'date-fns';
+import React, { FC, useEffect, useState } from 'react';
 
 const DEFAULT_STATE = {
   authenticating: true,
   isAuthenticated: false,
-  setJWT: (JWT: string) => true,
+  signIn: () => true,
 };
 
 export const AuthenticationContext = React.createContext(DEFAULT_STATE);
@@ -22,10 +22,14 @@ const Provider: FC<IProps> = (props) => {
     DEFAULT_STATE.isAuthenticated,
   );
 
+  const signIn = () => {
+    setJWT(new Date().toISOString());
+  };
+
   /**
    * Remove JWT from localStorage.
    */
-  const removeJWT = () => {
+  const signOut = () => {
     try {
       window.localStorage.removeItem(JWT_LOCAL_STORAGE_KEY);
       return true;
@@ -55,7 +59,7 @@ const Provider: FC<IProps> = (props) => {
       return true;
     } catch (e) {
       if (e.message === 'jwt:expired') {
-        removeJWT();
+        signOut();
       }
       setIsAuthenticated(false);
       return false;
@@ -90,7 +94,7 @@ const Provider: FC<IProps> = (props) => {
    */
   // const logout = async () => {
   //   try {
-  //     const isJWTRemoved = await removeJWT();
+  //     const isJWTRemoved = await signOut();
 
   //     if (isJWTRemoved) {
   //       setIsAuthenticated(false);
@@ -107,7 +111,7 @@ const Provider: FC<IProps> = (props) => {
 
   return (
     <AuthenticationContext.Provider
-      value={{ authenticating, isAuthenticated, setJWT }}
+      value={{ authenticating, isAuthenticated, signIn }}
     >
       {props.children}
     </AuthenticationContext.Provider>

@@ -12,10 +12,7 @@ export interface IFlexProps extends StyledSystemProps {}
  *  </Flex>
  */
 
-export const FlexStyles = compose(
-  layout,
-  flexbox,
-);
+export const FlexStyles = compose(layout, flexbox);
 
 const Flex = styled.div<IFlexProps>`
   ${FlexStyles};

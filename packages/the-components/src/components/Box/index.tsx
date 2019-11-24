@@ -18,12 +18,7 @@ export interface IBoxProps extends IFlexProps {}
  * <Box />
  */
 
-export const BoxStyles = compose(
-  border,
-  boxShadow,
-  position,
-  typography,
-);
+export const BoxStyles = compose(border, boxShadow, position, typography);
 
 const Box = styled(Flex)<IBoxProps>`
   ${BoxStyles};
