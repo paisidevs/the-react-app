@@ -1,5 +1,15 @@
+export { default as AnimatedWrapper } from './components/AnimatedWrapper';
 export { default as Box } from './components/Box';
+export { default as Button } from './components/Button';
+export { default as Card } from './components/Card';
+export { default as Chip } from './components/Chip';
+export { default as ErrorBoundary } from './components/ErrorBoundary';
 export { default as Flex } from './components/Flex';
+export { default as Grid } from './components/Grid';
+export { default as Input } from './components/Input';
+export { default as PrivateRoute } from './components/PrivateRoute';
+export { default as PublicRoute } from './components/PublicRoute';
+export { default as Routes } from './components/Routes';
 export { default as ScrollView } from './components/ScrollView';
 export { default as H1 } from './typography/H1';
 export { default as H2 } from './typography/H2';

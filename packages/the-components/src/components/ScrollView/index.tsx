@@ -1,9 +1,6 @@
 import { styled, StyledSystemProps } from 'the-theme';
 import Box from '../Box';
 
-// import { makeDebugger } from '@app/utils';
-// const debug = makeDebugger('ScrollView');
-
 export interface IScrollViewProps extends StyledSystemProps {}
 
 /**
