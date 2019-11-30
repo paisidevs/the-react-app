@@ -1,11 +1,7 @@
-export { default as AnimatedWrapper } from './components/AnimatedWrapper';
+export { default as Animated } from './components/Animated';
 export { default as Box } from './components/Box';
 export { default as Button } from './components/Button';
-export { default as Card } from './components/Card';
-export { default as Chip } from './components/Chip';
 export { default as ErrorBoundary } from './components/ErrorBoundary';
-export { default as Flex } from './components/Flex';
-export { default as Grid } from './components/Grid';
 export { default as Input } from './components/Input';
 export { default as PrivateRoute } from './components/PrivateRoute';
 export { default as PublicRoute } from './components/PublicRoute';

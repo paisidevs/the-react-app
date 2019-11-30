@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { RouteProps, Switch, SwitchProps } from 'react-router-dom';
 import { useTransition } from 'react-spring';
-import styled from 'styled-components';
-import AnimatedWrapper from '../AnimatedWrapper';
+import { styled } from 'the-theme';
+import Animated from '../Animated';
 import Box from '../Box';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
@@ -55,7 +55,7 @@ const Routes: FC<IRoutesProps> = ({ location, routes }) => {
   return (
     <Wrapper as="main">
       {routeTransitions.map(({ item, props: styleProps, key }) => (
-        <AnimatedWrapper key={key} style={styleProps}>
+        <Animated key={key} style={styleProps}>
           <Switch location={item}>
             {routes.map(({ secure, ...rest }: IRouteProps, index: number) =>
               secure ? (
@@ -65,7 +65,7 @@ const Routes: FC<IRoutesProps> = ({ location, routes }) => {
               ),
             )}
           </Switch>
-        </AnimatedWrapper>
+        </Animated>
       ))}
     </Wrapper>
   );

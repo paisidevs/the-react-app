@@ -1,5 +1,13 @@
-import styled, { css } from 'styled-components';
-import { borderRadius, color, minWidth, size, space, theme } from 'the-theme';
+import { css } from 'styled-components';
+import {
+  borderRadius,
+  color,
+  minWidth,
+  size,
+  space,
+  styled,
+  theme,
+} from 'the-theme';
 import { IButtonProps } from './index';
 
 const Wrapper = styled.button<IButtonProps>`
