@@ -5,7 +5,7 @@ import React, { FC, useEffect, useState } from 'react';
 const DEFAULT_STATE = {
   authenticating: true,
   isAuthenticated: false,
-  signIn: () => true,
+  signIn: () => {},
 };
 
 export const AuthenticationContext = React.createContext(DEFAULT_STATE);
