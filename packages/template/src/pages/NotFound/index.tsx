@@ -1,10 +1,8 @@
+import { Inner, Page } from '@app/components';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, RouteComponentProps } from 'react-router-dom';
-
-import { Inner, Page } from '@app/components';
-
-import { H2, Text } from '@app/typography';
+import { H2, Text } from 'the-react-components';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('NotFound');

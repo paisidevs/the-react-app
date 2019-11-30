@@ -1,9 +1,8 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import Snackbar from './index';
+import React from 'react';
+import { theme } from 'the-theme';
 import Button from '../Button';
-import theme from '../../theme';
+import Snackbar from './index';
 
 storiesOf('Snackbar', module)
   .add('single-line message', () => <Snackbar text="Single-line message." />)

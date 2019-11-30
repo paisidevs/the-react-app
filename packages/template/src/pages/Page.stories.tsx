@@ -1,8 +1,7 @@
-import React from 'react';
+import { HorizontalScroller, Image, Inner, Modal, Page } from '@app/components';
 import { storiesOf } from '@storybook/react';
-
-import { Inner, Page, Image, HorizontalScroller, Modal } from '@app/components';
-import { H2, H3 } from '@app/typography';
+import React from 'react';
+import { H2, H3 } from 'the-react-components';
 
 storiesOf('Page', module).add('default', () => (
   <Page>

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import theme from '../../theme';
+import { theme } from 'the-theme';
 
 const Wrapper = styled.div``;
 
@@ -28,7 +28,7 @@ export const Track = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: ${theme.colors.minWidths[0]}px;
+  min-width: ${theme.minWidths[0]}px;
   position: relative;
 
   .side-nav {
@@ -39,7 +39,7 @@ export const Track = styled.li`
       flex-direction: ${(props: { verticalTrack: boolean }) =>
         props.verticalTrack ? 'row' : 'column'};
       justify-content: center;
-      min-height: ${theme.colors.space[4]}px;
+      min-height: ${theme.space[4]}px;
     }
 
     &__circle {
@@ -47,24 +47,24 @@ export const Track = styled.li`
       background-color: ${({ theme }) => theme.colors.border.default};
       border-radius: 50%;
       display: flex;
-      height: ${theme.colors.space[4]}px;
+      height: ${theme.space[4]}px;
       justify-content: center;
-      margin: ${theme.colors.space[3]}px;
-      width: ${theme.colors.space[4]}px;
+      margin: ${theme.space[3]}px;
+      width: ${theme.space[4]}px;
 
       &-inner {
         background-color: ${({ theme }) => theme.colors.background.surface};
         border-radius: 50%;
         display: block;
-        height: ${theme.colors.space[3]}px;
-        width: ${theme.colors.space[3]}px;
+        height: ${theme.space[3]}px;
+        width: ${theme.space[3]}px;
       }
     }
 
     &__line {
       background-color: ${({ theme }) => theme.colors.border.default};
       border-radius: 2px;
-      height: ${theme.colors.space[1] / 2}px;
+      height: ${theme.space[1] / 2}px;
       position: absolute;
       right: -25%;
       visibility: hidden;
@@ -75,7 +75,7 @@ export const Track = styled.li`
         css`
           bottom: -12.5%;
           height: 25%;
-          width: ${theme.colors.space[1] / 2}px;
+          width: ${theme.space[1] / 2}px;
           right: auto;
         `};
     }

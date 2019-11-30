@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
-import theme from '../../theme';
+import { theme } from 'the-theme';
 import Flex from '../Flex';
 import { ISnackbarProps } from './index';
 

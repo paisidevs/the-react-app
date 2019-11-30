@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '@app/theme';
+import { theme } from 'the-theme';
 
 export const Wrapper = styled.div`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

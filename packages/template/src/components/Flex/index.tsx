@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { compose, StyledSystemProps } from 'styled-system';
-import { flexbox, layout } from '@app/theme/componentTypes';
+import { flexbox, layout } from 'the-theme';
 
 export interface IFlexProps extends StyledSystemProps {}
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { compose, border, boxShadow } from 'styled-system';
-
-import { positioning, typography } from '@app/theme/componentTypes';
-
+import { border, boxShadow, compose } from 'styled-system';
+import { position, typography } from 'the-theme';
 import Flex, { IFlexProps } from '../Flex';
+
+
 
 export interface IBoxProps extends IFlexProps {}
 
@@ -18,7 +18,7 @@ export interface IBoxProps extends IFlexProps {}
 export const BoxStyles = compose(
   border,
   boxShadow,
-  positioning,
+  position,
   typography,
 );
 

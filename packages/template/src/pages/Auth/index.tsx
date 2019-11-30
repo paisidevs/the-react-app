@@ -1,9 +1,9 @@
 import { Button, Inner, Page } from '@app/components';
 import { useAuthentication } from '@app/hooks';
-import { H2 } from '@app/typography';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Redirect, RouteComponentProps } from 'react-router-dom';
+import { H2 } from 'the-react-components';
 
 interface IAuthProps extends RouteComponentProps {}
 

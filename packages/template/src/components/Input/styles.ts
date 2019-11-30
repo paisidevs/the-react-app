@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import theme from '../../theme';
+import { theme } from 'the-theme';
 
 interface IWrapperProps {
   readonly?: boolean;
@@ -109,8 +109,8 @@ const Wrapper = styled.div<IWrapperProps>`
         ${({ type }) =>
           type === 'toggle' &&
           css`
-            background: ${theme.colors.success};
-            border-color: ${theme.colors.success};
+            background: ${theme.colors.intent.success};
+            border-color: ${theme.colors.intent.success};
           `}
       }
 

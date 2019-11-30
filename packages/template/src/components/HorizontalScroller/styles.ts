@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import { space } from 'styled-system';
-import { theme } from '@app/theme';
+import { styled, theme } from 'the-theme';
 
 const Wrapper = styled.div`
   -webkit-overflow-scrolling: touch;

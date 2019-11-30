@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-
-import { theme } from '@app/theme';
+import styled from 'styled-components';
+import { theme } from 'the-theme';
 
 export const StyledTable = styled(ReactTable)`
   background: ${({ theme }) => theme.colors.background.surface};

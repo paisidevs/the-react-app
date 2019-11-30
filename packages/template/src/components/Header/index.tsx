@@ -1,13 +1,12 @@
+import { generic } from '@app/assets';
+import { useRouter, useTheme } from '@app/hooks';
 import React, { FC } from 'react';
 // Styles
 import Box, { IBoxProps } from '../Box';
-import Inner from '../Inner';
 import Flex from '../Flex';
 import GoBackButton from '../GoBackButton/Loadable';
+import Inner from '../Inner';
 import Toggle from '../Toggle/Loadable';
-
-import { useTheme, useRouter } from '@app/hooks';
-import { generic } from '@app/assets';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Header');
@@ -33,7 +32,6 @@ const Header: FC<IHeaderProps> = (props) => {
   };
 
   return (
-    // @ts-ignore
     <Box as="header" flex="none" {...props}>
       <Inner as={Flex}>
         <Flex alignItems="center">

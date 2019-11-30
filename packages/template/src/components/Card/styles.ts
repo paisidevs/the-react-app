@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { H6 } from 'the-react-components';
+import { theme } from 'the-theme';
 import { ICardProps } from './index';
-import { theme } from '@app/theme';
-import H6 from '@app/typography/H6';
 
 const Wrapper = styled.div<ICardProps>`
   border-radius: 2px;

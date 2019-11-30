@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { theme } from 'the-theme';
 import { IGridProps } from './index';
-import theme from '../../theme';
 
 const Wrapper = styled.div<IGridProps>`
   display: grid;

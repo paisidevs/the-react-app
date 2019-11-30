@@ -1,9 +1,8 @@
+import { HorizontalScroller, Image, Inner, Modal, Page } from '@app/components';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps } from 'react-router-dom';
-
-import { Image, Inner, Page, HorizontalScroller, Modal } from '@app/components';
-import { H2, H3 } from '@app/typography';
+import { H2, H3 } from 'the-react-components';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('Private');

@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { borderRadius, color, minWidth, size, space } from 'styled-system';
+import { styled, theme } from 'the-theme';
 import { IButtonProps } from './index';
-import theme from '../../theme';
 
 const Wrapper = styled.button<IButtonProps>`
   align-items: center;

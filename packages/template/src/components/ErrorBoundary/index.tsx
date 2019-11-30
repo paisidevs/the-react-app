@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { H2, Text } from 'the-react-components';
 import Inner from '../Inner';
-import { H2, Text } from '@app/typography';
 
 // import { makeDebugger } from '@app/utils';
 // const debug = makeDebugger('ErrorBoundary');

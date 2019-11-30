@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { space } from 'styled-system';
-import theme from '../../theme';
+import { theme } from 'the-theme';
 
 const Wrapper = styled.div`
   ${space};

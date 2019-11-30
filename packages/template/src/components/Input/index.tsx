@@ -1,13 +1,13 @@
 import React, { FC, Suspense } from 'react';
-// Styles
-import Wrapper, { HelperText } from './styles';
+import { theme } from 'the-theme';
 import Checkbox from '../Checkbox/Loadable';
 import Dropzone from '../Dropzone/Loadable';
 import Label from '../Label';
 import LoadingBar from '../LoadingBar';
 import Select from '../Select/Loadable';
 import Spacer from '../Spacer';
-import theme from '../../theme';
+// Styles
+import Wrapper, { HelperText } from './styles';
 
 export interface IInputProps {
   as?: string;

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { fontSize } from 'styled-system';
+import { theme } from 'the-theme';
 import Button from '../Button';
-import theme from '../../theme';
 import { IChipProps } from './index';
 
 const Wrapper = styled.div<IChipProps>`
