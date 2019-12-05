@@ -1,9 +1,9 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./packages",
     "paths": {
-      "the-theme/*": ["./packages/the-theme/src"]
+      "@app/*": ["./*/src"]
     }
   }
 }

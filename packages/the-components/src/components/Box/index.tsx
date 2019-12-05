@@ -5,8 +5,8 @@ import {
   position,
   styled,
   typography,
-} from 'the-theme';
-import Flex, { IFlexProps } from '../Flex';
+} from '@app/theme';
+import { Flex, IFlexProps } from '../Flex';
 
 export interface IBoxProps extends IFlexProps {}
 
@@ -15,14 +15,16 @@ export interface IBoxProps extends IFlexProps {}
  * @name Box component
  * @description Box component.
  * @example
- * <Box />
+ * <Box>
+ *   <Flex />
+ *   <Flex />
+ * </Box>
  */
 
 export const BoxStyles = compose(border, boxShadow, position, typography);
 
-const Box = styled(Flex)<IBoxProps>`
+export const Box = styled(Flex)<IBoxProps>`
   ${BoxStyles};
-
   box-sizing: border-box;
 `;
 
@@ -31,5 +33,3 @@ Box.defaultProps = {
   position: 'relative',
   width: '100%',
 };
-
-export default Box;
