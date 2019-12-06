@@ -74,21 +74,20 @@ export declare const styled: CreateStyled<{
             default: string;
         };
     };
-    typography: {
-        fonts: {
-            sansSerif: string;
-        };
-        fontSizes: number[];
-        fontWeights: number[];
-        letterSpacings: number[];
+    fonts: {
+        sansSerif: string;
     };
+    fontSizes: number[];
+    fontWeights: number[];
+    letterSpacings: number[];
     breakpoints: string[];
     maxWidths: number[];
     minWidths: number[];
     space: number[];
 }>;
-export declare const cssNormalize: import("@emotion/utils").SerializedStyles;
-export * from '@emotion/core';
+export { css } from '@emotion/core';
+export { default as shouldForwardProp } from '@styled-system/should-forward-prop';
 export * from 'styled-system';
+export { Global } from './components/Global';
 export { ThemeProvider, useTheme } from './components/ThemeProvider';
 export { theme } from './theme';

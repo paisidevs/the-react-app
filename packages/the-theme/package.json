@@ -9,16 +9,18 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "scripts": {
-    "prepare": "rollup -c",
+    "prepare": "rm -rf dist && rollup -c",
     "start": "rollup -c -w"
   },
   "dependencies": {
     "@emotion/core": "10.0.22",
     "@emotion/styled": "10.0.23",
+    "@styled-system/should-forward-prop": "5.1.4",
     "emotion-normalize": "10.1.0",
     "emotion-theming": "10.0.19",
     "lodash": "4.17.15",
-    "styled-system": "5.1.4"
+    "styled-system": "5.1.4",
+    "typeface-roboto": "0.0.75"
   },
   "peerDependencies": {
     "react": "^16.12.0"
@@ -26,12 +28,14 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "6.0.0",
     "@types/lodash": "4.14.149",
-    "@types/react": "16.9.14",
+    "@types/react": "16.9.15",
     "@types/styled-system": "5.1.4",
+    "@types/styled-system__should-forward-prop": "5.1.0",
     "react": "^16.12.0",
     "rollup": "1.27.8",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-peer-deps-external": "2.2.0",
+    "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-typescript2": "0.25.3",
     "typescript": "3.7.3"
   },

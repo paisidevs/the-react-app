@@ -12,6 +12,7 @@ interface IThemeProvider {
 const DEFAULT_STATE = {
   darkMode: false,
   setDarkMode: (_mode: boolean) => null,
+  theme: baseTheme,
 };
 
 const ThemeContext = React.createContext(DEFAULT_STATE);
@@ -29,7 +30,7 @@ export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   const theme = darkMode ? getTheme('dark') : baseTheme;
 
   return (
-    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode, theme }}>
       <SCThemeProvider theme={theme}>{children}</SCThemeProvider>
     </ThemeContext.Provider>
   );

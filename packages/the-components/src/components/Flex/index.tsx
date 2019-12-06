@@ -2,6 +2,8 @@ import {
   compose,
   flexbox,
   layout,
+  shouldForwardProp,
+  space,
   styled,
   StyledSystemProps,
 } from '@app/theme';
@@ -18,9 +20,9 @@ export interface IFlexProps extends StyledSystemProps {}
  *  </Flex>
  */
 
-export const FlexStyles = compose(layout, flexbox);
+export const FlexStyles = compose(flexbox, layout, space);
 
-export const Flex = styled.div<IFlexProps>`
+export const Flex = styled('div', { shouldForwardProp })<IFlexProps>`
   ${FlexStyles};
 `;
 

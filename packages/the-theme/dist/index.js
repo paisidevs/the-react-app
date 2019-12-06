@@ -1573,7 +1573,7 @@ typeof HTMLElement !== 'undefined' ? createCache() : null);
 var ThemeContext = React.createContext({});
 var CacheProvider = EmotionCacheContext.Provider;
 
-exports.withEmotionCache = function withEmotionCache(func) {
+var withEmotionCache = function withEmotionCache(func) {
   var render = function render(props, ref) {
     return React.createElement(EmotionCacheContext.Consumer, null, function (cache) {
       return func(props, cache, ref);
@@ -1609,7 +1609,7 @@ if (!isBrowser$2) {
     return BasicProvider;
   }(React.Component);
 
-  exports.withEmotionCache = function withEmotionCache(func) {
+  withEmotionCache = function withEmotionCache(func) {
     return function (props) {
       return React.createElement(EmotionCacheContext.Consumer, null, function (context) {
         if (context === null) {
@@ -1698,7 +1698,7 @@ var render = function render(cache, props, theme, ref) {
 
 var Emotion =
 /* #__PURE__ */
-exports.withEmotionCache(function (props, cache, ref) {
+withEmotionCache(function (props, cache, ref) {
   // use Context.read for the theme when it's stable
   if (typeof props.css === 'function') {
     return React.createElement(ThemeContext.Consumer, null, function (theme) {
@@ -1771,7 +1771,7 @@ var jsx = function jsx(type, props) {
 var warnedAboutCssPropForGlobal = false;
 var Global =
 /* #__PURE__ */
-exports.withEmotionCache(function (props, cache) {
+withEmotionCache(function (props, cache) {
   if (process.env.NODE_ENV !== 'production' && !warnedAboutCssPropForGlobal && ( // check for className as well since the user is
   // probably using the custom createElement which
   // means it will be turned into a className prop
@@ -1966,7 +1966,7 @@ function merge(registered, css, className) {
   return rawClassName + css(registeredStyles);
 }
 
-var ClassNames = exports.withEmotionCache(function (props, context) {
+var ClassNames = withEmotionCache(function (props, context) {
   return React.createElement(ThemeContext.Consumer, null, function (theme) {
     var rules = '';
     var serializedHashes = '';
@@ -2040,7 +2040,7 @@ var core_esm = /*#__PURE__*/Object.freeze({
   ThemeContext: ThemeContext,
   jsx: jsx,
   keyframes: keyframes,
-  get withEmotionCache () { return exports.withEmotionCache; },
+  get withEmotionCache () { return withEmotionCache; },
   css: css
 });
 
@@ -2121,7 +2121,7 @@ var createStyled = function createStyled(tag, options) {
     } // $FlowFixMe: we need to cast StatelessFunctionalComponent to our PrivateStyledComponent class
 
 
-    var Styled = exports.withEmotionCache(function (props, context, ref) {
+    var Styled = withEmotionCache(function (props, context, ref) {
       return React.createElement(ThemeContext.Consumer, null, function (theme) {
         var finalTag = shouldUseAs && props.as || baseTag;
         var className = '';
@@ -2224,44 +2224,6 @@ var newStyled = createStyled.bind();
 tags.forEach(function (tagName) {
   newStyled[tagName] = newStyled(tagName);
 });
-
-var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-var dist = createCommonjsModule(function (module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nhtml {\n  line-height: 1.15; \n  -webkit-text-size-adjust: 100%; \n}\nbody {\n  margin: 0;\n}\nmain {\n  display: block;\n}\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\nhr {\n  box-sizing: content-box; \n  height: 0; \n  overflow: visible; \n}\npre {\n  font-family: monospace, monospace; \n  font-size: 1em; \n}\na {\n  background-color: transparent;\n}\nabbr[title] {\n  border-bottom: none; \n  text-decoration: underline; \n  text-decoration: underline dotted; \n}\nb,\nstrong {\n  font-weight: bolder;\n}\ncode,\nkbd,\nsamp {\n  font-family: monospace, monospace; \n  font-size: 1em; \n}\nsmall {\n  font-size: 80%;\n}\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsub {\n  bottom: -0.25em;\n}\nsup {\n  top: -0.5em;\n}\nimg {\n  border-style: none;\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; \n  font-size: 100%; \n  line-height: 1.15; \n  margin: 0; \n}\nbutton,\ninput { \n  overflow: visible;\n}\nbutton,\nselect { \n  text-transform: none;\n}\nbutton,\n[type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n}\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\nfieldset {\n  padding: 0.35em 0.75em 0.625em;\n}\nlegend {\n  box-sizing: border-box; \n  color: inherit; \n  display: table; \n  max-width: 100%; \n  padding: 0; \n  white-space: normal; \n}\nprogress {\n  vertical-align: baseline;\n}\ntextarea {\n  overflow: auto;\n}\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box; \n  padding: 0; \n}\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n[type=\"search\"] {\n  -webkit-appearance: textfield; \n  outline-offset: -2px; \n}\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n::-webkit-file-upload-button {\n  -webkit-appearance: button; \n  font: inherit; \n}\ndetails {\n  display: block;\n}\nsummary {\n  display: list-item;\n}\ntemplate {\n  display: none;\n}\n[hidden] {\n  display: none;\n}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var normalize = (0, core_esm.css)(_templateObject());
-var _default = normalize;
-exports["default"] = _default;
-});
-
-var normalize = unwrapExports(dist);
 
 /*
 object-assign
@@ -3316,6 +3278,221 @@ var style = function style(_ref) {
   var parse = createParser(config);
   return parse;
 };
+
+var all = compose(space, typography, color, layout, flexbox, border, background, position, grid, shadow, buttonStyle, textStyle, colorStyle);
+var props = all.propNames;
+var createShouldForwardProp = function createShouldForwardProp(props) {
+  var regex = new RegExp("^(" + props.join('|') + ")$");
+  return memoize(function (prop) {
+    return index(prop) && !regex.test(prop);
+  });
+};
+var index_esm = createShouldForwardProp(props);
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+}
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var dist = createCommonjsModule(function (module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\nhtml {\n  line-height: 1.15; \n  -webkit-text-size-adjust: 100%; \n}\nbody {\n  margin: 0;\n}\nmain {\n  display: block;\n}\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\nhr {\n  box-sizing: content-box; \n  height: 0; \n  overflow: visible; \n}\npre {\n  font-family: monospace, monospace; \n  font-size: 1em; \n}\na {\n  background-color: transparent;\n}\nabbr[title] {\n  border-bottom: none; \n  text-decoration: underline; \n  text-decoration: underline dotted; \n}\nb,\nstrong {\n  font-weight: bolder;\n}\ncode,\nkbd,\nsamp {\n  font-family: monospace, monospace; \n  font-size: 1em; \n}\nsmall {\n  font-size: 80%;\n}\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsub {\n  bottom: -0.25em;\n}\nsup {\n  top: -0.5em;\n}\nimg {\n  border-style: none;\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; \n  font-size: 100%; \n  line-height: 1.15; \n  margin: 0; \n}\nbutton,\ninput { \n  overflow: visible;\n}\nbutton,\nselect { \n  text-transform: none;\n}\nbutton,\n[type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n}\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText;\n}\nfieldset {\n  padding: 0.35em 0.75em 0.625em;\n}\nlegend {\n  box-sizing: border-box; \n  color: inherit; \n  display: table; \n  max-width: 100%; \n  padding: 0; \n  white-space: normal; \n}\nprogress {\n  vertical-align: baseline;\n}\ntextarea {\n  overflow: auto;\n}\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box; \n  padding: 0; \n}\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n[type=\"search\"] {\n  -webkit-appearance: textfield; \n  outline-offset: -2px; \n}\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n::-webkit-file-upload-button {\n  -webkit-appearance: button; \n  font: inherit; \n}\ndetails {\n  display: block;\n}\nsummary {\n  display: list-item;\n}\ntemplate {\n  display: none;\n}\n[hidden] {\n  display: none;\n}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var normalize = (0, core_esm.css)(_templateObject());
+var _default = normalize;
+exports["default"] = _default;
+});
+
+var normalize = unwrapExports(dist);
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css$2 = "/* roboto-100normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 100;\n  src:\n    local('Roboto Thin '),\n    local('Roboto-Thin'),\n    url('./files/roboto-latin-100.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-100.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-100italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 100;\n  src:\n    local('Roboto Thin italic'),\n    local('Roboto-Thinitalic'),\n    url('./files/roboto-latin-100italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-100italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-300normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 300;\n  src:\n    local('Roboto Light '),\n    local('Roboto-Light'),\n    url('./files/roboto-latin-300.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-300.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-300italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 300;\n  src:\n    local('Roboto Light italic'),\n    local('Roboto-Lightitalic'),\n    url('./files/roboto-latin-300italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-300italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-400normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 400;\n  src:\n    local('Roboto Regular '),\n    local('Roboto-Regular'),\n    url('./files/roboto-latin-400.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-400.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-400italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 400;\n  src:\n    local('Roboto Regular italic'),\n    local('Roboto-Regularitalic'),\n    url('./files/roboto-latin-400italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-400italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-500normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 500;\n  src:\n    local('Roboto Medium '),\n    local('Roboto-Medium'),\n    url('./files/roboto-latin-500.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-500.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-500italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 500;\n  src:\n    local('Roboto Medium italic'),\n    local('Roboto-Mediumitalic'),\n    url('./files/roboto-latin-500italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-500italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-700normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 700;\n  src:\n    local('Roboto Bold '),\n    local('Roboto-Bold'),\n    url('./files/roboto-latin-700.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-700.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-700italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 700;\n  src:\n    local('Roboto Bold italic'),\n    local('Roboto-Bolditalic'),\n    url('./files/roboto-latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-700italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-900normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 900;\n  src:\n    local('Roboto Black '),\n    local('Roboto-Black'),\n    url('./files/roboto-latin-900.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-900.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-900italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 900;\n  src:\n    local('Roboto Black italic'),\n    local('Roboto-Blackitalic'),\n    url('./files/roboto-latin-900italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-900italic.woff') format('woff'); /* Modern Browsers */\n}\n\n";
+styleInject(css$2);
+
+var colors = {
+    background: {
+        base: '#F0F2F5',
+        surface: '#FFFFFF',
+    },
+    border: {
+        default: 'rgba(0,0,0,0.2)',
+    },
+    intent: {
+        success: '#1BE597',
+        warning: '#FFBB3C',
+        error: '#FF3567',
+        info: '#003FBB',
+    },
+    modes: {
+        dark: {
+            background: { base: '#282c35', surface: '#373c49' },
+            border: { default: 'hsla(0,0%,100%,0.2)' },
+            intent: {
+                info: '#7395FF',
+            },
+            text: { default: '#FFFFFF' },
+        },
+    },
+    opacity: {
+        transparent: 'transparent',
+        blacks: [
+            'rgba(0,0,0,.0125)',
+            'rgba(0,0,0,.025)',
+            'rgba(0,0,0,.05)',
+            'rgba(0,0,0,.1)',
+            'rgba(0,0,0,.2)',
+            'rgba(0,0,0,.3)',
+            'rgba(0,0,0,.4)',
+            'rgba(0,0,0,.5)',
+            'rgba(0,0,0,.6)',
+            'rgba(0,0,0,.7)',
+            'rgba(0,0,0,.8)',
+            'rgba(0,0,0,.9)',
+        ],
+        whites: [
+            'rgba(255,255,255,.0125)',
+            'rgba(255,255,255,.025)',
+            'rgba(255,255,255,.05)',
+            'rgba(255,255,255,.1)',
+            'rgba(255,255,255,.2)',
+            'rgba(255,255,255,.3)',
+            'rgba(255,255,255,.4)',
+            'rgba(255,255,255,.5)',
+            'rgba(255,255,255,.6)',
+            'rgba(255,255,255,.7)',
+            'rgba(255,255,255,.8)',
+            'rgba(255,255,255,.9)',
+        ],
+    },
+    primary: {
+        base: '#2D68EE',
+        dark: '#003FBB',
+        light: '#7395FF',
+    },
+    secondary: {
+        base: '#002699',
+        dark: '#00016A',
+        light: '#514FCB',
+    },
+    solid: {
+        black: '#000000',
+        white: '#FFFFFF',
+    },
+    text: {
+        default: '#222222',
+    },
+};
+
+var borders = [
+    0,
+    '1px solid',
+    '2px solid',
+    '4px solid',
+    '8px solid',
+    '16px solid',
+    '32px solid',
+];
+var theme = {
+    borders: borders,
+    buttons: {
+        primary: {
+            color: colors.primary.base,
+            border: borders[1],
+            borderColor: colors.primary.base,
+        },
+        secondary: {
+            color: colors.secondary.base,
+            backgroundColor: colors.opacity.transparent,
+            border: borders[1],
+            borderColor: colors.secondary.base,
+        },
+    },
+    colors: colors,
+    fonts: {
+        sansSerif: "'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen\n    ,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+    },
+    fontSizes: [10, 12, 14, 16, 20, 24, 34, 48, 60, 96],
+    fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+    letterSpacings: [-1.5, -0.5, 0, 0.1, 0.15, 0.25, 0.4, 0.5, 1.25, 1.5],
+    breakpoints: ['512px', '768px', '1024px'],
+    maxWidths: [320],
+    minWidths: [160, 320, 344],
+    space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
+};
+
+var Global$1 = function (_a) {
+    var styles = _a.styles;
+    return (React__default.createElement(Global, { styles: css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        ", "\n      "], ["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        ", "\n      "])), normalize, theme.fonts.sansSerif, styles) }));
+};
+var templateObject_1;
 
 var _extends_1 = createCommonjsModule(function (module) {
 function _extends() {
@@ -6379,7 +6556,6 @@ function useLocalStorage(key, initialValue) {
     };
     return [storedValue, setValue];
 }
-//# sourceMappingURL=useLocalStorage.js.map
 
 // Hook
 function useMedia(queries, values, defaultValue) {
@@ -6408,7 +6584,6 @@ function useMedia(queries, values, defaultValue) {
     }, []); // Empty array ensures effect is only run on mount and unmount
     return value;
 }
-//# sourceMappingURL=useMedia.js.map
 
 function useDarkMode() {
     // Use our useLocalStorage hook to persist state through a page refresh.
@@ -6442,126 +6617,11 @@ function useDarkMode() {
 function usePrefersDarkMode() {
     return useMedia(["(prefers-color-scheme: dark)"], [true], false);
 }
-//# sourceMappingURL=useDarkMode.js.map
-
-var colors = {
-    background: {
-        base: '#F0F2F5',
-        surface: '#FFFFFF',
-    },
-    border: {
-        default: 'rgba(0,0,0,0.2)',
-    },
-    intent: {
-        success: '#1BE597',
-        warning: '#FFBB3C',
-        error: '#FF3567',
-        info: '#003FBB',
-    },
-    modes: {
-        dark: {
-            background: { base: '#282c35', surface: '#373c49' },
-            border: { default: 'hsla(0,0%,100%,0.2)' },
-            intent: {
-                info: '#7395FF',
-            },
-            text: { default: '#FFFFFF' },
-        },
-    },
-    opacity: {
-        transparent: 'transparent',
-        blacks: [
-            'rgba(0,0,0,.0125)',
-            'rgba(0,0,0,.025)',
-            'rgba(0,0,0,.05)',
-            'rgba(0,0,0,.1)',
-            'rgba(0,0,0,.2)',
-            'rgba(0,0,0,.3)',
-            'rgba(0,0,0,.4)',
-            'rgba(0,0,0,.5)',
-            'rgba(0,0,0,.6)',
-            'rgba(0,0,0,.7)',
-            'rgba(0,0,0,.8)',
-            'rgba(0,0,0,.9)',
-        ],
-        whites: [
-            'rgba(255,255,255,.0125)',
-            'rgba(255,255,255,.025)',
-            'rgba(255,255,255,.05)',
-            'rgba(255,255,255,.1)',
-            'rgba(255,255,255,.2)',
-            'rgba(255,255,255,.3)',
-            'rgba(255,255,255,.4)',
-            'rgba(255,255,255,.5)',
-            'rgba(255,255,255,.6)',
-            'rgba(255,255,255,.7)',
-            'rgba(255,255,255,.8)',
-            'rgba(255,255,255,.9)',
-        ],
-    },
-    primary: {
-        base: '#2D68EE',
-        dark: '#003FBB',
-        light: '#7395FF',
-    },
-    secondary: {
-        base: '#002699',
-        dark: '#00016A',
-        light: '#514FCB',
-    },
-    solid: {
-        black: '#000000',
-        white: '#FFFFFF',
-    },
-    text: {
-        default: '#222222',
-    },
-};
-
-var typography$1 = {
-    fonts: {
-        sansSerif: "'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen\n    ,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
-    },
-    fontSizes: [10, 12, 14, 16, 20, 24, 34, 48, 60, 96],
-    fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    letterSpacings: [-1.5, -0.5, 0, 0.1, 0.15, 0.25, 0.4, 0.5, 1.25, 1.5],
-};
-
-var borders = [
-    0,
-    '1px solid',
-    '2px solid',
-    '4px solid',
-    '8px solid',
-    '16px solid',
-    '32px solid',
-];
-var theme = {
-    borders: borders,
-    buttons: {
-        primary: {
-            color: colors.primary.base,
-            border: borders[1],
-            borderColor: colors.primary.base,
-        },
-        secondary: {
-            color: colors.secondary.base,
-            backgroundColor: colors.opacity.transparent,
-            border: borders[1],
-            borderColor: colors.secondary.base,
-        },
-    },
-    colors: colors,
-    typography: typography$1,
-    breakpoints: ['512px', '768px', '1024px'],
-    maxWidths: [320],
-    minWidths: [160, 320, 344],
-    space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
-};
 
 var DEFAULT_STATE = {
     darkMode: false,
     setDarkMode: function (_mode) { return null; },
+    theme: theme,
 };
 var ThemeContext$1 = React__default.createContext(DEFAULT_STATE);
 var ThemeProvider$1 = function (_a) {
@@ -6575,7 +6635,7 @@ var ThemeProvider$1 = function (_a) {
         });
     };
     var theme$1 = darkMode ? getTheme('dark') : theme;
-    return (React__default.createElement(ThemeContext$1.Provider, { value: { darkMode: darkMode, setDarkMode: setDarkMode } },
+    return (React__default.createElement(ThemeContext$1.Provider, { value: { darkMode: darkMode, setDarkMode: setDarkMode, theme: theme$1 } },
         React__default.createElement(ThemeProvider, { theme: theme$1 }, children)));
 };
 var useTheme = function () {
@@ -6587,12 +6647,8 @@ var useTheme = function () {
 };
 
 var styled = newStyled;
-var cssNormalize = normalize;
 
-exports.CacheProvider = CacheProvider;
-exports.ClassNames = ClassNames;
-exports.Global = Global;
-exports.ThemeContext = ThemeContext;
+exports.Global = Global$1;
 exports.ThemeProvider = ThemeProvider$1;
 exports.alignContent = alignContent;
 exports.alignItems = alignItems;
@@ -6621,7 +6677,6 @@ exports.compose = compose;
 exports.createParser = createParser;
 exports.createStyleFunction = createStyleFunction;
 exports.css = css;
-exports.cssNormalize = cssNormalize;
 exports.display = display;
 exports.flex = flex;
 exports.flexBasis = flexBasis;
@@ -6649,11 +6704,9 @@ exports.gridTemplateAreas = gridTemplateAreas;
 exports.gridTemplateColumns = gridTemplateColumns;
 exports.gridTemplateRows = gridTemplateRows;
 exports.height = height;
-exports.jsx = jsx;
 exports.justifyContent = justifyContent;
 exports.justifyItems = justifyItems;
 exports.justifySelf = justifySelf;
-exports.keyframes = keyframes;
 exports.layout = layout;
 exports.left = left;
 exports.letterSpacing = letterSpacing;
@@ -6672,6 +6725,7 @@ exports.padding = padding;
 exports.position = position;
 exports.right = right;
 exports.shadow = shadow;
+exports.shouldForwardProp = index_esm;
 exports.size = size;
 exports.space = space;
 exports.style = style;
