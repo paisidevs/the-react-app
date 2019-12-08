@@ -11,6 +11,7 @@
     "start": "yarn run prepare && lerna run --parallel start"
   },
   "devDependencies": {
-    "lerna": "^3.19.0"
+    "lerna": "^3.19.0",
+    "prettier": "1.19.1"
   }
 }
