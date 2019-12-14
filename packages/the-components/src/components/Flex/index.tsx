@@ -23,10 +23,8 @@ export interface IFlexProps extends StyledSystemProps {}
 export const FlexStyles = compose(flexbox, layout, space);
 
 export const Flex = styled('div', { shouldForwardProp })<IFlexProps>`
+  display: flex;
+  position: relative;
+
   ${FlexStyles};
 `;
-
-Flex.defaultProps = {
-  display: 'flex',
-  flex: 1,
-};

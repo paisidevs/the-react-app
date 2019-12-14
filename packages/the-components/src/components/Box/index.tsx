@@ -31,12 +31,12 @@ export const BoxStyles = compose(
 );
 
 export const Box = styled(Flex)<IBoxProps>`
-  ${BoxStyles};
   box-sizing: border-box;
+  flex-direction: column;
+
+  ${BoxStyles};
 `;
 
 Box.defaultProps = {
-  flexDirection: 'column',
-  position: 'relative',
   width: '100%',
 };

@@ -1,4 +1,4 @@
-import { styled, StyledSystemProps } from '@app/theme';
+import { shouldForwardProp, styled, StyledSystemProps } from '@app/theme';
 import React, { FC, useState } from 'react';
 import Measure from 'react-measure';
 import { Box } from '../Box';
@@ -19,8 +19,9 @@ export interface IScrollViewProps extends StyledSystemProps {
  * </ScrollView>
  */
 
-const Wrapper = styled(Box)<IScrollViewProps>`
+const Wrapper = styled(Box, { shouldForwardProp })<IScrollViewProps>`
   -webkit-overflow-scrolling: touch;
+  display: flex;
   overscroll-behavior: contain;
   overflow-x: ${({ direction }) =>
     direction === 'vertical' ? 'hidden' : 'auto'};

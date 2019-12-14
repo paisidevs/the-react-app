@@ -1,7 +1,6 @@
 import { css, Global as GlobalStyles } from '@emotion/core';
 import normalize from 'emotion-normalize';
 import React, { FC } from 'react';
-import 'typeface-roboto';
 import { theme } from '../theme';
 
 interface IGlobalProps {
@@ -28,6 +27,17 @@ export const Global: FC<IGlobalProps> = ({ styles }) => {
           height: 100%;
           text-rendering: optimizeLegibility;
           width: 100%;
+        }
+
+        fieldset {
+          border: none;
+          margin: 0;
+          padding: 0;
+
+          &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+          }
         }
 
         ${styles}

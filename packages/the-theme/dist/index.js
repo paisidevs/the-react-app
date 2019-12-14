@@ -3347,36 +3347,6 @@ exports["default"] = _default;
 
 var normalize = unwrapExports(dist);
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css$2 = "/* roboto-100normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 100;\n  src:\n    local('Roboto Thin '),\n    local('Roboto-Thin'),\n    url('./files/roboto-latin-100.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-100.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-100italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 100;\n  src:\n    local('Roboto Thin italic'),\n    local('Roboto-Thinitalic'),\n    url('./files/roboto-latin-100italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-100italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-300normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 300;\n  src:\n    local('Roboto Light '),\n    local('Roboto-Light'),\n    url('./files/roboto-latin-300.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-300.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-300italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 300;\n  src:\n    local('Roboto Light italic'),\n    local('Roboto-Lightitalic'),\n    url('./files/roboto-latin-300italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-300italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-400normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 400;\n  src:\n    local('Roboto Regular '),\n    local('Roboto-Regular'),\n    url('./files/roboto-latin-400.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-400.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-400italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 400;\n  src:\n    local('Roboto Regular italic'),\n    local('Roboto-Regularitalic'),\n    url('./files/roboto-latin-400italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-400italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-500normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 500;\n  src:\n    local('Roboto Medium '),\n    local('Roboto-Medium'),\n    url('./files/roboto-latin-500.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-500.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-500italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 500;\n  src:\n    local('Roboto Medium italic'),\n    local('Roboto-Mediumitalic'),\n    url('./files/roboto-latin-500italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-500italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-700normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 700;\n  src:\n    local('Roboto Bold '),\n    local('Roboto-Bold'),\n    url('./files/roboto-latin-700.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-700.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-700italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 700;\n  src:\n    local('Roboto Bold italic'),\n    local('Roboto-Bolditalic'),\n    url('./files/roboto-latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-700italic.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-900normal - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 900;\n  src:\n    local('Roboto Black '),\n    local('Roboto-Black'),\n    url('./files/roboto-latin-900.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-900.woff') format('woff'); /* Modern Browsers */\n}\n\n/* roboto-900italic - latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: italic;\n  font-display: swap;\n  font-weight: 900;\n  src:\n    local('Roboto Black italic'),\n    local('Roboto-Blackitalic'),\n    url('./files/roboto-latin-900italic.woff2') format('woff2'), /* Super Modern Browsers */\n    url('./files/roboto-latin-900italic.woff') format('woff'); /* Modern Browsers */\n}\n\n";
-styleInject(css$2);
-
 var colors = {
     background: {
         base: '#F0F2F5',
@@ -3398,7 +3368,10 @@ var colors = {
             intent: {
                 info: '#7395FF',
             },
-            text: { default: '#FFFFFF' },
+            primary: {
+                base: '#FFF',
+            },
+            text: { default: '#FFFFFF', onPrimary: '#222222' },
         },
     },
     opacity: {
@@ -3433,7 +3406,7 @@ var colors = {
         ],
     },
     primary: {
-        base: '#2D68EE',
+        base: '#222222',
         dark: '#003FBB',
         light: '#7395FF',
     },
@@ -3448,6 +3421,7 @@ var colors = {
     },
     text: {
         default: '#222222',
+        onPrimary: '#FFFFFF',
     },
 };
 
@@ -3461,36 +3435,25 @@ var borders = [
     '32px solid',
 ];
 var theme = {
+    isDark: false,
     borders: borders,
-    buttons: {
-        primary: {
-            color: colors.primary.base,
-            border: borders[1],
-            borderColor: colors.primary.base,
-        },
-        secondary: {
-            color: colors.secondary.base,
-            backgroundColor: colors.opacity.transparent,
-            border: borders[1],
-            borderColor: colors.secondary.base,
-        },
-    },
     colors: colors,
     fonts: {
-        sansSerif: "'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen\n    ,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+        sansSerif: 'Roboto, sans-serif',
     },
     fontSizes: [10, 12, 14, 16, 20, 24, 34, 48, 60, 96],
     fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     letterSpacings: [-1.5, -0.5, 0, 0.1, 0.15, 0.25, 0.4, 0.5, 1.25, 1.5],
     breakpoints: ['512px', '768px', '1024px'],
-    maxWidths: [320],
-    minWidths: [160, 320, 344],
+    maxWidths: [320, 640, 1280, 1600],
+    minWidths: [160, 320, 480, 640, 800, 960],
     space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
+    radii: [0, 2, 4, 8],
 };
 
 var Global$1 = function (_a) {
     var styles = _a.styles;
-    return (React__default.createElement(Global, { styles: css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        ", "\n      "], ["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        ", "\n      "])), normalize, theme.fonts.sansSerif, styles) }));
+    return (React__default.createElement(Global, { styles: css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        fieldset {\n          border: none;\n          margin: 0;\n          padding: 0;\n\n          &:disabled {\n            opacity: 0.5;\n            pointer-events: none;\n          }\n        }\n\n        ", "\n      "], ["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        fieldset {\n          border: none;\n          margin: 0;\n          padding: 0;\n\n          &:disabled {\n            opacity: 0.5;\n            pointer-events: none;\n          }\n        }\n\n        ", "\n      "])), normalize, theme.fonts.sansSerif, styles) }));
 };
 var templateObject_1;
 
@@ -6707,6 +6670,7 @@ exports.height = height;
 exports.justifyContent = justifyContent;
 exports.justifyItems = justifyItems;
 exports.justifySelf = justifySelf;
+exports.keyframes = keyframes;
 exports.layout = layout;
 exports.left = left;
 exports.letterSpacing = letterSpacing;

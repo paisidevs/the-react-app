@@ -1,25 +1,13 @@
 import { CreateStyled } from '@emotion/styled';
-import { AlignItemsProps, BorderProps, BorderRadiusProps, BordersProps, BoxShadowProps, ColorProps, DisplayProps, FlexDirectionProps, FlexProps, FlexWrapProps, FontFamilyProps, FontSizeProps, FontWeightProps, HeightProps, JustifyContentProps, MaxHeightProps, MaxWidthProps, MinHeightProps, MinWidthProps, OverflowProps, PositionProps, SizeProps, SpaceProps, TextAlignProps, WidthProps, ZIndexProps } from 'styled-system';
+import { BordersProps, BoxShadowProps, ColorProps, FlexboxProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps } from 'styled-system';
 import { theme } from './theme';
-export interface StyledSystemProps extends AlignItemsProps, BorderProps, BordersProps, BorderRadiusProps, BoxShadowProps, ColorProps, DisplayProps, FlexDirectionProps, FlexProps, FontFamilyProps, FontSizeProps, FontWeightProps, FlexWrapProps, HeightProps, JustifyContentProps, MaxHeightProps, MaxWidthProps, MinHeightProps, MinWidthProps, OverflowProps, PositionProps, SizeProps, SpaceProps, TextAlignProps, WidthProps, ZIndexProps {
+export interface StyledSystemProps extends FlexboxProps, BordersProps, BoxShadowProps, ColorProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps {
     color?: string | (string & string[]);
 }
 export declare type Theme = typeof theme;
 export declare const styled: CreateStyled<{
+    isDark: boolean;
     borders: import("styled-system").TLengthStyledSystem[];
-    buttons: {
-        primary: {
-            color: string;
-            border: import("styled-system").TLengthStyledSystem;
-            borderColor: string;
-        };
-        secondary: {
-            color: string;
-            backgroundColor: string;
-            border: import("styled-system").TLengthStyledSystem;
-            borderColor: string;
-        };
-    };
     colors: {
         background: {
             base: string;
@@ -46,8 +34,12 @@ export declare const styled: CreateStyled<{
                 intent: {
                     info: string;
                 };
+                primary: {
+                    base: string;
+                };
                 text: {
                     default: string;
+                    onPrimary: string;
                 };
             };
         };
@@ -72,6 +64,7 @@ export declare const styled: CreateStyled<{
         };
         text: {
             default: string;
+            onPrimary: string;
         };
     };
     fonts: {
@@ -84,8 +77,9 @@ export declare const styled: CreateStyled<{
     maxWidths: number[];
     minWidths: number[];
     space: number[];
+    radii: number[];
 }>;
-export { css } from '@emotion/core';
+export { css, keyframes } from '@emotion/core';
 export { default as shouldForwardProp } from '@styled-system/should-forward-prop';
 export * from 'styled-system';
 export { Global } from './components/Global';

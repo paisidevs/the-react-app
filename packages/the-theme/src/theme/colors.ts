@@ -19,7 +19,10 @@ export default {
       intent: {
         info: '#7395FF',
       },
-      text: { default: '#FFFFFF' },
+      primary: {
+        base: '#FFF', // Intended > primary > dark
+      },
+      text: { default: '#FFFFFF', onPrimary: '#222222' },
     },
   },
   opacity: {
@@ -54,7 +57,7 @@ export default {
     ],
   },
   primary: {
-    base: '#2D68EE',
+    base: '#222222', // Intended > #2D68EE
     dark: '#003FBB',
     light: '#7395FF',
   },
@@ -69,5 +72,6 @@ export default {
   },
   text: {
     default: '#222222',
+    onPrimary: '#FFFFFF',
   },
 };
