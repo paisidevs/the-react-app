@@ -6,7 +6,7 @@ interface IHorizontalScrollerProps extends StyledSystemProps {}
 const speed = '0.3s';
 
 const Wrapper = styled.div`
-  --aspect: calc(4 / 3);
+  --aspect: calc(16 / 10);
   --gap: 16px;
   --hackPadding: 1px;
   --vw: 100vw;
@@ -31,14 +31,22 @@ const Wrapper = styled.div`
     display: none;
   }
 
-  @media (min-width: 368px) {
-    --vw: 368px;
+  @media (min-width: 512px) {
+    --vw: 400px;
+  }
+
+  @media (min-width: 1024px) {
+    --vw: 364px;
   }
 
   @media (min-width: 1280px) {
-    --vw: 454px;
+    --vw: 448px;
     --hackPadding: calc((100vw - 1280px) / 2);
     padding: 0 var(--hackPadding) 0 var(--hackPadding);
+  }
+
+  @media (min-width: 1312px) {
+    --vw: 454px;
   }
 
   &:after,

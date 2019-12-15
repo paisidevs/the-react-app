@@ -3424,7 +3424,6 @@ var colors = {
         onPrimary: '#FFFFFF',
     },
 };
-//# sourceMappingURL=colors.js.map
 
 var borders = [
     0,
@@ -3451,14 +3450,12 @@ var theme = {
     space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
     radii: [0, 2, 4, 8],
 };
-//# sourceMappingURL=index.js.map
 
 var Global$1 = function (_a) {
     var styles = _a.styles;
     return (React__default.createElement(Global, { styles: css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body,\n        #root {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        fieldset {\n          border: none;\n          margin: 0;\n          padding: 0;\n\n          &:disabled {\n            opacity: 0.5;\n            pointer-events: none;\n          }\n        }\n\n        ", "\n      "], ["\n        ", "\n\n        * {\n          box-sizing: border-box;\n        }\n\n        html,\n        body,\n        #root {\n          -moz-osx-font-smoothing: grayscale;\n          -webkit-font-smoothing: antialiased;\n          font-feature-settings: 'liga', 'kern' 1;\n          font-family: ", ";\n          font-kerning: normal;\n          height: 100%;\n          text-rendering: optimizeLegibility;\n          width: 100%;\n        }\n\n        fieldset {\n          border: none;\n          margin: 0;\n          padding: 0;\n\n          &:disabled {\n            opacity: 0.5;\n            pointer-events: none;\n          }\n        }\n\n        ", "\n      "])), normalize, theme.fonts.sansSerif, styles) }));
 };
 var templateObject_1;
-//# sourceMappingURL=Global.js.map
 
 var _extends_1 = createCommonjsModule(function (module) {
 function _extends() {
@@ -6522,7 +6519,6 @@ function useLocalStorage(key, initialValue) {
     };
     return [storedValue, setValue];
 }
-//# sourceMappingURL=useLocalStorage.js.map
 
 // Hook
 function useMedia(queries, values, defaultValue) {
@@ -6551,7 +6547,6 @@ function useMedia(queries, values, defaultValue) {
     }, []); // Empty array ensures effect is only run on mount and unmount
     return value;
 }
-//# sourceMappingURL=useMedia.js.map
 
 function useDarkMode() {
     // Use our useLocalStorage hook to persist state through a page refresh.
@@ -6585,7 +6580,6 @@ function useDarkMode() {
 function usePrefersDarkMode() {
     return useMedia(["(prefers-color-scheme: dark)"], [true], false);
 }
-//# sourceMappingURL=useDarkMode.js.map
 
 var DEFAULT_STATE = {
     darkMode: false,
@@ -6614,7 +6608,6 @@ var useTheme = function () {
     }
     return context;
 };
-//# sourceMappingURL=ThemeProvider.js.map
 
 var styled = newStyled;
 

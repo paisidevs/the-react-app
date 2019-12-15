@@ -33,7 +33,7 @@ export const Home: React.FC = () => {
             key={idx}
             backgroundColor="background.surface"
             borderRadius={2}
-            height={['calc(100vw / (16/10))', 'calc(512px / (1/1))']}
+            height={['calc(100vw / (16/9))', 'calc(512px / (1/1))']}
             marginBottom={2}
           />
         ))}
