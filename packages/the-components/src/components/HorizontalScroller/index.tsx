@@ -1,11 +1,22 @@
-import { styled, StyledSystemProps } from '@app/theme';
-import React from 'react';
+import {
+  layout,
+  shouldForwardProp,
+  styled,
+  StyledSystemProps,
+} from '@app/theme';
+import React, { useState } from 'react';
+import Measure from 'react-measure';
 
 interface IHorizontalScrollerProps extends StyledSystemProps {}
 
 const speed = '0.3s';
 
-const Wrapper = styled.div`
+const Wrapper = styled('div', { shouldForwardProp })<StyledSystemProps>`
+  overflow: hidden;
+  ${layout};
+`;
+
+const Track = styled.div`
   --aspect: calc(16 / 10);
   --gap: 16px;
   --hackPadding: 1px;
@@ -22,10 +33,14 @@ const Wrapper = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: minmax(calc((var(--vw) / 1) - (var(--gap) * 3)), 320px);
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-type: x proximity;
   scroll-snap-points-x: repeat(100%);
   scroll-snap-type: mandatory;
   scroll-snap-destination: 100% 0%;
+
+  width: 100vw; // Safari needs this for proper layout
+  padding-bottom: 16px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -69,11 +84,26 @@ const Child = styled.div`
 export const HorizontalScroller: React.FC<IHorizontalScrollerProps> = ({
   children,
 }) => {
+  const [trackHeight, setTrackHeight] = useState<number>(-1);
+
   const childrenWithProps = React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) return null;
 
     return <Child>{child}</Child>;
   });
 
-  return <Wrapper>{childrenWithProps}</Wrapper>;
+  return (
+    <Wrapper height={`calc(${trackHeight}px - 16px)`}>
+      <Measure
+        bounds
+        onResize={(rect) => {
+          setTrackHeight(rect.bounds!.height);
+        }}
+      >
+        {({ measureRef: contentRef }) => (
+          <Track ref={contentRef}>{childrenWithProps}</Track>
+        )}
+      </Measure>
+    </Wrapper>
+  );
 };
