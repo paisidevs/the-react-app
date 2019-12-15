@@ -8,11 +8,7 @@ const Header = () => {
   return (
     <Box
       bg="background.surface"
-      borderBottom="1"
-      borderColor="border.default"
       color="text.default"
-      flex="none"
-      height={['64px', '88px']}
       onClick={() => setDarkMode(!darkMode)}
     />
   );

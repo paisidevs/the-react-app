@@ -80,7 +80,7 @@ export const Scrim = styled(Animated)<IScrimProps>`
 `;
 
 Scrim.defaultProps = {
-  backgroundColor: 'opacity.blacks.5',
+  backgroundColor: 'opacity.blacks.8',
   position: 'absolute',
   width: '100%',
 };

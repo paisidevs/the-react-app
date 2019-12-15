@@ -6,7 +6,7 @@ interface IHorizontalScrollerProps extends StyledSystemProps {}
 const speed = '0.3s';
 
 const Wrapper = styled.div`
-  --aspect: calc(16 / 10);
+  --aspect: calc(4 / 3);
   --gap: 16px;
   --hackPadding: 1px;
   --vw: 100vw;
@@ -26,8 +26,6 @@ const Wrapper = styled.div`
   scroll-snap-points-x: repeat(100%);
   scroll-snap-type: mandatory;
   scroll-snap-destination: 100% 0%;
-  padding-bottom: calc(0.75 * var(--gap));
-  margin-bottom: calc(-0.25 * var(--gap));
 
   &::-webkit-scrollbar {
     display: none;
@@ -37,12 +35,9 @@ const Wrapper = styled.div`
     --vw: 368px;
   }
 
-  @media (min-width: 960px) {
-    --vw: 364px;
-  }
-
-  @media (min-width: 1024px) {
-    --hackPadding: calc((100vw - 960px) / 2);
+  @media (min-width: 1280px) {
+    --vw: 454px;
+    --hackPadding: calc((100vw - 1280px) / 2);
     padding: 0 var(--hackPadding) 0 var(--hackPadding);
   }
 
@@ -56,22 +51,21 @@ const Wrapper = styled.div`
   &::after {
     width: var(--hackPadding);
   }
-
-  .c-item {
-    background-color: ${({ theme }) => theme.colors.border.default};
-    border-radius: 4px;
-    scroll-snap-align: center;
-    padding: var(--gap);
-    transition: all ${speed};
-  }
 `;
 
-export const HorizontalScroller: React.FC<IHorizontalScrollerProps> = () => {
-  return (
-    <Wrapper>
-      {[0, 0, 0, 0, 0, 0, 0, 0].map((i) => (
-        <div key={1} className="c-item" />
-      ))}
-    </Wrapper>
-  );
+const Child = styled.div`
+  scroll-snap-align: center;
+  transition: all ${speed};
+`;
+
+export const HorizontalScroller: React.FC<IHorizontalScrollerProps> = ({
+  children,
+}) => {
+  const childrenWithProps = React.Children.map(children, (child) => {
+    if (!React.isValidElement(child)) return null;
+
+    return <Child>{child}</Child>;
+  });
+
+  return <Wrapper>{childrenWithProps}</Wrapper>;
 };

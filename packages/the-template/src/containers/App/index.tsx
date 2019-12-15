@@ -1,16 +1,14 @@
-import { Box, ErrorBoundary, Modal, Routes } from '@app/components';
+import { Box, ErrorBoundary, Grid, Modal, Routes } from '@app/components';
 import { Global, ThemeProvider } from '@app/theme';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Header } from '../../components';
-import { useAuthentication, useWindowSize } from '../../hooks';
+import { useAuthentication } from '../../hooks';
 import routes from '../../routes';
 import Login from '../Login';
-import { Wrapper } from './styles';
 
 const App: React.FC<RouteComponentProps> = (props) => {
   const { isAuthenticated } = useAuthentication();
-  const { height } = useWindowSize();
 
   const renderApp = () => {
     if (!isAuthenticated) {
@@ -18,6 +16,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
         <Modal
           closeOnDocumentClick={false}
           hideCloseButton={true}
+          open={true}
           maxWidth="400px"
           trigger={
             <Box
@@ -49,7 +48,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
     return (
       <React.Fragment>
         <Header />
-        <Box flex="1">
+        <Box backgroundColor="background.base" overflow="hidden">
           <ErrorBoundary>
             <Routes location={props.location} routes={routes} />
           </ErrorBoundary>
@@ -60,10 +59,10 @@ const App: React.FC<RouteComponentProps> = (props) => {
 
   return (
     <ThemeProvider>
-      <Wrapper height={height}>
+      <Grid gridTemplateRows={['64px 1fr', '88px 1fr']}>
         <Global />
         {renderApp()}
-      </Wrapper>
+      </Grid>
     </ThemeProvider>
   );
 };

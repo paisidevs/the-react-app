@@ -18,7 +18,8 @@ export const Global: FC<IGlobalProps> = ({ styles }) => {
         }
 
         html,
-        body {
+        body,
+        #root {
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
           font-feature-settings: 'liga', 'kern' 1;

@@ -1,7 +1,7 @@
 import { CreateStyled } from '@emotion/styled';
-import { BordersProps, BoxShadowProps, ColorProps, FlexboxProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps } from 'styled-system';
+import { BordersProps, BoxShadowProps, ColorProps, FlexboxProps, GridProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps } from 'styled-system';
 import { theme } from './theme';
-export interface StyledSystemProps extends FlexboxProps, BordersProps, BoxShadowProps, ColorProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps {
+export interface StyledSystemProps extends BordersProps, BoxShadowProps, ColorProps, FlexboxProps, GridProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps {
     color?: string | (string & string[]);
 }
 export declare type Theme = typeof theme;

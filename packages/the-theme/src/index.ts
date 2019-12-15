@@ -4,6 +4,7 @@ import {
   BoxShadowProps,
   ColorProps,
   FlexboxProps,
+  GridProps,
   LayoutProps,
   OverflowProps,
   PositionProps,
@@ -13,10 +14,11 @@ import {
 import { theme } from './theme';
 
 export interface StyledSystemProps
-  extends FlexboxProps,
-    BordersProps,
+  extends BordersProps,
     BoxShadowProps,
     ColorProps,
+    FlexboxProps,
+    GridProps,
     LayoutProps,
     OverflowProps,
     PositionProps,
