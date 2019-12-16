@@ -1,6 +1,11 @@
-import { Box, HorizontalScroller, Modal, ScrollView } from '@app/components';
+import {
+  Box,
+  Grid,
+  HorizontalScroller,
+  Modal,
+  ScrollView,
+} from '@app/components';
 import React from 'react';
-import Login from '../Login';
 
 export const Home: React.FC = () => {
   return (
@@ -22,22 +27,31 @@ export const Home: React.FC = () => {
               />
             }
             maxWidth="400px"
-          >
-            <Login />
-          </Modal>
+          />
         ))}
       </HorizontalScroller>
-      <Box padding={2} paddingBottom={0} margin="0 auto" maxWidth="1280px">
+      <Grid
+        gridGap={2}
+        gridTemplateColumns={['1fr', null, null, 'repeat(2, 1fr)']}
+        gridAutoRows={[
+          'minmax(calc(100vw / (16/9)), auto)',
+          'minmax(calc(512px / (4/3)), auto)',
+        ]}
+        padding={2}
+        paddingBottom={0}
+        margin="0 auto"
+        maxWidth="1280px"
+      >
         {[0, 0].map((_, idx) => (
           <Box
             key={idx}
             backgroundColor="background.surface"
             borderRadius={2}
-            height={['calc(100vw / (16/9))', 'calc(512px / (1/1))']}
+            height="100%"
             marginBottom={2}
           />
         ))}
-      </Box>
+      </Grid>
     </ScrollView>
   );
 };

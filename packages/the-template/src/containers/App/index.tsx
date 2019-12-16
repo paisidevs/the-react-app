@@ -59,7 +59,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
 
   return (
     <ThemeProvider>
-      <Grid gridTemplateRows={['64px 1fr', '88px 1fr']}>
+      <Grid gridTemplateRows={['64px 1fr', '88px 1fr']} height="100%">
         <Global />
         {renderApp()}
       </Grid>

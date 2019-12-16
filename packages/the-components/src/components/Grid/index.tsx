@@ -24,7 +24,6 @@ export interface IGridProps extends StyledSystemProps {}
 export const Grid = styled('div', { shouldForwardProp })<IGridProps>(
   {
     display: 'grid',
-    height: '100%',
     position: 'relative',
   },
   grid,

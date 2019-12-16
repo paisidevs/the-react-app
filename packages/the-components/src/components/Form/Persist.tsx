@@ -16,8 +16,6 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
   debounceNumber,
   clearPersist,
 }) => {
-  console.log({ formik });
-
   useEffect(() => {
     const persistedState = isSessionStorage
       ? window.sessionStorage.getItem(name)
