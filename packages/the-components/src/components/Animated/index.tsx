@@ -1,4 +1,5 @@
 import { styled } from '@app/theme';
+import { animated } from 'react-spring';
 import { Box } from '../Box';
 
 /**
@@ -7,4 +8,4 @@ import { Box } from '../Box';
  * @description Animated component.
  */
 
-export const Animated = styled(Box)``;
+export const Animated = styled(animated(Box))``;

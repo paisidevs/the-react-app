@@ -1,5 +1,9 @@
+import { styled } from '@app/theme';
 import React, { FC } from 'react';
 import { Route, RouteProps, Switch, SwitchProps } from 'react-router-dom';
+import { useTransition } from 'react-spring';
+import { Animated } from '../Animated';
+import { Box } from '../Box';
 import { ErrorBoundary } from '../ErrorBoundary';
 
 export interface IRouteProps extends RouteProps {
@@ -9,6 +13,22 @@ export interface IRouteProps extends RouteProps {
 interface IRoutesProps extends SwitchProps {
   routes: IRouteProps[];
 }
+
+const Wrapper = styled(Box)`
+  & > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform, opacity;
+    z-index: 0;
+  }
+`;
+
+const transitionConfig = {
+  from: { opacity: 0, transform: 'translateY(64px)' },
+  enter: { opacity: 1, transform: 'translateY(0)' },
+  leave: { opacity: 0, transform: 'translateY(32px)' },
+};
 
 /**
  * @render react
@@ -27,12 +47,24 @@ interface IRoutesProps extends SwitchProps {
  */
 
 export const Routes: FC<IRoutesProps> = ({ location, routes }) => {
+  const routeTransitions = useTransition(
+    location,
+    ({ pathname }) => pathname,
+    transitionConfig,
+  );
+
   return (
-    <Switch location={location}>
-      {routes.map(({ ...rest }: IRouteProps, index: number) => (
-        <PublicRoute key={index} {...rest} />
+    <Wrapper flex={1}>
+      {routeTransitions.map(({ item, props: styleProps, key }) => (
+        <Animated key={key} style={styleProps}>
+          <Switch location={item}>
+            {routes.map(({ ...rest }: IRouteProps, index: number) => (
+              <PublicRoute key={index} {...rest} />
+            ))}
+          </Switch>
+        </Animated>
       ))}
-    </Switch>
+    </Wrapper>
   );
 };
 
