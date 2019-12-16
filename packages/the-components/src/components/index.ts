@@ -5,6 +5,7 @@ export { Flex, FlexStyles } from './Flex';
 export { Form } from './Form';
 export { Grid } from './Grid';
 export { HorizontalScroller } from './HorizontalScroller';
+export { Image } from './Image';
 export { Input } from './Input';
 export { Loader } from './Loader';
 export { Modal } from './Modal';

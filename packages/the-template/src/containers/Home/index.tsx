@@ -2,8 +2,10 @@ import {
   Box,
   Grid,
   HorizontalScroller,
+  Image,
   Modal,
   ScrollView,
+  Text,
 } from '@app/components';
 import React from 'react';
 
@@ -24,7 +26,22 @@ export const Home: React.FC = () => {
                 backgroundColor="background.surface"
                 borderRadius={2}
                 height="100%"
-              />
+              >
+                <Image src="https://images.unsplash.com/photo-1574804226052-d500cee0ffd8?auto=format&fit=crop&w=640&q=80" />
+                <Box p={2}>
+                  <Text
+                    color="text.default"
+                    fontSize={4}
+                    fontWeight="bolder"
+                    marginBottom={1}
+                  >
+                    Title
+                  </Text>
+                  <Text color="text.default">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </Text>
+                </Box>
+              </Box>
             }
             maxWidth="400px"
           />
