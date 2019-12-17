@@ -45,6 +45,7 @@ PortalInner.defaultProps = {
   maxHeight: ['100%', '90vh'],
   maxWidth: '600px',
   minHeight: '160px',
+  overflow: 'hidden',
   width: '100%',
 };
 
