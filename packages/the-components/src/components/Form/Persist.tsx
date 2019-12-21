@@ -3,18 +3,18 @@ import { debounce } from 'lodash';
 import { FC, useEffect } from 'react';
 
 export interface IPersistProps {
-  name: string;
+  clearPersist?: boolean;
   debounceNumber?: number;
   isSessionStorage?: boolean;
-  clearPersist?: boolean;
+  name: string;
 }
 
 const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
-  formik,
   name,
-  isSessionStorage,
-  debounceNumber,
   clearPersist,
+  debounceNumber,
+  formik,
+  isSessionStorage,
 }) => {
   useEffect(() => {
     const persistedState = isSessionStorage

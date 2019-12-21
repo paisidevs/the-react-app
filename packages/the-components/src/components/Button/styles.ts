@@ -21,8 +21,8 @@ const variants = variant({
     },
     primary: {
       backgroundColor: 'primary.base',
-      color: 'text.onPrimary',
       borderRadius: 2,
+      color: 'text.onPrimary',
       minHeight: '56px',
       width: '100%',
     },
@@ -55,8 +55,8 @@ const Wrapper = styled('button', { shouldForwardProp })<StyledSystemProps>`
   &:before {
     content: '';
     height: 100%;
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 0;

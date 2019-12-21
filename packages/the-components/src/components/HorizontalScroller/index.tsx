@@ -39,8 +39,8 @@ const Track = styled.div`
   scroll-snap-type: mandatory;
   scroll-snap-destination: 100% 0%;
 
-  width: 100vw; // Safari needs this for proper layout
-  padding-bottom: 16px;
+  width: var(--vw); // Safari needs this for proper layout
+  padding-bottom: var(--gap);
 
   &::-webkit-scrollbar {
     display: none;

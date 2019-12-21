@@ -3424,7 +3424,6 @@ var colors = {
         onPrimary: '#FFFFFF',
     },
 };
-//# sourceMappingURL=colors.js.map
 
 var borders = [
     0,
@@ -6520,7 +6519,6 @@ function useLocalStorage(key, initialValue) {
     };
     return [storedValue, setValue];
 }
-//# sourceMappingURL=useLocalStorage.js.map
 
 // Hook
 function useMedia(queries, values, defaultValue) {
@@ -6549,7 +6547,6 @@ function useMedia(queries, values, defaultValue) {
     }, []); // Empty array ensures effect is only run on mount and unmount
     return value;
 }
-//# sourceMappingURL=useMedia.js.map
 
 function useDarkMode() {
     // Use our useLocalStorage hook to persist state through a page refresh.
@@ -6583,7 +6580,6 @@ function useDarkMode() {
 function usePrefersDarkMode() {
     return useMedia(["(prefers-color-scheme: dark)"], [true], false);
 }
-//# sourceMappingURL=useDarkMode.js.map
 
 var DEFAULT_STATE = {
     darkMode: false,

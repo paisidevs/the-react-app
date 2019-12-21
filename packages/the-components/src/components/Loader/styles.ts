@@ -31,25 +31,25 @@ export const Wrapper = styled.div`
     display: block;
     padding-top: 100%;
   }
+`;
 
-  .circular {
-    animation: ${rotate} 1.25s linear infinite;
-    height: 100%;
-    transform-origin: center center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
+export const Circular = styled.svg`
+  animation: ${rotate} 1.25s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
 
-  .path {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-    animation: ${dash} 1.25s ease-in-out infinite;
-    stroke-linecap: round;
-    stroke: currentColor;
-  }
+export const Path = styled.circle`
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: ${dash} 1.25s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: currentColor;
 `;
