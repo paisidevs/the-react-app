@@ -53,7 +53,7 @@ const GetSongs: FC<IGetSongsProps> = () => {
 
   return (
     <Wrapper>
-      <H3>Songs</H3>
+      <H3 data-testid="page-subtitle">Songs</H3>
       <Box>{renderSongs(songs)}</Box>
     </Wrapper>
   );

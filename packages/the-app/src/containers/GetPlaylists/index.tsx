@@ -54,7 +54,7 @@ const GetPlaylists: FC<IGetPlaylistsProps> = () => {
 
   return (
     <Wrapper>
-      <H3>Playlists</H3>
+      <H3 data-testid="page-subtitle">Playlists</H3>
       <Box>{renderPlaylists(playlists)}</Box>
     </Wrapper>
   );

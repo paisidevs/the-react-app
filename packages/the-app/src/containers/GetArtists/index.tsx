@@ -53,7 +53,7 @@ const GetArtists: FC<IGetArtistsProps> = () => {
 
   return (
     <Wrapper>
-      <H3>Artists</H3>
+      <H3 data-testid="page-subtitle">Artists</H3>
       <Box>{renderArtists(artists)}</Box>
     </Wrapper>
   );

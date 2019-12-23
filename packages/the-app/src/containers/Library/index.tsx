@@ -26,6 +26,7 @@ const Library: React.FC<RouteComponentProps & { routes?: any[] }> = ({
   return (
     <ScrollView>
       <H2
+        data-testid="page-title"
         {...(!match.isExact && {
           fontSize: 2,
           onClick: () => history.goBack(),

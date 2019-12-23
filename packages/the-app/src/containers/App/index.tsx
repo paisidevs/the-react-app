@@ -4,7 +4,7 @@ import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { useAuthentication } from '../../hooks';
 import routes from '../../routes';
-import Login from '../Login';
+import Login from '../Login/loadable';
 import { Footer, Header } from './elements';
 
 const App: React.FC<RouteComponentProps> = (props) => {

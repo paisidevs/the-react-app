@@ -53,7 +53,7 @@ const GetAlbums: FC<IGetAlbumsProps> = () => {
 
   return (
     <Wrapper>
-      <H3>Albums</H3>
+      <H3 data-testid="page-subtitle">Albums</H3>
       <Box>{renderAlbums(albums)}</Box>
     </Wrapper>
   );
