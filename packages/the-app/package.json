@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "dependencies": {
     "@app/components": "^0.1.0",
@@ -30,7 +30,8 @@
     "@types/react": "16.9.16",
     "@types/react-dom": "16.9.4",
     "jest-emotion": "10.0.26",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "source-map-explorer": "2.1.2"
   },
   "eslintConfig": {
     "extends": "react-app"
