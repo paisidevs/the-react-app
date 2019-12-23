@@ -7,7 +7,7 @@ import {
 } from '@app/components';
 import React from 'react';
 
-export const Dashboard: React.FC = () => {
+const Dashboard: React.FC = () => {
   return (
     <ScrollView>
       <Box
@@ -39,7 +39,6 @@ export const Dashboard: React.FC = () => {
         gridGap={2}
         gridTemplateColumns={['1fr', null, null, 'repeat(2, 1fr)']}
         padding={2}
-        paddingBottom={0}
         margin="0 auto"
         maxWidth="1280px"
       >
@@ -56,3 +55,5 @@ export const Dashboard: React.FC = () => {
     </ScrollView>
   );
 };
+
+export default Dashboard;

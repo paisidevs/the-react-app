@@ -41,6 +41,11 @@ export const Global: FC<IGlobalProps> = ({ styles }) => {
           }
         }
 
+        [href] {
+          color: inherit;
+          text-decoration: none;
+        }
+
         ${styles}
       `}
     />

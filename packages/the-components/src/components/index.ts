@@ -9,5 +9,6 @@ export { Image } from './Image';
 export { Input } from './Input';
 export { Loader } from './Loader';
 export { Modal } from './Modal';
+export { Navigation } from './Navigation';
 export { Routes } from './Routes';
 export { ScrollView } from './ScrollView';

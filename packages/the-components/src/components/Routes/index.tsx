@@ -83,6 +83,7 @@ interface IPublicRouteProps extends RouteProps {
 
 const PublicRoute: FC<IPublicRouteProps> = ({
   component: Component,
+  routes,
   ...rest
 }) => {
   return (
@@ -90,9 +91,49 @@ const PublicRoute: FC<IPublicRouteProps> = ({
       <Route
         {...rest}
         render={(props) =>
-          Component && <Component routes={rest.routes} {...props} />
+          Component && <Component routes={routes} {...props} />
         }
       />
     </ErrorBoundary>
   );
 };
+
+// interface IPrivateRouteProps extends RouteProps {
+//   component?: React.ComponentType<any>;
+//   routes?: IRouteProps[];
+// }
+
+// /**
+//  * @render react
+//  * @name PrivateRoute component
+//  * @description PrivateRoute component.
+//  * @example
+//  * <PrivateRoute />
+//  */
+
+// const PrivateRoute: FC<IPrivateRouteProps> = ({
+//   component: Component,
+//   ...rest
+// }) => {
+//   const { isAuthenticated } = useAuthentication();
+
+//   return (
+//     <ErrorBoundary>
+//       <Route
+//         {...rest}
+//         render={(props) =>
+//           isAuthenticated ? (
+//             Component && <Component {...props} />
+//           ) : (
+//             <Redirect
+//               to={{
+//                 pathname: '/auth/login',
+//                 state: { from: props.location },
+//               }}
+//             />
+//           )
+//         }
+//       />
+//     </ErrorBoundary>
+//   );
+// };

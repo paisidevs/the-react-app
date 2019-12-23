@@ -8,7 +8,7 @@ import { useWindowSize } from '../../hooks';
 import { Button } from '../Button';
 import { ErrorBoundary } from '../ErrorBoundary';
 import { ScrollView } from '../ScrollView';
-import { Portal, PortalInner, PortalInnerHeader, Scrim } from './styles';
+import { Portal, PortalInner, PortalInnerHeader, Scrim } from './elements';
 
 const portalContainer = document.getElementById('portals') || document.body;
 

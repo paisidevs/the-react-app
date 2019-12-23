@@ -28,29 +28,37 @@ const Provider: FC<IProps> = ({ children }) => {
 
   const signUp = (email: string) =>
     new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email.match('mpofuthandolwethu@gmail.com')) {
-          reject(new Error(Errors.accountExists.message));
-        }
+      try {
+        setTimeout(() => {
+          if (email.match('mpofuthandolwethu@gmail.com')) {
+            reject(new Error(Errors.accountExists.message));
+          }
 
-        resolve({ data: { user: { name: 'Thandolwethu Mpofu' } } });
-      }, 3000);
+          resolve({ data: { user: { name: 'Thandolwethu Mpofu' } } });
+        }, 3000);
+      } catch (error) {
+        reject(error);
+      }
     });
 
   const signIn = () =>
     new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({ data: { user: { name: 'Thandolwethu Mpofu' } } });
-
+      try {
         setTimeout(() => {
-          setIsAuthenticated(true);
-        }, 1000);
-      }, 3000);
+          resolve({ data: { user: { name: 'Thandolwethu Mpofu' } } });
+
+          setTimeout(() => {
+            setIsAuthenticated(true);
+          }, 1000);
+        }, 3000);
+      } catch (error) {
+        reject(error);
+      }
     });
 
   return (
     <AuthenticationContext.Provider
-      value={{ authenticating, isAuthenticated, signIn, signUp, Errors }}
+      value={{ authenticating, Errors, isAuthenticated, signIn, signUp }}
     >
       {children}
     </AuthenticationContext.Provider>
