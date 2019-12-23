@@ -7,8 +7,7 @@ const Header = () => {
 
   return (
     <Box
-      bg="background.surface"
-      color="text.default"
+      backgroundColor="background.surface"
       onClick={() => setDarkMode(!darkMode)}
     />
   );

@@ -2,10 +2,10 @@ import { Box, ErrorBoundary, Grid, Modal, Routes } from '@app/components';
 import { Global, ThemeProvider } from '@app/theme';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { Header } from '../../components';
 import { useAuthentication } from '../../hooks';
 import routes from '../../routes';
 import Login from '../Login';
+import { Footer, Header } from './elements';
 
 const App: React.FC<RouteComponentProps> = (props) => {
   const { isAuthenticated } = useAuthentication();
@@ -48,18 +48,25 @@ const App: React.FC<RouteComponentProps> = (props) => {
     return (
       <React.Fragment>
         <Header />
-        <Box backgroundColor="background.base" overflow="hidden">
+        <Box height="100%" overflow="hidden">
           <ErrorBoundary>
             <Routes location={props.location} routes={routes} />
           </ErrorBoundary>
         </Box>
+        <Footer />
       </React.Fragment>
     );
   };
 
   return (
     <ThemeProvider>
-      <Grid gridTemplateRows={['64px 1fr', '88px 1fr']} height="100%">
+      <Grid
+        backgroundColor="background.base"
+        color="text.default"
+        gridTemplateRows={['auto 1fr auto', 'auto 1fr auto']}
+        height="100%"
+        overflow="hidden"
+      >
         <Global />
         {renderApp()}
       </Grid>

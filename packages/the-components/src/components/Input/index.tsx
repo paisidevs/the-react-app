@@ -23,7 +23,6 @@ export interface IInputProps extends FieldConfig {
 const Wrapper = styled(Box)<{ activated: boolean }>`
   .label {
     opacity: 0.6;
-    left: ${theme.space[2]}px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -205,7 +204,11 @@ export const Input: FC<IInputProps> = ({
               {isPasswordInput ? renderPasswordAdornment() : endAdornment}
             </Adornment>
           )}
-          <Box className="label" position="absolute">
+          <Box
+            className="label"
+            position="absolute"
+            left={startAdornment ? '56px' : '16px'}
+          >
             <Text fontSize="3">{label}</Text>
           </Box>
         </Box>

@@ -1,10 +1,12 @@
-import { Home, NotFound } from './containers';
+import { Dashboard, NotFound } from './containers';
 
 const routes: any = [
   {
     exact: true,
-    path: '/',
-    component: Home,
+    secure: true,
+    component: Dashboard,
+    path: ['/', '/dashboard'],
+    title: 'Dashboard',
   },
   {
     path: '*',

@@ -24,6 +24,7 @@ Portal.defaultProps = {
   justifyContent: 'center',
   position: 'fixed',
   width: '100%',
+  zIndex: 10,
 };
 
 /**

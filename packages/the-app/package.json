@@ -1,5 +1,5 @@
 {
-  "name": "@app/template",
+  "name": "the-beats-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {

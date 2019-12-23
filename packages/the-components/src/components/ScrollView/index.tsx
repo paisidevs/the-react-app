@@ -21,7 +21,6 @@ export interface IScrollViewProps extends StyledSystemProps {
 
 const Wrapper = styled(Box, { shouldForwardProp })<IScrollViewProps>`
   -webkit-overflow-scrolling: touch;
-  display: flex;
   overscroll-behavior: contain;
   overflow-x: ${({ direction }) =>
     direction === 'vertical' ? 'hidden' : 'auto'};

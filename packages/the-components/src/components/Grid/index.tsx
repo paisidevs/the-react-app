@@ -1,4 +1,5 @@
 import {
+  color,
   grid,
   layout,
   shouldForwardProp,
@@ -26,6 +27,7 @@ export const Grid = styled('div', { shouldForwardProp })<IGridProps>(
     display: 'grid',
     position: 'relative',
   },
+  color,
   grid,
   layout,
   space,

@@ -2,18 +2,17 @@ import {
   Box,
   Grid,
   HorizontalScroller,
-  Image,
   Modal,
   ScrollView,
 } from '@app/components';
 import React from 'react';
 
-export const Home: React.FC = () => {
+export const Dashboard: React.FC = () => {
   return (
     <ScrollView>
       <Box
         backgroundColor="background.surface"
-        height={['calc(100vw / (4/3))', 'calc(512px / (1/1))']}
+        height={['calc(100vw / (1/1))', 'calc(512px / (1/1))']}
         marginBottom={2}
       />
       <HorizontalScroller>
@@ -26,9 +25,7 @@ export const Home: React.FC = () => {
                 borderRadius={2}
                 height="100%"
                 overflow="hidden"
-              >
-                <Image src="https://images.unsplash.com/photo-1574804226052-d500cee0ffd8?auto=format&fit=crop&w=640&q=80" />
-              </Box>
+              />
             }
             maxWidth="400px"
           />
