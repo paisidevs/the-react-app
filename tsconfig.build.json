@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "removeComments": true,
+    "target": "es5",
+    "sourceMap": true
+  },
+
+  "exclude": ["node_modules", "dist"]
+}

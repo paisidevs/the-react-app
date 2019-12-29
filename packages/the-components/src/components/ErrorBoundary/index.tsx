@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import H2 from '../../typography/H2';
-import Text from '../../typography/Text';
-import Box from '../Box';
+import { H2, Text } from '../../typography';
+import { Box } from '../Box';
 
 interface IErrorBoundaryProps {
   className?: string;
@@ -22,8 +21,7 @@ interface IState {
  * <ErrorBoundary />
  */
 
-// eslint-disable-next-line react/prefer-stateless-function
-class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
+export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
   state: IState = {
     hasError: false,
   };
@@ -54,5 +52,3 @@ class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;

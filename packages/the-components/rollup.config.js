@@ -1,22 +1,33 @@
-/* eslint-disable */
-
-import minify from 'rollup-plugin-babel-minify';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
-export default [
-  {
-    input: 'src/index.ts',
-    external: Object.keys(pkg.peerDependencies || {}),
-    plugins: [
-      typescript({
-        typescript: require('typescript'),
-      }),
-      minify(),
-    ],
-    output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
-    ],
-  },
-];
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      exports: 'named',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    external(),
+    resolve(),
+    typescript({
+      typescript: require('typescript'),
+      rollupCommonJSResolveHack: true,
+      clean: true,
+    }),
+    commonjs(),
+  ],
+};

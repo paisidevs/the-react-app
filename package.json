@@ -1,4 +1,5 @@
 {
+  "name": "the-react-app",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -6,34 +7,11 @@
   "scripts": {
     "build": "lerna run --parallel build",
     "nuke": "rm yarn.lock && rm -rf node_modules && yarn",
-    "prepare": "lerna run prepare --scope the-theme && lerna run prepare --scope the-react-components",
+    "prepare": "lerna run prepare --scope @app/theme && lerna run prepare --scope @app/components",
     "start": "yarn run prepare && lerna run --parallel start"
   },
   "devDependencies": {
-    "cross-env": "6.0.0",
-    "eslint": "6.4.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.14.3",
-    "eslint-plugin-react-hooks": "2.0.1",
-    "husky": "3.0.5",
-    "jest": "24.9.0",
-    "lerna": "3.16.4",
-    "lerna-changelog": "0.8.2",
-    "lint-staged": "9.2.5",
-    "prettier": "1.18.2",
-    "travis-size-report": "1.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,md,css,html}": [
-      "prettier --trailing-comma es5 --single-quote --write",
-      "git add"
-    ]
+    "lerna": "^3.19.0",
+    "prettier": "1.19.1"
   }
 }

@@ -1,16 +1,11 @@
+import { styled } from '@app/theme';
 import { animated } from 'react-spring';
-import { styled } from 'the-theme';
-
-interface IAnimatedProps {}
+import { Box } from '../Box';
 
 /**
  * @render react
  * @name Animated component
  * @description Animated component.
- * @example
- * <Animated />
  */
 
-const Animated = styled(animated.div)<IAnimatedProps>``;
-
-export default Animated;
+export const Animated = styled(animated(Box))``;

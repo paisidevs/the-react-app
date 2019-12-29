@@ -1,4 +1,4 @@
-import { styled, StyledSystemProps, typography } from 'the-theme';
+import { styled, StyledSystemProps, typography } from '@app/theme';
 
 /**
  * @render react

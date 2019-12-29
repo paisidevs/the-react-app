@@ -1,19 +1,30 @@
-import { styled, StyledSystemProps, typography } from 'the-theme';
+import {
+  color,
+  layout,
+  shouldForwardProp,
+  space,
+  styled,
+  StyledSystemProps,
+  typography,
+} from '@app/theme';
 
 /**
  * @render react
  * @name Text component
- * @description Paragraph (default)
+ * @description Span (default)
  * @example
  *  <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
  */
 
-const Text = styled.p<StyledSystemProps>`
-  ${typography};
-`;
-
-Text.defaultProps = {
-  color: 'text.default',
-};
+const Text = styled('span', { shouldForwardProp })<StyledSystemProps>(
+  {
+    color: 'inherit',
+    lineHeight: 1.5,
+  },
+  color,
+  layout,
+  space,
+  typography,
+);
 
 export default Text;

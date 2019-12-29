@@ -1,18 +1,16 @@
+import { StyledSystemProps } from '@app/theme';
 import React, { FC } from 'react';
-import { StyledSystemProps } from 'the-theme';
+import { Text } from '../../typography';
+import { Loader } from '../Loader';
 import Wrapper from './styles';
 
 export interface IButtonProps extends StyledSystemProps {
-  ariaLabel?: string;
-  className?: string;
   disabled?: boolean;
-  icon?: React.ReactNode;
-  iconOnly?: boolean;
-  iconSize?: number;
+  isLoading?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   text?: string;
   type?: 'button' | 'submit';
-  variant?: 'flat' | 'outlined' | 'primary' | 'raised' | 'secondary' | 'text';
+  variant?: string;
 }
 
 /**
@@ -23,26 +21,27 @@ export interface IButtonProps extends StyledSystemProps {
  * <Button text="Test" />
  */
 
-const Button: FC<IButtonProps> = ({ text, ...rest }) => (
-  // @ts-ignore
-  <Wrapper {...rest}>
-    {rest.icon && <i>{rest.icon}</i>}
-    {!rest.iconOnly && <label>{text}</label>}
-  </Wrapper>
-);
+export const Button: FC<IButtonProps> = ({
+  children,
+  isLoading,
+  text,
+  ...rest
+}) => {
+  const renderChildren = () => {
+    if (isLoading) {
+      return <Loader />;
+    }
 
-Button.defaultProps = {
-  ariaLabel: 'Button',
-  bg: 'transparent',
-  color: 'text.default',
-  disabled: false,
-  iconOnly: false,
-  iconSize: 18,
-  minWidth: 64,
-  onClick: () => null,
-  text: 'Button',
-  type: 'button',
-  variant: 'text',
+    if (text) {
+      return <Text lineHeight="1">{text}</Text>;
+    }
+
+    return children;
+  };
+
+  return <Wrapper {...rest}>{renderChildren()}</Wrapper>;
 };
 
-export default Button;
+Button.defaultProps = {
+  onClick: () => null,
+};
