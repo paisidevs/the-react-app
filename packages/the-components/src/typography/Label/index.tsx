@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-import { fontSize, FontSizeProps } from 'styled-system';
-import Flex from '../Flex';
+import { css, fontSize, FontSizeProps, styled } from '@app/theme';
+import { Flex } from '../..';
 
 interface ILabelProps extends FontSizeProps {
   sronly?: boolean;

@@ -10,7 +10,8 @@
   "jsnext:main": "dist/index.es.js",
   "scripts": {
     "prepare": "rm -rf dist && rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "test": "react-scripts test"
   },
   "peerDependencies": {
     "@app/theme": "^0.1.0",
@@ -26,6 +27,9 @@
   "devDependencies": {
     "@app/theme": "^0.1.0",
     "@rollup/plugin-node-resolve": "6.0.0",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.0",
+    "@types/jest": "24.0.25",
     "@types/lodash": "4.14.149",
     "@types/react": "16.9.16",
     "@types/react-measure": "2.0.5",
@@ -37,6 +41,7 @@
     "react-feather": "2.0.3",
     "react-measure": "2.3.0",
     "react-router-dom": "5.1.2",
+    "react-scripts": "3.3.0",
     "react-spring": "8.0.27",
     "rollup": "1.27.9",
     "rollup-plugin-commonjs": "10.1.0",
