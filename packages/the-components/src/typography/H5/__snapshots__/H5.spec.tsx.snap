@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H5 renders without crashing 1`] = `
+.emotion-0 {
+  font-size: 24px;
+}
+
+@media screen and (min-width:40em) {
+  .emotion-0 {
+    font-size: 32px;
+  }
+}
+
+<h5
+  class="emotion-0"
+>
+  Heading
+</h5>
+`;

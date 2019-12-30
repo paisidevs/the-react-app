@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders without crashing 1`] = `
+.emotion-0 {
+  color: inherit;
+  line-height: 1.5;
+}
+
+<span
+  class="emotion-0"
+>
+  Heading
+</span>
+`;

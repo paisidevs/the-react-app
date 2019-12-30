@@ -1,4 +1,10 @@
-import { space, styled, StyledSystemProps, typography } from '@app/theme';
+import {
+  shouldForwardProp,
+  space,
+  styled,
+  StyledSystemProps,
+  typography,
+} from '@app/theme';
 
 /**
  * @render react
@@ -8,7 +14,7 @@ import { space, styled, StyledSystemProps, typography } from '@app/theme';
  *  <H1>Heading</H1>
  */
 
-const H1 = styled.h1<StyledSystemProps>`
+const H1 = styled('h1', { shouldForwardProp })<StyledSystemProps>`
   ${space};
   ${typography};
 `;
