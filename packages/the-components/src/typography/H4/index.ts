@@ -1,4 +1,4 @@
-import { styled, StyledSystemProps, typography } from '@app/theme';
+import { space, styled, StyledSystemProps, typography } from '@app/theme';
 
 /**
  * @render react
@@ -9,6 +9,7 @@ import { styled, StyledSystemProps, typography } from '@app/theme';
  */
 
 const H4 = styled.h4<StyledSystemProps>`
+  ${space};
   ${typography};
 `;
 

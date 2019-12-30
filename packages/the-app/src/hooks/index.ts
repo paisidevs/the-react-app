@@ -1,3 +1,3 @@
 export { useAuthentication } from './useAuthentication';
-export { useFormikPersist } from './useFormikPersist';
+export { useBreadcrumbs } from './useBreadcrumbs';
 export { useWindowSize } from './useWindowSize';

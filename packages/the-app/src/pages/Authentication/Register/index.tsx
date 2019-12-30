@@ -1,7 +1,7 @@
 import { Button, Form, Input } from '@app/components';
 import React from 'react';
 import * as Yup from 'yup';
-import { useAuthentication } from '../../hooks';
+import { useAuthentication } from '../../../hooks';
 
 const RegisterSchema = Yup.object().shape({
   email: Yup.string()

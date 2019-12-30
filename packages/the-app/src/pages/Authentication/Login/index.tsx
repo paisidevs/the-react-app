@@ -3,7 +3,7 @@ import { theme } from '@app/theme';
 import React, { useState } from 'react';
 import { UserCheck } from 'react-feather';
 import * as Yup from 'yup';
-import { useAuthentication } from '../../hooks';
+import { useAuthentication } from '../../../hooks';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()

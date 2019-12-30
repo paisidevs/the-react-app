@@ -5,6 +5,8 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { RetryLink } from 'apollo-link-retry';
 import { GRAPHQL_ENDPOINT, JWT_LOCAL_STORAGE_KEY, NODE_ENV } from './constants';
+import { albums } from './data';
+import { GET_ALBUMS } from './graphql';
 
 const cache = new InMemoryCache();
 
@@ -37,6 +39,28 @@ if (NODE_ENV === 'development') {
 const client = new ApolloClient({
   cache,
   link: clientLink,
+  resolvers: {
+    Query: {
+      album: (_, { id }, { cache }) => {
+        const { albums } = cache.readQuery({ query: GET_ALBUMS });
+        return albums?.edges.find(({ node }: any) => node.id === id)?.node;
+      },
+      albums: (_, __, { cache }) => {
+        const { albums } = cache.readQuery({ query: GET_ALBUMS });
+
+        return albums;
+      },
+    },
+  },
+});
+
+cache.writeData({
+  data: {
+    albums: {
+      edges: albums,
+      __typename: 'AlbumEdges',
+    },
+  },
 });
 
 export default client;

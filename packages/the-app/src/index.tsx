@@ -1,17 +1,21 @@
+import { ApolloProvider } from '@apollo/react-hooks';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'typeface-roboto';
+import client from './apollo.config';
 import App from './containers/App';
 import AuthenticationProvider from './contexts/AuthenticationProvider.context';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Router>
-    <AuthenticationProvider>
-      <App />
-    </AuthenticationProvider>
-  </Router>,
+  <ApolloProvider client={client}>
+    <Router>
+      <AuthenticationProvider>
+        <App />
+      </AuthenticationProvider>
+    </Router>
+  </ApolloProvider>,
   document.getElementById('root'),
 );
 

@@ -1,6 +1,12 @@
 import { styled } from '@app/theme';
 import React, { FC } from 'react';
-import { Route, RouteProps, Switch, SwitchProps } from 'react-router-dom';
+import {
+  Route,
+  RouteProps,
+  Switch,
+  SwitchProps,
+  useLocation,
+} from 'react-router-dom';
 import { useTransition } from 'react-spring';
 import { Animated } from '../Animated';
 import { Box } from '../Box';
@@ -11,6 +17,7 @@ export interface IRouteProps extends RouteProps {
 }
 
 interface IRoutesProps extends SwitchProps {
+  animate?: boolean;
   routes: IRouteProps[];
 }
 
@@ -46,25 +53,37 @@ const transitionConfig = {
  * />
  */
 
-export const Routes: FC<IRoutesProps> = ({ location, routes }) => {
-  const routeTransitions = useTransition(
-    location,
-    ({ pathname }) => pathname,
-    transitionConfig,
-  );
+export const Routes: FC<IRoutesProps> = ({ animate, routes }) => {
+  const location = useLocation();
+
+  if (animate) {
+    const routeTransitions = useTransition(
+      location,
+      ({ pathname }) => pathname,
+      transitionConfig,
+    );
+
+    return (
+      <Wrapper flex={1}>
+        {routeTransitions.map(({ item, props: styleProps, key }) => (
+          <Animated key={key} style={styleProps}>
+            <Switch location={item}>
+              {routes.map(({ ...rest }: IRouteProps, index: number) => (
+                <PublicRoute key={index} {...rest} />
+              ))}
+            </Switch>
+          </Animated>
+        ))}
+      </Wrapper>
+    );
+  }
 
   return (
-    <Wrapper flex={1}>
-      {routeTransitions.map(({ item, props: styleProps, key }) => (
-        <Animated key={key} style={styleProps}>
-          <Switch location={item}>
-            {routes.map(({ ...rest }: IRouteProps, index: number) => (
-              <PublicRoute key={index} {...rest} />
-            ))}
-          </Switch>
-        </Animated>
+    <Switch>
+      {routes.map(({ ...rest }: IRouteProps, index: number) => (
+        <PublicRoute key={index} {...rest} />
       ))}
-    </Wrapper>
+    </Switch>
   );
 };
 
@@ -91,7 +110,7 @@ const PublicRoute: FC<IPublicRouteProps> = ({
       <Route
         {...rest}
         render={(props) =>
-          Component && <Component routes={routes} {...props} />
+          Component && <Component routes={routes} {...props} {...rest} />
         }
       />
     </ErrorBoundary>

@@ -3,11 +3,10 @@ import { Global, ThemeProvider } from '@app/theme';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { useAuthentication } from '../../hooks';
-import routes from '../../routes';
-import Login from '../Login/loadable';
 import { Footer, Header } from './elements';
+import { routes } from './routes';
 
-const App: React.FC<RouteComponentProps> = (props) => {
+const App: React.FC<RouteComponentProps> = () => {
   const { isAuthenticated } = useAuthentication();
 
   const renderApp = () => {
@@ -39,9 +38,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
               </Box>
             </Box>
           }
-        >
-          <Login />
-        </Modal>
+        />
       );
     }
 
@@ -50,7 +47,7 @@ const App: React.FC<RouteComponentProps> = (props) => {
         <Header />
         <Box height="100%" overflow="hidden">
           <ErrorBoundary>
-            <Routes location={props.location} routes={routes} />
+            <Routes animate routes={routes} />
           </ErrorBoundary>
         </Box>
         <Footer />

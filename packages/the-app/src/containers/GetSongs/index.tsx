@@ -1,6 +1,7 @@
-import { Box, Flex, H3, Loader, Text } from '@app/components';
+import { Box, Flex, Loader, Text } from '@app/components';
 import { styled } from '@app/theme';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useBreadcrumbs } from '../../hooks';
 
 const Wrapper = styled(Box)``;
 
@@ -14,7 +15,9 @@ interface IGetSongsProps {}
  * <GetSongs />
  */
 
-const GetSongs: FC<IGetSongsProps> = () => {
+const GetSongs: FC<{ title: string }> = ({ title }) => {
+  const { addCrumb, removeCrumb } = useBreadcrumbs();
+
   const {
     data: getSongsData,
     error: getSongsError,
@@ -51,9 +54,14 @@ const GetSongs: FC<IGetSongsProps> = () => {
     ));
   };
 
+  useEffect(() => {
+    addCrumb({ id: title.toLowerCase(), label: title });
+
+    return () => removeCrumb({ id: title.toLowerCase(), label: title });
+  }, []); // eslint-disable-line
+
   return (
     <Wrapper>
-      <H3 data-testid="page-subtitle">Songs</H3>
       <Box>{renderSongs(songs)}</Box>
     </Wrapper>
   );

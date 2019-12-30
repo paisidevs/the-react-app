@@ -1,10 +1,9 @@
-import { Box, Flex, H3, Loader, Text } from '@app/components';
+import { Box, Flex, Loader, Text } from '@app/components';
 import { styled } from '@app/theme';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useBreadcrumbs } from '../../hooks';
 
 const Wrapper = styled(Box)``;
-
-interface IGetArtistsProps {}
 
 /**
  * @render react
@@ -14,7 +13,9 @@ interface IGetArtistsProps {}
  * <GetArtists />
  */
 
-const GetArtists: FC<IGetArtistsProps> = () => {
+const GetArtists: FC<{ title: string }> = ({ title }) => {
+  const { addCrumb, removeCrumb } = useBreadcrumbs();
+
   const {
     data: getArtistsData,
     error: getArtistsError,
@@ -51,9 +52,14 @@ const GetArtists: FC<IGetArtistsProps> = () => {
     ));
   };
 
+  useEffect(() => {
+    addCrumb({ id: title.toLowerCase(), label: title });
+
+    return () => removeCrumb({ id: title.toLowerCase(), label: title });
+  }, []); // eslint-disable-line
+
   return (
     <Wrapper>
-      <H3 data-testid="page-subtitle">Artists</H3>
       <Box>{renderArtists(artists)}</Box>
     </Wrapper>
   );
