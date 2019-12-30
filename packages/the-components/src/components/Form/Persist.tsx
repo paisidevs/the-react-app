@@ -21,7 +21,7 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
       ? window.sessionStorage.getItem(name)
       : window.localStorage.getItem(name);
 
-    if (persistedState && persistedState !== null) {
+    if (persistedState) {
       formik.setFormikState(JSON.parse(persistedState));
     }
   }, []);

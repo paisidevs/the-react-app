@@ -184,7 +184,7 @@ export const Input: FC<IInputProps> = ({
   }, [registerField, unregisterField, name, validate]);
 
   return (
-    <Wrapper mb="2" activated={field?.value?.trim().length > 0}>
+    <Wrapper mb="2" activated={field.value?.trim().length > 0}>
       <label htmlFor={name}>
         <Box alignItems="center" flexDirection="row">
           {startAdornment && (

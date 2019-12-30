@@ -23,9 +23,12 @@ export const Breadcrumbs: FC<{
 }> = ({ blacklist = [], children, initialCrumbs = [] }) => {
   const history = useHistory();
   const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>(initialCrumbs);
-  const currentBreadcrumb = breadcrumbs?.[breadcrumbs.length - 1];
-  const previousBreadcrumb =
-    breadcrumbs.length > 0 ? breadcrumbs?.[breadcrumbs.length - 2] : undefined;
+
+  const hasBreadcrumbs = breadcrumbs.length > 0;
+  const currentBreadcrumb = breadcrumbs[breadcrumbs.length - 1];
+  const previousBreadcrumb = hasBreadcrumbs
+    ? breadcrumbs[breadcrumbs.length - 2]
+    : undefined;
 
   const addCrumb = throttle((breadcrumb: Breadcrumb) => {
     const newBreadcrumbs = breadcrumbs.concat(breadcrumb);
@@ -49,14 +52,14 @@ export const Breadcrumbs: FC<{
         >
           <ChevronLeft />
           <H2 data-testid="page-title" fontSize={2} margin={0}>
-            {previousBreadcrumb?.label.toUpperCase()}
+            {previousBreadcrumb.label?.toUpperCase()}
           </H2>
         </Flex>
       )}
 
       {currentBreadcrumb && !blacklist.includes(currentBreadcrumb.label) && (
         <H3 data-testid="page-subtitle" margin={0}>
-          {currentBreadcrumb?.label}
+          {currentBreadcrumb.label}
         </H3>
       )}
     </React.Fragment>
