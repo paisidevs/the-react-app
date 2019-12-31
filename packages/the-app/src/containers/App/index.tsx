@@ -2,6 +2,7 @@ import { Box, ErrorBoundary, Grid, Modal, Routes } from '@app/components';
 import { Global, ThemeProvider } from '@app/theme';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Breadcrumbs } from '../../contexts/BreadcrumbsProvider.context';
 import { useAuthentication } from '../../hooks';
 import { Footer, Header } from './elements';
 import { routes } from './routes';
@@ -46,9 +47,11 @@ const App: React.FC<RouteComponentProps> = () => {
       <React.Fragment>
         <Header />
         <Box height="100%" overflow="hidden">
-          <ErrorBoundary>
-            <Routes animate routes={routes} />
-          </ErrorBoundary>
+          <Breadcrumbs>
+            <ErrorBoundary>
+              <Routes animate routes={routes} />
+            </ErrorBoundary>
+          </Breadcrumbs>
         </Box>
         <Footer />
       </React.Fragment>

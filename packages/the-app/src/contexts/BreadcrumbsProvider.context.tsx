@@ -65,8 +65,6 @@ export const Breadcrumbs: FC<{
     </React.Fragment>
   );
 
-  console.log({ currentBreadcrumb, previousBreadcrumb });
-
   return (
     <BreadcrumbsContext.Provider
       value={{

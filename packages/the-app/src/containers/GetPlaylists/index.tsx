@@ -1,9 +1,5 @@
 import { Box, Flex, Loader, Text } from '@app/components';
-import { styled } from '@app/theme';
-import React, { FC, useEffect } from 'react';
-import { useBreadcrumbs } from '../../hooks';
-
-const Wrapper = styled(Box)``;
+import React, { FC } from 'react';
 
 /**
  * @render react
@@ -13,9 +9,7 @@ const Wrapper = styled(Box)``;
  * <GetPlaylists />
  */
 
-const GetPlaylists: FC<{ title: string }> = ({ title }) => {
-  const { addCrumb, removeCrumb } = useBreadcrumbs();
-
+const GetPlaylists: FC<{}> = () => {
   const {
     data: getPlaylistsData,
     error: getPlaylistsError,
@@ -53,17 +47,7 @@ const GetPlaylists: FC<{ title: string }> = ({ title }) => {
     ));
   };
 
-  useEffect(() => {
-    addCrumb({ id: title.toLowerCase(), label: title });
-
-    return () => removeCrumb({ id: title.toLowerCase(), label: title });
-  }, []); // eslint-disable-line
-
-  return (
-    <Wrapper>
-      <Box>{renderPlaylists(playlists)}</Box>
-    </Wrapper>
-  );
+  return <Box>{renderPlaylists(playlists)}</Box>;
 };
 
 export default GetPlaylists;

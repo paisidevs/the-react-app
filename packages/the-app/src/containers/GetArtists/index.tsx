@@ -1,9 +1,5 @@
 import { Box, Flex, Loader, Text } from '@app/components';
-import { styled } from '@app/theme';
-import React, { FC, useEffect } from 'react';
-import { useBreadcrumbs } from '../../hooks';
-
-const Wrapper = styled(Box)``;
+import React, { FC } from 'react';
 
 /**
  * @render react
@@ -13,9 +9,7 @@ const Wrapper = styled(Box)``;
  * <GetArtists />
  */
 
-const GetArtists: FC<{ title: string }> = ({ title }) => {
-  const { addCrumb, removeCrumb } = useBreadcrumbs();
-
+const GetArtists: FC<{}> = () => {
   const {
     data: getArtistsData,
     error: getArtistsError,
@@ -52,17 +46,7 @@ const GetArtists: FC<{ title: string }> = ({ title }) => {
     ));
   };
 
-  useEffect(() => {
-    addCrumb({ id: title.toLowerCase(), label: title });
-
-    return () => removeCrumb({ id: title.toLowerCase(), label: title });
-  }, []); // eslint-disable-line
-
-  return (
-    <Wrapper>
-      <Box>{renderArtists(artists)}</Box>
-    </Wrapper>
-  );
+  return <Box>{renderArtists(artists)}</Box>;
 };
 
 export default GetArtists;

@@ -1,17 +1,8 @@
 import { useQuery } from '@apollo/react-hooks';
 import { Box, Flex, Loader, Routes, Text } from '@app/components';
-import { styled } from '@app/theme';
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { GET_ALBUMS } from '../../graphql';
-import { useBreadcrumbs } from '../../hooks';
-
-const Wrapper = styled(Box)``;
-
-interface IGetAlbumsProps extends RouteComponentProps {
-  routes?: any[];
-  title: string;
-}
 
 /**
  * @render react
@@ -21,9 +12,10 @@ interface IGetAlbumsProps extends RouteComponentProps {
  * <GetAlbums />
  */
 
-const GetAlbums: FC<IGetAlbumsProps> = ({ location, match, routes, title }) => {
-  const { addCrumb, removeCrumb } = useBreadcrumbs();
-
+const GetAlbums: FC<RouteComponentProps & { routes?: any[] }> = ({
+  match,
+  routes,
+}) => {
   const {
     data: getAlbumsData,
     error: getAlbumsError,
@@ -65,17 +57,7 @@ const GetAlbums: FC<IGetAlbumsProps> = ({ location, match, routes, title }) => {
     return routes ? <Routes routes={routes} /> : null;
   };
 
-  useEffect(() => {
-    addCrumb({ id: title.toLowerCase(), label: title });
-
-    return () => removeCrumb({ id: title.toLowerCase(), label: title });
-  }, []); // eslint-disable-line
-
-  return (
-    <Wrapper>
-      <Box>{renderAlbums(albums)}</Box>
-    </Wrapper>
-  );
+  return <Box>{renderAlbums(albums)}</Box>;
 };
 
 export default GetAlbums;
