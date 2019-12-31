@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid renders without crashing 1`] = `
+.emotion-0 {
+  display: grid;
+  position: relative;
+}
+
+<div
+  class="emotion-0"
+/>
+`;

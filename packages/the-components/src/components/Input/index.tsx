@@ -157,6 +157,7 @@ export const Input: FC<IInputProps> = ({
 
   const inputProps = {
     ...field,
+    id: field.name,
     type: passwordVisible ? 'text' : type,
     ref: innerRef,
     pl: startAdornment ? '56px' : '16px',
