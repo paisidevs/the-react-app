@@ -1,0 +1,27 @@
+{
+  "name": "the-apollo-client",
+  "version": "0.1.0",
+  "description": "Apollo client with utilities used in the-react-app",
+  "author": "elandamor",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "prepare": "rm -rf dist && rollup -c",
+    "start": "rollup -c -w"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "1.6.5",
+    "apollo-client": "2.6.8",
+    "apollo-link": "1.2.13",
+    "apollo-link-context": "1.0.19",
+    "apollo-link-error": "1.1.12",
+    "apollo-link-http": "1.5.16",
+    "apollo-link-retry": "2.2.15"
+  },
+  "files": [
+    "dist"
+  ]
+}

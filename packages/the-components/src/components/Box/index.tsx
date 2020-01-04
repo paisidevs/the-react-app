@@ -4,6 +4,7 @@ import {
   color,
   compose,
   position,
+  shouldForwardProp,
   styled,
   typography,
 } from '@app/theme';
@@ -30,13 +31,10 @@ export const BoxStyles = compose(
   typography,
 );
 
-export const Box = styled(Flex)<IBoxProps>`
+export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>`
   box-sizing: border-box;
   flex-direction: column;
+  width: 100%;
 
   ${BoxStyles};
 `;
-
-Box.defaultProps = {
-  width: '100%',
-};

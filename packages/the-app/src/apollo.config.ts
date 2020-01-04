@@ -1,9 +1,13 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
-import { ApolloLink } from 'apollo-link';
-import { setContext } from 'apollo-link-context';
-import { createHttpLink } from 'apollo-link-http';
-import { RetryLink } from 'apollo-link-retry';
+import {
+  ApolloClient,
+  ApolloLink,
+  createHttpLink,
+  errorLink,
+  InMemoryCache,
+  loggerLink,
+  RetryLink,
+  setContext,
+} from 'the-apollo-client';
 import { GRAPHQL_ENDPOINT, JWT_LOCAL_STORAGE_KEY, NODE_ENV } from './constants';
 import { albums } from './data';
 import { GET_ALBUMS } from './graphql';
@@ -31,9 +35,7 @@ const retryLink = new RetryLink();
 let clientLink = ApolloLink.from([retryLink, authLink, httpLink]);
 
 if (NODE_ENV === 'development') {
-  import('./utilities/apollo-utilities').then(({ errorLink, loggerLink }) => {
-    clientLink = ApolloLink.from([loggerLink, errorLink, clientLink]);
-  });
+  clientLink = ApolloLink.from([loggerLink, errorLink, clientLink]);
 }
 
 const client = new ApolloClient({

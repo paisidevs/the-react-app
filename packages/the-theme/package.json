@@ -13,11 +13,11 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
-    "@emotion/core": "10.0.22",
-    "@emotion/styled": "10.0.23",
+    "@emotion/core": "10.0.27",
+    "@emotion/styled": "10.0.27",
     "@styled-system/should-forward-prop": "5.1.4",
     "emotion-normalize": "10.1.0",
-    "emotion-theming": "10.0.19",
+    "emotion-theming": "10.0.27",
     "lodash": "4.17.15",
     "styled-system": "5.1.4",
     "typeface-roboto": "0.0.54"
@@ -28,16 +28,16 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "6.0.0",
     "@types/lodash": "4.14.149",
-    "@types/react": "16.9.16",
+    "@types/react": "16.9.17",
     "@types/styled-system": "5.1.4",
     "@types/styled-system__should-forward-prop": "5.1.0",
     "react": "^16.12.0",
-    "rollup": "1.27.9",
+    "rollup": "1.27.14",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-typescript2": "0.25.3",
-    "typescript": "3.7.3"
+    "typescript": "3.7.4"
   },
   "files": [
     "dist"
