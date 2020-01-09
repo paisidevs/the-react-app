@@ -1,8 +1,8 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useApolloClient, useQuery } from '@apollo/react-hooks';
 import { Box, Flex, H3, Loader, Text } from '@app/components';
 import React, { FC } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { GET_ALBUM } from '../../graphql';
+import { GET_ALBUM, GET_ALBUMS } from '../../graphql';
 
 /**
  * @render react
@@ -15,23 +15,29 @@ import { GET_ALBUM } from '../../graphql';
 const GetAlbum: FC<RouteComponentProps<{ id?: string }> & {
   routes?: any[];
 }> = ({ match }) => {
-  const {
-    data: getAlbumData,
-    error: getAlbumError,
-    loading: getAlbumLoading,
-  } = useQuery(GET_ALBUM, {
+  const client = useApolloClient();
+  client.addResolvers({
+    Query: {
+      album: (_: any, { id }: any, { cache }: any) => {
+        const { albums } = cache.readQuery({ query: GET_ALBUMS });
+        return albums?.edges.find(({ node }: any) => node.id === id)?.node;
+      },
+    },
+  });
+
+  const { data, error, loading } = useQuery(GET_ALBUM, {
     variables: { id: match.params.id },
   });
 
-  const album = getAlbumData?.album;
+  const album = data?.album;
 
   const renderAlbum = (album: any) => {
-    if (getAlbumLoading) {
+    if (loading) {
       return <Loader />;
     }
 
-    if (getAlbumError) {
-      console.error({ getAlbumError });
+    if (error) {
+      console.error({ error });
       return <Text>There was an error fetching album.</Text>;
     }
 

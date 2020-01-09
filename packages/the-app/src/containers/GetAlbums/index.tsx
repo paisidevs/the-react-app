@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useApolloClient, useQuery } from '@apollo/react-hooks';
 import { Box, Flex, Loader, Routes, Text } from '@app/components';
 import React, { FC } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
@@ -16,21 +16,28 @@ const GetAlbums: FC<RouteComponentProps & { routes?: any[] }> = ({
   match,
   routes,
 }) => {
-  const {
-    data: getAlbumsData,
-    error: getAlbumsError,
-    loading: getAlbumsLoading,
-  } = useQuery(GET_ALBUMS);
+  const client = useApolloClient();
+  client.addResolvers({
+    Query: {
+      albums: (_: any, __: any, { cache }: any) => {
+        const { albums } = cache.readQuery({ query: GET_ALBUMS });
 
-  const albums = getAlbumsData?.albums?.edges || [];
+        return albums;
+      },
+    },
+  });
+
+  const { data, error, loading } = useQuery(GET_ALBUMS);
+
+  const albums = data?.albums?.edges || [];
 
   const renderAlbums = (albums: any[]) => {
-    if (getAlbumsLoading) {
+    if (loading) {
       return <Loader />;
     }
 
-    if (getAlbumsError) {
-      console.error({ getAlbumsError });
+    if (error) {
+      console.error({ error });
       return <Text>There was an error fetching albums.</Text>;
     }
 
