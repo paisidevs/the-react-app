@@ -1,8 +1,10 @@
+import { isFunction } from '@app/utilities';
 import {
   Form as ImpForm,
   Formik,
   FormikConfig,
   FormikHelpers,
+  FormikProps,
   FormikValues,
 } from 'formik';
 import React, { useState } from 'react';
@@ -32,21 +34,29 @@ export const Form: React.FC<IFormProps> = ({
       onReset={() => setClearPersist(true)}
       {...props}
     >
-      {({ isSubmitting }) => {
+      {(formikProps) => {
         const childrenWithProps = React.Children.map(children, (child) => {
           if (!React.isValidElement(child)) return null;
 
           return child.props.type === 'submit'
             ? React.cloneElement(child, {
-                disabled: isSubmitting,
-                isLoading: isSubmitting,
+                disabled: formikProps.isSubmitting,
+                isLoading: formikProps.isSubmitting,
               })
             : child;
         });
 
+        const formChildren = isFunction(children)
+          ? (children as (props: FormikProps<FormikValues>) => React.ReactNode)(
+              formikProps,
+            )
+          : childrenWithProps;
+
         return (
           <ImpForm>
-            <fieldset disabled={isSubmitting}>{childrenWithProps}</fieldset>
+            <fieldset disabled={formikProps.isSubmitting}>
+              {formChildren}
+            </fieldset>
             {persist && (
               <ConnectedPersist name={name} clearPersist={clearPersist} />
             )}

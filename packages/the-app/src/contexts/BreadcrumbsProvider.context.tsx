@@ -1,8 +1,8 @@
 import { Flex, H2, H3 } from '@app/components';
+import { throttle } from '@app/utilities';
 import React, { FC, useState } from 'react';
 import { ChevronLeft } from 'react-feather';
 import { useHistory } from 'react-router-dom';
-import { throttle } from '../utilities';
 
 interface Breadcrumb {
   id: string;

@@ -10,12 +10,14 @@ import {
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'react-feather';
+import Measure from 'react-measure';
 import Text from '../../typography/Text';
 import { Box } from '../Box';
 
 export interface IInputProps extends FieldConfig {
   startAdornment?: React.ReactNode;
   endAdornment?: React.ReactNode;
+  inlineStartAdornment?: boolean;
   label: string;
   placeholder?: string;
 }
@@ -39,6 +41,16 @@ const Wrapper = styled(Box)<{ activated: boolean }>`
     span {
       letter-spacing: 0.009375em;
     }
+  }
+
+  .c-adornment--start {
+    opacity: 0;
+
+    ${({ activated }) =>
+      activated &&
+      css`
+        opacity: 0.5;
+      `}
   }
 `;
 
@@ -92,6 +104,10 @@ const DefaultInput = styled('input', { shouldForwardProp })`
     transform: translateY(-80%) scale(${theme.fontSizes[1] /
       theme.fontSizes[3]});
   }
+
+  &:focus ~ .c-adornment--start {
+    opacity: 0.5;
+  }
 `;
 
 DefaultInput.defaultProps = {
@@ -100,14 +116,14 @@ DefaultInput.defaultProps = {
 };
 
 const Adornment = styled(Box)`
-  ${color}
-  ${layout}
-  ${space}
   height: 100%;
   opacity: 0.5;
   position: absolute;
   top: 0;
   width: 56px;
+  ${color}
+  ${layout}
+  ${space}
 
   &:focus,
   &:hover {
@@ -140,6 +156,7 @@ export const Input: FC<IInputProps> = ({
   name,
   startAdornment,
   endAdornment,
+  inlineStartAdornment,
   validate,
   innerRef,
   type = 'text',
@@ -147,12 +164,38 @@ export const Input: FC<IInputProps> = ({
   ...rest
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [startAdornmentWidth, setStartAdornmentWidth] = useState<
+    number | undefined
+  >(0);
 
-  const { getFieldProps, registerField, unregisterField } = useFormikContext();
+  const {
+    getFieldProps,
+    registerField,
+    unregisterField,
+    setFieldValue,
+  } = useFormikContext();
   const field = getFieldProps({ name });
 
-  const isPasswordInput = type === 'password';
+  const isActivated =
+    type === 'number'
+      ? Boolean(field.value)
+      : typeof field.value === 'string'
+      ? field.value.trim().length > 0
+      : field.value.value.trim().length > 0;
 
+  const renderValue = () => {
+    if (typeof field.value === 'string') {
+      return field.value;
+    }
+
+    if (typeof field.value === 'object') {
+      return field.value.value;
+    }
+
+    return field.value || '';
+  };
+
+  const isPasswordInput = type === 'password';
   const adornmentProps = {};
 
   const inputProps = {
@@ -163,9 +206,41 @@ export const Input: FC<IInputProps> = ({
     pl: startAdornment ? '56px' : '16px',
     pr: endAdornment || isPasswordInput ? '56px' : '16px',
     placeholder: rest.placeholder,
+    ...(startAdornment &&
+      inlineStartAdornment && { pl: `${20 + (startAdornmentWidth || 0)}px` }),
+    onChange: (event: any) => {
+      const value = event.target.value;
+
+      const parsedValue = typeof value === 'string' ? value : value.value;
+      setFieldValue(field.name, parsedValue);
+    },
+    value: renderValue(),
   };
 
   const renderInput = () => {
+    if (startAdornment && inlineStartAdornment) {
+      return (
+        <React.Fragment>
+          <DefaultInput {...inputProps} />
+          <Adornment
+            className="c-adornment--start"
+            left={2}
+            paddingTop={2}
+            width={startAdornmentWidth || 0}
+            {...adornmentProps}
+          >
+            <Measure
+              bounds
+              onResize={(rect) => {
+                setStartAdornmentWidth(rect.bounds?.width);
+              }}
+            >
+              {({ measureRef }) => <div ref={measureRef}>{startAdornment}</div>}
+            </Measure>
+          </Adornment>
+        </React.Fragment>
+      );
+    }
     return <DefaultInput {...inputProps} />;
   };
 
@@ -185,10 +260,10 @@ export const Input: FC<IInputProps> = ({
   }, [registerField, unregisterField, name, validate]);
 
   return (
-    <Wrapper mb="2" activated={field.value?.trim().length > 0}>
+    <Wrapper mb="2" activated={isActivated}>
       <label htmlFor={name}>
         <Box alignItems="center" flexDirection="row">
-          {startAdornment && (
+          {startAdornment && !inlineStartAdornment && (
             <Adornment left="0" {...adornmentProps}>
               {startAdornment}
             </Adornment>
@@ -208,7 +283,7 @@ export const Input: FC<IInputProps> = ({
           <Box
             className="label"
             position="absolute"
-            left={startAdornment ? '56px' : '16px'}
+            left={startAdornment && !inlineStartAdornment ? '56px' : '16px'}
           >
             <Text fontSize="3">{label}</Text>
           </Box>

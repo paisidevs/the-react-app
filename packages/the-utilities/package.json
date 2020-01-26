@@ -1,0 +1,33 @@
+{
+  "name": "@app/utilities",
+  "version": "0.1.0",
+  "description": "Utilities used by the-react-app",
+  "author": "elandamor",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "prepare": "rm -rf dist && rollup -c",
+    "start": "rollup -c -w"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "6.0.0",
+    "@types/react": "16.9.17",
+    "react": "^16.12.0",
+    "rollup": "1.27.14",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-peer-deps-external": "2.2.0",
+    "rollup-plugin-postcss": "2.0.3",
+    "rollup-plugin-typescript2": "0.25.3",
+    "typescript": "3.7.4"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,5 +1,5 @@
+import { throttle } from '@app/utilities';
 import React from 'react';
-import { throttle } from '../utilities';
 
 const events = new Set<() => void>();
 const onResize = () => events.forEach((fn) => fn());

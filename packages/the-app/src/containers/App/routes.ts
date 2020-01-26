@@ -1,11 +1,12 @@
-import { Home, Library, NotFound } from '../../pages';
+import { Library, NotFound } from '../../pages';
+import AddAlbum from '../AddAlbum';
 
 export const routes: any = [
   {
     exact: true,
-    component: Home,
+    component: AddAlbum,
     path: '/',
-    title: 'Home',
+    title: 'Discover',
   },
   {
     component: Library,
