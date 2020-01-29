@@ -27,6 +27,7 @@ const AddAlbum: FC = () => (
       persist={true}
     >
       <MultiStep
+        showTracks={false}
         steps={[
           {
             name: 'General',

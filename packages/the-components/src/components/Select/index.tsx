@@ -191,6 +191,7 @@ export const Select: FC<ISelectProps> = ({
       styles: {
         dropdownIndicator: (base: object) => ({
           ...base,
+          opacity: 0.6,
           padding: '8px 12px',
         }),
         indicatorSeparator: () => ({

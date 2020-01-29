@@ -8,6 +8,7 @@ interface IProps {
   onDone?: () => void;
   showNavigation?: boolean;
   showNavigationTop?: boolean;
+  showTracks?: boolean;
   steps: {
     name: string;
     component: React.ReactNode;
@@ -34,6 +35,7 @@ export const MultiStep: FC<IProps> = ({
   onDone: handleDone,
   showNavigation,
   showNavigationTop,
+  showTracks = true,
   steps,
   verticalTrack = false,
 }) => {
@@ -110,7 +112,7 @@ export const MultiStep: FC<IProps> = ({
 
   return (
     <Box>
-      {renderTracks()}
+      {showTracks && renderTracks()}
       {showNavigationTop && renderNavigation()}
       {steps[compState].component}
       {!showNavigationTop && renderNavigation()}
