@@ -74,7 +74,6 @@ const DefaultInput = styled('input', { shouldForwardProp })`
   padding-top: ${theme.space[2]}px;
   position: relative;
   width: 100%;
-  z-index: 1;
 
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
@@ -136,7 +135,6 @@ Adornment.defaultProps = {
   display: 'flex',
   color: 'text.default',
   justifyContent: 'center',
-  zIndex: 2,
 };
 
 /**

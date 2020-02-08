@@ -26,7 +26,10 @@ export default {
     postcss({
       modules: true,
     }),
-    resolve(),
+    resolve({
+      browser: true,
+      preferBuiltins: false,
+    }),
     typescript({
       rollupCommonJSResolveHack: true,
       clean: true,

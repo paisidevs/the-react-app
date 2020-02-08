@@ -62,6 +62,7 @@ const Tracks = () => {
               );
             })}
             <Button
+              variant="outlined"
               type="button"
               onClick={() => push({ name: '', artist: '', featuring: '' })}
               text="Add Track"

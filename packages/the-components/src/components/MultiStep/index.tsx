@@ -97,10 +97,11 @@ export const MultiStep: FC<IProps> = ({
             <Button onClick={() => previous()} text="Previous" />
           )}
           {buttonsState.showNextBtn && (
-            <Button onClick={() => next()} text="Next" />
+            <Button variant="outlined" onClick={() => next()} text="Next" />
           )}
           {buttonsState.showDoneBtn && (
             <Button
+              variant="primary"
               onClick={() => handleDone && handleDone()}
               text={doneText}
             />

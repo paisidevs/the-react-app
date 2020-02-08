@@ -2,8 +2,11 @@ import { styled } from '@app/theme';
 import React, { forwardRef, useEffect, useState } from 'react';
 import { Box } from '../Box';
 
-const Wrapper = styled(Box)<{ aspect?: string }>`
-  background-color: ${({ theme }) => theme.colors.border.default};
+const Wrapper = styled(Box)`
+  background: ${({ theme }) =>
+    theme.isDark
+      ? theme.colors.opacity.whites[2]
+      : theme.colors.opacity.blacks[2]};
   overflow: hidden;
   padding-bottom: ${({ aspect }) => `calc(100% / (${aspect}))`};
   position: relative;

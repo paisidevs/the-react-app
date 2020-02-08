@@ -3,6 +3,7 @@ import {
   boxShadow,
   color,
   compose,
+  css,
   position,
   shouldForwardProp,
   styled,
@@ -10,7 +11,9 @@ import {
 } from '@app/theme';
 import { Flex, IFlexProps } from '../Flex';
 
-export interface IBoxProps extends IFlexProps {}
+export interface IBoxProps extends IFlexProps {
+  aspect?: number;
+}
 
 /**
  * @render react
@@ -35,6 +38,15 @@ export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>`
   box-sizing: border-box;
   flex-direction: column;
   width: 100%;
+
+  ${({ aspect }) =>
+    aspect &&
+    css`
+      content: '';
+      display: block;
+      height: 0;
+      padding-bottom: ${(1 / aspect) * 100}%;
+    `}
 
   ${BoxStyles};
 `;

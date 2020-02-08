@@ -15,6 +15,9 @@ export interface ISelectProps extends FieldConfig {
   options: Option[];
   placeholder?: string;
   isSearchable?: boolean;
+  autoFocus?: boolean;
+  defaultMenuIsOpen?: boolean;
+  hideSelectedOptions?: boolean;
 }
 
 /**
@@ -123,6 +126,22 @@ const DefaultSelect = styled(ReactSelect)`
     }
   }
 
+  .react-select__menu {
+    background-color: ${({ theme }) => theme.colors.background.surface};
+  }
+
+  .react-select__option {
+    font-size: ${theme.fontSizes[2]}px;
+    padding: 12px 16px;
+
+    &--is-focused {
+      background: ${({ theme }) =>
+        theme.isDark
+          ? theme.colors.opacity.whites[3]
+          : theme.colors.opacity.blacks[3]};
+    }
+  }
+
   .react-select__value-container {
     padding: 16px 16px 0 16px;
   }
@@ -156,6 +175,9 @@ export const Select: FC<ISelectProps> = ({
   isSearchable = true,
   options = [],
   placeholder = '',
+  autoFocus = false,
+  defaultMenuIsOpen = false,
+  hideSelectedOptions = true,
 }) => {
   const {
     getFieldProps,
@@ -168,6 +190,9 @@ export const Select: FC<ISelectProps> = ({
   const renderSelect = () => {
     const SelectProps = {
       ...field,
+      autoFocus,
+      defaultMenuIsOpen,
+      hideSelectedOptions,
       isSearchable,
       options,
       placeholder,
@@ -178,12 +203,12 @@ export const Select: FC<ISelectProps> = ({
       components: {
         DropdownIndicator: (props: any) => {
           const {
-            selectProps: { menuIsOpen },
+            selectProps: { defaultMenuIsOpen },
           } = props;
 
           return (
             <components.DropdownIndicator {...props}>
-              <DropdownIndicator open={menuIsOpen} />
+              <DropdownIndicator open={defaultMenuIsOpen} />
             </components.DropdownIndicator>
           );
         },

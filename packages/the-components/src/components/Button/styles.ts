@@ -19,8 +19,15 @@ const variants = variant({
       minWidth: '40px',
       width: '40px',
     },
+    outlined: {
+      border: 1,
+      borderColor: 'border.default',
+      borderRadius: 2,
+      minHeight: '56px',
+      width: '100%',
+    },
     primary: {
-      backgroundColor: 'primary.base',
+      backgroundColor: 'text.default',
       borderRadius: 2,
       color: 'text.onPrimary',
       minHeight: '56px',
@@ -33,6 +40,7 @@ const Wrapper = styled('button', { shouldForwardProp })<StyledSystemProps>`
   align-items: center;
   background: transparent;
   border: none;
+  color: ${({ theme }) => theme.colors.text.default};
   display: flex;
   font-size: ${theme.fontSizes[2]}px;
   font-weight: ${theme.fontWeights[4]};
@@ -43,7 +51,7 @@ const Wrapper = styled('button', { shouldForwardProp })<StyledSystemProps>`
   padding: ${theme.space[1]}px;
   position: relative;
   text-transform: uppercase;
-  z-index: 1;
+  width: 100%;
 
   ${borders};
   ${color};

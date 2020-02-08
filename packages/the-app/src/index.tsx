@@ -19,6 +19,11 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
+// Persist "debug" package's enable state in localStorage
+if (process.env.NODE_ENV !== 'production') {
+  window.localStorage.setItem('debug', 'tra:*');
+}
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
