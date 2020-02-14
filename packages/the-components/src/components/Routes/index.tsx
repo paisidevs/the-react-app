@@ -107,12 +107,7 @@ const PublicRoute: FC<IPublicRouteProps> = ({
 }) => {
   return (
     <ErrorBoundary>
-      <Route
-        {...rest}
-        render={(props) =>
-          Component && <Component routes={routes} {...props} {...rest} />
-        }
-      />
+      <Route {...rest}>{Component && <Component routes={routes} />}</Route>
     </ErrorBoundary>
   );
 };

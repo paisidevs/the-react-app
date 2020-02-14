@@ -18,6 +18,7 @@ export interface ISelectProps extends FieldConfig {
   autoFocus?: boolean;
   defaultMenuIsOpen?: boolean;
   hideSelectedOptions?: boolean;
+  menuPlacement?: 'auto' | 'bottom' | 'top';
 }
 
 /**
@@ -178,6 +179,7 @@ export const Select: FC<ISelectProps> = ({
   autoFocus = false,
   defaultMenuIsOpen = false,
   hideSelectedOptions = true,
+  menuPlacement = 'auto',
 }) => {
   const {
     getFieldProps,
@@ -194,6 +196,7 @@ export const Select: FC<ISelectProps> = ({
       defaultMenuIsOpen,
       hideSelectedOptions,
       isSearchable,
+      menuPlacement,
       options,
       placeholder,
       id: field.name,

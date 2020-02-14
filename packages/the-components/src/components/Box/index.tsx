@@ -3,7 +3,6 @@ import {
   boxShadow,
   color,
   compose,
-  css,
   position,
   shouldForwardProp,
   styled,
@@ -13,6 +12,7 @@ import { Flex, IFlexProps } from '../Flex';
 
 export interface IBoxProps extends IFlexProps {
   aspect?: number;
+  truncate?: boolean;
 }
 
 /**
@@ -34,19 +34,27 @@ export const BoxStyles = compose(
   typography,
 );
 
-export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>`
-  box-sizing: border-box;
-  flex-direction: column;
-  width: 100%;
-
-  ${({ aspect }) =>
-    aspect &&
-    css`
-      content: '';
-      display: block;
-      height: 0;
-      padding-bottom: ${(1 / aspect) * 100}%;
-    `}
-
-  ${BoxStyles};
-`;
+export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>(
+  {
+    boxSizing: 'border-box',
+    flexDirection: 'column',
+  },
+  (props) =>
+    props.aspect && {
+      content: "''",
+      display: 'block',
+      height: 0,
+      paddingBottom: `${(1 / props.aspect) * 100}%`,
+    },
+  (props) =>
+    props.truncate && {
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    },
+  border,
+  boxShadow,
+  color,
+  position,
+  typography,
+);

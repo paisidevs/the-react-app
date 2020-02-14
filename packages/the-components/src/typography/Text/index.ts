@@ -16,11 +16,19 @@ import {
  *  <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
  */
 
-const Text = styled('span', { shouldForwardProp })<StyledSystemProps>(
+const Text = styled('span', { shouldForwardProp })<
+  StyledSystemProps & { truncate?: boolean }
+>(
   {
     color: 'inherit',
     lineHeight: 1.5,
   },
+  (props) =>
+    props.truncate && {
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    },
   color,
   layout,
   space,
