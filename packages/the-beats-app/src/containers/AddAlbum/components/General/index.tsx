@@ -1,5 +1,4 @@
 import { Box, Image, Input, Loader, Select } from '@elandamor/tra-components';
-import { logger } from '@elandamor/tra-utilities';
 import { useFormikContext } from 'formik';
 import React from 'react';
 import { SingleDatePicker, Uploader } from '../../../../components';
@@ -17,7 +16,6 @@ import { useArtistsQuery } from '../../../../generated/graphql';
 const General = () => {
   const { setFieldValue, values } = useFormikContext();
   const { cover } = values as any;
-  logger({ cover });
 
   const { data: artistsData } = useArtistsQuery();
   const artists = artistsData?.artists?.edges.map(({ node }: any) => ({
