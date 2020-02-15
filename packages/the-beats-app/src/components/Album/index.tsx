@@ -14,7 +14,7 @@ interface IAlbumProps extends StyledSystemProps {
  * <Album data={album} />
  */
 
-const Album: FC<IAlbumProps> = ({ data: album, ...rest }) => {
+export const Album: FC<IAlbumProps> = ({ data: album, ...rest }) => {
   return (
     <Box {...rest}>
       <Flex alignItems="center">
@@ -29,5 +29,3 @@ const Album: FC<IAlbumProps> = ({ data: album, ...rest }) => {
 Album.defaultProps = {
   alignItems: 'center',
 };
-
-export default Album;

@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
-    "codegen-init": "graphql-codegen init",
+    "codegen": "amplify codegen && npm run generate",
     "generate": "graphql-codegen --config codegen.yml",
     "start": "react-scripts start",
+    "start:backend": "cd ./backend && npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "cy:open": "cypress open"

@@ -1,11 +1,10 @@
-import { useQuery } from '@apollo/react-hooks';
 import { Box, Image, Input, Loader, Select } from '@app/components';
 import { logger } from '@app/utilities';
 import { useFormikContext } from 'formik';
 import React from 'react';
 import { SingleDatePicker, Uploader } from '../../../../components';
 import { genres, releaseTypes } from '../../../../data';
-import { GET_ARTISTS } from '../../../../graphql';
+import { useArtistsQuery } from '../../../../generated/graphql';
 
 /**
  * @render react
@@ -20,8 +19,8 @@ const General = () => {
   const { cover } = values as any;
   logger({ cover });
 
-  const { data: getArtistsData } = useQuery(GET_ARTISTS);
-  const artists = getArtistsData?.artists?.edges.map(({ node }: any) => ({
+  const { data: artistsData } = useArtistsQuery();
+  const artists = artistsData?.artists?.edges.map(({ node }: any) => ({
     label: node.name,
     value: node.id,
   }));

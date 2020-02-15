@@ -1,9 +1,8 @@
-import { useQuery } from '@apollo/react-hooks';
 import { Box, H3, Loader, Text } from '@app/components';
 import React, { FC } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import Track from '../../components/Track';
-import { GET_ALBUM } from '../../graphql';
+import { useAlbumQuery } from '../../generated/graphql';
 
 /**
  * @render react
@@ -16,15 +15,15 @@ import { GET_ALBUM } from '../../graphql';
 const GetAlbum: FC<{
   routes?: any[];
 }> = () => {
-  const match = useRouteMatch<{ id?: string }>();
+  const match = useRouteMatch<{ id: string }>();
 
-  const { data, error, loading } = useQuery(GET_ALBUM, {
+  const { data, error, loading } = useAlbumQuery({
     variables: { id: match.params.id },
   });
 
   const album = data?.album;
 
-  const renderAlbum = (album: IAlbum) => {
+  const renderAlbum = (album: any) => {
     if (loading) {
       return <Loader />;
     }

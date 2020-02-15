@@ -14,7 +14,7 @@ export interface ITrackProps {
   [key: string]: any;
 }
 
-const Track: FC<ITrackProps> = ({
+export const Track: FC<ITrackProps> = ({
   current,
   data,
   onSelect: handleClick,
@@ -57,5 +57,3 @@ const Track: FC<ITrackProps> = ({
     </Wrapper>
   );
 };
-
-export default Track;

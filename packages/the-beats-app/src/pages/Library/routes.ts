@@ -3,7 +3,7 @@ import {
   GetAlbums,
   GetArtists,
   GetPlaylists,
-  GetSongs,
+  GetTracks,
 } from '../../containers';
 
 export const routes: any = [
@@ -30,7 +30,7 @@ export const routes: any = [
     ],
   },
   {
-    component: GetSongs,
+    component: GetTracks,
     path: '/library/songs',
     title: 'Songs',
   },

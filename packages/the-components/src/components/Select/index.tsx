@@ -2,7 +2,7 @@ import { color, css, layout, space, styled, theme } from '@app/theme';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect } from 'react';
 import { ChevronDown } from 'react-feather';
-import { components } from 'react-select';
+import { components, Props as SelectProps } from 'react-select';
 import ReactSelect from 'react-select/creatable';
 import { titleCase } from 'title-case';
 import Text from '../../typography/Text';
@@ -10,15 +10,9 @@ import { Box } from '../Box';
 
 type Option = { label: string | number; value: string | number };
 
-export interface ISelectProps extends FieldConfig {
+export interface ISelectProps extends SelectProps {
   label: string;
-  options: Option[];
   placeholder?: string;
-  isSearchable?: boolean;
-  autoFocus?: boolean;
-  defaultMenuIsOpen?: boolean;
-  hideSelectedOptions?: boolean;
-  menuPlacement?: 'auto' | 'bottom' | 'top';
 }
 
 /**
@@ -168,7 +162,7 @@ const DropdownIndicator = styled(ChevronDown)<{ open: boolean }>`
  * />
  */
 
-export const Select: FC<ISelectProps> = ({
+export const Select: FC<ISelectProps & FieldConfig> = ({
   name,
   validate,
   innerRef,

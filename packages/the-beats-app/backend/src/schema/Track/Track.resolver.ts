@@ -1,5 +1,5 @@
-import { Context } from "../../typings";
-import * as service from "./Track.service";
+import { Context } from '../../typings';
+import * as service from './Track.service';
 
 /**
  * Resolvers for Track
@@ -8,12 +8,12 @@ import * as service from "./Track.service";
 export default {
   Mutation: {
     createTrack: (_, { input }, context: Context) =>
-      service.createTrack(input, context)
+      service.createTrack(input, context),
   },
   Query: {
     track: (_, { id }, { prisma }: Context) => prisma.track({ id }),
     tracks: (_, __, { prisma }: Context) =>
-      prisma.tracksConnection({ orderBy: "name_ASC" })
+      prisma.tracksConnection({ orderBy: 'name_ASC' }),
   },
   Track: {
     album: ({ id }: any, _, { prisma }: Context) => {
@@ -24,11 +24,16 @@ export default {
     },
     featuring: ({ id }: any, _, { prisma }: Context) => {
       return prisma.track({ id }).featuring();
-    }
+    },
+  },
+  TrackConnection: {
+    aggregate: (_, __, { prisma }: Context) => {
+      return prisma.tracksConnection().aggregate();
+    },
   },
   Node: {
     __resolveType() {
       return null;
-    }
-  }
+    },
+  },
 };

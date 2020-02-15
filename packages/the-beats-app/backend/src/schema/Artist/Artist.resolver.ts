@@ -1,5 +1,5 @@
-import { Context } from "../../typings";
-import * as service from "./Artist.service";
+import { Context } from '../../typings';
+import * as service from './Artist.service';
 
 /**
  * Resolvers for Artist
@@ -8,12 +8,12 @@ import * as service from "./Artist.service";
 export default {
   Mutation: {
     createArtist: (_, { input }, context: Context) =>
-      service.createArtist(input, context)
+      service.createArtist(input, context),
   },
   Query: {
     artist: (_, { id }, { prisma }: Context) => prisma.artist({ id }),
     artists: (_, __, { prisma }: Context) =>
-      prisma.artistsConnection({ orderBy: "name_ASC" })
+      prisma.artistsConnection({ orderBy: 'name_ASC' }),
   },
   Artist: {
     albums: ({ id }, _, { prisma }: Context) => {
@@ -27,11 +27,16 @@ export default {
     },
     tracks: ({ id }, _, { prisma }: Context) => {
       return prisma.artist({ id }).tracks();
-    }
+    },
+  },
+  ArtistConnection: {
+    aggregate: (_, __, { prisma }: Context) => {
+      return prisma.artistsConnection().aggregate();
+    },
   },
   Node: {
     __resolveType() {
       return null;
-    }
-  }
+    },
+  },
 };

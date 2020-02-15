@@ -1,0 +1,2118 @@
+# this is an auto generated file. This will be overwritten
+query Album($id: ID!) {
+  album(id: $id) {
+    id
+    alias
+    artists {
+      id
+      albums {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      alias
+      avatar {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      featuresIn {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      genres
+      name
+      tracks {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    duration
+    genres
+    artwork {
+      id
+      uploadedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      url
+      createdAt
+      updatedAt
+    }
+    name
+    numTracks
+    releaseDate
+    releaseType
+    tracks {
+      id
+      album {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      artists {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      audio {
+        id
+        bitrate
+        format
+        size
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      discNumber
+      duration
+      explicit
+      featuring {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      genre
+      isPlayable
+      name
+      trackNumber
+      createdAt
+      updatedAt
+    }
+    addedBy {
+      id
+      isAdmin
+      email
+      name
+      password
+      playlists {
+        id
+        alias
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        collaborative
+        creator {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        description
+        duration
+        name
+        numTracks
+        privacy
+        tracks {
+          id
+          addedAt
+        }
+        createdAt
+        updatedAt
+      }
+      username
+      verified
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query Albums {
+  albums {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+    aggregate {
+      count
+    }
+  }
+}
+query Artist($id: ID!) {
+  artist(id: $id) {
+    id
+    albums {
+      id
+      alias
+      artists {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      duration
+      genres
+      artwork {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      name
+      numTracks
+      releaseDate
+      releaseType
+      tracks {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      addedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    alias
+    avatar {
+      id
+      uploadedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      url
+      createdAt
+      updatedAt
+    }
+    featuresIn {
+      id
+      album {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      artists {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      audio {
+        id
+        bitrate
+        format
+        size
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      discNumber
+      duration
+      explicit
+      featuring {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      genre
+      isPlayable
+      name
+      trackNumber
+      createdAt
+      updatedAt
+    }
+    genres
+    name
+    tracks {
+      id
+      album {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      artists {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      audio {
+        id
+        bitrate
+        format
+        size
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      discNumber
+      duration
+      explicit
+      featuring {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      genre
+      isPlayable
+      name
+      trackNumber
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query Artists {
+  artists {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+    aggregate {
+      count
+    }
+  }
+}
+query Playlist($id: ID!) {
+  playlist(id: $id) {
+    id
+    alias
+    artwork {
+      id
+      uploadedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      url
+      createdAt
+      updatedAt
+    }
+    collaborative
+    creator {
+      id
+      isAdmin
+      email
+      name
+      password
+      playlists {
+        id
+        alias
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        collaborative
+        creator {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        description
+        duration
+        name
+        numTracks
+        privacy
+        tracks {
+          id
+          addedAt
+        }
+        createdAt
+        updatedAt
+      }
+      username
+      verified
+      createdAt
+      updatedAt
+    }
+    description
+    duration
+    name
+    numTracks
+    privacy
+    tracks {
+      id
+      addedAt
+      addedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      playlists {
+        id
+        alias
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        collaborative
+        creator {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        description
+        duration
+        name
+        numTracks
+        privacy
+        tracks {
+          id
+          addedAt
+        }
+        createdAt
+        updatedAt
+      }
+      track {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+    }
+    createdAt
+    updatedAt
+  }
+}
+query Playlists {
+  playlists {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        alias
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        collaborative
+        creator {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        description
+        duration
+        name
+        numTracks
+        privacy
+        tracks {
+          id
+          addedAt
+        }
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+    aggregate {
+      count
+    }
+  }
+}
+query Track($id: ID!) {
+  track(id: $id) {
+    id
+    album {
+      id
+      alias
+      artists {
+        id
+        albums {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        alias
+        avatar {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        featuresIn {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        genres
+        name
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      duration
+      genres
+      artwork {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      name
+      numTracks
+      releaseDate
+      releaseType
+      tracks {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      addedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    artists {
+      id
+      albums {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      alias
+      avatar {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      featuresIn {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      genres
+      name
+      tracks {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    audio {
+      id
+      bitrate
+      format
+      size
+      uploadedBy {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      url
+      createdAt
+      updatedAt
+    }
+    discNumber
+    duration
+    explicit
+    featuring {
+      id
+      albums {
+        id
+        alias
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        duration
+        genres
+        artwork {
+          id
+          url
+          createdAt
+          updatedAt
+        }
+        name
+        numTracks
+        releaseDate
+        releaseType
+        tracks {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      alias
+      avatar {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      featuresIn {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      genres
+      name
+      tracks {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    genre
+    isPlayable
+    name
+    trackNumber
+    createdAt
+    updatedAt
+  }
+}
+query Tracks {
+  tracks {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        album {
+          id
+          alias
+          duration
+          genres
+          name
+          numTracks
+          releaseDate
+          releaseType
+          createdAt
+          updatedAt
+        }
+        artists {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        audio {
+          id
+          bitrate
+          format
+          size
+          url
+          createdAt
+          updatedAt
+        }
+        discNumber
+        duration
+        explicit
+        featuring {
+          id
+          alias
+          genres
+          name
+          createdAt
+          updatedAt
+        }
+        genre
+        isPlayable
+        name
+        trackNumber
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+    aggregate {
+      count
+    }
+  }
+}
+query User($id: ID!) {
+  user(id: $id) {
+    id
+    isAdmin
+    email
+    name
+    password
+    playlists {
+      id
+      alias
+      artwork {
+        id
+        uploadedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        url
+        createdAt
+        updatedAt
+      }
+      collaborative
+      creator {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      description
+      duration
+      name
+      numTracks
+      privacy
+      tracks {
+        id
+        addedAt
+        addedBy {
+          id
+          isAdmin
+          email
+          name
+          password
+          username
+          verified
+          createdAt
+          updatedAt
+        }
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        track {
+          id
+          discNumber
+          duration
+          explicit
+          genre
+          isPlayable
+          name
+          trackNumber
+          createdAt
+          updatedAt
+        }
+      }
+      createdAt
+      updatedAt
+    }
+    username
+    verified
+    createdAt
+    updatedAt
+  }
+}
+query Users {
+  users {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        isAdmin
+        email
+        name
+        password
+        playlists {
+          id
+          alias
+          collaborative
+          description
+          duration
+          name
+          numTracks
+          privacy
+          createdAt
+          updatedAt
+        }
+        username
+        verified
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+    aggregate {
+      count
+    }
+  }
+}
