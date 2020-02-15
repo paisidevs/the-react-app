@@ -1,4 +1,4 @@
-import { Box, Text } from '@app/components';
+import { Box, Text } from '@elandamor/tra-components';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import moment from 'moment';
 import React, { FC, useEffect, useState } from 'react';

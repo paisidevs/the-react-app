@@ -1,5 +1,11 @@
-import { Box, ErrorBoundary, Grid, Modal, Routes } from '@app/components';
-import { Global, ThemeProvider } from '@app/theme';
+import {
+  Box,
+  ErrorBoundary,
+  Grid,
+  Modal,
+  Routes,
+} from '@elandamor/tra-components';
+import { Global, ThemeProvider } from '@elandamor/tra-theme';
 import React, { FC } from 'react';
 import { Breadcrumbs } from '../../contexts/BreadcrumbsProvider.context';
 import { useAuthentication } from '../../hooks';

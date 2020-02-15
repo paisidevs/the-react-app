@@ -1,5 +1,5 @@
-import { Box, Image, Input, Loader, Select } from '@app/components';
-import { logger } from '@app/utilities';
+import { Box, Image, Input, Loader, Select } from '@elandamor/tra-components';
+import { logger } from '@elandamor/tra-utilities';
 import { useFormikContext } from 'formik';
 import React from 'react';
 import { SingleDatePicker, Uploader } from '../../../../components';

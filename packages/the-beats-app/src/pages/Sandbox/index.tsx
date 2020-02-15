@@ -1,4 +1,4 @@
-import { Box, Form, Input, MultiStep, Select } from '@app/components';
+import { Box, Form, Input, MultiStep, Select } from '@elandamor/tra-components';
 import React from 'react';
 
 type OverviewFormValues = {

@@ -7,7 +7,7 @@ import {
   shouldForwardProp,
   styled,
   typography,
-} from '@app/theme';
+} from '@elandamor/tra-theme';
 import { Flex, IFlexProps } from '../Flex';
 
 export interface IBoxProps extends IFlexProps {

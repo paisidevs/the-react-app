@@ -1,5 +1,5 @@
-import { Box } from '@app/components';
-import { useTheme } from '@app/theme';
+import { Box } from '@elandamor/tra-components';
+import { useTheme } from '@elandamor/tra-theme';
 import React from 'react';
 
 const Header = () => {

@@ -1,5 +1,5 @@
-import { Box, Flex } from '@app/components';
-import { useTheme } from '@app/theme';
+import { Box, Flex } from '@elandamor/tra-components';
+import { useTheme } from '@elandamor/tra-theme';
 import React from 'react';
 
 const Header = () => {

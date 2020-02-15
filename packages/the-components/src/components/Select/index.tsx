@@ -1,4 +1,4 @@
-import { color, css, layout, space, styled, theme } from '@app/theme';
+import { color, css, layout, space, styled, theme } from '@elandamor/tra-theme';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect } from 'react';
 import { ChevronDown } from 'react-feather';

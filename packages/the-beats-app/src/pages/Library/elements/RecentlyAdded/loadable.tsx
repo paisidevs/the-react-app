@@ -1,5 +1,4 @@
-import { Box, H3, Loader } from '@app/components';
-import { Loadable } from '@app/utilities';
+import { Box, H3, Loadable, Loader } from '@elandamor/tra-components';
 import React from 'react';
 
 export default Loadable(() => import('./index'), {

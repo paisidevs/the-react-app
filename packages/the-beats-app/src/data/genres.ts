@@ -1,4 +1,4 @@
-import { generateAlias } from '@app/utilities';
+import { generateAlias } from '@elandamor/tra-utilities';
 
 const dirty = [
   'Blues',

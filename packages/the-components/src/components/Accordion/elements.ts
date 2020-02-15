@@ -1,4 +1,4 @@
-import { css, styled, theme } from '@app/theme';
+import { css, styled, theme } from '@elandamor/tra-theme';
 import { Box } from '../Box';
 
 export const Wrapper = styled(Box)<{ open: boolean }>`

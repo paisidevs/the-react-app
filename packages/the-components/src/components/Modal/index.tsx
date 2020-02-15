@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@app/theme';
+import { StyledSystemProps } from '@elandamor/tra-theme';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'react-feather';

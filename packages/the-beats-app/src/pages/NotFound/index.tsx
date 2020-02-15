@@ -1,4 +1,4 @@
-import { H1 } from '@app/components';
+import { H1 } from '@elandamor/tra-components';
 import React from 'react';
 
 export const NotFound: React.FC = () => {

@@ -1,5 +1,5 @@
-import { Box, Flex, H6 } from '@app/components';
-import { StyledSystemProps } from '@app/theme';
+import { Box, Flex, H6 } from '@elandamor/tra-components';
+import { StyledSystemProps } from '@elandamor/tra-theme';
 import React, { FC } from 'react';
 
 interface IAlbumProps extends StyledSystemProps {

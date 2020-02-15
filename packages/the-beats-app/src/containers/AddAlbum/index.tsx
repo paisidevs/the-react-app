@@ -1,4 +1,4 @@
-import { Form, MultiStep, ScrollView } from '@app/components';
+import { Form, MultiStep, ScrollView } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { General, Tracks } from './components';
 

@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@app/theme';
+import { ThemeProvider } from '@elandamor/tra-theme';
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { Button, IButtonProps } from './index';

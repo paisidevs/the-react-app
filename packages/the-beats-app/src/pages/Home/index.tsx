@@ -1,4 +1,4 @@
-import { ScrollView } from '@app/components';
+import { ScrollView } from '@elandamor/tra-components';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 

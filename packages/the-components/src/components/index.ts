@@ -8,6 +8,7 @@ export { Grid } from './Grid';
 export { HorizontalScroller } from './HorizontalScroller';
 export { Image } from './Image';
 export { Input } from './Input';
+export { Loadable } from './Loadable';
 export { Loader } from './Loader';
 export { Modal } from './Modal';
 export { MultiStep } from './MultiStep';

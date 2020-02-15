@@ -1,5 +1,5 @@
-import { Box } from '@app/components';
-import { height, styled, width } from '@app/theme';
+import { Box } from '@elandamor/tra-components';
+import { height, styled, width } from '@elandamor/tra-theme';
 
 export const Wrapper = styled(Box)`
   ${height}

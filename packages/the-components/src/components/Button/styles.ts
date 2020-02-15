@@ -8,7 +8,7 @@ import {
   StyledSystemProps,
   theme,
   variant,
-} from '@app/theme';
+} from '@elandamor/tra-theme';
 
 const variants = variant({
   variants: {

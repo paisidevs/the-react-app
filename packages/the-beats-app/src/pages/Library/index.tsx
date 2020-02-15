@@ -1,4 +1,4 @@
-import { Routes, ScrollView } from '@app/components';
+import { Routes, ScrollView } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Navigation, RecentlyAdded } from './elements';

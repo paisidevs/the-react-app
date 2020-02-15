@@ -1,7 +1,7 @@
-import { Box, H3, Loader, Text } from '@app/components';
+import { Box, H3, Loader, Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import Track from '../../components/Track';
+import { Track } from '../../components';
 import { useAlbumQuery } from '../../generated/graphql';
 
 /**
@@ -29,7 +29,6 @@ const GetAlbum: FC<{
     }
 
     if (error) {
-      console.error({ error });
       return <Text>There was an error fetching album.</Text>;
     }
 

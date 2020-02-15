@@ -1,5 +1,5 @@
-import { Box } from '@app/components';
-import { color, css, layout, styled, theme } from '@app/theme';
+import { Box } from '@elandamor/tra-components';
+import { color, css, layout, styled, theme } from '@elandamor/tra-theme';
 
 export const Wrapper = styled(Box)<{ activated: boolean }>`
   .label {

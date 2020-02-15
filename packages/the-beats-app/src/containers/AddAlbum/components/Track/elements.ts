@@ -1,5 +1,5 @@
-import { Box } from '@app/components';
-import { styled } from '@app/theme';
+import { Box } from '@elandamor/tra-components';
+import { styled } from '@elandamor/tra-theme';
 
 export const Wrapper = styled(Box)`
   align-items: center;

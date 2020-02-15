@@ -1,4 +1,4 @@
-import { theme, ThemeProvider } from '@app/theme';
+import { theme, ThemeProvider } from '@elandamor/tra-theme';
 import { render } from '@testing-library/react';
 import React, { FC } from 'react';
 

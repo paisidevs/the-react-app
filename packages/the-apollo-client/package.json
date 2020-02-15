@@ -1,5 +1,5 @@
 {
-  "name": "the-apollo-client",
+  "name": "@elandamor/apollo-client",
   "version": "0.1.0",
   "description": "Apollo client with utilities used in the-react-app",
   "author": "elandamor",

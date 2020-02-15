@@ -5,7 +5,7 @@ const webpackOptions = {
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
-      '@app/*': path.resolve(__dirname, '../../../*/src'),
+      '@elandamor/tra-*': path.resolve(__dirname, '../../../*/src'),
     },
   },
   module: {

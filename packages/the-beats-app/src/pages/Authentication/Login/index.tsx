@@ -1,5 +1,5 @@
-import { Box, Button, Form, Input } from '@app/components';
-import { theme } from '@app/theme';
+import { Box, Button, Form, Input } from '@elandamor/tra-components';
+import { theme } from '@elandamor/tra-theme';
 import React, { useState } from 'react';
 import { UserCheck } from 'react-feather';
 import * as Yup from 'yup';

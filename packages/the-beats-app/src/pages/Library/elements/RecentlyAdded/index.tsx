@@ -1,5 +1,5 @@
-import { Box, Flex, H3, Loader, Text } from '@app/components';
-import { styled } from '@app/theme';
+import { Box, Flex, H3, Loader, Text } from '@elandamor/tra-components';
+import { styled } from '@elandamor/tra-theme';
 import React, { FC } from 'react';
 
 const Wrapper = styled(Box)``;

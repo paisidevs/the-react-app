@@ -1,4 +1,4 @@
-import { styled, StyledSystemProps } from '@app/theme';
+import { styled, StyledSystemProps } from '@elandamor/tra-theme';
 import { Animated } from '../Animated';
 import { Box } from '../Box';
 

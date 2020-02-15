@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from '@app/components';
+import { Box, Flex, Image, Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { Wrapper } from './styles';
 

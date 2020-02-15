@@ -6,7 +6,7 @@ import {
   space,
   styled,
   StyledSystemProps,
-} from '@app/theme';
+} from '@elandamor/tra-theme';
 
 export interface IGridProps extends StyledSystemProps {}
 

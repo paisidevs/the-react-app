@@ -1,5 +1,5 @@
-import { Flex } from '@app/components';
-import { styled } from '@app/theme';
+import { Flex } from '@elandamor/tra-components';
+import { styled } from '@elandamor/tra-theme';
 
 export const Wrapper = styled(Flex)`
   align-items: center;

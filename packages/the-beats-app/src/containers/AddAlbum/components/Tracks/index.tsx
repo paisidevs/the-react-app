@@ -1,4 +1,4 @@
-import { Accordion, Box, Button, Flex, Input } from '@app/components';
+import { Accordion, Box, Button, Flex, Input } from '@elandamor/tra-components';
 import { FieldArray, useFormikContext } from 'formik';
 import React from 'react';
 import { MinusCircle } from 'react-feather';

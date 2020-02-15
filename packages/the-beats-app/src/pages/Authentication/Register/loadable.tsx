@@ -1,5 +1,4 @@
-import { Loader } from '@app/components';
-import { Loadable } from '@app/utilities';
+import { Loadable, Loader } from '@elandamor/tra-components';
 import React from 'react';
 
 export default Loadable(() => import('./index'), {

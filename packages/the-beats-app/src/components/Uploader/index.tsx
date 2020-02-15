@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@app/theme';
+import { StyledSystemProps } from '@elandamor/tra-theme';
 import { Uppy } from '@uppy/core';
 import { DragDrop } from '@uppy/react';
 import React from 'react';

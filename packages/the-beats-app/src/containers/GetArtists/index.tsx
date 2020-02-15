@@ -1,4 +1,4 @@
-import { Box, Flex, Loader, Text } from '@app/components';
+import { Box, Flex, Loader, Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { ArtistEdge, Maybe, useArtistsQuery } from '../../generated/graphql';
 

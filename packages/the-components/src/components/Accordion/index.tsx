@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@app/theme';
+import { StyledSystemProps } from '@elandamor/tra-theme';
 import React, { FC, useState } from 'react';
 import { Text } from '../../typography';
 import { Wrapper } from './elements';

@@ -1,7 +1,7 @@
-import { Box, Loader, Text } from '@app/components';
+import { Box, Loader, Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { Track } from '../../components';
-import { Maybe, TrackEdge, useTracksQuery } from '../../generated/graphql';
+import { TrackEdge, useTracksQuery } from '../../generated/graphql';
 
 /**
  * @render react
@@ -15,7 +15,7 @@ const GetTracks: FC<{}> = () => {
   const { data, error, loading } = useTracksQuery();
   const tracks = data?.tracks?.edges;
 
-  const renderTracks = (tracks: Maybe<TrackEdge>[]) => {
+  const renderTracks = (tracks: any) => {
     if (loading) {
       return <Loader />;
     }
@@ -28,7 +28,7 @@ const GetTracks: FC<{}> = () => {
       return <Text>Songs in your library will appear here.</Text>;
     }
 
-    return tracks.map((track) => (
+    return tracks.map((track: TrackEdge) => (
       <Track key={track?.node.id} data={track?.node} />
     ));
   };

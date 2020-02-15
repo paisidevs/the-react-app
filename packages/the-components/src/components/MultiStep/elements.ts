@@ -1,4 +1,4 @@
-import { css, styled, theme } from '@app/theme';
+import { css, styled, theme } from '@elandamor/tra-theme';
 
 export const Navigation = styled.div`
   display: flex;

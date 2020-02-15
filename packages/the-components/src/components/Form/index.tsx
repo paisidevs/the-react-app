@@ -1,4 +1,4 @@
-import { isFunction } from '@app/utilities';
+import { isFunction } from '@elandamor/tra-utilities';
 import {
   Form as ImpForm,
   Formik,

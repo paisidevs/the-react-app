@@ -1,7 +1,7 @@
-import { Box, Flex, Loader, Routes, Text } from '@app/components';
+import { Box, Flex, Loader, Routes, Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-import Album from '../../components/Album';
+import { Album } from '../../components';
 import { useAlbumsQuery } from '../../generated/graphql';
 
 /**

@@ -1,5 +1,5 @@
-import { Flex, H2, H3 } from '@app/components';
-import { throttle } from '@app/utilities';
+import { Flex, H2, H3 } from '@elandamor/tra-components';
+import { throttle } from '@elandamor/tra-utilities';
 import React, { FC, useState } from 'react';
 import { ChevronLeft } from 'react-feather';
 import { useHistory } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { Button, Form, Input } from '@app/components';
+import { Button, Form, Input } from '@elandamor/tra-components';
 import React from 'react';
 import * as Yup from 'yup';
 import { useAuthentication } from '../../../hooks';

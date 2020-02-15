@@ -1,4 +1,4 @@
-import { Text } from '@app/components';
+import { Text } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { Details, Wrapper } from './elements';
 

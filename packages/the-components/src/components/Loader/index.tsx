@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@app/theme';
+import { StyledSystemProps } from '@elandamor/tra-theme';
 import React from 'react';
 import { Box } from '../Box';
 import { Circular, Path, Wrapper } from './styles';

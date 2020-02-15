@@ -1,4 +1,4 @@
-import { Navigation as ImpNavigation } from '@app/components';
+import { Navigation as ImpNavigation } from '@elandamor/tra-components';
 import React from 'react';
 
 export const Navigation: React.FC = () => {
