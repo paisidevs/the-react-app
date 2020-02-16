@@ -1,11 +1,11 @@
-import * as bcrypt from "bcrypt";
+import * as bcrypt from 'bcrypt';
 import {
   UserCreateInput,
-  UserUpdateInput
-} from "../../generated/prisma-client";
-import { Context } from "../../typings";
-import { generateToken, getAuthenticatedUser, hashPassword } from "../../utils";
-import { UnknownError } from "../../utils/errors";
+  UserUpdateInput,
+} from '../../generated/prisma-client';
+import { Context } from '../../typings';
+import { generateToken, getAuthenticatedUser, hashPassword } from '../../utils';
+import { UnknownError } from '../../utils/errors';
 
 /**
  * Creates a user
@@ -18,7 +18,7 @@ export const createUser = async (user, { prisma }: Context) => {
   const userExists = await prisma.$exists.user({ email });
 
   if (userExists) {
-    throw new Error("An account with this email already exists!");
+    throw new Error('An account with this email already exists!');
   }
 
   const hashedPassword = await hashPassword(password);
@@ -26,7 +26,7 @@ export const createUser = async (user, { prisma }: Context) => {
   const payload: UserCreateInput = {
     email,
     password: hashedPassword,
-    ...(isAdmin ? { isAdmin } : {})
+    ...(isAdmin ? { isAdmin } : {}),
   };
 
   try {
@@ -34,11 +34,11 @@ export const createUser = async (user, { prisma }: Context) => {
 
     return {
       token: generateToken(user),
-      user
+      user,
     };
   } catch (error) {
     throw new UnknownError({
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -52,7 +52,7 @@ export const updateUser = async (input, context: Context) => {
   const { prisma, request } = context;
   const authenticatedUserId = getAuthenticatedUser(request).id;
 
-  if (typeof input.password === "string") {
+  if (typeof input.password === 'string') {
     input.password = await hashPassword(input.password);
   }
 
@@ -61,13 +61,13 @@ export const updateUser = async (input, context: Context) => {
   try {
     const user = await prisma.updateUser({
       data: payload,
-      where: { id: authenticatedUserId }
+      where: { id: authenticatedUserId },
     });
 
     return user;
   } catch (error) {
     throw new UnknownError({
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -79,7 +79,7 @@ export const updateUser = async (input, context: Context) => {
  */
 export const authenticateUser = async (
   userCredentials,
-  { prisma }: Context
+  { prisma }: Context,
 ) => {
   const { email, password } = userCredentials;
 
@@ -92,11 +92,11 @@ export const authenticateUser = async (
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   if (!passwordMatch) {
-    throw new Error("Invalid email/password combination!");
+    throw new Error('Invalid email/password combination!');
   }
 
   return {
     token: generateToken(user),
-    user
+    user,
   };
 };

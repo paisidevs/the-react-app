@@ -46,7 +46,7 @@ export const SingleDatePicker: FC<ISingleDatePickerProps> = ({
       id: field.name,
       ref: innerRef,
       date: field.value ? moment(field.value) : moment(),
-      isOutsideRange: (day: any) => moment().diff(day) < 0,
+      isOutsideRange: (day: any) => day.isAfter(moment().add(1, 'day')),
       onDateChange: (date: any) => {
         setFieldValue(field.name, date);
       },

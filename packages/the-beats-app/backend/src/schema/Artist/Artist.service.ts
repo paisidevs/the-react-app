@@ -1,14 +1,14 @@
-import { ArtistCreateInput } from "../../generated/prisma-client";
-import { Context } from "../../typings";
-import { generateAlias } from "../../utils";
-import { UnknownError } from "../../utils/errors";
+import { Artist, ArtistCreateInput } from '../../generated/prisma-client';
+import { Context } from '../../typings';
+import { generateAlias } from '../../utils';
+import { UnknownError } from '../../utils/errors';
 
 /**
  * Creates an artist
  * @param artist - Object of artist to create
  * @param context - Exposes prisma
  */
-export const createArtist = async (artist, { prisma }: Context) => {
+export const createArtist = async (artist: Artist, { prisma }: Context) => {
   const { name } = artist;
   const alias = generateAlias(name);
 
@@ -20,7 +20,7 @@ export const createArtist = async (artist, { prisma }: Context) => {
 
   const payload: ArtistCreateInput = {
     alias,
-    name
+    name,
   };
 
   try {
@@ -29,7 +29,7 @@ export const createArtist = async (artist, { prisma }: Context) => {
     return createdArtist;
   } catch (error) {
     throw new UnknownError({
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -39,7 +39,7 @@ export const createArtist = async (artist, { prisma }: Context) => {
  * @param artists - Array of artists to create
  * @param context - Exposes prisma
  */
-export const createArtists = async (artists, context: Context) => {
+export const createArtists = async (artists: Artist[], context: Context) => {
   if (!artists) {
     return;
   }
@@ -48,11 +48,11 @@ export const createArtists = async (artists, context: Context) => {
     return [];
   }
 
-  return new Promise<Array<{ id: string }>>(resolve => {
+  return new Promise<Array<{ id: string }>>((resolve) => {
     const createdArtists = [];
 
     artists.forEach((artist, index) => {
-      createArtist(artist, context).then(createdArtist => {
+      createArtist(artist, context).then((createdArtist) => {
         createdArtists.push({ id: createdArtist.id });
 
         if (index === artists.length - 1) {
