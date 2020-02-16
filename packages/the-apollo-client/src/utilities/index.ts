@@ -1,14 +1,29 @@
 import { ApolloLink, NextLink, Operation } from 'apollo-link';
 import { onError } from 'apollo-link-error';
+import { useMedia } from '../hooks';
+
+function usePrefersDarkMode() {
+  return useMedia(['(prefers-color-scheme: dark)'], [true], false);
+}
 
 const formatError = (message: any, path?: any) => {
+  const color = usePrefersDarkMode()
+    ? {
+        gray: '#AAA',
+        black: '#CCC',
+      }
+    : {
+        gray: 'gray',
+        black: '#333',
+      };
+
   if (path) {
     const headerCss = [
-      'color: gray; font-weight: lighter', // title
-      'color: #333; font-weight: 600', // message
-      'color: gray; font-weight: lighter', // on
-      'color: #333; font-weight: 600', // path
-      'color: gray; font-weight: lighter', // request.
+      `color: ${color.gray}; font-weight: lighter`, // title
+      `color: ${color.black}; font-weight: 600`, // message
+      `color: ${color.gray}; font-weight: lighter`, // on
+      `color: ${color.black}; font-weight: 600`, // path
+      `color: ${color.gray}; font-weight: lighter`, // request.
     ];
 
     const parts = ['%c message'];
@@ -22,8 +37,8 @@ const formatError = (message: any, path?: any) => {
   }
 
   const headerCss = [
-    'color: gray; font-weight: lighter', // title
-    'color: #333; font-weight: 600', // message
+    `color: ${color.gray}; font-weight: lighter`, // title
+    `color: ${color.black}; font-weight: 600`, // message
   ];
 
   const parts = ['%c message'];
@@ -38,10 +53,26 @@ const formatMessage = (
   operation: any,
   elapsed?: any,
 ) => {
+  const color = usePrefersDarkMode()
+    ? {
+        gray: '#AAA',
+        black: '#DDD',
+      }
+    : {
+        gray: 'gray',
+        black: '#222',
+      };
+
   const headerCss = [
-    'color: gray; font-weight: lighter', // title
-    `color: ${operationType === 'query' ? '#02B875' : '#03A9F4'};`, // operationType
-    'color: #000;', // operationName
+    `color: ${color.gray}; font-weight: lighter`, // title
+    `color: ${
+      operationType === 'query'
+        ? '#02B875'
+        : operationType === 'mutation'
+        ? '#03A9F4'
+        : '#FF3567'
+    };`, // operationType
+    `color: ${color.black};`, // operationName
   ];
 
   const parts = ['%c apollo'];
@@ -51,7 +82,7 @@ const formatMessage = (
 
   if (elapsed) {
     parts.push(`%c(in ${elapsed} ms)`);
-    headerCss.push('color: gray; font-weight: lighter;'); // time
+    headerCss.push(`color: ${color.gray}; font-weight: lighter;`); // time
   }
 
   return [parts.join(' '), ...headerCss];
