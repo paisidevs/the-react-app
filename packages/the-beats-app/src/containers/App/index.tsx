@@ -9,6 +9,7 @@ import { Global, ThemeProvider } from '@elandamor/tra-theme';
 import React, { FC } from 'react';
 import { Breadcrumbs } from '../../contexts/BreadcrumbsProvider.context';
 import { useAuthentication } from '../../hooks';
+import Login from '../../pages/Authentication/Login';
 import { Footer, Header } from './elements';
 import { routes } from './routes';
 
@@ -44,7 +45,9 @@ const App: FC = () => {
               </Box>
             </Box>
           }
-        />
+        >
+          <Login />
+        </Modal>
       );
     }
 
@@ -54,7 +57,7 @@ const App: FC = () => {
         <Box height="100%" overflow="hidden">
           <Breadcrumbs>
             <ErrorBoundary>
-              <Routes animate routes={routes} />
+              <Routes routes={routes} />
             </ErrorBoundary>
           </Breadcrumbs>
         </Box>

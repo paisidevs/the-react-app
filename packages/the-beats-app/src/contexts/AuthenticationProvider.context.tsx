@@ -1,13 +1,15 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { useAuthenticateUserMutation } from '../generated/graphql';
+import { useLocalStorage } from '../hooks';
 
 type CognitoUser = {
   id: string;
   accessToken: string;
   attributes: {
     email: string;
-    name: string;
+    name?: string | null;
     role: 'admin' | 'subscriber';
-    username?: string;
+    username?: string | null;
   };
 };
 
@@ -31,7 +33,7 @@ const Errors = {
 const DEFAULT_STATE = {
   Errors,
   authenticating: true,
-  isAuthenticated: true,
+  isAuthenticated: false,
   currentAuthenticatedUser: () => {},
   signIn: (_email: string, _password: string) => {},
   signUp: (_email: string, _password: string) => {},
@@ -40,19 +42,29 @@ const DEFAULT_STATE = {
 export const AuthenticationContext = React.createContext(DEFAULT_STATE);
 
 const Provider: FC<{}> = ({ children }) => {
-  const [authenticating] = useState(DEFAULT_STATE.authenticating);
+  const [authenticating, setAuthenticating] = useState(
+    DEFAULT_STATE.authenticating,
+  );
   const [isAuthenticated, setIsAuthenticated] = useState(
     DEFAULT_STATE.isAuthenticated,
   );
+  const [cognitoUser, setCognitoUser] = useLocalStorage('cognitoUser');
 
-  const currentAuthenticatedUser = (): Promise<CognitoUser> =>
-    new Promise((resolve, reject) => {
-      try {
-        resolve(MOCK_COGNITO_USER);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const [authenticateUser] = useAuthenticateUserMutation();
+
+  const currentAuthenticatedUser = useCallback(
+    (): Promise<CognitoUser> =>
+      new Promise((resolve, reject) => {
+        try {
+          resolve(cognitoUser);
+          setAuthenticating(false);
+        } catch (error) {
+          setAuthenticating(false);
+          reject(error);
+        }
+      }),
+    [cognitoUser],
+  );
 
   const signUp = (email: string): Promise<CognitoUser> =>
     new Promise((resolve, reject) => {
@@ -69,20 +81,48 @@ const Provider: FC<{}> = ({ children }) => {
       }
     });
 
-  const signIn = (): Promise<CognitoUser> =>
-    new Promise((resolve, reject) => {
+  const signIn = (email: string, password: string): Promise<CognitoUser> =>
+    new Promise(async (resolve, reject) => {
+      setAuthenticating(true);
       try {
-        setTimeout(() => {
-          resolve(MOCK_COGNITO_USER);
+        const { data } = await authenticateUser({
+          variables: {
+            input: {
+              email,
+              password,
+            },
+          },
+        });
 
-          setTimeout(() => {
-            setIsAuthenticated(true);
-          }, 1000);
-        }, 3000);
+        if (data?.authenticateUser) {
+          const { token, user } = data.authenticateUser;
+
+          const cognitoUser: CognitoUser = {
+            id: user.id,
+            accessToken: token,
+            attributes: {
+              email: user.email,
+              name: user.name,
+              username: user.username,
+              role: user.isAdmin ? 'admin' : 'subscriber',
+            },
+          };
+
+          setCognitoUser(cognitoUser);
+          resolve(cognitoUser);
+
+          setTimeout(() => setIsAuthenticated(true), 1000);
+        }
+        setAuthenticating(false);
       } catch (error) {
+        setAuthenticating(false);
         reject(error);
       }
     });
+
+  useEffect(() => {
+    currentAuthenticatedUser().then((user) => user && setIsAuthenticated(true));
+  }, [currentAuthenticatedUser]);
 
   return (
     <AuthenticationContext.Provider
