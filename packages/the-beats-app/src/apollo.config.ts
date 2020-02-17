@@ -7,7 +7,7 @@ import {
   loggerLink,
   RetryLink,
   setContext,
-} from 'the-apollo-client';
+} from '@elandamor/apollo-client';
 import { GRAPHQL_ENDPOINT, JWT_LOCAL_STORAGE_KEY, NODE_ENV } from './constants';
 
 const cache = new InMemoryCache();
