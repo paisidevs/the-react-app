@@ -1,7 +1,7 @@
 import { css, styled, theme } from '@elandamor/tra-theme';
 import { Box } from '../Box';
 
-export const Wrapper = styled(Box)<{ open: boolean }>`
+export const Wrapper = styled(Box)<{ isOpen: boolean }>`
   border-radius: 2px;
 
   header {
@@ -17,8 +17,8 @@ export const Wrapper = styled(Box)<{ open: boolean }>`
     font-size: ${theme.fontSizes[0]};
   }
 
-  ${({ open }) =>
-    open &&
+  ${({ isOpen }) =>
+    isOpen &&
     css`
       header > .c-icon {
         transform: rotate(180deg);
