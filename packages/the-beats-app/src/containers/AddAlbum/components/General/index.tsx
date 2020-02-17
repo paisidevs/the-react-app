@@ -1,4 +1,4 @@
-import { Box, Image, Input, Loader, Select } from '@elandamor/tra-components';
+import { Box, Image, Input, Select } from '@elandamor/tra-components';
 import { useFormikContext } from 'formik';
 import React from 'react';
 import { SingleDatePicker, Uploader } from '../../../../components';
@@ -28,7 +28,6 @@ const General = () => {
       <Box mb={2}>
         <Image src={cover?.preview} aspect={1} />
         <Box position="absolute" left={0} top={0} height="100%" width="100%">
-          {cover?.preview && <Loader size="64px" />}
           <Uploader
             onFileAdded={(file) => setFieldValue('cover', file)}
             height="100%"

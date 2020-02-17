@@ -48,11 +48,13 @@ export const Track: FC<ITrackProps> = ({
             </React.Fragment>
           )}
         </Text>
-        <Text truncate fontSize={2}>
-          {data.artists
-            .map((artist: IArtist) => artist.name)
-            .reduce((prev: any, curr: any) => [prev, ', ', curr])}
-        </Text>
+        {data.artists?.length > 0 && (
+          <Text truncate fontSize={2}>
+            {data.artists
+              .map((artist: IArtist) => artist.name)
+              .reduce((prev: any, curr: any) => [prev, ', ', curr])}
+          </Text>
+        )}
       </Box>
     </Wrapper>
   );
