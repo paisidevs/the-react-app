@@ -1,6 +1,12 @@
-export { Accordion } from './Accordion';
+export {
+  Accordion,
+  AccordionGroup,
+  AccordionHeader,
+  AccordionPanel,
+} from './Accordion';
 export { Box, BoxStyles } from './Box';
 export { Button } from './Button';
+export { Collapse } from './Collapse';
 export { ErrorBoundary } from './ErrorBoundary';
 export { Flex, FlexStyles } from './Flex';
 export { Form } from './Form';
@@ -16,3 +22,4 @@ export { Navigation } from './Navigation';
 export { Routes } from './Routes';
 export { ScrollView } from './ScrollView';
 export { Select } from './Select';
+export { Table } from './Table';
