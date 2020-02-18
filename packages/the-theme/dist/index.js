@@ -2667,8 +2667,7 @@ var config$4 = {
 };
 var grid = system(config$4);
 
-var _config;
-var config$5 = (_config = {
+var config$5 = {
   border: {
     property: 'border',
     scale: 'borders'
@@ -2728,59 +2727,72 @@ var config$5 = (_config = {
   borderY: {
     properties: ['borderTop', 'borderBottom'],
     scale: 'borders'
-  },
-  borderTopWidth: {
-    property: 'borderTopWidth',
-    scale: 'borderWidths'
-  },
-  borderTopColor: {
-    property: 'borderTopColor',
-    scale: 'colors'
-  },
-  borderTopStyle: {
-    property: 'borderTopStyle',
-    scale: 'borderStyles'
   }
-}, _config["borderTopLeftRadius"] = {
+};
+config$5.borderTopWidth = {
+  property: 'borderTopWidth',
+  scale: 'borderWidths'
+};
+config$5.borderTopColor = {
+  property: 'borderTopColor',
+  scale: 'colors'
+};
+config$5.borderTopStyle = {
+  property: 'borderTopStyle',
+  scale: 'borderStyles'
+};
+config$5.borderTopLeftRadius = {
   property: 'borderTopLeftRadius',
   scale: 'radii'
-}, _config["borderTopRightRadius"] = {
+};
+config$5.borderTopRightRadius = {
   property: 'borderTopRightRadius',
   scale: 'radii'
-}, _config.borderBottomWidth = {
+};
+config$5.borderBottomWidth = {
   property: 'borderBottomWidth',
   scale: 'borderWidths'
-}, _config.borderBottomColor = {
+};
+config$5.borderBottomColor = {
   property: 'borderBottomColor',
   scale: 'colors'
-}, _config.borderBottomStyle = {
+};
+config$5.borderBottomStyle = {
   property: 'borderBottomStyle',
   scale: 'borderStyles'
-}, _config["borderBottomLeftRadius"] = {
+};
+config$5.borderBottomLeftRadius = {
   property: 'borderBottomLeftRadius',
   scale: 'radii'
-}, _config["borderBottomRightRadius"] = {
+};
+config$5.borderBottomRightRadius = {
   property: 'borderBottomRightRadius',
   scale: 'radii'
-}, _config.borderLeftWidth = {
+};
+config$5.borderLeftWidth = {
   property: 'borderLeftWidth',
   scale: 'borderWidths'
-}, _config.borderLeftColor = {
+};
+config$5.borderLeftColor = {
   property: 'borderLeftColor',
   scale: 'colors'
-}, _config.borderLeftStyle = {
+};
+config$5.borderLeftStyle = {
   property: 'borderLeftStyle',
   scale: 'borderStyles'
-}, _config.borderRightWidth = {
+};
+config$5.borderRightWidth = {
   property: 'borderRightWidth',
   scale: 'borderWidths'
-}, _config.borderRightColor = {
+};
+config$5.borderRightColor = {
   property: 'borderRightColor',
   scale: 'colors'
-}, _config.borderRightStyle = {
+};
+config$5.borderRightStyle = {
   property: 'borderRightStyle',
   scale: 'borderStyles'
-}, _config);
+};
 var border = system(config$5);
 
 var config$6 = {
@@ -2963,8 +2975,6 @@ var shadow = system({
   }
 });
 
-var _scales;
-
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 // based on https://github.com/developit/dlv
@@ -3008,7 +3018,7 @@ var multiples = {
   paddingY: ['paddingTop', 'paddingBottom'],
   size: ['width', 'height']
 };
-var scales = (_scales = {
+var scales = {
   color: 'colors',
   backgroundColor: 'colors',
   borderColor: 'colors',
@@ -3055,8 +3065,32 @@ var scales = (_scales = {
   borderBottomLeftRadius: 'radii',
   borderTopWidth: 'borderWidths',
   borderTopColor: 'colors',
-  borderTopStyle: 'borderStyles'
-}, _scales["borderTopLeftRadius"] = 'radii', _scales["borderTopRightRadius"] = 'radii', _scales.borderBottomWidth = 'borderWidths', _scales.borderBottomColor = 'colors', _scales.borderBottomStyle = 'borderStyles', _scales["borderBottomLeftRadius"] = 'radii', _scales["borderBottomRightRadius"] = 'radii', _scales.borderLeftWidth = 'borderWidths', _scales.borderLeftColor = 'colors', _scales.borderLeftStyle = 'borderStyles', _scales.borderRightWidth = 'borderWidths', _scales.borderRightColor = 'colors', _scales.borderRightStyle = 'borderStyles', _scales.outlineColor = 'colors', _scales.boxShadow = 'shadows', _scales.textShadow = 'shadows', _scales.zIndex = 'zIndices', _scales.width = 'sizes', _scales.minWidth = 'sizes', _scales.maxWidth = 'sizes', _scales.height = 'sizes', _scales.minHeight = 'sizes', _scales.maxHeight = 'sizes', _scales.flexBasis = 'sizes', _scales.size = 'sizes', _scales.fill = 'colors', _scales.stroke = 'colors', _scales);
+  borderTopStyle: 'borderStyles',
+  borderBottomWidth: 'borderWidths',
+  borderBottomColor: 'colors',
+  borderBottomStyle: 'borderStyles',
+  borderLeftWidth: 'borderWidths',
+  borderLeftColor: 'colors',
+  borderLeftStyle: 'borderStyles',
+  borderRightWidth: 'borderWidths',
+  borderRightColor: 'colors',
+  borderRightStyle: 'borderStyles',
+  outlineColor: 'colors',
+  boxShadow: 'shadows',
+  textShadow: 'shadows',
+  zIndex: 'zIndices',
+  width: 'sizes',
+  minWidth: 'sizes',
+  maxWidth: 'sizes',
+  height: 'sizes',
+  minHeight: 'sizes',
+  maxHeight: 'sizes',
+  flexBasis: 'sizes',
+  size: 'sizes',
+  // svg
+  fill: 'colors',
+  stroke: 'colors'
+};
 
 var positiveOrNegative = function positiveOrNegative(scale, value) {
   if (typeof value !== 'number' || value >= 0) {
@@ -3093,7 +3127,6 @@ var responsive = function responsive(styles) {
 
       for (var i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
         var media = mediaQueries[i];
-        if (value[i] == null) continue;
 
         if (!media) {
           next[key] = value[i];
@@ -3101,6 +3134,7 @@ var responsive = function responsive(styles) {
         }
 
         next[media] = next[media] || {};
+        if (value[i] == null) continue;
         next[media][key] = value[i];
       }
     }
@@ -3195,6 +3229,16 @@ var colorStyle = variant({
   prop: 'colors'
 });
 
+var all = compose(space, typography, color, layout, flexbox, border, background, position, grid, shadow, buttonStyle, textStyle, colorStyle);
+var props = all.propNames;
+var createShouldForwardProp = function createShouldForwardProp(props) {
+  var regex = new RegExp("^(" + props.join('|') + ")$");
+  return memoize(function (prop) {
+    return index(prop) && !regex.test(prop);
+  });
+};
+var index_esm = createShouldForwardProp(props);
+
 var width = layout.width,
     height = layout.height,
     minWidth = layout.minWidth,
@@ -3278,16 +3322,6 @@ var style = function style(_ref) {
   var parse = createParser(config);
   return parse;
 };
-
-var all = compose(space, typography, color, layout, flexbox, border, background, position, grid, shadow, buttonStyle, textStyle, colorStyle);
-var props = all.propNames;
-var createShouldForwardProp = function createShouldForwardProp(props) {
-  var regex = new RegExp("^(" + props.join('|') + ")$");
-  return memoize(function (prop) {
-    return index(prop) && !regex.test(prop);
-  });
-};
-var index_esm = createShouldForwardProp(props);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
