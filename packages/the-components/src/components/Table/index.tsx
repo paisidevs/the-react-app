@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Column, useTable } from 'react-table';
+import { TableBody, TableCell, TableHead, TableRow, Wrapper } from './styles';
 
 interface ITableProps<D extends object = {}> {
   columns: Column<D>[];
   data: any;
 }
 
-export const Table: React.FC<ITableProps> = ({ columns, data }) => {
+/**
+ * @render react
+ * @name Table component
+ * @description Table component.
+ * @example
+ * <Table columns={[]} data={[]} />
+ */
+
+export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
+  const memoizedColumns = useMemo(() => columns, [columns]);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -14,33 +25,51 @@ export const Table: React.FC<ITableProps> = ({ columns, data }) => {
     rows,
     prepareRow,
   } = useTable({
-    columns,
+    columns: memoizedColumns,
     data,
   });
 
   return (
-    <table {...getTableProps()}>
-      <thead>
+    <Wrapper {...getTableProps()} {...rest}>
+      <TableHead className="thead">
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <TableRow
+            className="tr"
+            key={headerGroup.id}
+            {...headerGroup.getHeaderGroupProps()}
+          >
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              <TableCell
+                className="th"
+                key={column.id}
+                {...column.getHeaderProps()}
+              >
+                {column.render('Header')}
+              </TableCell>
             ))}
-          </tr>
+          </TableRow>
         ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
+      </TableHead>
+      <TableBody className="tbody" {...getTableBodyProps()}>
         {rows.map((row, i) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <TableRow className="tr" {...row.getRowProps()}>
               {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                return (
+                  <TableCell
+                    className="td"
+                    key={cell.row.index}
+                    {...cell.getCellProps()}
+                  >
+                    {cell.render('Cell')}
+                  </TableCell>
+                );
               })}
-            </tr>
+            </TableRow>
           );
         })}
-      </tbody>
-    </table>
+      </TableBody>
+    </Wrapper>
   );
 };
