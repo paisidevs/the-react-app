@@ -42,6 +42,8 @@ export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
               <TableCell
                 className="th"
                 key={column.id}
+                width={column.width}
+                maxWidth={column.maxWidth}
                 {...column.getHeaderProps()}
               >
                 {column.render('Header')}
@@ -60,6 +62,8 @@ export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
                   <TableCell
                     className="td"
                     key={cell.row.index}
+                    width={cell.column.width}
+                    maxWidth={cell.column.maxWidth}
                     {...cell.getCellProps()}
                   >
                     {cell.render('Cell')}
