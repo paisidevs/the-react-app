@@ -1,12 +1,13 @@
 import { styled } from '@elandamor/tra-theme';
 import React, { forwardRef, useEffect, useState } from 'react';
-import { Box } from '../Box';
+import { Box, IBoxProps } from '../Box';
 
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box)<IBoxProps & { rounded?: boolean }>`
   background: ${({ theme }) =>
     theme.isDark
       ? theme.colors.opacity.whites[2]
       : theme.colors.opacity.blacks[2]};
+  border-radius: ${({ rounded }) => rounded && '100%'};
   overflow: hidden;
   padding-bottom: ${({ aspect }) => `calc(100% / (${aspect}))`};
   position: relative;
@@ -56,19 +57,21 @@ export const Image = forwardRef(
       onLoad,
       ignoreFallback,
       aspect = 16 / 10,
+      rounded,
       ...props
     }: any,
     ref,
   ) => {
     const hasLoaded = useHasImageLoaded({ src, onLoad, onError });
     let imageProps;
+
     if (ignoreFallback) {
       imageProps = { src, onLoad, onError };
     } else {
       imageProps = { src: hasLoaded ? src : fallbackSrc };
     }
     return (
-      <Wrapper aspect={aspect}>
+      <Wrapper aspect={aspect} rounded={rounded}>
         <Box as={NativeImage} ref={ref} {...imageProps} {...props} />
       </Wrapper>
     );
