@@ -41,7 +41,7 @@ const formatArtistsForDB = (artists: any[]) => {
  */
 
 const Tracks = () => {
-  const { values } = useFormikContext();
+  const { values }: any = useFormikContext();
 
   const { data: artistsData } = useArtistsQuery();
   const artists = artistsData?.artists?.edges.map(({ node }: any) => ({
@@ -117,17 +117,3 @@ const Tracks = () => {
 };
 
 export default Tracks;
-
-/* <Track
-  data={{
-    id: `id_${index}`,
-    name: track.name,
-    artists: track.artist
-      .split(',')
-      .filter((artist: string) => artist.trim().length > 0),
-    featuring: track.featuring
-      .split(',')
-      .filter((artist: string) => artist.trim().length > 0),
-    trackNumber: ++index,
-  }}
-/>; */

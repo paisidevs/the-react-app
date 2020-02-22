@@ -3229,16 +3229,6 @@ var colorStyle = variant({
   prop: 'colors'
 });
 
-var all = compose(space, typography, color, layout, flexbox, border, background, position, grid, shadow, buttonStyle, textStyle, colorStyle);
-var props = all.propNames;
-var createShouldForwardProp = function createShouldForwardProp(props) {
-  var regex = new RegExp("^(" + props.join('|') + ")$");
-  return memoize(function (prop) {
-    return index(prop) && !regex.test(prop);
-  });
-};
-var index_esm = createShouldForwardProp(props);
-
 var width = layout.width,
     height = layout.height,
     minWidth = layout.minWidth,
@@ -3322,6 +3312,16 @@ var style = function style(_ref) {
   var parse = createParser(config);
   return parse;
 };
+
+var all = compose(space, typography, color, layout, flexbox, border, background, position, grid, shadow, buttonStyle, textStyle, colorStyle);
+var props = all.propNames;
+var createShouldForwardProp = function createShouldForwardProp(props) {
+  var regex = new RegExp("^(" + props.join('|') + ")$");
+  return memoize(function (prop) {
+    return index(prop) && !regex.test(prop);
+  });
+};
+var index_esm = createShouldForwardProp(props);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
