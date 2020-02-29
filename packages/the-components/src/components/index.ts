@@ -12,7 +12,7 @@ export { Flex, FlexStyles } from './Flex';
 export { Form } from './Form';
 export { Grid } from './Grid';
 export { HorizontalScroller } from './HorizontalScroller';
-export { Image } from './Image';
+export { Image, useHasImageLoaded } from './Image';
 export { Input } from './Input';
 export { Loadable } from './Loadable';
 export { Loader } from './Loader';

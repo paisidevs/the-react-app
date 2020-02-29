@@ -1,15 +1,14 @@
 import { styled } from '@elandamor/tra-theme';
 import React, { forwardRef, useEffect, useState } from 'react';
-import { Box, IBoxProps } from '../Box';
+import { Box } from '../Box';
 
-const Wrapper = styled(Box)<IBoxProps & { rounded?: boolean }>`
+const Wrapper = styled(Box)<{ rounded?: boolean }>`
   background: ${({ theme }) =>
     theme.isDark
       ? theme.colors.opacity.whites[2]
       : theme.colors.opacity.blacks[2]};
   border-radius: ${({ rounded }) => rounded && '100%'};
   overflow: hidden;
-  padding-bottom: ${({ aspect }) => `calc(100% / (${aspect}))`};
   position: relative;
 
   img {
@@ -43,8 +42,14 @@ export const useHasImageLoaded = ({ src, onLoad, onError }: any) => {
 };
 
 const NativeImage = forwardRef(
-  ({ htmlWidth, htmlHeight, alt, ...props }: any, ref) => (
-    <img width={htmlWidth} height={htmlHeight} ref={ref} alt={alt} {...props} />
+  ({ htmlWidth, htmlHeight, alt, size, ...props }: any, ref) => (
+    <img
+      width={htmlWidth || size}
+      height={htmlHeight || size}
+      ref={ref}
+      alt={alt}
+      {...props}
+    />
   ),
 );
 
@@ -58,6 +63,7 @@ export const Image = forwardRef(
       ignoreFallback,
       aspect = 16 / 10,
       rounded,
+      size,
       ...props
     }: any,
     ref,
@@ -71,9 +77,11 @@ export const Image = forwardRef(
       imageProps = { src: hasLoaded ? src : fallbackSrc };
     }
     return (
-      <Wrapper aspect={aspect} rounded={rounded}>
-        <Box as={NativeImage} ref={ref} {...imageProps} {...props} />
-      </Wrapper>
+      <Box size={size}>
+        <Wrapper aspect={aspect} rounded={rounded}>
+          <Box as={NativeImage} ref={ref} {...imageProps} {...props} />
+        </Wrapper>
+      </Box>
     );
   },
 );
