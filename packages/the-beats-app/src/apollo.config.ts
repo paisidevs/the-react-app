@@ -7,8 +7,8 @@ import {
   loggerLink,
   RetryLink,
   setContext,
-} from '@elandamor/apollo-client';
-import { GRAPHQL_ENDPOINT, JWT_LOCAL_STORAGE_KEY, NODE_ENV } from './constants';
+} from '@elandamor/tra-apollo';
+import { GRAPHQL_ENDPOINT, NODE_ENV } from './constants';
 
 const cache = new InMemoryCache();
 
@@ -18,7 +18,8 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem(JWT_LOCAL_STORAGE_KEY);
+  const cognitoUser = localStorage.getItem('cognitoUser');
+  const token = cognitoUser ? JSON.parse(cognitoUser).accessToken : null;
   // return the headers to the context so httpLink can read them
   return {
     headers: {

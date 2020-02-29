@@ -1,4 +1,4 @@
-import { Form, MultiStep, ScrollView } from '@elandamor/tra-components';
+import { Form, MultiStep } from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { General, Tracks } from './components';
 
@@ -19,28 +19,26 @@ const INITIAL_VALUES = {
  */
 
 const AddAlbum: FC = () => (
-  <ScrollView padding={2}>
-    <Form
-      name="add-album"
-      onSubmit={() => null}
-      initialValues={INITIAL_VALUES}
-      persist={true}
-    >
-      <MultiStep
-        showTracks={false}
-        steps={[
-          {
-            name: 'General',
-            component: <General />,
-          },
-          {
-            name: 'Tracks',
-            component: <Tracks />,
-          },
-        ]}
-      />
-    </Form>
-  </ScrollView>
+  <Form
+    name="add-album"
+    onSubmit={() => null}
+    initialValues={INITIAL_VALUES}
+    persist={true}
+  >
+    <MultiStep
+      showTracks={false}
+      steps={[
+        {
+          name: 'General',
+          component: <General />,
+        },
+        {
+          name: 'Tracks',
+          component: <Tracks />,
+        },
+      ]}
+    />
+  </Form>
 );
 
 export default AddAlbum;

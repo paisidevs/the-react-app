@@ -6,6 +6,7 @@ type CognitoUser = {
   id: string;
   accessToken: string;
   attributes: {
+    avatar?: string | null;
     email: string;
     name?: string | null;
     role: 'admin' | 'subscriber';
@@ -33,6 +34,7 @@ const Errors = {
 const DEFAULT_STATE = {
   Errors,
   authenticating: true,
+  cognitoUser: {} as CognitoUser,
   isAuthenticated: false,
   currentAuthenticatedUser: () => {},
   signIn: (_email: string, _password: string) => {},
@@ -128,6 +130,7 @@ const Provider: FC<{}> = ({ children }) => {
     <AuthenticationContext.Provider
       value={{
         authenticating,
+        cognitoUser,
         currentAuthenticatedUser,
         Errors,
         isAuthenticated,

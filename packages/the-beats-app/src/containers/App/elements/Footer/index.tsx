@@ -1,16 +1,23 @@
-import { Box } from '@elandamor/tra-components';
-import { useTheme } from '@elandamor/tra-theme';
+import { Box, Navigation } from '@elandamor/tra-components';
 import React from 'react';
 
-const Header = () => {
-  const { darkMode, setDarkMode } = useTheme();
-
+const Footer = () => {
   return (
     <Box
       backgroundColor="background.surface"
-      onClick={() => setDarkMode(!darkMode)}
-    />
+      justifyContent="center"
+      minHeight="56px"
+    >
+      <Navigation
+        direction="horizontal"
+        links={[
+          { exact: true, label: 'Home', href: '/' },
+          { label: 'Discover', href: '/discover' },
+          { label: 'For You', href: '/for-you' },
+        ]}
+      />
+    </Box>
   );
 };
 
-export default Header;
+export default Footer;

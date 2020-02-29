@@ -7,7 +7,7 @@
   "scripts": {
     "build": "lerna run --parallel build",
     "nuke": "rm yarn.lock && rm -rf node_modules && yarn",
-    "prepare": "lerna run prepare --scope @elandamor/tra-utilities && lerna run prepare --scope @elandamor/tra-theme && lerna run prepare --scope @elandamor/tra-components && lerna run prepare --scope @elandamor/apollo-client",
+    "prepare": "lerna run prepare --scope @elandamor/tra-utilities && lerna run prepare --scope @elandamor/tra-theme && lerna run prepare --scope @elandamor/tra-components && lerna run prepare --scope @elandamor/tra-apollo",
     "start": "yarn run prepare && lerna run --parallel start"
   },
   "devDependencies": {

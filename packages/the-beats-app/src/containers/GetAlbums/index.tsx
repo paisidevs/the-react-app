@@ -1,8 +1,18 @@
-import { Box, Flex, Loader, Routes, Text } from '@elandamor/tra-components';
+import {
+  Box,
+  Button,
+  Flex,
+  Loader,
+  Modal,
+  Routes,
+  Text,
+} from '@elandamor/tra-components';
 import React, { FC } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { Album } from '../../components';
 import { useAlbumsQuery } from '../../generated/graphql';
+import { useAuthentication } from '../../hooks';
+import AddAlbum from '../AddAlbum';
 
 /**
  * @render react
@@ -13,6 +23,7 @@ import { useAlbumsQuery } from '../../generated/graphql';
  */
 
 const GetAlbums: FC<{ routes?: any[] }> = ({ routes }) => {
+  const { cognitoUser } = useAuthentication();
   const match = useRouteMatch();
 
   const { data, error, loading } = useAlbumsQuery();
@@ -36,6 +47,19 @@ const GetAlbums: FC<{ routes?: any[] }> = ({ routes }) => {
     if (match.isExact) {
       return (
         <React.Fragment>
+          {cognitoUser.attributes.role === 'admin' && (
+            <Modal
+              transition="slideFromRight"
+              fullscreen
+              trigger={
+                <Box padding={2}>
+                  <Button variant="outlined" text="Add new album" />
+                </Box>
+              }
+            >
+              <AddAlbum />
+            </Modal>
+          )}
           <Box>
             {albums.map(({ node }: any) => (
               <Flex key={node.id} alignItems="center">
