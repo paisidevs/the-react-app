@@ -44,7 +44,7 @@
     "react-spring": "8.0.27"
   },
   "devDependencies": {
-    "@elandamor/tra-scripts": "^0.1.16",
+    "@elandamor/tra-scripts": "^0.1.1",
     "@elandamor/tra-theme": "^0.1.1",
     "@elandamor/tra-utilities": "^0.1.1",
     "@rollup/plugin-commonjs": "11.0.2",
