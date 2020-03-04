@@ -1,6 +1,6 @@
 {
   "name": "@elandamor/tra-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Components used by the-react-app",
   "author": "elandamor",
   "license": "MIT",
@@ -38,9 +38,9 @@
     "react-spring": "8.0.27"
   },
   "devDependencies": {
-    "@elandamor/tra-scripts": "*",
-    "@elandamor/tra-theme": "*",
-    "@elandamor/tra-utilities": "*",
+    "@elandamor/tra-scripts": "^0.1.16",
+    "@elandamor/tra-theme": "^0.1.1",
+    "@elandamor/tra-utilities": "^0.1.1",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-json": "4.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
