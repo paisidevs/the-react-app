@@ -19,7 +19,7 @@ const INITIAL_VALUES = {
 
 const Profile: FC = () => {
   const { cognitoUser } = useAuthentication();
-  const { data } = useUserQuery({ variables: { id: cognitoUser.id } });
+  const { data } = useUserQuery({ variables: { id: cognitoUser?.id } });
   const [updateUser] = useUpdateUserMutation();
 
   const userDetails = data?.user

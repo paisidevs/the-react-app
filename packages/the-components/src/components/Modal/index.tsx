@@ -23,7 +23,7 @@ export interface IModalProps extends StyledSystemProps {
   onClose?: () => void;
   onOpen?: () => void;
   open?: boolean;
-  trigger: React.ReactElement;
+  trigger?: React.ReactElement;
   animConfig?: any;
 }
 

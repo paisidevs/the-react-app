@@ -67,10 +67,10 @@ const Header = () => {
           <Link to="/profile">
             <Avatar
               name={
-                cognitoUser.attributes.name || cognitoUser.attributes.username
+                cognitoUser?.attributes.name || cognitoUser?.attributes.username
               }
               size="40px"
-              src={cognitoUser.attributes.avatar}
+              src={cognitoUser?.attributes.avatar}
             />
           </Link>
         </Flex>

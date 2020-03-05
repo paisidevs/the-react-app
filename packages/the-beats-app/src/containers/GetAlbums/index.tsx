@@ -49,7 +49,6 @@ const GetAlbums: FC<{ routes?: any[] }> = ({ routes }) => {
         <React.Fragment>
           {cognitoUser.attributes.role === 'admin' && (
             <Modal
-              transition="slideFromRight"
               fullscreen
               trigger={
                 <Box padding={2}>

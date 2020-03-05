@@ -35,7 +35,7 @@ const DEFAULT_STATE = {
   Errors,
   authenticating: true,
   cognitoUser: {} as CognitoUser,
-  isAuthenticated: false,
+  isAuthenticated: true,
   currentAuthenticatedUser: () => {},
   signIn: (_email: string, _password: string) => {},
   signUp: (_email: string, _password: string) => {},
