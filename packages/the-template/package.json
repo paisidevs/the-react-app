@@ -1,0 +1,24 @@
+{
+  "name": "@elandamor/cra-template-the-react-app",
+  "version": "0.1.1",
+  "keywords": [
+    "create-react-app",
+    "the-react-app",
+    "react",
+    "template",
+    "typescript"
+  ],
+  "main": "template.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elandamor/the-react-app.git",
+    "directory": "packages/the-template"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
