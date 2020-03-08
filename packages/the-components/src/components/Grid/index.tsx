@@ -1,5 +1,6 @@
 import {
   color,
+  compose,
   grid,
   layout,
   shouldForwardProp,
@@ -22,13 +23,11 @@ export interface IGridProps extends StyledSystemProps {}
  *  </Grid>
  */
 
-export const Grid = styled('div', { shouldForwardProp })<IGridProps>(
-  {
-    display: 'grid',
-    position: 'relative',
-  },
-  color,
-  grid,
-  layout,
-  space,
-);
+export const GridStyles = compose(color, grid, layout, space);
+
+export const Grid = styled('div', { shouldForwardProp })<IGridProps>`
+  display: grid;
+  position: relative;
+
+  ${GridStyles};
+`;

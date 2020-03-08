@@ -3,6 +3,7 @@ import {
   boxShadow,
   color,
   compose,
+  css,
   position,
   shouldForwardProp,
   styled,
@@ -34,27 +35,26 @@ export const BoxStyles = compose(
   typography,
 );
 
-export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>(
-  {
-    boxSizing: 'border-box',
-    flexDirection: 'column',
-  },
-  (props) =>
-    props.aspect && {
-      content: "''",
-      display: 'block',
-      height: 0,
-      paddingBottom: `${(1 / props.aspect) * 100}%`,
-    },
-  (props) =>
-    props.truncate && {
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-    },
-  border,
-  boxShadow,
-  color,
-  position,
-  typography,
-);
+export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>`
+  box-sizing: border-box;
+  flex-direction: column;
+
+  ${({ aspect }) =>
+    aspect &&
+    css`
+      content: '';
+      display: block;
+      height: 0;
+      paddingbottom: ${(1 / aspect) * 100}%;
+    `}
+
+  ${({ truncate }) =>
+    truncate &&
+    css`
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `}
+
+  ${BoxStyles};
+`;
