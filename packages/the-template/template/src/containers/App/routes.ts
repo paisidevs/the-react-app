@@ -1,4 +1,4 @@
-import { Home, Library, NotFound, Profile } from '../../pages';
+import { Home, NotFound } from '../../pages';
 
 export const routes: any = [
   {
@@ -6,16 +6,6 @@ export const routes: any = [
     component: Home,
     path: '/',
     title: 'Discover',
-  },
-  {
-    component: Library,
-    path: '/library',
-    title: 'Library',
-  },
-  {
-    component: Profile,
-    path: '/profile',
-    title: 'Profile',
   },
   {
     path: '*',
