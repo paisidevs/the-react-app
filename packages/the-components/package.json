@@ -1,6 +1,6 @@
 {
   "name": "@elandamor/tra-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Components used by the-react-app",
   "author": "elandamor",
   "license": "MIT",
@@ -25,8 +25,8 @@
   "dependencies": {
     "react-animate-height": "2.0.20",
     "react-dates": "21.8.0",
-    "react-table": "7.0.0-rc.16",
-    "title-case": "3.0.2"
+    "react-select": "3.0.8",
+    "react-table": "7.0.0-rc.16"
   },
   "peerDependencies": {
     "@elandamor/tra-scripts": "*",
@@ -40,13 +40,12 @@
     "react-feather": "2.0.3",
     "react-measure": "2.3.0",
     "react-router-dom": "5.1.2",
-    "react-select": "3.0.8",
     "react-spring": "8.0.27"
   },
   "devDependencies": {
-    "@elandamor/tra-scripts": "^0.1.1",
-    "@elandamor/tra-theme": "^0.1.1",
-    "@elandamor/tra-utilities": "^0.1.1",
+    "@elandamor/tra-scripts": "^0.1.2",
+    "@elandamor/tra-theme": "^0.1.2",
+    "@elandamor/tra-utilities": "^0.1.2",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-json": "4.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",

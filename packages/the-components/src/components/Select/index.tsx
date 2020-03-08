@@ -1,7 +1,7 @@
+import { titleCase } from '@elandamor/tra-utilities';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect } from 'react';
 import { components, Props as SelectProps } from 'react-select';
-import { titleCase } from 'title-case';
 import Text from '../../typography/Text';
 import { Box } from '../Box';
 import { DefaultSelect, DropdownIndicator, Wrapper } from './styles';

@@ -1,0 +1,19 @@
+{
+  "package": {
+    "dependencies": {
+      "@elandamor/tra-apollo": "^0.1.1",
+      "@elandamor/tra-components": "^0.1.1",
+      "@elandamor/tra-theme": "^0.1.1",
+      "@elandamor/tra-utilities": "^0.1.1",
+      "react-feather": "2.0.3",
+      "react-router-dom": "5.1.2",
+      "react-spring": "8.0.27",
+      "typescript": "3.8.3",
+      "yup": "0.28.1"
+    },
+    "scripts": {
+      "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
+      "generate": "graphql-codegen --config codegen.yml"
+    }
+  }
+}

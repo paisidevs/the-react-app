@@ -1,5 +1,5 @@
 import _debug from 'debug';
-import isNil from 'lodash/isNil';
+import { isNil } from './isNil';
 
 const hasDocument = typeof document === 'object' && document !== null;
 const hasWindow =

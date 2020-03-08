@@ -1,6 +1,6 @@
 {
   "name": "@elandamor/tra-scripts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Helper scripts for the-react-app",
   "author": "Thandolwethu Mpofu",
   "license": "MIT",
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "fs-extra": "8.1.0",
-    "node-plop": "0.24.0",
-    "plop": "2.5.4"
+    "node-plop": "0.25.0",
+    "plop": "2.6.0"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"

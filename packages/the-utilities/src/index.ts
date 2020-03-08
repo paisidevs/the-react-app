@@ -1,3 +1,4 @@
+export { titleCase } from 'title-case';
 export { generateAlias } from './generateAlias';
 export { isFunction } from './isFunction';
 export { logger, makeLogger } from './logger';
