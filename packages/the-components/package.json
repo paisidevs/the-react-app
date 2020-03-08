@@ -25,8 +25,8 @@
   "dependencies": {
     "react-animate-height": "2.0.20",
     "react-dates": "21.8.0",
-    "react-table": "7.0.0-rc.16",
-    "title-case": "3.0.2"
+    "react-select": "3.0.8",
+    "react-table": "7.0.0-rc.16"
   },
   "peerDependencies": {
     "@elandamor/tra-scripts": "*",
@@ -40,7 +40,6 @@
     "react-feather": "2.0.3",
     "react-measure": "2.3.0",
     "react-router-dom": "5.1.2",
-    "react-select": "3.0.8",
     "react-spring": "8.0.27"
   },
   "devDependencies": {
