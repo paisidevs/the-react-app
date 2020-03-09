@@ -4,14 +4,17 @@ import {
   color,
   compose,
   css,
+  flexbox,
+  layout,
   position,
   shouldForwardProp,
+  space,
   styled,
+  StyledSystemProps,
   typography,
 } from '@elandamor/tra-theme';
-import { Flex, IFlexProps } from '../Flex';
 
-export interface IBoxProps extends IFlexProps {
+export interface IBoxProps extends StyledSystemProps {
   aspect?: number;
   truncate?: boolean;
 }
@@ -31,13 +34,18 @@ export const BoxStyles = compose(
   border,
   boxShadow,
   color,
+  flexbox,
+  layout,
   position,
+  space,
   typography,
 );
 
-export const Box = styled(Flex, { shouldForwardProp })<IBoxProps>`
+export const Box = styled('div', { shouldForwardProp })<IBoxProps>`
   box-sizing: border-box;
+  display: flex;
   flex-direction: column;
+  position: relative;
 
   ${({ aspect }) =>
     aspect &&
