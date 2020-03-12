@@ -24,6 +24,7 @@ export interface StyledSystemProps
     PositionProps,
     SpaceProps,
     TypographyProps {
+  as?: React.ElementType;
   color?: string | (string & string[]);
 }
 
