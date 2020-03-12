@@ -53,7 +53,7 @@ export const Box = styled('div', { shouldForwardProp })<IBoxProps>`
       content: '';
       display: block;
       height: 0;
-      paddingbottom: ${(1 / aspect) * 100}%;
+      padding-bottom: ${(1 / aspect) * 100}%;
     `}
 
   ${({ truncate }) =>
