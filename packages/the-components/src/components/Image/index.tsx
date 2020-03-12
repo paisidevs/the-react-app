@@ -3,10 +3,6 @@ import React, { forwardRef, useEffect, useState } from 'react';
 import { Box } from '../Box';
 
 const Wrapper = styled(Box)<{ rounded?: boolean }>`
-  background: ${({ theme }) =>
-    theme.isDark
-      ? theme.colors.opacity.whites[2]
-      : theme.colors.opacity.blacks[2]};
   border-radius: ${({ rounded }) => rounded && '100%'};
   overflow: hidden;
   position: relative;
