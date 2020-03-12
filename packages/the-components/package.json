@@ -9,6 +9,7 @@
     "url": "https://github.com/elandamor/the-react-app.git"
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
   "main": "dist/index.js",
