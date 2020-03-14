@@ -55,14 +55,13 @@ const transitionConfig = {
 
 export const Routes: FC<IRoutesProps> = ({ animate, routes }) => {
   const location = useLocation();
+  const routeTransitions = useTransition(
+    location,
+    ({ pathname }) => pathname,
+    transitionConfig,
+  );
 
   if (animate) {
-    const routeTransitions = useTransition(
-      location,
-      ({ pathname }) => pathname,
-      transitionConfig,
-    );
-
     return (
       <Wrapper flex={1}>
         {routeTransitions.map(({ item, props: styleProps, key }) => (
