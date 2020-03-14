@@ -11,14 +11,15 @@ export const Wrapper = styled.table`
   border-collapse: collapse;
 `;
 
-export const TableRow = styled.tr`
+export const TR = styled.tr`
   align-items: center;
   display: flex;
   border-bottom: ${(props) => props.theme.borders[1]};
   border-color: ${(props) => props.theme.colors.border.default};
+  position: relative;
 `;
 
-export const TableCell = styled.td`
+export const TD = styled.td`
   align-items: center;
   display: flex;
   flex: 1;
@@ -29,7 +30,7 @@ export const TableCell = styled.td`
   ${width}
 `;
 
-export const TableHead = styled.thead`
+export const THead = styled.thead`
   .th {
     font-weight: ${(props) => props.theme.fontWeights[5]};
     height: ${(props) => props.theme.space[7]}px; /* 56px (default) */
@@ -38,12 +39,12 @@ export const TableHead = styled.thead`
   }
 `;
 
-export const TableBody = styled.tbody`
-  .tr:last-child {
+export const TBody = styled.tbody`
+  tr:last-child {
     border-bottom: 0;
   }
 
-  .tr {
-    height: ${(props) => props.theme.space[7] - 4}px; /* 52px (default) */
+  tr {
+    min-height: ${(props) => props.theme.space[7] - 4}px; /* 52px (default) */
   }
 `;

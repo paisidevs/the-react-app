@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { Column, useTable } from 'react-table';
-import { TableBody, TableCell, TableHead, TableRow, Wrapper } from './styles';
+import { Column, useExpanded, useTable } from 'react-table';
+import { TBody, TD, THead, TR, Wrapper } from './styles';
 
 interface ITableProps<D extends object = {}> {
   columns: Column<D>[];
   data: any;
+  renderRowSubComponent?: any;
 }
 
 /**
@@ -15,7 +16,12 @@ interface ITableProps<D extends object = {}> {
  * <Table columns={[]} data={[]} />
  */
 
-export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
+export const Table: React.FC<ITableProps> = ({
+  columns,
+  data,
+  renderRowSubComponent,
+  ...rest
+}) => {
   const memoizedColumns = useMemo(() => columns, [columns]);
 
   const {
@@ -24,22 +30,22 @@ export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({
-    columns: memoizedColumns,
-    data,
-  });
+    visibleColumns,
+  } = useTable(
+    {
+      columns: memoizedColumns,
+      data,
+    },
+    useExpanded,
+  );
 
   return (
     <Wrapper {...getTableProps()} {...rest}>
-      <TableHead className="thead">
+      <THead className="thead">
         {headerGroups.map((headerGroup) => (
-          <TableRow
-            className="tr"
-            key={headerGroup.id}
-            {...headerGroup.getHeaderGroupProps()}
-          >
+          <TR key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <TableCell
+              <TD
                 className="th"
                 key={column.id}
                 width={column.width}
@@ -47,33 +53,48 @@ export const Table: React.FC<ITableProps> = ({ columns, data, ...rest }) => {
                 {...column.getHeaderProps()}
               >
                 {column.render('Header')}
-              </TableCell>
+              </TD>
             ))}
-          </TableRow>
+          </TR>
         ))}
-      </TableHead>
-      <TableBody className="tbody" {...getTableBodyProps()}>
+      </THead>
+      <TBody {...getTableBodyProps()}>
         {rows.map((row, i) => {
+          // @ts-ignore - Property 'isExpanded' does not exist on type 'Row<object>'
+          const { isExpanded } = row;
+
           prepareRow(row);
+
           return (
-            <TableRow className="tr" {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <TableCell
-                    className="td"
-                    key={cell.row.index}
-                    width={cell.column.width}
-                    maxWidth={cell.column.maxWidth}
-                    {...cell.getCellProps()}
-                  >
-                    {cell.render('Cell')}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
+            <React.Fragment key={i} {...row.getRowProps()}>
+              <TR
+                {...(isExpanded && { className: '-expanded' })}
+                {...row.getRowProps()}
+              >
+                {row.cells.map((cell) => {
+                  return (
+                    <TD
+                      key={cell.row.index}
+                      width={cell.column.width}
+                      maxWidth={cell.column.maxWidth}
+                      {...cell.getCellProps()}
+                    >
+                      {cell.render('Cell')}
+                    </TD>
+                  );
+                })}
+              </TR>
+              {isExpanded && (
+                <TR>
+                  <TD colSpan={visibleColumns.length}>
+                    {renderRowSubComponent({ row })}
+                  </TD>
+                </TR>
+              )}
+            </React.Fragment>
           );
         })}
-      </TableBody>
+      </TBody>
     </Wrapper>
   );
 };
