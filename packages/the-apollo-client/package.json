@@ -1,6 +1,6 @@
 {
   "name": "@elandamor/tra-apollo",
-  "version": "0.1.3-alpha.0",
+  "version": "0.1.3",
   "description": "Apollo client with utilities used by the-react-app",
   "author": "elandamor",
   "license": "MIT",
