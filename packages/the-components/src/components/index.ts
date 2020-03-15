@@ -4,6 +4,7 @@ export {
   AccordionHeader,
   AccordionPanel,
 } from './Accordion';
+export { Animated } from './Animated';
 export { Box, BoxStyles } from './Box';
 export { Button } from './Button';
 export { Collapse } from './Collapse';
