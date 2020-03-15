@@ -20,7 +20,6 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-packages/the-theme/dist/index.js
-packages/the-theme/dist/index.js.map
 
+packages/the-theme/dist
 app
