@@ -66,7 +66,7 @@ export const Table: React.FC<ITableProps> = ({
           prepareRow(row);
 
           return (
-            <React.Fragment key={i} {...row.getRowProps()}>
+            <React.Fragment key={i}>
               <TR
                 {...(isExpanded && { className: '-expanded' })}
                 {...row.getRowProps()}
@@ -87,7 +87,7 @@ export const Table: React.FC<ITableProps> = ({
               {isExpanded && (
                 <TR>
                   <TD colSpan={visibleColumns.length}>
-                    {renderRowSubComponent({ row })}
+                    {renderRowSubComponent && renderRowSubComponent({ row })}
                   </TD>
                 </TR>
               )}
