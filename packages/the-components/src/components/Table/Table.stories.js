@@ -45,13 +45,9 @@ const basicColumns = [
 
 const expandingColumns = [
   {
-    // Make an expander cell
-    Header: () => null, // No header
-    id: 'expander', // It needs an ID
+    Header: () => null,
+    id: 'expander',
     Cell: ({ row }) => (
-      // Use Cell to render an expander for each row.
-      // We can use the getToggleRowExpandedProps prop-getter
-      // to build the expander.
       <Box
         alignItems="center"
         justifyContent="center"
