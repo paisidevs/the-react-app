@@ -1,4 +1,4 @@
 export { useAuthentication } from './useAuthentication';
-export { useBreadcrumbs } from './useBreadcrumbs';
 export { useLocalStorage } from './useLocalStorage';
+export { useSessionStorage } from './useSessionStorage';
 export { useWindowSize } from './useWindowSize';

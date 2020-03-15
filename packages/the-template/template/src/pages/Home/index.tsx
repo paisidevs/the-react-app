@@ -1,11 +1,16 @@
-import { H1, ScrollView } from '@elandamor/tra-components';
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import { Logo } from '../../components';
+import { Wrapper } from './styles';
 
 const Home: React.FC = () => {
   return (
-    <ScrollView>
-      <H1>the-react-app</H1>
-    </ScrollView>
+    <Wrapper>
+      <Helmet>
+        <title>the-react-app - Built with love by @elandamor</title>
+      </Helmet>
+      <Logo />
+    </Wrapper>
   );
 };
 

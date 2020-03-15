@@ -22,3 +22,5 @@ yarn-debug.log*
 yarn-error.log*
 packages/the-theme/dist/index.js
 packages/the-theme/dist/index.js.map
+
+app

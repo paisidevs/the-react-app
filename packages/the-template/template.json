@@ -1,19 +1,23 @@
 {
   "package": {
     "dependencies": {
-      "@elandamor/tra-apollo": "^0.1.1",
-      "@elandamor/tra-components": "^0.1.1",
-      "@elandamor/tra-theme": "^0.1.1",
-      "@elandamor/tra-utilities": "^0.1.1",
+      "@elandamor/tra-apollo": "latest",
+      "@elandamor/tra-components": "latest",
+      "@elandamor/tra-theme": "latest",
+      "@elandamor/tra-utilities": "latest",
+      "@types/react": "16.9.23",
+      "@types/react-dom": "16.9.5",
+      "@types/react-helmet": "5.0.15",
+      "@types/react-router-dom": "5.1.3",
       "react-feather": "2.0.3",
+      "react-helmet": "5.2.1",
       "react-router-dom": "5.1.2",
       "react-spring": "8.0.27",
-      "typescript": "3.8.3",
-      "yup": "0.28.1"
+      "typescript": "3.8.3"
     },
     "scripts": {
       "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
-      "generate": "graphql-codegen --config codegen.yml"
+      "codegen": "graphql-codegen --config codegen.yml"
     }
   }
 }

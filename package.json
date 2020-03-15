@@ -8,7 +8,9 @@
     "build": "lerna run --parallel build",
     "nuke": "rm yarn.lock && rm -rf node_modules && yarn",
     "prepare": "lerna run prepare --scope @elandamor/tra-utilities && lerna run prepare --scope @elandamor/tra-theme && lerna run prepare --scope @elandamor/tra-components && lerna run prepare --scope @elandamor/tra-apollo",
-    "start": "yarn run prepare && lerna run --parallel start"
+    "start": "yarn run prepare && lerna run --parallel start",
+    "start:tra": "cd app && yarn start",
+    "the-react-app": "rm -rf app && npx create-react-app app --template file:./packages/the-template && yarn start:tra"
   },
   "devDependencies": {
     "lerna": "^3.20.2",
