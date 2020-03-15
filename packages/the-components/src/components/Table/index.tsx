@@ -87,7 +87,7 @@ export const Table: React.FC<ITableProps> = ({
               {isExpanded && (
                 <TR>
                   <TD colSpan={visibleColumns.length}>
-                    {renderRowSubComponent({ row })}
+                    {renderRowSubComponent && renderRowSubComponent({ row })}
                   </TD>
                 </TR>
               )}

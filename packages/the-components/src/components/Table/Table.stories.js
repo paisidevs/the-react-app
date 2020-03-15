@@ -15,7 +15,35 @@ export default {
   ],
 };
 
-const columns = [
+const data = [
+  { firstName: 'Thando', lastName: 'Mpofu' },
+  { firstName: 'Thandolwethu', lastName: 'Mpofu' },
+];
+
+const basicColumns = [
+  {
+    Header: 'No',
+    Cell: ({ row }) => row.index + 1,
+    maxWidth: 56,
+    width: 56,
+  },
+  {
+    Header: 'First Name',
+    accessor: 'firstName',
+  },
+  {
+    Header: 'Last Name',
+    accessor: 'lastName',
+  },
+  {
+    id: 'actions',
+    Cell: () => <X size={20} />,
+    maxWidth: 56,
+    width: 56,
+  },
+];
+
+const expandingColumns = [
   {
     // Make an expander cell
     Header: () => null, // No header
@@ -40,41 +68,8 @@ const columns = [
     maxWidth: 56,
     width: 56,
   },
-  {
-    Header: 'No',
-    Cell: ({ row }) => row.index + 1,
-    maxWidth: 56,
-    width: 56,
-  },
-  {
-    Header: 'First Name',
-    accessor: 'firstName',
-  },
-  {
-    Header: 'Last Name',
-    accessor: 'lastName',
-  },
-  {
-    id: 'actions',
-    Cell: () => <X size={20} />,
-    maxWidth: 56,
-    width: 56,
-  },
-];
+].concat(basicColumns);
 
-const data = [
-  { firstName: 'Thando', lastName: 'Mpofu' },
-  { firstName: 'Thandolwethu', lastName: 'Mpofu' },
-];
+export const Basic = () => <Table columns={basicColumns} data={data} />;
 
-export const Basic = () => (
-  <Table
-    columns={columns}
-    data={data}
-    renderRowSubComponent={({ row }) => (
-      <pre>
-        <code>{JSON.stringify({ values: row.values }, null, 2)}</code>
-      </pre>
-    )}
-  />
-);
+export const Expanding = () => <Table columns={expandingColumns} data={data} />;
