@@ -14,7 +14,6 @@ export default {
   ],
 };
 
-const imageUrl =
-  'https://papers.co/wallpaper/papers.co-bk17-art-cat-illust-minimal-simple-40-wallpaper.jpg';
+const imageUrl = 'https://source.unsplash.com/640x360/?nature,water';
 
-export const Basic = () => <Image src={imageUrl} />;
+export const Basic = () => <Image aspect={640 / 360} src={imageUrl} />;

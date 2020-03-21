@@ -61,7 +61,7 @@ export const Collapse: FC<ICollapseProps & AnimateHeightProps> = ({
       easing={easing}
       animateOpacity={animateOpacity}
       height={isOpen ? endingHeight : startingHeight}
-      applyInlineTransitions={false}
+      applyInlineTransitions={true}
       css={{
         transition:
           'height .2s ease,opacity .2s ease-in-out,transform .2s ease-in-out',
