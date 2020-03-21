@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@elandamor/tra-theme';
+import { StyledSystemProps } from '@paisidevs/tra-theme';
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box } from '../Box';

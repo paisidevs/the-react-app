@@ -1,4 +1,4 @@
-import { color, css, layout, space, styled, theme } from '@elandamor/tra-theme';
+import { color, css, layout, space, styled, theme } from '@paisidevs/tra-theme';
 import { ChevronDown } from 'react-feather';
 import ReactSelect from 'react-select/creatable';
 import { Box } from '../Box';

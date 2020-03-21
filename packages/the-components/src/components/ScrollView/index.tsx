@@ -2,7 +2,7 @@ import {
   shouldForwardProp,
   styled,
   StyledSystemProps,
-} from '@elandamor/tra-theme';
+} from '@paisidevs/tra-theme';
 import React, { FC, useState } from 'react';
 import Measure from 'react-measure';
 import { Box } from '../Box';

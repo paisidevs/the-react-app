@@ -1,4 +1,4 @@
-import { styled } from '@elandamor/tra-theme';
+import { styled } from '@paisidevs/tra-theme';
 import React, { FC } from 'react';
 import {
   Route,

@@ -1,4 +1,4 @@
-import { H1 } from '@elandamor/tra-components';
+import { H1 } from '@paisidevs/tra-components';
 import React, { FC } from 'react';
 
 const NotFound: FC = () => {

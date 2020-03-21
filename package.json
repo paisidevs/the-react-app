@@ -7,10 +7,10 @@
   "scripts": {
     "nuke": "rm package-lock.json && rm -rf node_modules && lerna bootstrap",
     "prepare": "yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
-    "prepare:apollo": "lerna run prepare --scope @elandamor/tra-apollo",
-    "prepare:components": "lerna run prepare --scope @elandamor/tra-components",
-    "prepare:theme": "lerna run prepare --scope @elandamor/tra-theme",
-    "prepare:utilities": "lerna run prepare --scope @elandamor/tra-utilities",
+    "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",
+    "prepare:components": "lerna run prepare --scope @paisidevs/tra-components",
+    "prepare:theme": "lerna run prepare --scope @paisidevs/tra-theme",
+    "prepare:utilities": "lerna run prepare --scope @paisidevs/tra-utilities",
     "start": "yarn prepare && lerna run --parallel start",
     "the-react-app": "rm -rf app && npx create-react-app app --template file:./packages/the-template && cd app && yarn start"
   },

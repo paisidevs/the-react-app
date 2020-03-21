@@ -6,7 +6,7 @@ import {
   space,
   styled,
   theme,
-} from '@elandamor/tra-theme';
+} from '@paisidevs/tra-theme';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'react-feather';

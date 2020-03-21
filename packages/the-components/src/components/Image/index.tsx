@@ -1,4 +1,4 @@
-import { styled } from '@elandamor/tra-theme';
+import { styled } from '@paisidevs/tra-theme';
 import React, { forwardRef, useEffect, useState } from 'react';
 import { Box } from '../Box';
 

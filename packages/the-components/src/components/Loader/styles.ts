@@ -1,4 +1,4 @@
-import { keyframes, styled } from '@elandamor/tra-theme';
+import { keyframes, styled } from '@paisidevs/tra-theme';
 
 export const rotate = keyframes`
   100% {

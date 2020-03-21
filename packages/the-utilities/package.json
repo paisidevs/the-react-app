@@ -1,12 +1,12 @@
 {
-  "name": "@elandamor/tra-utilities",
+  "name": "@paisidevs/tra-utilities",
   "version": "0.1.4-alpha.0",
   "description": "Utilities used by the-react-app",
-  "author": "elandamor",
+  "author": "paisidevs",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elandamor/the-react-app.git"
+    "url": "https://github.com/paisidevs/the-react-app.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

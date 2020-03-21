@@ -1,4 +1,4 @@
-import { styled } from '@elandamor/tra-theme';
+import { styled } from '@paisidevs/tra-theme';
 
 export const Wrapper = styled.nav`
   color: currentColor;

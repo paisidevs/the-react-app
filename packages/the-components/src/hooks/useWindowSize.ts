@@ -1,4 +1,4 @@
-import { throttle } from '@elandamor/tra-utilities';
+import { throttle } from '@paisidevs/tra-utilities';
 import React from 'react';
 
 const events = new Set<() => void>();

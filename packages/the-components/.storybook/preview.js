@@ -1,4 +1,4 @@
-import { Global, ThemeProvider } from '@elandamor/tra-theme';
+import { Global, ThemeProvider } from '@paisidevs/tra-theme';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 

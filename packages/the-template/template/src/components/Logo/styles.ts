@@ -1,5 +1,5 @@
-import { Box } from '@elandamor/tra-components';
-import { keyframes, styled } from '@elandamor/tra-theme';
+import { Box } from '@paisidevs/tra-components';
+import { keyframes, styled } from '@paisidevs/tra-theme';
 
 const spin = keyframes`
   0% { transform: rotate(0deg) }
