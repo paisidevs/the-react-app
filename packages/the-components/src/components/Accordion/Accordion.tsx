@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@elandamor/tra-theme';
+import { StyledSystemProps } from '@paisidevs/tra-theme';
 import React, { createContext, FC, useContext, useState } from 'react';
 import { Box } from '../Box';
 import { Collapse } from '../Collapse';

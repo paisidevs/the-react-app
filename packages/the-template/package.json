@@ -1,6 +1,6 @@
 {
-  "name": "@elandamor/cra-template",
-  "version": "0.1.4-alpha.2",
+  "name": "@paisidevs/cra-template",
+  "version": "0.1.4",
   "keywords": [
     "create-react-app",
     "the-react-app",
@@ -11,7 +11,7 @@
   "main": "template.json",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elandamor/the-react-app.git",
+    "url": "https://github.com/paisidevs/the-react-app.git",
     "directory": "packages/the-template"
   },
   "publishConfig": {

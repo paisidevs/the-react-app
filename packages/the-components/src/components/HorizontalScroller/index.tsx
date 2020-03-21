@@ -3,7 +3,7 @@ import {
   shouldForwardProp,
   styled,
   StyledSystemProps,
-} from '@elandamor/tra-theme';
+} from '@paisidevs/tra-theme';
 import React, { useState } from 'react';
 import Measure from 'react-measure';
 

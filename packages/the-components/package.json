@@ -1,12 +1,12 @@
 {
-  "name": "@elandamor/tra-components",
-  "version": "0.1.8-alpha.0",
+  "name": "@paisidevs/tra-components",
+  "version": "0.1.8",
   "description": "Components used by the-react-app",
-  "author": "elandamor",
+  "author": "paisidevs",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elandamor/the-react-app.git"
+    "url": "https://github.com/paisidevs/the-react-app.git"
   },
   "publishConfig": {
     "access": "public",
@@ -30,8 +30,8 @@
     "react-table": "7.0.0-rc.16"
   },
   "peerDependencies": {
-    "@elandamor/tra-theme": "*",
-    "@elandamor/tra-utilities": "*",
+    "@paisidevs/tra-theme": "*",
+    "@paisidevs/tra-utilities": "*",
     "formik": "2.1.4",
     "lodash": "4.17.15",
     "moment": "2.24.0",
@@ -43,9 +43,9 @@
     "react-spring": "8.0.27"
   },
   "devDependencies": {
-    "@elandamor/tra-scripts": "^0.1.3-alpha.1",
-    "@elandamor/tra-theme": "^0.1.4-alpha.0",
-    "@elandamor/tra-utilities": "^0.1.4-alpha.0",
+    "@paisidevs/tra-scripts": "^0.1.3",
+    "@paisidevs/tra-theme": "^0.1.4",
+    "@paisidevs/tra-utilities": "^0.1.4",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-json": "4.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",

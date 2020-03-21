@@ -1,12 +1,12 @@
 {
-  "name": "@elandamor/tra-apollo",
-  "version": "0.1.4-alpha.1",
+  "name": "@paisidevs/tra-apollo",
+  "version": "0.1.4",
   "description": "Apollo client with utilities used by the-react-app",
-  "author": "elandamor",
+  "author": "paisidevs",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elandamor/the-react-app.git"
+    "url": "https://github.com/paisidevs/the-react-app.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

@@ -1,4 +1,4 @@
-import { maxWidth, styled, width } from '@elandamor/tra-theme';
+import { maxWidth, styled, width } from '@paisidevs/tra-theme';
 
 export const Wrapper = styled.table`
   background-color: ${(props) => props.theme.colors.background.surface};

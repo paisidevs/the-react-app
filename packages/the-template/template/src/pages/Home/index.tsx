@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <Wrapper>
       <Helmet>
-        <title>the-react-app - Built with love by @elandamor</title>
+        <title>the-react-app - Built with love by @paisidevs</title>
       </Helmet>
       <Logo />
     </Wrapper>

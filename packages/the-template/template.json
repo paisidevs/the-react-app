@@ -1,10 +1,10 @@
 {
   "package": {
     "dependencies": {
-      "@elandamor/tra-apollo": "latest",
-      "@elandamor/tra-components": "latest",
-      "@elandamor/tra-theme": "latest",
-      "@elandamor/tra-utilities": "latest",
+      "@paisidevs/tra-apollo": "latest",
+      "@paisidevs/tra-components": "latest",
+      "@paisidevs/tra-theme": "latest",
+      "@paisidevs/tra-utilities": "latest",
       "@types/react": "16.9.23",
       "@types/react-dom": "16.9.5",
       "@types/react-helmet": "5.0.15",

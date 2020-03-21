@@ -1,5 +1,5 @@
-import { Box, ErrorBoundary, Grid, Routes } from '@elandamor/tra-components';
-import { Global, ThemeProvider } from '@elandamor/tra-theme';
+import { Box, ErrorBoundary, Grid, Routes } from '@paisidevs/tra-components';
+import { Global, ThemeProvider } from '@paisidevs/tra-theme';
 import React, { FC } from 'react';
 import { routes } from './routes';
 

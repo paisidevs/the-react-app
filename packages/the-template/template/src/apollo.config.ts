@@ -7,7 +7,7 @@ import {
   loggerLink,
   RetryLink,
   setContext,
-} from '@elandamor/tra-apollo';
+} from '@paisidevs/tra-apollo';
 import { GRAPHQL_ENDPOINT, NODE_ENV } from './constants';
 
 const cache = new InMemoryCache();

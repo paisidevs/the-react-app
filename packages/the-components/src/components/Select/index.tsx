@@ -1,4 +1,4 @@
-import { titleCase } from '@elandamor/tra-utilities';
+import { titleCase } from '@paisidevs/tra-utilities';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect } from 'react';
 import { components, Props as SelectProps } from 'react-select';

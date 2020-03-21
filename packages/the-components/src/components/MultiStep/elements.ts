@@ -1,4 +1,4 @@
-import { css, styled, theme } from '@elandamor/tra-theme';
+import { css, styled, theme } from '@paisidevs/tra-theme';
 
 export const Navigation = styled.div`
   display: flex;

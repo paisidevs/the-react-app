@@ -1,4 +1,4 @@
-import { StyledSystemProps } from '@elandamor/tra-theme';
+import { StyledSystemProps } from '@paisidevs/tra-theme';
 import React, { FC } from 'react';
 import AnimateHeight, * as RAH from 'react-animate-height';
 import { Box } from '../Box';

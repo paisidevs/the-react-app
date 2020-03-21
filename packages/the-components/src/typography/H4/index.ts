@@ -4,7 +4,7 @@ import {
   styled,
   StyledSystemProps,
   typography,
-} from '@elandamor/tra-theme';
+} from '@paisidevs/tra-theme';
 
 /**
  * @render react

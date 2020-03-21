@@ -1,4 +1,4 @@
-import { styled, StyledSystemProps } from '@elandamor/tra-theme';
+import { styled, StyledSystemProps } from '@paisidevs/tra-theme';
 import { Animated } from '../Animated';
 import { Box } from '../Box';
 

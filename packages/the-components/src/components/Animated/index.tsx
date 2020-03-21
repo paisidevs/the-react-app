@@ -1,4 +1,4 @@
-import { styled } from '@elandamor/tra-theme';
+import { styled } from '@paisidevs/tra-theme';
 import { animated } from 'react-spring';
 import { Box } from '../Box';
 

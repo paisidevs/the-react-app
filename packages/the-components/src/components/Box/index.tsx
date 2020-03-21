@@ -12,7 +12,7 @@ import {
   styled,
   StyledSystemProps,
   typography,
-} from '@elandamor/tra-theme';
+} from '@paisidevs/tra-theme';
 
 export interface IBoxProps extends StyledSystemProps {
   aspect?: number;

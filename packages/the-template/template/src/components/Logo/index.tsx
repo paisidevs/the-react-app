@@ -1,5 +1,5 @@
-import { Box } from '@elandamor/tra-components';
-import { useTheme } from '@elandamor/tra-theme';
+import { Box } from '@paisidevs/tra-components';
+import { useTheme } from '@paisidevs/tra-theme';
 import React from 'react';
 import { Outer } from './styles';
 
