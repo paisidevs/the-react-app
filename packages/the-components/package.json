@@ -33,7 +33,6 @@
     "@paisidevs/tra-theme": "*",
     "@paisidevs/tra-utilities": "*",
     "formik": "2.1.4",
-    "lodash": "4.17.15",
     "moment": "2.24.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
