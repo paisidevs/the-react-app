@@ -20,12 +20,15 @@
     "the-react-scripts": "./bin/the-react-scripts.js"
   },
   "dependencies": {
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.0.0",
     "minimist": "1.2.5",
     "node-plop": "0.25.0",
     "plop": "2.6.0"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"
+  },
+  "resolutions": {
+    "minimist": "1.2.5"
   }
 }

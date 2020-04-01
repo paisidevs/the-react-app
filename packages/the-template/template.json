@@ -3,21 +3,31 @@
     "dependencies": {
       "@paisidevs/tra-apollo": "latest",
       "@paisidevs/tra-components": "latest",
+      "@paisidevs/tra-scripts": "latest",
       "@paisidevs/tra-theme": "latest",
       "@paisidevs/tra-utilities": "latest",
-      "@types/react": "16.9.23",
+      "@testing-library/cypress": "6.0.0",
+      "@testing-library/jest-dom": "5.3.0",
+      "@testing-library/react": "10.0.1",
+      "@types/jest": "25.1.4",
+      "@types/node": "13.9.5",
       "@types/react-dom": "16.9.5",
       "@types/react-helmet": "5.0.15",
       "@types/react-router-dom": "5.1.3",
-      "react-feather": "2.0.3",
+      "@types/react": "16.9.26",
+      "cypress": "4.2.0",
+      "jest-emotion": "10.0.32",
       "react-helmet": "5.2.1",
       "react-router-dom": "5.1.2",
       "react-spring": "8.0.27",
       "typescript": "3.8.3"
     },
-    "scripts": {
-      "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
-      "codegen": "graphql-codegen --config codegen.yml"
+    "devDependencies": {
+      "@graphql-codegen/cli": "1.13.1",
+      "@graphql-codegen/introspection": "1.13.1",
+      "@graphql-codegen/typescript-operations": "1.13.1",
+      "@graphql-codegen/typescript-react-apollo": "1.13.1",
+      "@graphql-codegen/typescript": "1.13.1"
     }
   }
 }

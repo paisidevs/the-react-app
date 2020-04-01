@@ -6,8 +6,9 @@
   ],
   "scripts": {
     "nuke": "rm package-lock.json && rm -rf node_modules && lerna bootstrap",
-    "prepare": "yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
+    "prepare": "yarn prepare:core && yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
     "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",
+    "prepare:core": "lerna run prepare --scope @paisidevs/tra-core",
     "prepare:components": "lerna run prepare --scope @paisidevs/tra-components",
     "prepare:theme": "lerna run prepare --scope @paisidevs/tra-theme",
     "prepare:utilities": "lerna run prepare --scope @paisidevs/tra-utilities",
