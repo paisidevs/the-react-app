@@ -1,5 +1,5 @@
-import { ApolloLink, NextLink, Operation } from 'apollo-link';
-import { onError } from 'apollo-link-error';
+import { ApolloLink, NextLink, Operation } from '@apollo/client';
+import { onError } from '@apollo/link-error';
 import { useMedia } from '../hooks';
 
 function usePrefersDarkMode() {

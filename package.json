@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "nuke": "rm package-lock.json && rm -rf node_modules && lerna bootstrap",
-    "prepare": "yarn prepare:core && yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
+    "nuke": "rm yarn.lock && rm -rf node_modules && lerna bootstrap",
+    "prepare": "yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
     "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",
     "prepare:core": "lerna run prepare --scope @paisidevs/tra-core",
     "prepare:components": "lerna run prepare --scope @paisidevs/tra-components",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "lerna": "^3.20.2",
-    "prettier": "1.19.1"
+    "prettier": "2.0.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
