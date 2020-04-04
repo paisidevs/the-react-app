@@ -1,5 +1,5 @@
+import { debounce } from '@paisidevs/tra-utilities';
 import { connect, FormikProps } from 'formik';
-import { debounce } from 'lodash';
 import { FC, useEffect } from 'react';
 
 export interface IPersistProps {
@@ -33,7 +33,7 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
       } else {
         window.localStorage.setItem(name, JSON.stringify(data));
       }
-    }, debounceNumber);
+    }, debounceNumber || 300);
 
     saveForm(formik);
   }, [debounceNumber, formik, isSessionStorage, name]);
@@ -52,7 +52,6 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
 };
 
 Persist.defaultProps = {
-  debounceNumber: 500,
   isSessionStorage: true,
 };
 

@@ -1,3 +1,4 @@
+import { styled } from '@paisidevs/tra-theme';
 import { isFunction } from '@paisidevs/tra-utilities';
 import {
   Form as ImpForm,
@@ -9,6 +10,11 @@ import {
 } from 'formik';
 import React, { useState } from 'react';
 import { ConnectedPersist } from './Persist';
+
+const Fieldset = styled.fieldset`
+  display: contents;
+  width: 100%;
+`;
 
 interface IFormProps extends FormikConfig<FormikValues> {
   name: string;
@@ -54,9 +60,9 @@ export const Form: React.FC<IFormProps> = ({
 
         return (
           <ImpForm>
-            <fieldset disabled={formikProps.isSubmitting}>
+            <Fieldset disabled={formikProps.isSubmitting}>
               {formChildren}
-            </fieldset>
+            </Fieldset>
             {persist && (
               <ConnectedPersist name={name} clearPersist={clearPersist} />
             )}
