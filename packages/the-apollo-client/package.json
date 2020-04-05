@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/paisidevs/the-react-app.git"
+    "url": "https://github.com/paisidevs/the-react-app.git",
+    "directory": "packages/the-apollo-client"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -25,12 +26,15 @@
     "@apollo/link-retry": "2.0.0-beta.3",
     "graphql": "15.0.0"
   },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@types/react": "16.9.32",
     "react": "^16.13.1",
-    "rollup": "2.3.2",
+    "rollup": "2.3.3",
     "rollup-plugin-peer-deps-external": "2.2.2",
     "rollup-plugin-postcss": "2.5.0",
     "rollup-plugin-terser": "5.3.0",
