@@ -26,3 +26,5 @@ export const theme = {
   space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
   radii: [0, 2, 4, 8],
 };
+
+export type Theme = typeof theme;

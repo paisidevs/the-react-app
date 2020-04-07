@@ -11,7 +11,7 @@ import {
   SpaceProps,
   TypographyProps,
 } from 'styled-system';
-import { theme } from './theme';
+import { Theme } from './theme';
 
 export interface StyledSystemProps
   extends BordersProps,
@@ -28,7 +28,6 @@ export interface StyledSystemProps
   color?: string | (string & string[]);
 }
 
-export type Theme = typeof theme;
 export const styled = baseStyled as CreateStyled<Theme>;
 
 export { css, keyframes } from '@emotion/core';

@@ -1,12 +1,10 @@
 /// <reference types="react" />
 import { CreateStyled } from '@emotion/styled';
 import { BordersProps, BoxShadowProps, ColorProps, FlexboxProps, GridProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps } from 'styled-system';
-import { theme } from './theme';
 export interface StyledSystemProps extends BordersProps, BoxShadowProps, ColorProps, FlexboxProps, GridProps, LayoutProps, OverflowProps, PositionProps, SpaceProps, TypographyProps {
     as?: React.ElementType;
     color?: string | (string & string[]);
 }
-export declare type Theme = typeof theme;
 export declare const styled: CreateStyled<{
     isDark: boolean;
     borders: import("styled-system").TLengthStyledSystem[];
