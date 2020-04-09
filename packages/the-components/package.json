@@ -1,6 +1,6 @@
 {
   "name": "@paisidevs/tra-components",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Components used by the-react-app",
   "author": "paisidevs",
   "license": "MIT",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@paisidevs/tra-scripts": "^0.1.4-alpha.0",
-    "@paisidevs/tra-theme": "^0.1.5-alpha.1",
+    "@paisidevs/tra-theme": "^0.1.5",
     "@paisidevs/tra-utilities": "^0.1.5",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-json": "4.0.2",
