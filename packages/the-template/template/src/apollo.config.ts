@@ -31,6 +31,7 @@ const authLink = setContext((_, { headers }) => {
 
 const retryLink = new RetryLink();
 
+// @ts-ignore - incompatible types in `retryLink` and `authLink`
 let clientLink = ApolloLink.from([retryLink, authLink, httpLink]);
 
 if (NODE_ENV === 'development') {
