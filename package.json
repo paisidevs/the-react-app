@@ -5,10 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "nuke": "rm yarn.lock && rm -rf node_modules && lerna bootstrap",
-    "prepare": "yarn prepare:utilities && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
+    "nuke": "rm yarn.lock && rm -rf node_modules && lerna clean -y && lerna bootstrap",
+    "prepare": "yarn prepare:utilities && yarn prepare:hooks && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
     "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",
     "prepare:components": "lerna run prepare --scope @paisidevs/tra-components",
+    "prepare:hooks": "lerna run prepare --scope @paisidevs/tra-hooks",
     "prepare:theme": "lerna run prepare --scope @paisidevs/tra-theme",
     "prepare:utilities": "lerna run prepare --scope @paisidevs/tra-utilities",
     "start": "yarn prepare && lerna run --parallel start",

@@ -1,0 +1,11 @@
+query clubs($sort: String = "name") {
+  clubs(sort: $sort) {
+    id
+    abbr
+    badge
+    name
+    stadium {
+      name
+    }
+  }
+}

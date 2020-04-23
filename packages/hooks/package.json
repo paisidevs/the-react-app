@@ -1,0 +1,40 @@
+{
+  "name": "@paisidevs/tra-hooks",
+  "version": "0.1.0",
+  "description": "React hooks used by the-react-app",
+  "author": "paisidevs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paisidevs/the-react-app.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "prepare": "rm -rf dist && rollup -c",
+    "start": "rollup -c -w"
+  },
+  "peerDependencies": {
+    "@paisidevs/tra-utilities": "*",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@paisidevs/tra-utilities": "*",
+    "@types/react": "16.9.32",
+    "react": "^16.13.1",
+    "rollup": "2.3.2",
+    "rollup-plugin-peer-deps-external": "2.2.2",
+    "rollup-plugin-postcss": "2.5.0",
+    "rollup-plugin-terser": "5.3.0",
+    "rollup-plugin-typescript2": "0.27.0",
+    "typescript": "3.8.3"
+  },
+  "files": [
+    "dist"
+  ]
+}

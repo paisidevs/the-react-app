@@ -1,0 +1,34 @@
+{
+  "name": "@paisidevs/tra-scripts",
+  "version": "0.1.4-alpha.0",
+  "description": "Helper scripts for the-react-app",
+  "author": "Thandolwethu Mpofu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paisidevs/the-react-app.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "bin",
+    "internals",
+    "scripts"
+  ],
+  "bin": {
+    "tra-scripts": "./bin/tra-scripts.js"
+  },
+  "dependencies": {
+    "fs-extra": "9.0.0",
+    "minimist": "1.2.5",
+    "node-plop": "0.25.0",
+    "plop": "2.6.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
+  },
+  "resolutions": {
+    "minimist": "1.2.5"
+  }
+}
