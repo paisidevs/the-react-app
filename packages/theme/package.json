@@ -1,6 +1,6 @@
 {
   "name": "@paisidevs/tra-theme",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Theme used by the-react-app",
   "author": "paisidevs",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
-    "@paisidevs/tra-hooks": "*",
+    "@paisidevs/tra-hooks": "^0.1.1",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@types/react": "16.9.32",

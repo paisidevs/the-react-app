@@ -1,6 +1,6 @@
 {
   "name": "@paisidevs/tra-components",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Components used by the-react-app",
   "author": "paisidevs",
   "license": "MIT",
@@ -43,10 +43,10 @@
     "react-spring": "8.0.27"
   },
   "devDependencies": {
-    "@paisidevs/tra-hooks": "*",
+    "@paisidevs/tra-hooks": "^0.1.1",
     "@paisidevs/tra-scripts": "*",
-    "@paisidevs/tra-theme": "*",
-    "@paisidevs/tra-utilities": "*",
+    "@paisidevs/tra-theme": "^0.1.6",
+    "@paisidevs/tra-utilities": "^0.1.6",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-json": "4.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",

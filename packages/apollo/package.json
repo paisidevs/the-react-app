@@ -1,6 +1,6 @@
 {
   "name": "@paisidevs/tra-apollo",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "description": "Apollo client with utilities used by the-react-app",
   "author": "paisidevs",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "react": "^16.13.1"
   },
   "devDependencies": {
-    "@paisidevs/tra-hooks": "*",
+    "@paisidevs/tra-hooks": "^0.1.1",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@types/react": "16.9.32",
