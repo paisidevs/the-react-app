@@ -3,6 +3,7 @@
     "dependencies": {
       "@paisidevs/tra-apollo": "latest",
       "@paisidevs/tra-components": "latest",
+      "@paisidevs/tra-hooks": "latest",
       "@paisidevs/tra-scripts": "latest",
       "@paisidevs/tra-theme": "latest",
       "@paisidevs/tra-utilities": "latest",
