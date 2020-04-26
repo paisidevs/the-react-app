@@ -24,7 +24,7 @@ export interface IButtonProps extends StyledSystemProps {
 export const Button: FC<IButtonProps> = ({
   children,
   isLoading,
-  text = 'Button',
+  text,
   ...rest
 }) => {
   const renderChildren = () => {
@@ -32,11 +32,13 @@ export const Button: FC<IButtonProps> = ({
       return <Loader />;
     }
 
+    if (children) {
+      return children;
+    }
+
     if (text) {
       return <Text lineHeight="1">{text}</Text>;
     }
-
-    return children;
   };
 
   return <Wrapper {...rest}>{renderChildren()}</Wrapper>;

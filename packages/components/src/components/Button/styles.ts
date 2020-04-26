@@ -41,6 +41,7 @@ const Wrapper = styled('button', { shouldForwardProp })<StyledSystemProps>`
   background: transparent;
   border: none;
   color: ${({ theme }) => theme.colors.text.default};
+  cursor: pointer;
   display: flex;
   font-size: ${theme.fontSizes[2]}px;
   font-weight: ${theme.fontWeights[4]};
