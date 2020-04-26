@@ -1,20 +1,21 @@
+import { from, gql, HttpLink } from '@apollo/client';
 import {
   ApolloClient,
-  ApolloLink,
-  createHttpLink,
   errorLink,
   InMemoryCache,
   loggerLink,
   RetryLink,
   setContext,
 } from '@paisidevs/tra-apollo';
+import { persistCache } from 'apollo-cache-persist';
+import { PersistentStorage } from 'apollo-cache-persist/types';
 import { GRAPHQL_ENDPOINT, NODE_ENV } from './constants';
 import { getCognitoUserToken } from './utilities';
 
 const cache = new InMemoryCache();
 
-const httpLink = createHttpLink({
-  uri: GRAPHQL_ENDPOINT || 'http://localhost:1337/graphql',
+const httpLink = new HttpLink({
+  uri: GRAPHQL_ENDPOINT,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -31,17 +32,35 @@ const authLink = setContext((_, { headers }) => {
 
 const retryLink = new RetryLink();
 
-// @ts-ignore - incompatible types in `retryLink` and `authLink`
-let clientLink = ApolloLink.from([retryLink, authLink, httpLink]);
+let clientLink = from([retryLink, authLink, httpLink]);
 
 if (NODE_ENV === 'development') {
-  // @ts-ignore - incompatible types in `retryLink` and `authLink`
-  clientLink = ApolloLink.from([loggerLink, errorLink, clientLink]);
+  // @ts-ignore - tra-apollo types compatibility issues
+  clientLink = from([loggerLink, errorLink, clientLink]);
 }
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   cache,
+  // @ts-ignore - tra-apollo types compatibility issues
   link: clientLink,
 });
 
-export default client;
+export const persistedClient = async () => {
+  await persistCache({
+    cache,
+    storage: window.localStorage as PersistentStorage<string | null>,
+  });
+
+  return client;
+};
+
+cache.writeQuery({
+  query: gql`
+    query {
+      todos
+    }
+  `,
+  data: {
+    todos: [],
+  },
+});

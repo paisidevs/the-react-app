@@ -1,23 +1,29 @@
-import { ApolloProvider } from '@paisidevs/tra-apollo';
+import { NormalizedCacheObject } from '@apollo/client';
+import { ApolloClient, ApolloProvider } from '@paisidevs/tra-apollo';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'typeface-roboto';
-import client from './apollo.config';
+import { client, persistedClient } from './apollo.config';
 import App from './containers/App';
-import AuthenticationProvider from './contexts/AuthenticationProvider.context';
+import { AppProvider } from './contexts';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Router>
-      <AuthenticationProvider>
-        <App />
-      </AuthenticationProvider>
-    </Router>
-  </ApolloProvider>,
-  document.getElementById('root'),
-);
+const renderApp = (client: ApolloClient<NormalizedCacheObject>) =>
+  ReactDOM.render(
+    <ApolloProvider client={client}>
+      <Router>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </Router>
+    </ApolloProvider>,
+    document.getElementById('root'),
+  );
+
+persistedClient()
+  .then((client) => renderApp(client))
+  .catch(() => renderApp(client));
 
 // Persist "debug" package's enable state in localStorage
 if (process.env.NODE_ENV !== 'production') {

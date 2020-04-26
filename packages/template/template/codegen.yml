@@ -1,6 +1,9 @@
 overwrite: true
-schema: ${GRAPHQL_API_ENDPOINT}
-documents: 'src/graphql/**/*.graphql'
+schema:
+  - ${CLIENT_SCHEMA}
+documents:
+  - 'src/graphql/**/*.graphql'
+  - '!src/graphql/schema.graphql'
 generates:
   src/generated/graphql.tsx:
     plugins:
@@ -8,8 +11,10 @@ generates:
       - 'typescript-operations'
       - 'typescript-react-apollo'
     config:
-      noHOC: true
-      noComponents: true
-      noNamespaces: true
+      apolloReactCommonImportFrom: @apollo/client
+      apolloReactHooksImportFrom: @apollo/client
+      gqlImport: '@apollo/client#gql'
+      withHOC: false
+      withComponent: false
       withHooks: true
       withSubscriptionHooks: true
