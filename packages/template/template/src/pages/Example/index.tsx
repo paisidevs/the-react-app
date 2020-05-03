@@ -1,4 +1,4 @@
-import { Context, gql, useApolloClient } from '@apollo/client';
+import { Context, gql, useApolloClient } from '@paisidevs/tra-apollo';
 import {
   Box,
   Button,
@@ -16,7 +16,6 @@ import {
   useDeleteTodoMutation,
   useTodosQuery,
 } from '../../generated/graphql';
-import { Wrapper } from './styles';
 
 const GET_TODOS = gql`
   query todos {
@@ -77,79 +76,78 @@ const Example: React.FC = () => {
   const { data: todosData } = useTodosQuery();
 
   return (
-    <Wrapper>
-      <Grid
-        backgroundColor="background.surface"
-        height="100%"
-        overflow="hidden"
-      >
-        <ScrollView>
-          <Box padding={2}>
-            <Box margin="0 auto" maxWidth={500} width="100%">
-              <Form
-                name="todo"
-                initialValues={{ description: '' }}
-                onSubmit={async (
-                  { description },
-                  { resetForm, setFieldError },
-                ) => {
-                  try {
-                    await createTodo({
-                      variables: { input: { description } },
-                    });
-                    resetForm();
-                  } catch ({ networkError }) {
-                    if (networkError) {
-                      setFieldError('description', networkError.message);
-                    }
+    <Grid
+      backgroundColor="background.surface"
+      height="100%"
+      overflow="hidden"
+      width="100%"
+    >
+      <ScrollView>
+        <Box padding={2}>
+          <Box margin="0 auto" maxWidth={500} width="100%">
+            <Form
+              name="todo"
+              initialValues={{ description: '' }}
+              onSubmit={async (
+                { description },
+                { resetForm, setFieldError },
+              ) => {
+                try {
+                  await createTodo({
+                    variables: { input: { description } },
+                  });
+                  resetForm();
+                } catch ({ networkError }) {
+                  if (networkError) {
+                    setFieldError('description', networkError.message);
                   }
-                }}
+                }
+              }}
+            >
+              {({ handleSubmit, values }) => (
+                <React.Fragment>
+                  <Input
+                    label="Add a task..."
+                    name="description"
+                    endAdornment={
+                      !Boolean(values.description?.length < 1) && (
+                        <Button
+                          height="100%"
+                          // @ts-ignore
+                          onClick={handleSubmit}
+                          text="Add"
+                          type="submit"
+                        />
+                      )
+                    }
+                  />
+                </React.Fragment>
+              )}
+            </Form>
+            {todosData?.todos?.map((todo) => (
+              <Flex
+                key={todo?.id}
+                data-id={todo?.id}
+                alignItems="center"
+                height={40}
               >
-                {({ handleSubmit, values }) => (
-                  <React.Fragment>
-                    <Input
-                      label="Add a task..."
-                      name="description"
-                      endAdornment={
-                        !Boolean(values.description?.length < 1) && (
-                          <Button
-                            height="100%"
-                            // @ts-ignore
-                            onClick={handleSubmit}
-                            text="Add"
-                            type="submit"
-                          />
-                        )
-                      }
-                    />
-                  </React.Fragment>
-                )}
-              </Form>
-              {todosData?.todos?.map((todo) => (
-                <Flex
-                  key={todo?.id}
-                  data-id={todo?.id}
-                  alignItems="center"
-                  height={40}
-                >
-                  <Flex flex={1}>
-                    <Text>{todo?.description}</Text>
-                  </Flex>
-                  <Flex flex="none">
-                    <Button
-                      onClick={() =>
-                        todo?.id && deleteTodo({ variables: { id: todo?.id } })
-                      }
-                      text="Remove"
-                    />
-                  </Flex>
+                <Flex flex={1}>
+                  <Text>{todo?.description}</Text>
                 </Flex>
-              ))}
-            </Box>
+                <Flex flex="none">
+                  <Button
+                    onClick={() =>
+                      todo?.id && deleteTodo({ variables: { id: todo?.id } })
+                    }
+                    text="Remove"
+                  />
+                </Flex>
+              </Flex>
+            ))}
           </Box>
-        </ScrollView>
-      </Grid>
-    </Wrapper>
+        </Box>
+      </ScrollView>
+    </Grid>
   );
 };
 

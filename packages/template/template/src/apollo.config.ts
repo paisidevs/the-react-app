@@ -1,7 +1,9 @@
-import { from, gql, HttpLink } from '@apollo/client';
 import {
   ApolloClient,
   errorLink,
+  from,
+  gql,
+  HttpLink,
   InMemoryCache,
   loggerLink,
   RetryLink,

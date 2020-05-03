@@ -1,5 +1,8 @@
-import { NormalizedCacheObject } from '@apollo/client';
-import { ApolloClient, ApolloProvider } from '@paisidevs/tra-apollo';
+import {
+  ApolloClient,
+  ApolloProvider,
+  NormalizedCacheObject,
+} from '@paisidevs/tra-apollo';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';

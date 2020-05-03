@@ -1,28 +1,9 @@
-// import { gql, useQuery } from '@apollo/client';
-import { logger } from '@paisidevs/tra-utilities';
-import React from 'react';
+import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { Logo } from '../../components';
 import { Wrapper } from './styles';
 
-// const GET_CLUBS = gql`
-//   query clubs($sort: String = "name") {
-//     clubs(sort: $sort) {
-//       id
-//       abbr
-//       badge
-//       name
-//       stadium {
-//         name
-//       }
-//     }
-//   }
-// `;
-
-const Home: React.FC = () => {
-  // const { data } = useQuery(GET_CLUBS);
-  logger('Home');
-
+const Home: FC = () => {
   return (
     <Wrapper>
       <Helmet>
