@@ -12,6 +12,7 @@
     "prepare:hooks": "lerna run prepare --scope @paisidevs/tra-hooks",
     "prepare:theme": "lerna run prepare --scope @paisidevs/tra-theme",
     "prepare:utilities": "lerna run prepare --scope @paisidevs/tra-utilities",
+    "publish": "lerna publish",
     "start": "yarn prepare && lerna run --parallel start",
     "the-react-app": "tasks/tra.sh"
   },
