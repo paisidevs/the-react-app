@@ -43,11 +43,10 @@ export const Table: React.FC<ITableProps> = ({
     <Wrapper {...getTableProps()} {...rest}>
       <THead className="thead">
         {headerGroups.map((headerGroup) => (
-          <TR key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
+          <TR {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <TD
                 className="th"
-                key={column.id}
                 width={column.width}
                 maxWidth={column.maxWidth}
                 {...column.getHeaderProps()}
@@ -74,7 +73,6 @@ export const Table: React.FC<ITableProps> = ({
                 {row.cells.map((cell) => {
                   return (
                     <TD
-                      key={cell.row.index}
                       width={cell.column.width}
                       maxWidth={cell.column.maxWidth}
                       {...cell.getCellProps()}
