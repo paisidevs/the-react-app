@@ -56,6 +56,7 @@ export const DefaultInput = styled('input', { shouldForwardProp })`
   border: none;
   border-bottom: ${theme.borders[1]} ${theme.colors.border.default};
   border-radius: ${theme.space[1] / 2}px;
+  caret-color: ${({ theme }) => theme.colors.text.default};
   font-size: ${theme.fontSizes[3]}px;
   letter-spacing: .009375em;
   padding-top: ${theme.space[2]}px;
