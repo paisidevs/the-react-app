@@ -1,8 +1,7 @@
 cd ..
 rm -rf project-tra
-npx create-react-app project-tra --template file:./the-react-app/packages/template
+npx create-react-app project-tra --use-npm --template file:./the-react-app/packages/template
 cd project-tra
-touch .env
-echo BROWSER="google chrome" > .env
-echo SKIP_PREFLIGHT_CHECK=true >> .env
-yarn start
+cat env >> .env
+rm env
+npm run start
