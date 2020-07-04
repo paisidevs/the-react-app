@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export function useMedia(queries: any, values: any, defaultValue: any) {
   // Array containing a media query list for each query
-  const mediaQueryLists = queries.map((q) => window.matchMedia(q));
+  const mediaQueryLists = queries.map((q: any) => window.matchMedia(q));
 
   // Function that gets value based on matching media query
   const getValue = () => {
@@ -25,7 +25,7 @@ export function useMedia(queries: any, values: any, defaultValue: any) {
       mediaQueryLists.forEach((mql: any) => mql.addListener(handler));
       // Remove listeners on cleanup
       return () =>
-        mediaQueryLists.forEach((mql) => mql.removeListener(handler));
+        mediaQueryLists.forEach((mql: any) => mql.removeListener(handler));
     },
     [], // Empty array ensures effect is only run on mount and unmount
   );
