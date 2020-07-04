@@ -5,3 +5,4 @@ export { useMedia } from './useMedia';
 export { usePrefersDarkMode } from './usePrefersDarkMode';
 export { useSessionStorage } from './useSessionStorage';
 export { useStorage } from './useStorage';
+export { useWindowSize } from './useWindowSize';
