@@ -20,7 +20,7 @@
     "tra-scripts": "./bin/tra-scripts.js"
   },
   "dependencies": {
-    "fs-extra": "9.0.0",
+    "fs-extra": "9.0.1",
     "node-plop": "0.26.0",
     "plop": "2.7.1"
   },
