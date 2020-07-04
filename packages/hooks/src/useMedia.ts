@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react';
+
 export function useMedia(queries: any, values: any, defaultValue: any) {
   // Array containing a media query list for each query
-  const mediaQueryLists = queries.map((q: any) => window.matchMedia(q));
+  const mediaQueryLists = queries.map((q) => window.matchMedia(q));
 
   // Function that gets value based on matching media query
   const getValue = () => {
@@ -11,10 +13,22 @@ export function useMedia(queries: any, values: any, defaultValue: any) {
   };
 
   // State and setter for matched value
-  let value = getValue();
+  const [value, setValue] = useState(getValue);
 
-  // Set a listener for each media query with above handler as callback.
-  mediaQueryLists.forEach((mql: any) => mql.addListener(getValue));
+  useEffect(
+    () => {
+      // Event listener callback
+      // Note: By defining getValue outside of useEffect we ensure that it has ...
+      // ... current values of hook args (as this hook callback is created once on mount).
+      const handler = () => setValue(getValue);
+      // Set a listener for each media query with above handler as callback.
+      mediaQueryLists.forEach((mql: any) => mql.addListener(handler));
+      // Remove listeners on cleanup
+      return () =>
+        mediaQueryLists.forEach((mql) => mql.removeListener(handler));
+    },
+    [], // Empty array ensures effect is only run on mount and unmount
+  );
 
   return value;
 }
