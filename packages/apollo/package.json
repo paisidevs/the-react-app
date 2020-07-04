@@ -1,6 +1,6 @@
 {
   "name": "@paisidevs/tra-apollo",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.6",
   "description": "Apollo client with utilities used by the-react-app",
   "author": "paisidevs",
   "license": "MIT",
