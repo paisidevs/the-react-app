@@ -18,8 +18,8 @@ export const useStorage = (
       // Parse stored json or if none return initialValue
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      // If error also return initialValue
       logger(error);
+      // If error also return initialValue
       return initialValue;
     }
   });
