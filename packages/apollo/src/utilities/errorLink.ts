@@ -1,4 +1,4 @@
-import { onError } from '@apollo/link-error';
+import { onError } from '@apollo/client/link/error';
 import { formatError } from './formatError';
 import { formatMessage } from './formatMessage';
 
