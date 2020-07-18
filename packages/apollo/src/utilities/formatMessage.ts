@@ -1,11 +1,11 @@
-import { usePrefersDarkMode } from '@paisidevs/tra-hooks';
+import { prefersDarkMode } from './prefersDarkMode';
 
 export const formatMessage = (
   operationType: string,
   operation: any,
   elapsed?: any,
 ) => {
-  const color = usePrefersDarkMode()
+  const color = prefersDarkMode()
     ? {
         gray: '#AAA',
         black: '#DDD',
