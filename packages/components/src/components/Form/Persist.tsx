@@ -1,11 +1,12 @@
-import { debounce } from '@paisidevs/tra-utilities';
+import { useStorage } from '@paisidevs/tra-hooks';
 import { connect, FormikProps } from 'formik';
+import debounce from 'lodash/debounce';
 import { FC, useEffect } from 'react';
 
 export interface IPersistProps {
   clearPersist?: boolean;
   debounceNumber?: number;
-  isSessionStorage?: boolean;
+  isLocalStorage?: boolean;
   name: string;
 }
 
@@ -14,37 +15,31 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
   clearPersist,
   debounceNumber,
   formik,
-  isSessionStorage,
+  isLocalStorage,
 }) => {
-  useEffect(() => {
-    const persistedState = isSessionStorage
-      ? window.sessionStorage.getItem(name)
-      : window.localStorage.getItem(name);
+  const [persistedState, setPersistedState, clearPersistedState] = useStorage(
+    isLocalStorage ? 'local' : 'session',
+    name,
+  );
 
+  useEffect(() => {
     if (persistedState) {
-      formik.setFormikState(JSON.parse(persistedState));
+      formik.setFormikState(persistedState);
     }
   }, []);
 
   useEffect(() => {
-    const saveForm = debounce((data: FormikProps<{}>) => {
-      if (isSessionStorage) {
-        window.sessionStorage.setItem(name, JSON.stringify(data));
-      } else {
-        window.localStorage.setItem(name, JSON.stringify(data));
-      }
-    }, debounceNumber || 300);
+    const saveForm = debounce(
+      (data: FormikProps<{}>) => setPersistedState(data),
+      debounceNumber || 300,
+    );
 
     saveForm(formik);
-  }, [debounceNumber, formik, isSessionStorage, name]);
+  }, [debounceNumber, formik, isLocalStorage, name]);
 
   useEffect(() => {
     if (clearPersist) {
-      if (isSessionStorage) {
-        window.sessionStorage.removeItem(name);
-      } else {
-        window.localStorage.removeItem(name);
-      }
+      clearPersistedState();
     }
   }, [clearPersist]);
 
@@ -52,7 +47,7 @@ const Persist: FC<IPersistProps & { formik: FormikProps<any> }> = ({
 };
 
 Persist.defaultProps = {
-  isSessionStorage: true,
+  isLocalStorage: false,
 };
 
 export const ConnectedPersist = connect<IPersistProps, any>(Persist);

@@ -29,11 +29,13 @@
     "styled-system": "5.1.5"
   },
   "peerDependencies": {
+    "@chakra-ui/core": "0.8.0",
     "@paisidevs/tra-hooks": "*",
     "react": "^16.13.1",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "@chakra-ui/core": "0.8.0",
     "@paisidevs/tra-hooks": "^0.1.4",
     "@rollup/plugin-commonjs": "14.0.0",
     "@rollup/plugin-node-resolve": "8.4.0",

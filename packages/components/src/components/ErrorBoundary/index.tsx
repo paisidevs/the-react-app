@@ -1,6 +1,5 @@
+import { Box, Heading, Text } from '@chakra-ui/core';
 import React, { Component } from 'react';
-import { H2, Text } from '../../typography';
-import { Box } from '../Box';
 
 interface IErrorBoundaryProps {
   className?: string;
@@ -21,7 +20,7 @@ interface IState {
  * <ErrorBoundary />
  */
 
-export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
+class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
   state: IState = {
     hasError: false,
   };
@@ -42,7 +41,9 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
       return (
         template || (
           <Box p={2}>
-            <H2 mb={0}>Oops!</H2>
+            <Heading as="h2" mb={0}>
+              Oops!
+            </Heading>
             <Text>An unexpected error has occured.</Text>
           </Box>
         )
@@ -52,3 +53,5 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
     return this.props.children;
   }
 }
+
+export default ErrorBoundary;

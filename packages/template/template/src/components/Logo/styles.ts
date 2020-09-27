@@ -1,4 +1,4 @@
-import { Box } from '@paisidevs/tra-components';
+import { Box } from '@chakra-ui/core';
 import { keyframes, styled } from '@paisidevs/tra-theme';
 
 const spin = keyframes`

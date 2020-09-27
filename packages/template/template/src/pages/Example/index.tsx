@@ -1,4 +1,3 @@
-import { Context, gql, useApolloClient } from '@paisidevs/tra-apollo';
 import {
   Box,
   Button,
@@ -8,7 +7,8 @@ import {
   Input,
   ScrollView,
   Text,
-} from '@paisidevs/tra-components';
+} from '@chakra-ui/core';
+import { Context, gql, useApolloClient } from '@paisidevs/tra-apollo';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {

@@ -1,2 +1,2 @@
+export * from '@chakra-ui/core';
 export * from './components';
-export * from './typography';

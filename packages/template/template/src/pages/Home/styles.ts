@@ -1,4 +1,4 @@
-import { Box } from '@paisidevs/tra-components';
+import { Box } from '@chakra-ui/core';
 import { styled } from '@paisidevs/tra-theme';
 
 export const Wrapper = styled(Box)`

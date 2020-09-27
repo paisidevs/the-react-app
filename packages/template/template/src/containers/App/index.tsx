@@ -1,4 +1,4 @@
-import { Box, ErrorBoundary, Grid, Routes } from '@paisidevs/tra-components';
+import { Box, ErrorBoundary, Grid, Routes } from '@chakra-ui/core';
 import { Global, ThemeProvider } from '@paisidevs/tra-theme';
 import React, { FC } from 'react';
 import { routes } from './routes';

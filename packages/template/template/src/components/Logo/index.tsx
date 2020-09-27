@@ -1,4 +1,4 @@
-import { Box } from '@paisidevs/tra-components';
+import { Box } from '@chakra-ui/core';
 import { useTheme } from '@paisidevs/tra-theme';
 import React from 'react';
 import { Outer } from './styles';

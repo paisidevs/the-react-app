@@ -1,4 +1,4 @@
-import { H1 } from '@paisidevs/tra-components';
+import { H1 } from '@chakra-ui/core';
 import React, { FC } from 'react';
 
 const NotFound: FC = () => {

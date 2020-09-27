@@ -38,13 +38,10 @@ module.exports = {
         abortOnFail: true,
       },
       {
-        type: 'add',
-        path: path.join(
-          paths.appComponents,
-          '{{properCase name}}/{{properCase name}}.spec.tsx',
-        ),
-        templateFile: './component/spec.hbs',
-        abortOnFail: true,
+        type: 'append',
+        path: path.join(paths.appComponents, 'index.ts'),
+        pattern: '/* PLOP_INJECT_EXPORT - DO NOT REMOVE */',
+        template: `export { default as {{properCase name}} } from './{{properCase name}}';`,
       },
     ];
 

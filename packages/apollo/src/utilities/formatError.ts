@@ -1,23 +1,27 @@
+import { Maybe } from 'graphql/jsutils/Maybe';
 import { prefersDarkMode } from './prefersDarkMode';
 
-export const formatError = (message: any, path?: any) => {
+export const formatError = (
+  message: string,
+  path?: Maybe<ReadonlyArray<string | number>>,
+) => {
   const color = prefersDarkMode()
     ? {
-        gray: '#AAA',
-        black: '#CCC',
+        light: '#AAA',
+        dark: '#CCC',
       }
     : {
-        gray: 'gray',
-        black: '#333',
+        light: 'light',
+        dark: '#333',
       };
 
   if (path) {
     const headerCss = [
-      `color: ${color.gray}; font-weight: lighter`, // title
-      `color: ${color.black}; font-weight: 600`, // message
-      `color: ${color.gray}; font-weight: lighter`, // on
-      `color: ${color.black}; font-weight: 600`, // path
-      `color: ${color.gray}; font-weight: lighter`, // request.
+      `color: ${color.light}; font-weight: lighter`, // title
+      `color: ${color.dark}; font-weight: 600`, // message
+      `color: ${color.light}; font-weight: lighter`, // on
+      `color: ${color.dark}; font-weight: 600`, // path
+      `color: ${color.light}; font-weight: lighter`, // request.
     ];
 
     const parts = ['%c message'];
@@ -31,8 +35,8 @@ export const formatError = (message: any, path?: any) => {
   }
 
   const headerCss = [
-    `color: ${color.gray}; font-weight: lighter`, // title
-    `color: ${color.black}; font-weight: 600`, // message
+    `color: ${color.light}; font-weight: lighter`, // title
+    `color: ${color.dark}; font-weight: 600`, // message
   ];
 
   const parts = ['%c message'];
