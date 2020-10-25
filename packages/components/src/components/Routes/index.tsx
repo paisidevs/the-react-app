@@ -35,18 +35,23 @@ interface IRoutesProps extends SwitchProps {
  */
 
 const Routes: FC<IRoutesProps> = ({ isAuthenticated, routes }) => {
+  const renderRoute = (
+    { isPrivate, ...rest }: IRouteProps,
+    key: string | number,
+  ) => {
+    if (isPrivate) {
+      return (
+        <PrivateRoute key={key} isAuthenticated={isAuthenticated} {...rest} />
+      );
+    }
+
+    return <PublicRoute key={key} {...rest} />;
+  };
+
   return (
     <Switch>
-      {routes.map(({ isPrivate, ...rest }: IRouteProps, index: number) =>
-        isPrivate ? (
-          <PrivateRoute
-            key={index}
-            isAuthenticated={isAuthenticated}
-            {...rest}
-          />
-        ) : (
-          <PublicRoute key={index} {...rest} />
-        ),
+      {routes.map((route: IRouteProps, index: number) =>
+        renderRoute(route, index),
       )}
     </Switch>
   );

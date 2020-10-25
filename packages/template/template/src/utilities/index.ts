@@ -1,1 +1,0 @@
-export { getCognitoUserToken } from './getCognitoUserToken';
