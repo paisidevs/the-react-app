@@ -1,2 +1,0 @@
-BROWSER=google chrome
-CLIENT_SCHEMA="src/graphql/schema.graphql"
