@@ -1,6 +1,7 @@
+import { logger } from '@paisidevs/tra-utilities';
 import { FC, useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
-import strapiHelpers from '../../utilities/strapiHelpers';
+import { socialAuth } from '../../utilities/strapiHelpers';
 
 const SocialAuth: FC = () => {
   const history = useHistory();
@@ -9,13 +10,10 @@ const SocialAuth: FC = () => {
 
   const login = async () => {
     try {
-      const { data } = await strapiHelpers.socialAuth(
-        provider,
-        location.search,
-      );
-      console.log({ data });
+      const { data } = await socialAuth(provider, location.search);
+      logger({ data });
     } catch (error) {
-      console.log(error);
+      logger(error);
     }
   };
 

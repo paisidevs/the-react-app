@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "deploy": "cd packages/template && npm run deploy",
     "nuke": "rm yarn.lock && rm -rf node_modules && lerna clean -y && lerna bootstrap",
     "prepare": "yarn prepare:utilities && yarn prepare:hooks && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
     "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",

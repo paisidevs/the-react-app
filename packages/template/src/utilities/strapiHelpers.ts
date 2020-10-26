@@ -1,15 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
 import { API_HOST } from '../constants';
-import { UsersPermissionsUser } from '../generated/graphql';
 
 const BASE = API_HOST || '';
 
 export type StrapiLoginPayload = {
   jwt: string;
-  user: UsersPermissionsUser;
+  user: any;
 };
 
-const socialAuth = async (
+export const socialAuth = async (
   provider: string,
   accessToken: string,
 ): Promise<AxiosResponse<StrapiLoginPayload>> => {
@@ -21,5 +20,3 @@ const socialAuth = async (
     return Promise.reject(error);
   }
 };
-
-export default { socialAuth };
