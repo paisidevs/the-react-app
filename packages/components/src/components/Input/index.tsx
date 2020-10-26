@@ -1,9 +1,8 @@
+import { Box, Text } from '@chakra-ui/core';
 import { ErrorMessage, FieldConfig, useFormikContext } from 'formik';
 import React, { FC, useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'react-feather';
 import Measure from 'react-measure';
-import Text from '../../typography/Text';
-import { Box } from '../Box';
 import { Adornment, DefaultInput, Wrapper } from './styles';
 
 export interface IInputProps extends FieldConfig {
@@ -27,7 +26,7 @@ export interface IInputProps extends FieldConfig {
  * />
  */
 
-export const Input: FC<IInputProps> = ({
+const Input: FC<IInputProps> = ({
   name,
   startAdornment,
   endAdornment,
@@ -181,3 +180,5 @@ export const Input: FC<IInputProps> = ({
     </Wrapper>
   );
 };
+
+export default Input;

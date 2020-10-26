@@ -19,33 +19,35 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
-    "@emotion/core": "10.0.28",
+    "@emotion/core": "10.0.35",
     "@emotion/styled": "10.0.27",
     "@styled-system/should-forward-prop": "5.1.5",
-    "@types/styled-system": "5.1.9",
-    "@types/styled-system__should-forward-prop": "5.1.1",
+    "@types/styled-system": "5.1.10",
+    "@types/styled-system__should-forward-prop": "5.1.2",
     "emotion-normalize": "10.1.0",
     "emotion-theming": "10.0.27",
     "styled-system": "5.1.5"
   },
   "peerDependencies": {
+    "@chakra-ui/core": "0.8.0",
     "@paisidevs/tra-hooks": "*",
-    "react": "^16.13.1",
-    "typeface-roboto": "0.0.75"
+    "react": "^17.0.1",
+    "typeface-roboto": "1.1.13"
   },
   "devDependencies": {
+    "@chakra-ui/core": "0.8.0",
     "@paisidevs/tra-hooks": "^0.1.4",
-    "@rollup/plugin-commonjs": "14.0.0",
-    "@rollup/plugin-node-resolve": "8.4.0",
-    "@types/react": "16.9.43",
-    "react": "^16.13.1",
-    "rollup": "2.21.0",
-    "rollup-plugin-peer-deps-external": "2.2.3",
-    "rollup-plugin-postcss": "3.1.3",
-    "rollup-plugin-terser": "6.1.0",
-    "rollup-plugin-typescript2": "0.27.1",
-    "typeface-roboto": "0.0.75",
-    "typescript": "3.9.6"
+    "@rollup/plugin-commonjs": "15.1.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
+    "@types/react": "16.9.53",
+    "react": "^17.0.1",
+    "rollup": "2.32.1",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "3.1.8",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-typescript2": "0.28.0",
+    "typeface-roboto": "1.1.13",
+    "typescript": "4.0.3"
   },
   "files": [
     "dist"

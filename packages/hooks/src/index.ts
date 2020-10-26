@@ -1,8 +1,8 @@
-export { default as useColorScheme } from './useColorScheme';
 export { default as useDarkMode } from './useDarkMode';
-export { useLocalStorage } from './useLocalStorage';
-export { useMedia } from './useMedia';
-export { usePrefersDarkMode } from './usePrefersDarkMode';
-export { useSessionStorage } from './useSessionStorage';
-export { useStorage } from './useStorage';
-export { useWindowSize } from './useWindowSize';
+export { default as useMeasure } from './useMeasure';
+export { default as useMedia } from './useMedia';
+export {
+  default as useStorage,
+  useLocalStorage,
+  useSessionStorage,
+} from './useStorage';

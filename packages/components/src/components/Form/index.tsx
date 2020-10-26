@@ -25,7 +25,7 @@ interface IFormProps extends FormikConfig<FormikValues> {
   persist?: boolean;
 }
 
-export const Form: React.FC<IFormProps> = ({
+const Form: React.FC<IFormProps> = ({
   children,
   name,
   onSubmit,
@@ -77,3 +77,5 @@ Form.defaultProps = {
   initialValues: {},
   onSubmit: () => {},
 };
+
+export default Form;

@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/core';
 import {
   color,
   css,
@@ -7,7 +8,6 @@ import {
   styled,
   theme,
 } from '@paisidevs/tra-theme';
-import { Box } from '../Box';
 
 export const Wrapper = styled(Box)<{ activated: boolean }>`
   .label {

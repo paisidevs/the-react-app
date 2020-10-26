@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "deploy": "cd packages/template && npm run deploy",
     "nuke": "rm yarn.lock && rm -rf node_modules && lerna clean -y && lerna bootstrap",
     "prepare": "yarn prepare:utilities && yarn prepare:hooks && yarn prepare:theme && yarn prepare:components && yarn prepare:apollo",
     "prepare:apollo": "lerna run prepare --scope @paisidevs/tra-apollo",
@@ -17,14 +18,14 @@
     "the-react-app": "tasks/tra.sh"
   },
   "devDependencies": {
-    "lerna": "3.22.0",
-    "prettier": "2.0.5",
+    "lerna": "3.22.1",
+    "prettier": "2.1.1",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
-    "@semantic-release/npm": "7.0.5",
+    "@semantic-release/npm": "7.0.6",
     "@semantic-release/release-notes-generator": "9.0.1",
-    "semantic-release": "17.0.8"
+    "semantic-release": "17.1.1"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

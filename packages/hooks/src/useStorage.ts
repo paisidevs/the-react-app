@@ -1,8 +1,7 @@
 import { logger } from '@paisidevs/tra-utilities';
 import { useState } from 'react';
 
-// Hook
-export const useStorage = (
+const useStorage = (
   type: 'session' | 'local',
   key: string,
   initialValue?: any,
@@ -53,3 +52,11 @@ export const useStorage = (
 
   return [storedValue, setValue, clearValue];
 };
+
+export const useLocalStorage = (key: string, initialValue?: any) =>
+  useStorage('local', key, initialValue);
+
+export const useSessionStorage = (key: string, initialValue?: any) =>
+  useStorage('session', key, initialValue);
+
+export default useStorage;

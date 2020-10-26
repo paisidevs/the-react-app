@@ -8,16 +8,16 @@ type TLoadableOptions = {
   fallback?: React.ReactNode;
 };
 
-type LazyExoticPreloadComponent = React.LazyExoticComponent<
+export type LoadableComponentType = React.LazyExoticComponent<
   React.ComponentType<any>
 > & {
   preload: Function;
 };
 
-export const Loadable = (factory: TFactory, options: TLoadableOptions = {}) => {
+const Loadable = (factory: TFactory, options: TLoadableOptions = {}) => {
   const fallback = options.fallback || null;
 
-  const LazyComponent = lazy(factory) as LazyExoticPreloadComponent;
+  const LazyComponent = lazy(factory) as LoadableComponentType;
   LazyComponent.preload = factory;
 
   return (props: any) => (
@@ -26,3 +26,5 @@ export const Loadable = (factory: TFactory, options: TLoadableOptions = {}) => {
     </Suspense>
   );
 };
+
+export default Loadable;

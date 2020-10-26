@@ -1,2 +1,3 @@
-export { errorLink } from './errorLink';
-export { loggerLink } from './loggerLink';
+export { formatError } from './formatError';
+export { formatMessage } from './formatMessage';
+

@@ -1,13 +1,9 @@
-import {
-  shouldForwardProp,
-  styled,
-  StyledSystemProps,
-} from '@paisidevs/tra-theme';
-import React, { FC, useState } from 'react';
-import Measure from 'react-measure';
-import { Box } from '../Box';
+import { Box, BoxProps } from '@chakra-ui/core';
+import { useMeasure } from '@paisidevs/tra-hooks';
+import { styled } from '@paisidevs/tra-theme';
+import React, { FC, useRef } from 'react';
 
-export interface IScrollViewProps extends StyledSystemProps {
+export interface IScrollViewProps extends BoxProps {
   direction?: 'horizontal' | 'vertical';
 }
 
@@ -23,8 +19,10 @@ export interface IScrollViewProps extends StyledSystemProps {
  * </ScrollView>
  */
 
-const Wrapper = styled(Box, { shouldForwardProp })<IScrollViewProps>`
+const Wrapper = styled(Box)<IScrollViewProps>`
   -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
   overscroll-behavior: contain;
   overflow-x: ${({ direction }) =>
     direction === 'vertical' ? 'hidden' : 'auto'};
@@ -32,38 +30,25 @@ const Wrapper = styled(Box, { shouldForwardProp })<IScrollViewProps>`
     direction === 'vertical' ? 'auto' : 'hidden'};
 `;
 
-export const ScrollView: FC<IScrollViewProps> = ({ children, ...rest }) => {
-  const [contentHeight, setContentHeight] = useState<number>(-1);
-  const [wrapperHeight, setWrapperHeight] = useState<number>(-1);
+const ScrollView: FC<IScrollViewProps> = ({ children, ...rest }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const isOverflowing = contentHeight > wrapperHeight;
+  const { height: wrapperHeight } = useMeasure(wrapperRef);
+  const { height: contentHeight } = useMeasure(contentRef);
+
+  const hasContentOverflow = contentHeight > wrapperHeight;
 
   return (
-    <Measure
-      bounds
-      onResize={(rect) => {
-        setWrapperHeight(rect.bounds!.height);
-      }}
+    <Wrapper
+      {...rest}
+      ref={wrapperRef}
+      justifyContent={hasContentOverflow ? 'flex-start' : rest.justifyContent}
     >
-      {({ measureRef: wrapperRef }) => (
-        <Wrapper
-          {...rest}
-          ref={wrapperRef}
-          justifyContent={isOverflowing ? 'flex-start' : rest.justifyContent}
-        >
-          <Measure
-            bounds
-            onResize={(rect) => {
-              setContentHeight(rect.bounds!.height);
-            }}
-          >
-            {({ measureRef: contentRef }) => (
-              <div ref={contentRef}>{children}</div>
-            )}
-          </Measure>
-        </Wrapper>
-      )}
-    </Measure>
+      <div ref={contentRef} style={{ width: '100%' }}>
+        {children}
+      </div>
+    </Wrapper>
   );
 };
 
@@ -72,3 +57,5 @@ ScrollView.defaultProps = {
   height: '100%',
   width: '100%',
 };
+
+export default ScrollView;

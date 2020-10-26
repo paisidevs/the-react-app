@@ -1,6 +1,8 @@
+import { Flex, Heading } from '@chakra-ui/core';
+import { theme } from '@paisidevs/tra-theme';
 import React, { Component } from 'react';
-import { H2, Text } from '../../typography';
-import { Box } from '../Box';
+import { AlertTriangle } from 'react-feather';
+import ScrollView from '../ScrollView';
 
 interface IErrorBoundaryProps {
   className?: string;
@@ -21,7 +23,7 @@ interface IState {
  * <ErrorBoundary />
  */
 
-export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
+class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
   state: IState = {
     hasError: false,
   };
@@ -41,10 +43,32 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
     if (hasError) {
       return (
         template || (
-          <Box p={2}>
-            <H2 mb={0}>Oops!</H2>
-            <Text>An unexpected error has occured.</Text>
-          </Box>
+          <ScrollView justifyContent="center">
+            <Flex
+              alignItems="center"
+              flexDirection="column"
+              justifyContent="center"
+              margin="0 auto"
+              width="100%"
+              maxWidth="320px"
+              textAlign="center"
+            >
+              <AlertTriangle
+                color={theme.colors.red[500]}
+                size="56px"
+                strokeWidth={1.5}
+              />
+              <Heading
+                as="h2"
+                color="gray.500"
+                fontSize="xl"
+                marginTop={4}
+                textAlign="center"
+              >
+                An error has occured
+              </Heading>
+            </Flex>
+          </ScrollView>
         )
       );
     }
@@ -52,3 +76,5 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IState> {
     return this.props.children;
   }
 }
+
+export default ErrorBoundary;
