@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "lerna": "3.22.1",
-    "prettier": "2.1.1",
+    "prettier": "2.2.1",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
