@@ -1,17 +1,11 @@
-import { Example, NotFound, SocialAuth } from './pages';
+import { Home, NotFound } from './pages';
 
 export const routes: any = [
   {
     exact: true,
-    component: Example,
+    component: Home,
     path: '/',
     title: 'Home',
-  },
-  {
-    exact: true,
-    component: SocialAuth,
-    path: '/auth/social/:provider',
-    title: 'Social Auth',
   },
   {
     path: '*',
