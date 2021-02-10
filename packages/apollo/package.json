@@ -24,7 +24,7 @@
     "graphql": "15.3.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "15.1.0",
+    "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "rollup": "2.32.1",
     "rollup-plugin-peer-deps-external": "2.2.4",

@@ -46,7 +46,7 @@
     "@paisidevs/tra-scripts": "^0.1.6",
     "@paisidevs/tra-theme": "^0.1.9",
     "@paisidevs/tra-utilities": "^0.1.9",
-    "@rollup/plugin-commonjs": "15.1.0",
+    "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@storybook/addon-actions": "6.0.27",
