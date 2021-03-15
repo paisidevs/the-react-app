@@ -19,7 +19,7 @@
     "@paisidevs/tra-scripts": "*",
     "@paisidevs/tra-utilities": "*",
     "@types/lodash": "4.14.162",
-    "@types/node": "14.14.3",
+    "@types/node": "14.14.34",
     "@types/react": "16.9.53",
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "6.1.0",
